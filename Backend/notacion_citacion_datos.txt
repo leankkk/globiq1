@@ -1,2 +1,2 @@
 Ej 1: Población de Uruguay
-countries.uruguay.data.people.population.total
+uruguay.data.people.population.total
