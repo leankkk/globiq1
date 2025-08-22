@@ -1,0 +1,86 @@
+body {
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0; 
+    background-color: #f0f0f0; 
+}
+.rectangulo2{
+    width: 400px;
+    height: 60px;
+    background-color: white;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+}
+    
+.rectangulo1,
+.rectangulo3 {
+    width: 400px;           
+    height: 60px;           
+    background-color: #ffffff;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;  
+    box-sizing: border-box;
+   
+}
+  
+input {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    padding-right: 40px;
+}
+  
+::placeholder {
+    font-size: 20px;
+}
+  
+.btn {
+    margin: 20px 0;
+    padding: 10px 30px;
+    background-color: #555;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+} 
+  
+.btn:hover {
+    background-color: gray;
+}
+
+.registrar {
+    margin-top: 10px;
+    font-size: 16px;
+} 
+
+.toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%); 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; 
+  }
+  
+  .toggle svg {
+    width: 24px;
+    height: 24px;
+    color: #555;
+  }
+  
