@@ -16,7 +16,6 @@ body {
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    border: 2px solid #000;
     position: relative;
 }
     
@@ -67,6 +66,8 @@ input {
 .toggle {
     position: absolute;
     right: 10px;
+    top: 50%;
+    transform: translateY(-50%); 
     background: none;
     border: none;
     cursor: pointer;
@@ -74,4 +75,12 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2; 
   }
+  
+  .toggle svg {
+    width: 24px;
+    height: 24px;
+    color: #555;
+  }
+  
