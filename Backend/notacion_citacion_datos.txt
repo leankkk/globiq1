@@ -1,2 +1,18 @@
 Ej 1: Población de Uruguay
-uruguay.data.people.population.total
+uruguay.people.population.total
+
+SUBCARPETAS
+Introduction
+Geography
+People
+Government
+Economy
+Energy
+Communications
+Transportation
+Military_and_security
+Transnational_issues
+
+traerdato:
+dato = limpiarpedido(dato);
+return data[pais][dato[0]][dato[1]][dato[2]];
