@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pantalla de login</title>
   <link rel="stylesheet" href="style.css">
+  <link rel = "icon" href="c:\Users\49701598\Downloads\Group 4.png">
 </head>
 <body>
 
@@ -14,12 +15,23 @@
 
   <div class="rectangulo2">
     <input type="password" placeholder="Contraseña">
-    <span style="margin-left:-30px; cursor:default;">👁️</span>
+    <button type="button" class="toggle" onclick="togglePassword()">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             width="20" height="20" fill="none" 
+             stroke="currentColor" stroke-width="2" 
+             stroke-linecap="round" stroke-linejoin="round" 
+             class="feather feather-eye">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </button>
   </div>
 
   <button class="btn">Ingresar</button>
 
-  <p class="registrar">Sin cuenta, registrate aqui</p>
+  <p class="registrar">Sin cuenta, registrate 
+    <a href="file:///C:/Users/49701598/Downloads/proyecto-globe-inc/Frontend/pantalla%207/index.html">aquí</a>
+  </p>
 
 </body>
 </html>

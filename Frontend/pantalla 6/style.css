@@ -8,8 +8,7 @@ body {
     margin: 0; 
   }
   
-  .rectangulo1,
-  .rectangulo2 {
+  .rectangulo1 {
     width: 400px;           
     height: 60px;           
     background-color: #462c2c;
@@ -17,6 +16,16 @@ body {
     display: flex;
     align-items: center;  
     box-sizing: border-box;
+  }
+  .rectangulo2{
+    width: 400px;           
+    height: 60px;           
+    background-color: #462c2c;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;  
+    box-sizing: border-box;
+    position: relative;
   }
   
   input {
@@ -47,3 +56,24 @@ body {
     margin-top: 10px;
     font-size: 16px;
   }  
+  .toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%); 
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; 
+  }
+  
+  .toggle svg {
+    width: 24px;
+    height: 24px;
+    color: #555;
+  }
+  
