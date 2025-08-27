@@ -1,79 +1,78 @@
 body {
-    font-family: Arial;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0; 
-  }
-  
-  .rectangulo1 {
-    width: 400px;           
-    height: 60px;           
-    background-color: #462c2c;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;  
-    box-sizing: border-box;
-  }
-  .rectangulo2{
-    width: 400px;           
-    height: 60px;           
-    background-color: #462c2c;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;  
-    box-sizing: border-box;
-    position: relative;
-  }
-  
-  input {
-    width: 100%;
-    height: 100%;
-    font-size: 20px;
-  }
-  
-  ::placeholder {
-    font-size: 20px;
-  }
-  
-  .btn {
-    margin: 20px 0;
-    padding: 10px 30px;
-    background-color: #555;
-    color: white;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-  } 
-  
-  .btn:hover {
-    background-color: gray;
-  }
+  font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0; 
+}
 
-  .registrar {
-    margin-top: 10px;
-    font-size: 16px;
-  }  
-  .toggle {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%); 
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2; 
-  }
-  
-  .toggle svg {
-    width: 24px;
-    height: 24px;
-    color: #555;
-  }
-  
+.rectangulo1 {
+  width: 400px;           
+  height: 60px;           
+  background-color: #462c2c;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;  
+  box-sizing: border-box;
+}
+.rectangulo2{
+  width: 400px;           
+  height: 60px;           
+  background-color: #462c2c;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;  
+  box-sizing: border-box;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+}
+
+::placeholder {
+  font-size: 20px;
+}
+
+.btn {
+  margin: 20px 0;
+  padding: 10px 30px;
+  background-color: #555;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+} 
+
+.btn:hover {
+  background-color: gray;
+}
+
+.registrar {
+  margin-top: 10px;
+  font-size: 16px;
+}  
+.toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%); 
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2; 
+}
+
+.toggle svg {
+  width: 24px;
+  height: 24px;
+  color: #555;
+}

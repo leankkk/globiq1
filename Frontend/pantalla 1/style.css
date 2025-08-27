@@ -1,39 +1,50 @@
-.pantalla{
-    width: 1920px;
-height: 1080px;
-background: #FFF;
-}
 
-#rectangulo1{
+body{
+    font-family: Arial;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+.rectangulo1 {
     width: 340px;
     height: 685px;
     flex-shrink: 0;
     border-radius: 25px;
-background: #D9D9D9;
-position: absolute;
-  top: 262px;
-  left: 149px;
-}
-
-#rectangulo2{
-    width: 340px;
-height: 685px;
-flex-shrink: 0;
-border-radius: 25px;
 background: #D9D9D9;
 position: absolute;
 top: 262px;
-left: 790px;
+left: 149px;
 }
-
-#rectangulo3{
+.rectangulo2{
     width: 340px;
     height: 685px;
     flex-shrink: 0;
     border-radius: 25px;
-    background: #D9D9D9; 
+    background: #D9D9D9;
+    position: absolute;
+    top: 262px;
+    left: 790px;
+}
+
+.rectangulo3{
+    width: 340px;
+    height: 685px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    background: #D9D9D9;
     position: absolute;
     top: 262px;
     left: 1431px;
 }
 
+.imagen1{
+    
+    position: absolute;
+    top: 7px;
+    left: 832px;
+    width: 255px;
+    height: 185px;
+}
