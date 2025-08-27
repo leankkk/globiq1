@@ -48,11 +48,17 @@ left: 149px;
     height: 185px;
   }
   
-  .imagen2 {
+  .imagen2 img{
     position: absolute;
     top: 972px;
     left: 1804px;
     width: 108px;   
     height: 108px;  
+  }
+
+  .imagen2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   
