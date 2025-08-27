@@ -40,19 +40,19 @@ left: 149px;
     left: 1431px;
 }
 
-.imagen1{
-    
+.imagen1 {
     position: absolute;
     top: 7px;
     left: 832px;
     width: 255px;
     height: 185px;
-}
-
-.imagen2 {
+  }
+  
+  .imagen2 {
     position: absolute;
     top: 972px;
     left: 1804px;
-    width: 108;
-    height: 108;
-}
+    width: 108px;   
+    height: 108px;  
+  }
+  
