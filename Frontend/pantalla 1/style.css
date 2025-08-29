@@ -61,4 +61,10 @@ left: 149px;
     height: 10%;
     object-fit: contain;
   }
-  
+  .cuenta{
+    width: 45.333px;
+height: 45.333px;
+flex-shrink: 0;
+top: 20px;  
+  right: 20px;         
+  }
