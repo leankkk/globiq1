@@ -95,6 +95,7 @@ const allowed = new Set([
   "guinea_bissau",
   "guyana",
   "haiti",
+  "holy_see_vatican_city",
   "honduras",
   "hungary",
   "iceland",
@@ -219,7 +220,7 @@ const allowed = new Set([
 ]);
 
 // 📂 Load JSON
-const raw = fs.readFileSync("./factbook_legal.json", "utf8");
+const raw = fs.readFileSync("./factbook_completo.json", "utf8");
 const data = JSON.parse(raw);
 
 // 🧹 Filter out unwanted keys
@@ -232,7 +233,7 @@ for (const key of Object.keys(data)) {
 
 // 💾 Save to new file
 fs.writeFileSync(
-  "./factbook_legal_clean.json",
+  "./factbook_legal_clean2.json",
   JSON.stringify(cleaned, null, 2),
   "utf8"
 );
