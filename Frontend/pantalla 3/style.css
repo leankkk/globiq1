@@ -1,0 +1,16 @@
+.rectangulo {
+    width: 1160px;
+    height: 324px;
+    flex-shrink: 0;
+    position: absolute;
+    background-color: #d9d9d9;
+    top: 49px;
+    left: 428px;
+    border-radius: 30px
+}
+
+body {
+    font-style: Inter;
+    font-size: 80px;
+    font-weight: 500px;
+}
