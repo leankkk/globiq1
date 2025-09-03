@@ -16,7 +16,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+    }
+  
   
   .titulo {
     margin-bottom: 20px;
@@ -34,6 +35,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
+    
   }
   
   .subtitulo {
@@ -55,3 +57,4 @@ aspect-ratio: 1/1;
   }
   body{
     display: flex;}
+  
