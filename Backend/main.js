@@ -1,11 +1,16 @@
 //Importando datos
 import fs, { Stats } from "fs";
 let data = JSON.parse(fs.readFileSync("factbook_clean.json","utf-8"));
-
-import { listapaises } from "listas.js";
+import { listapaises } from "./listas.js";
+import { listadatos } from "./listas.js";
 
 
 //Declarando funciones útiles
+
+function traer(pais,dato) {
+    dato = dato.split(".");
+    return data[pais]?.[dato[0]]?.[dato[1]]?.[dato[2]];
+    }
 
 function contienedato(pais,dato) {
     if (traer(pais,dato) != undefined){
@@ -14,11 +19,6 @@ function contienedato(pais,dato) {
     else {
         return false;
     }
-}
-
-function traer(pais,dato) {
-dato = dato.split(".");
-return data[pais]?.[dato[0]]?.[dato[1]]?.[dato[2]];
 }
 
 function comparar(pais1,pais2,dato){
@@ -33,21 +33,25 @@ function comparar(pais1,pais2,dato){
 function paisrandom() {
  let numero = Math.round(Math.random() * listapaises.length);
  return listapaises[numero];
-} //Por ahora la función solo da un entero al azar según cantidad de países.
+ }
 
 
 function paisdiario() {
 
 }
 
-function datorandom(pais){
-
+function datorandom(){
+    let numero = Math.round(Math.random() * listadatos.length);
+    return listadatos[numero];   
 }
 //console.log(comparar("uruguay","people.population.total"));
-let i = 0;
+/*let i = 0;
 while(i<listapaises.length){
 let actual = listapaises[i];
 if (!contienedato(actual,"people.population.total")){
     console.log(actual);
 }
-i++;}
+i++;}*/
+let pais1 = paisrandom();
+let dato1 = datorandom();
+console.log(traer(pais1,dato1),pais1,dato1);
