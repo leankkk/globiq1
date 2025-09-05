@@ -1,16 +1,23 @@
 //Importando datos
 import fs, { Stats } from "fs";
-let data = JSON.parse(fs.readFileSync("factbook_clean.json","utf-8"));
-import { listapaises } from "./listas.js";
-import { listadatos } from "./listas.js";
+let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
+import { listapaises } from "./Datos/listas.js";
+import { listadatos } from "./Datos/listas.js";
 
 
 //Declarando funciones útiles
 
 function traer(pais,dato) {
     dato = dato.split(".");
-    return data[pais]?.[dato[0]]?.[dato[1]]?.[dato[2]];
-    }
+    let actual = data[pais];
+for (let i = 0; i < dato.length; i++){
+if (actual === undefined){
+        return undefined;
+    } 
+actual = actual[dato[i]]; 
+}
+return actual;
+}
 
 function contienedato(pais,dato) {
     if (traer(pais,dato) != undefined){
@@ -52,6 +59,32 @@ if (!contienedato(actual,"people.population.total")){
     console.log(actual);
 }
 i++;}*/
+
+/* for (let i = 0; i < 50; i++){
 let pais1 = paisrandom();
 let dato1 = datorandom();
-console.log(traer(pais1,dato1),pais1,dato1);
+if (contienedato(pais1,dato1)) console.log(traer(pais1,dato1),pais1,dato1);
+}
+*/
+
+function crearcuenta(nombre,contraseña){
+let cuentanueva = {
+    nombre: nombre,
+    contraseña: contraseña
+}
+let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
+cuentas.push(cuentanueva);
+fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas))
+}
+
+/* function cuentaexiste(nombre){
+for (let i = 0; i < cuentas.length; i++){
+    if (cuentas[i] === nombre) return true;
+    if (cuentas[i] != nombre && i === cuentas.length-1){
+        return false;
+    } 
+} 
+}
+*/ // No funciona, revisar
+
+
