@@ -1,8 +1,8 @@
 //Importando datos
 import fs, { Stats } from "fs";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
-import { listapaises } from "./Datos/listas.js";
-import { listadatos } from "./Datos/listas.js";
+import { listapaises , listadatos} from "./Datos/listas.js";
+let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
 
 
 //Declarando funciones útiles
@@ -66,25 +66,34 @@ let dato1 = datorandom();
 if (contienedato(pais1,dato1)) console.log(traer(pais1,dato1),pais1,dato1);
 }
 */
+function cuentaexiste(nombre){
+if (cuentas[nombre] != undefined) return true;
+else return false
+    }
 
 function crearcuenta(nombre,contraseña){
+if (!cuentaexiste(nombre)){ 
 let cuentanueva = {
+    [nombre]: {
     nombre: nombre,
     contraseña: contraseña
 }
+}
 let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
-cuentas.push(cuentanueva);
+cuentas[nombre] = cuentanueva[nombre];
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas))
 }
-
-/* function cuentaexiste(nombre){
-for (let i = 0; i < cuentas.length; i++){
-    if (cuentas[i] === nombre) return true;
-    if (cuentas[i] != nombre && i === cuentas.length-1){
-        return false;
-    } 
-} 
 }
-*/ // No funciona, revisar
+
+
+
+
+let prando = paisrandom();
+let drando = datorandom();
+
+
+/* for (prando = paisrandom(),drando = datorandom(); contienedato(prando,drando); prando = paisrandom(),drando = datorandom()){
+console.log(traer(prando,drando));
+}*/
 
 
