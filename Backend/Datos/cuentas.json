@@ -1,1 +1,10 @@
-{"marcozzi":{"nombre":"marcozzi","contraseña":"contra"},"Julian Marcozzi":{"nombre":"Julian Marcozzi","contraseña":"hola123"}}
+{
+  "marcozzi": {
+    "nombre": "marcozzi",
+    "contraseña": "marcontraseña123",
+    "stats": {
+      "racha": 2,
+      "highest": 5
+    }
+  }
+}
