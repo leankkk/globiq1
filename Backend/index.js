@@ -1,6 +1,6 @@
 import fs from "fs";
 import { traer, contienedato, comparar, paisrandom, paisdiario, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats } from "./Source/funciones.js";
-import { listadatos, listapaises } from "./Source/listas.js";
+import { listadatos, listapaises , listadias} from "./Source/listas.js";
 
 let prando = paisrandom();
 let drando = datorandom();
@@ -25,5 +25,4 @@ let dato1 = datorandom();
 if (contienedato(pais1,dato1)) console.log(traer(pais1,dato1),pais1,dato1);
 }
 */
-
-console.log(revisarlogin({nombre:"marcozzi",contraseña:"marcontraseña123"}))
+console.log(paisdiario())
