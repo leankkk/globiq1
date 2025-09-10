@@ -1,8 +1,8 @@
 //Importando datos
 import fs, { Stats } from "fs";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
-import { listapaises , listadatos} from "./listas.js";
-let cuentas = JSON.parse(fs.readFileSync("./cuentas.json","utf-8"));
+import { listapaises , listadatos , listadias} from "./listas.js";
+let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
 
 
 //Declarando funciones útiles
@@ -44,7 +44,10 @@ export function paisrandom() {
 
 
 export function paisdiario() {
-
+let diferencia = (new Date) - (new Date("2025-01-01"));
+diferencia = Math.floor(diferencia / 86400000);
+if (diferencia >= listapaises.length) diferencia -= listapaises.length;
+return listapaises[diferencia];  
 }
 
 export function datorandom(){
@@ -78,5 +81,3 @@ export function actualizarstats(data){
 cuentas[data.nombre].stats = data.stats;
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2));
 } 
-
-
