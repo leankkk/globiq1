@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pantalla Registro</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="rectangulo1">
-    <input type="text" placeholder="Usuario">
+    <input type="text" id="inputusuario" placeholder="Usuario" />
   </div>
 
   <div class="rectangulo2">
@@ -24,6 +24,7 @@
       </svg>
     </button>
   </div>
+  
 
   <div class="rectangulo3">
     <input type="password" placeholder="Repetir Contraseña" id="password2">
@@ -39,18 +40,10 @@
     </button>
   </div>
 
-  <button class="btn">REGISTRAR</button>
+  <button class="btn" id="btn">REGISTRAR</button>
 
-  <script>
-    function togglePassword(id) {
-      let input = document.getElementById(id);
-      if (input.type === "password") {
-        input.type = "text"
-      } else {
-        input.type = "password"
-      }
-    }
-  </script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
