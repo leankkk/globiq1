@@ -25,12 +25,12 @@ botonRegistrar.addEventListener('click', () => {
         return;
     }
 
-    let datos = {
+    let data = {
         nombre: usuario,
         contraseña: password1
     };
 
-    postEvent("crearCuenta", datos, (respuesta) => {
+    postEvent("crearCuenta", data, (respuesta) => {
         if (respuesta.ok) {
             sessionStorage.setItem("usuario", usuario);
             window.location.href = "./pantalla 1/index.html";

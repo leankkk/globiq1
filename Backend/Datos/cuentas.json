@@ -6,5 +6,13 @@
       "racha": 2,
       "highest": 5
     }
+  },
+  "ivo": {
+    "nombre": "ivo",
+    "contraseña": "hola"
+  },
+  "iud": {
+    "nombre": "iud",
+    "contraseña": "sofiiud"
   }
 }

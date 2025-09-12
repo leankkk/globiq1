@@ -1,5 +1,5 @@
 import fs from "fs";
-import { subscribeGETevent , subscribePOSTevent , startserver } from soquetic;
+import { subscribeGETEvent , subscribePOSTEvent , startServer } from "soquetic";
 import { traer, contienedato, comparar, paisrandom, paisdiario, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats } from "./Source/funciones.js";
 import { listadatos, listapaises , listadias} from "./Source/listas.js";
 
@@ -23,4 +23,5 @@ if (contienedato(pais1,dato1)) console.log(traer(pais1,dato1),pais1,dato1);
 }
 */
 
-subscribePOSTevent("crearCuenta",crearcuenta());
+subscribePOSTEvent("crearCuenta",crearcuenta);
+startServer();

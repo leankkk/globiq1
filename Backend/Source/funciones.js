@@ -77,15 +77,15 @@ else return false
     }
 
 export function crearcuenta(data){
-if (!cuentaexiste(data[nombre])){ 
-let cuentanueva = {
-    [data.nombre]: {
-    nombre: data[nombre]},
-    contraseña: data[contraseña]
+if (!cuentaexiste(data.nombre)){ 
+cuentas[data.nombre] = {
+    nombre: data.nombre,
+    contraseña: data.contraseña
 }
-}
-cuentas[nombre] = cuentanueva[nombre];
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2))
+return {ok:true}
+}
+else return {ok:false}
 }
 
 export function revisarlogin(data){
