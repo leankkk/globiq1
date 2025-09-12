@@ -7,13 +7,47 @@ let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
 
 //Declarando funciones útiles
 
+export function datorandom(){
+    let numero = Math.round(Math.random() * listadatos.length);
+    return listadatos[numero];   
+}
+
+export function paisrandom() {
+    let numero = Math.round(Math.random() * listapaises.length);
+    return listapaises[numero];
+    }
+   
+   
+export function paisdiario() {
+   let diferencia = (new Date) - (new Date("2025-01-01"));
+   diferencia = Math.floor(diferencia / 86400000);
+   if (diferencia >= listapaises.length) diferencia -= listapaises.length;
+   return listapaises[diferencia];  
+   }
+   
+
 export function traer(pais,dato) {
-    dato = dato.split(".");
+//Si no hay nada
+if (pais === undefined || (!listapaises.includes(pais) && !listadatos.includes(dato))){
+pais = paisdiario();
+dato = datorandom();
+}
+//Si solo hay pais o dato esta mal (dato está vacío o no esta en la lista)
+if (dato === undefined || !listadatos.includes(dato)) dato = datorandom();
+else if (!listapaises.includes(pais)) pais = paisdiario();
+//Si hay solo dato
+if (!listapaises.includes(pais) && listadatos.includes(pais)){
+dato = pais; 
+pais = paisdiario();
+}
+
+
+//resto de la funcion
+dato = dato.split(".");
     let actual = data[pais];
 for (let i = 0; i < dato.length; i++){
-if (actual === undefined){
-        return undefined;
-    } 
+//chequeo de emergencia
+if (actual === undefined) return undefined; 
 actual = actual[dato[i]]; 
 }
 return actual;
@@ -35,24 +69,6 @@ export function comparar(pais1,pais2,dato){
     else {
         return false;
     }
-}
-
-export function paisrandom() {
- let numero = Math.round(Math.random() * listapaises.length);
- return listapaises[numero];
- }
-
-
-export function paisdiario() {
-let diferencia = (new Date) - (new Date("2025-01-01"));
-diferencia = Math.floor(diferencia / 86400000);
-if (diferencia >= listapaises.length) diferencia -= listapaises.length;
-return listapaises[diferencia];  
-}
-
-export function datorandom(){
-    let numero = Math.round(Math.random() * listadatos.length);
-    return listadatos[numero];   
 }
 
 export function cuentaexiste(nombre){
