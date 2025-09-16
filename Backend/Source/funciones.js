@@ -85,7 +85,7 @@ cuentas[data.nombre] = {
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2))
 return {ok:true}
 }
-else return {ok:false}
+else return {ok:false,mensaje:"La cuenta ya existe."}
 }
 
 export function revisarlogin(data){

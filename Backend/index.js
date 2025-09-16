@@ -1,7 +1,7 @@
 import fs from "fs";
-import { subscribeGETEvent , subscribePOSTEvent , startServer } from "soquetic";
+import { subscribeGETEvent, subscribePOSTEvent, startServer } from "soquetic";
 import { traer, contienedato, comparar, paisrandom, paisdiario, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats } from "./Source/funciones.js";
-import { listadatos, listapaises , listadias} from "./Source/listas.js";
+import { listadatos, listapaises, listadias} from "./Source/listas.js";
 
 /* for (prando = paisrandom(),drando = datorandom(); contienedato(prando,drando); prando = paisrandom(),drando = datorandom()){
 console.log(traer(prando,drando));
@@ -24,4 +24,5 @@ if (contienedato(pais1,dato1)) console.log(traer(pais1,dato1),pais1,dato1);
 */
 
 subscribePOSTEvent("crearCuenta",crearcuenta);
+subscribePOSTEvent("iniciarSesion",revisarlogin);
 startServer();
