@@ -26,7 +26,7 @@ export function paisdiario() {
    }
    
 
-export function traer(pais,dato) {
+export function traer(pais,dato,key) {
 //Si no hay nada
 if (pais === undefined || (!listapaises.includes(pais) && !listadatos.includes(dato))){
 pais = paisdiario();
@@ -41,7 +41,6 @@ dato = pais;
 pais = paisdiario();
 }
 
-
 //resto de la funcion
 dato = dato.split(".");
     let actual = data[pais];
@@ -50,7 +49,11 @@ for (let i = 0; i < dato.length; i++){
 if (actual === undefined) return undefined; 
 actual = actual[dato[i]]; 
 }
-return actual;
+if (key === true){
+    for (let i = 0; i < dato.length-1; i++){ 
+    actual = actual[dato[i]];
+}
+}
 }
 
 export function contienedato(pais,dato) {
@@ -71,9 +74,24 @@ export function comparar(pais1,pais2,dato){
     }
 }
 
+export function elegirpista(data){
+if (data.categoria === undefined){
+    let pais = data.pais;
+    let dato = datorandom();
+    let quemados = JSON.parse(fs.readFileSync("../Datos/datos_quemados.json","utf-8"));
+for (let i = 0; i < quemados.length; i++){    
+if (quemados[i].key = dato){
+dato = datorandom();
+i = 0;
+}
+let resultado = traer(pais,dato);
+}
+}
+}
+
 export function cuentaexiste(nombre){
 if (cuentas[nombre] != undefined) return true;
-else return false
+else return false;
     }
 
 export function crearcuenta(data){

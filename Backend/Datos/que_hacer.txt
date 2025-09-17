@@ -1,0 +1,1 @@
+17/9: revisar funciones.js (funcion traer, parte de las keys)
