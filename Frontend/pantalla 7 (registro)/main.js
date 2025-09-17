@@ -33,7 +33,7 @@ botonRegistrar.addEventListener('click', () => {
     postEvent("crearCuenta", data, (respuesta) => {
         if (respuesta.ok) {
             sessionStorage.setItem("usuario", usuario);
-            window.location.href = "./pantalla 1/index.html";
+            window.location.href = "home/index.html";
         } else {
             alert("Error: " + respuesta.mensaje);
         }

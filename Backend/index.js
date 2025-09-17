@@ -22,7 +22,6 @@ let dato1 = datorandom();
 if (contienedato(pais1,dato1)) console.log(traer(pais1,dato1),pais1,dato1);
 }
 */
-
 subscribePOSTEvent("crearCuenta",crearcuenta);
 subscribePOSTEvent("iniciarSesion",revisarlogin);
 startServer();
