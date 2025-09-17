@@ -89,6 +89,7 @@ else return {ok:false,mensaje:"La cuenta ya existe."}
 }
 
 export function revisarlogin(data){
+if (data.contraseña === undefined || data.nombre === undefined || cuentas[data.nombre] === undefined) return {login:false};;
 if (data.contraseña === cuentas[data.nombre].contraseña) return {login:true};
 else return {login:false};
 }
