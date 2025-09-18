@@ -27,13 +27,13 @@ export function paisdiario() {
    
 
 export function traer(pais,dato,key) {
-//Si no hay nada
+    //Si no hay nada
 if (pais === undefined || (!listapaises.includes(pais) && !listadatos.includes(dato))){
 pais = paisdiario();
 dato = datorandom();
 }
 //Si solo hay pais o dato esta mal (dato está vacío o no esta en la lista)
-if (dato === undefined || !listadatos.includes(dato)) dato = datorandom();
+if (dato === undefined || !listadatos.includes(dato)) dato = datorandom(); //si datorandom de vuelta no va se rompe
 else if (!listapaises.includes(pais)) pais = paisdiario();
 //Si hay solo dato
 if (!listapaises.includes(pais) && listadatos.includes(pais)){
@@ -50,10 +50,11 @@ if (actual === undefined) return undefined;
 actual = actual[dato[i]]; 
 }
 if (key === true){
-    for (let i = 0; i < dato.length-1; i++){ 
+    for (let i = 0, actual = data[pais]; i < dato.length; i++){ 
     actual = actual[dato[i]];
 }
 }
+return actual;
 }
 
 export function contienedato(pais,dato) {
