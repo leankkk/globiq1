@@ -78,16 +78,18 @@ export function comparar(pais1,pais2,dato){
 
 export function elegirpista(data){
     let pais = data.pais;
+    let dato = undefined;
+    let resultado = undefined;
 if (data.categoria === undefined){
-    let dato = datorandom();
+    dato = datorandom();
 for (let i = 0; i < quemados.length; i++){    
 if (quemados[i].label === dato){
 dato = datorandom();
 i = 0;
 }
-let resultado = traer(pais,dato);
 }
 }
+return traer(pais,dato);
 }
 
 export function cuentaexiste(nombre){
