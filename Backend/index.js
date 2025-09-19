@@ -23,6 +23,9 @@ if (contienedato(pais1,dato1)) console.log(traer(pais1,dato1),pais1,dato1);
 }
 */
 
+//PANTALLA 4 (higher or lower)
+
+
 //PANTALLA 5 (diario)
 subscribeGETEvent("obtenerPaisDiario",paisdiario);
 subscribePOSTEvent("obtenerPista",elegirpista);

@@ -1,9 +1,9 @@
 //Importando datos
 import fs, { Stats } from "fs";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
-import { listapaises , listadatos , listadias} from "./listas.js";
+import { listapaises , listadatos , listadias , listalabels} from "./listas.js";
 let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
-
+let quemados = JSON.parse(fs.readFileSync("./Datos/datos_quemados.json","utf-8"));
 
 //Declarando funciones útiles
 
@@ -22,11 +22,11 @@ export function paisdiario() {
    let diferencia = (new Date) - (new Date("2025-01-01"));
    diferencia = Math.floor(diferencia / 86400000);
    if (diferencia >= listapaises.length) diferencia -= listapaises.length;
-   return listapaises[diferencia];  
+   return listapaises[listadias[diferencia]];  
    }
    
 
-export function traer(pais,dato,key) {
+export function traer(pais,dato,label) {
     //Si no hay nada
 if (pais === undefined || (!listapaises.includes(pais) && !listadatos.includes(dato))){
 pais = paisdiario();
@@ -42,6 +42,7 @@ pais = paisdiario();
 }
 
 //resto de la funcion
+let datoog = dato;
 dato = dato.split(".");
     let actual = data[pais];
 for (let i = 0; i < dato.length; i++){
@@ -49,9 +50,9 @@ for (let i = 0; i < dato.length; i++){
 if (actual === undefined) return undefined; 
 actual = actual[dato[i]]; 
 }
-if (key === true){
-    for (let i = 0, actual = data[pais]; i < dato.length; i++){ 
-    actual = actual[dato[i]];
+if (label === true){
+    for (let i = 0; i < listadatos.length; i++){ 
+ if (listadatos[i] === datoog) return {dato:actual,label:listalabels[i]};   
 }
 }
 return actual;
@@ -76,12 +77,11 @@ export function comparar(pais1,pais2,dato){
 }
 
 export function elegirpista(data){
-if (data.categoria === undefined){
     let pais = data.pais;
+if (data.categoria === undefined){
     let dato = datorandom();
-    let quemados = JSON.parse(fs.readFileSync("../Datos/datos_quemados.json","utf-8"));
 for (let i = 0; i < quemados.length; i++){    
-if (quemados[i].key = dato){
+if (quemados[i].label === dato){
 dato = datorandom();
 i = 0;
 }
