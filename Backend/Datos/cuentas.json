@@ -14,5 +14,29 @@
   "iud": {
     "nombre": "iud",
     "contraseña": "sofiiud"
+  },
+  "martiniudmatz": {
+    "nombre": "martiniudmatz",
+    "contraseña": "sofiiud"
+  },
+  "leandro": {
+    "nombre": "leandro",
+    "contraseña": "kona"
+  },
+  "flafy": {
+    "nombre": "flafy",
+    "contraseña": "marcozzi"
+  },
+  "lucio": {
+    "nombre": "lucio",
+    "contraseña": "camde12"
+  },
+  "luciocam": {
+    "nombre": "luciocam",
+    "contraseña": "sus"
+  },
+  "luciocamde": {
+    "nombre": "luciocamde",
+    "contraseña": "justo"
   }
 }
