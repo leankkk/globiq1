@@ -1,15 +1,15 @@
 //Importando datos
 import fs, { Stats } from "fs";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
-import { listapaises , listadatos , listadias , listalabels} from "./listas.js";
+import { listapaises , listadatos , listadias , listalabels, listadatosB} from "./listas.js";
 let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
 let quemados = JSON.parse(fs.readFileSync("./Datos/datos_quemados.json","utf-8"));
 
 //Declarando funciones útiles
 
 export function datorandom(){
-    let numero = Math.round(Math.random() * listadatos.length);
-    return listadatos[numero];   
+    let numero = Math.round(Math.random() * listadatosB.length);
+    return listadatosB[numero];   
 }
 
 export function paisrandom() {
@@ -28,15 +28,15 @@ export function paisdiario() {
 
 export function traer(pais,dato,label) {
     //Si no hay nada
-if (pais === undefined || (!listapaises.includes(pais) && !listadatos.includes(dato))){
+if (pais === undefined || (!listapaises.includes(pais) && !listadatosB.includes(dato))){
 pais = paisdiario();
 dato = datorandom();
 }
 //Si solo hay pais o dato esta mal (dato está vacío o no esta en la lista)
-if (dato === undefined || !listadatos.includes(dato)) dato = datorandom(); //si datorandom de vuelta no va se rompe
+if (dato === undefined || !listadatosB.includes(dato)) dato = datorandom(); //si datorandom de vuelta no va se rompe
 else if (!listapaises.includes(pais)) pais = paisdiario();
 //Si hay solo dato
-if (!listapaises.includes(pais) && listadatos.includes(pais)){
+if (!listapaises.includes(pais) && listadatosB.includes(pais)){
 dato = pais; 
 pais = paisdiario();
 }
@@ -51,8 +51,8 @@ if (actual === undefined) return undefined;
 actual = actual[dato[i]]; 
 }
 if (label === true){
-    for (let i = 0; i < listadatos.length; i++){ 
- if (listadatos[i] === datoog) return {dato:actual,label:listalabels[i]};   
+    for (let i = 0; i < listadatosB.length; i++){ 
+ if (listadatosB[i] === datoog) return {dato:actual,label:listalabels[i]};   
 }
 }
 return actual;

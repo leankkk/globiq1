@@ -1,7 +1,7 @@
 import fs from "fs";
 //import { subscribeGETEvent, subscribePOSTEvent, startServer } from "soquetic";
 import { traer, contienedato, comparar, paisrandom, paisdiario, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats, elegirpista } from "./Source/funciones.js";
-import { listadatos, listapaises, listadias, listalabels} from "./Source/listas.js";
+import { listadatos, listapaises, listadias, listalabels, listadatosB} from "./Source/listas.js";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
 
 
@@ -17,7 +17,8 @@ i++;
 }
 
 //console.log(elegirpista({pais:"afghanistan"}))
-
-for (i = 0; i < listadatos.length; i++){
-console.log(traer("argentina",listadatos[i],true));
-}
+/*
+for (i = 0; i < listadatosB.length; i++){
+console.log(traer("uruguay",listadatosB[i]));
+}*/
+funciontest();
