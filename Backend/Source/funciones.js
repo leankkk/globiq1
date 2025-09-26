@@ -1,7 +1,7 @@
 //Importando datos
 import fs, { Stats } from "fs";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
-import { listapaises , listadatos , listadias , listalabels, listadatosB} from "./listas.js";
+import { listapaises , listadatos , listadias , listalabels, listadatosB, listalabelsB} from "./listas.js";
 let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
 let quemados = JSON.parse(fs.readFileSync("./Datos/datos_quemados.json","utf-8"));
 
@@ -9,7 +9,15 @@ let quemados = JSON.parse(fs.readFileSync("./Datos/datos_quemados.json","utf-8")
 
 export function datorandom(){
     let numero = Math.round(Math.random() * listadatosB.length);
-    return listadatosB[numero];   
+    let dato = listadatosB[numero];
+    let datolista = dato.split(".");
+    for (let i = 0; i < listadatosB.length; i++){ 
+    if (datolista[dato.length-1] === "unit" || datolista[dato.length-1] === "note") {
+        numero = Math.round(Math.random() * listadatosB.length);
+        dato = listadatosB[numero];
+    } else break;   
+    }
+return dato;
 }
 
 export function paisrandom() {
@@ -26,6 +34,13 @@ export function paisdiario() {
    }
    
 
+export function traerlabel(pais,dato) {
+    for (let i = 0; i < listadatosB.length; i++){ 
+        if (listadatosB[i] === dato) return listalabelsB[i];   
+       }
+}
+
+   
 export function traer(pais,dato,label) {
     //Si no hay nada
 if (pais === undefined || (!listapaises.includes(pais) && !listadatosB.includes(dato))){
@@ -51,12 +66,14 @@ if (actual === undefined) return undefined;
 actual = actual[dato[i]]; 
 }
 if (label === true){
-    for (let i = 0; i < listadatosB.length; i++){ 
- if (listadatosB[i] === datoog) return {dato:actual,label:listalabels[i]};   
-}
+ return {dato:actual,label:traerlabel(pais,datoog)};   
 }
 return actual;
 }
+
+
+
+
 
 export function contienedato(pais,dato) {
     if (traer(pais,dato) != undefined){
@@ -78,18 +95,24 @@ export function comparar(pais1,pais2,dato){
 
 export function elegirpista(data){
     let pais = data.pais;
-    let dato = undefined;
+    let dato = data.dato;
     let resultado = undefined;
-if (data.categoria === undefined){
+if (data.dato === undefined){
     dato = datorandom();
+}
 for (let i = 0; i < quemados.length; i++){    
-if (quemados[i].label === dato){
+if (quemados[i].dato === dato){
 dato = datorandom();
 i = 0;
 }
 }
+for (let i = 0; i < listadatosB.length; i++){
+    if (!typeof(traer(pais,dato)) === "string" && !Array.isArray(traer(pais,dato)) && traer(pais,dato) != undefined){
+    resultado = {valor:traer(pais,dato),label:traerlabel(pais,dato),path:dato};
+    break;
+} else dato = datorandom();
 }
-return traer(pais,dato);
+return resultado;
 }
 
 export function cuentaexiste(nombre){
