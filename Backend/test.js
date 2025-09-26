@@ -21,5 +21,5 @@ i++;
 /*for (i = 0; i < listadatosB.length; i++){
 if (!typeof(traer("argentina",listadatosB[i])) === "string" && !Array.isArray(traer("argentina",listadatosB[i])) && traer)
 console.log(listalabelsB[i],listadatosB[i],traer("argentina",listadatosB[i]),"\n");*/
-console.log(traer(paisrandom(),datorandom(),true))
+console.log(elegirpista({pais:"argentina"}));
 

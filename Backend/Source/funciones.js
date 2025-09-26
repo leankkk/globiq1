@@ -7,14 +7,17 @@ let quemados = JSON.parse(fs.readFileSync("./Datos/datos_quemados.json","utf-8")
 
 //Declarando funciones útiles
 
+export function truedatorandom(){
+    return listadatosB[Math.floor(Math.random() * listadatosB.length)]; 
+}
+
 export function datorandom(){
-    let numero = Math.round(Math.random() * listadatosB.length);
-    let dato = listadatosB[numero];
+    let dato = truedatorandom();
     let datolista = dato.split(".");
     for (let i = 0; i < listadatosB.length; i++){ 
-    if (datolista[dato.length-1] === "unit" || datolista[dato.length-1] === "note") {
-        numero = Math.round(Math.random() * listadatosB.length);
-        dato = listadatosB[numero];
+    if (datolista[datolista.length-1] === "unit" || datolista[datolista.length-1] === "units" || datolista[datolista.length-1] === "note" || datolista[datolista.length-1] === "date") {
+        dato = truedatorandom();
+        datolista = dato.split(".");
     } else break;   
     }
 return dato;
@@ -44,16 +47,19 @@ export function traerlabel(pais,dato) {
 export function traer(pais,dato,label) {
     //Si no hay nada
 if (pais === undefined || (!listapaises.includes(pais) && !listadatosB.includes(dato))){
-pais = paisdiario();
-dato = datorandom();
+return "error";
 }
 //Si solo hay pais o dato esta mal (dato está vacío o no esta en la lista)
-if (dato === undefined || !listadatosB.includes(dato)) dato = datorandom(); //si datorandom de vuelta no va se rompe
-else if (!listapaises.includes(pais)) pais = paisdiario();
+if (dato === undefined || !listadatosB.includes(dato)) {
+    dato = datorandom(); //si datorandom de vuelta no va se rompe
+    return "error";
+} else if (!listapaises.includes(pais)) /*pais = paisdiario()*/ return "error";
+
 //Si hay solo dato
 if (!listapaises.includes(pais) && listadatosB.includes(pais)){
-dato = pais; 
-pais = paisdiario();
+return "error";
+/*dato = pais; 
+pais = paisdiario();*/
 }
 
 //resto de la funcion
@@ -61,10 +67,11 @@ let datoog = dato;
 dato = dato.split(".");
     let actual = data[pais];
 for (let i = 0; i < dato.length; i++){
-//chequeo de emergencia
-if (actual === undefined) return undefined; 
 actual = actual[dato[i]]; 
 }
+//agarrar datos de lista u objetos
+if (actual.value !== undefined) actual = actual.value;
+if (actual[0] !== undefined) if (actual[0].value !== undefined) actual = actual.value;
 if (label === true){
  return {dato:actual,label:traerlabel(pais,datoog)};   
 }
@@ -106,9 +113,9 @@ dato = datorandom();
 i = 0;
 }
 }
-for (let i = 0; i < listadatosB.length; i++){
-    if (!typeof(traer(pais,dato)) === "string" && !Array.isArray(traer(pais,dato)) && traer(pais,dato) != undefined){
-    resultado = {valor:traer(pais,dato),label:traerlabel(pais,dato),path:dato};
+for (let i = 0, valor = undefined; i < listadatosB.length; i++, valor = traer(pais,dato)){
+    if (typeof(valor) !== "string" && !Array.isArray(traer(valor)) && valor != undefined){
+    resultado = {valor:valor,label:traerlabel(pais,dato),pais:pais,path:dato};
     break;
 } else dato = datorandom();
 }
