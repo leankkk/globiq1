@@ -119,3 +119,14 @@ display: flex;
 
 }
 
+.botonAdivinar {
+  width: 75px;
+  height: 50px;
+  top: 195px;
+  left: 1175px;
+  position: absolute;
+  background-color: gray;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+}
