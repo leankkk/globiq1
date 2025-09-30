@@ -1,10 +1,1 @@
-actual = actual[dato[i]];
-               ^
-
-TypeError: Cannot read properties of undefined (reading 'breakdown[]')
-    at traer (file:///C:/Users/49627583/Documents/proyecto-globe-inc/backend/Source/funciones.js:70:16)
-    at elegirpista (file:///C:/Users/49627583/Documents/proyecto-globe-inc/backend/Source/funciones.js:116:73)
-    at file:///C:/Users/49627583/Documents/proyecto-globe-inc/backend/test.js:24:13
-    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
-    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
-    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+SEGUIR CON FUNCION MAYOROMENOR
