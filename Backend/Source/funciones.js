@@ -1,7 +1,7 @@
 //Importando datos
 import fs, { Stats } from "fs";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
-import { listapaises , listadatos , listadias , listalabels, listadatosB, listalabelsB} from "./listas.js";
+import { listapaises , listadatos , listadias , listalabels, listadatosB, listalabelsB, listalabelsPaises} from "./listas.js";
 let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
 let quemados = JSON.parse(fs.readFileSync("./Datos/datos_quemados.json","utf-8"));
 
@@ -37,12 +37,17 @@ export function paisdiario() {
    }
    
 
-export function traerlabel(pais,dato) {
+export function traerlabel(dato) {
     for (let i = 0; i < listadatosB.length; i++){ 
         if (listadatosB[i] === dato) return listalabelsB[i];   
        }
 }
 
+export function traerlabelpais(pais) {
+    for (let i = 0; i < listapaises.length; i++){ 
+        if (listapaises[i] === pais) return listalabelsPaises[i];   
+       }
+}
    
 export function traer(pais,dato,label) {
     //Si no hay nada
@@ -87,7 +92,7 @@ if (actual && typeof actual === 'object') {
   }  
 
 if (label === true){
- return {dato:actual,label:traerlabel(pais,datoog)};   
+ return {dato:actual,label:traerlabel(datoog),labelpais:traerlabelpais(pais)};   
 }
 return actual;
 }
@@ -121,6 +126,9 @@ export function elegirpista(data){
 if (data.dato === undefined){
     dato = datorandom();
 }
+if (data.pais === undefined){
+    pais = paisdiario();
+}
 for (let i = 0; i < quemados.length; i++){    
 if (quemados[i].dato === dato){
 dato = datorandom();
@@ -131,7 +139,7 @@ for (let i = 0, valor = undefined; i < listadatosB.length; i++, valor = traer(pa
     if (typeof(valor) !== "string" && !Array.isArray(traer(valor)) && valor != undefined && typeof(valor) !== "object"){
     if (valor === true) valor = "Verdadero";
     if (valor === false) valor = "Falso";
-        resultado = {valor:valor,label:traerlabel(pais,dato),pais:pais,path:dato};
+        resultado = {valor:valor,label:traerlabel(dato),pais:pais,labelpais:traerlabelpais(pais),path:dato};
     break;
 } else dato = datorandom();
 }
@@ -139,11 +147,60 @@ return resultado;
 }
 
 export function mayoromenor(data){
+let timer;
+if (data.timer === undefined) timer = 0;
+else data.timer += 1;
+
+let pais2mayor;
+let pais2menor;
+let victoria;
+let input = data.input;
+
+let paisinicial;
+if (data.paisinicial === undefined) paisinicial = paisdiario();
+else paisinicial = data.paisinicial;
+
+let dato;
+if (data.dato === undefined || timer >= 5) dato = datorandom();
+else dato = data.dato;
+
+let valor = undefined;
+while (valor === undefined){
+if (typeof(traer(paisinicial,dato))=== "number") valor = traer(paisinicial,dato);
+else dato = datorandom();
+}
+
+let pais2 = paisinicial;
+while (pais2 === paisinicial){
+pais2 = paisrandom();
+}
+
+if (comparar(paisinicial,pais2,dato) === true){
+    //el de la derecha es mayor
+    pais2mayor = true;
+    pais2menor = false;
+    }
+    else {
+    //el de izquierda es mayor
+    pais2mayor = false;
+    pais2menor = true;
+    }
+if (data.input === pais2mayor) victoria = true;
+else if (data.input === pais2menor) victoria = false;
+
+return {paisinicial: paisinicial, labelpaisinicial: traerlabelpais(paisinicial), pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, valor: valor,label: traerlabel(dato), victoria:victoria, timer: timer};
+}
+
+export function mayoromenorB(data){
+//definir rapido las variables
+let victoria;
 let pais1 = data.pais1;
 let pais2 = data.pais2;
-let categoria = data.categoria;
+let dato = data.dato;
 let label = data.label;
 let input = data.input; //si el pais derecho es mayor deberia ser positivo, si menor negativo
+
+//comparación entre los dos paises
 if (comparar(pais1,pais2,categoria) === true){
 //el de la derecha es mayor
 let pais2mayor = true;
@@ -153,9 +210,9 @@ else {
 let pais2mayor = false;
 let pais2menor = true;
 }
-if (input === pais2mayor) let victoria = true;
-else let victoria = false;
-return
+if (input === pais2mayor) victoria = true;
+else victoria = false;
+return {victoria:victoria,}
 }
 
 export function cuentaexiste(nombre){
