@@ -65,13 +65,27 @@ pais = paisdiario();*/
 //resto de la funcion
 let datoog = dato;
 dato = dato.split(".");
-    let actual = data[pais];
 for (let i = 0; i < dato.length; i++){
-actual = actual[dato[i]]; 
+if (typeof dato[i] === 'string' && dato[i].includes("[")) {
+let [nombrelista, indicelista] = dato[i].split('[');
+indicelista = parseInt(indicelista.replace(']', ''), 10);
+dato.splice(i, 1, nombrelista, indicelista); 
+}
+}
+let actual = data[pais];
+for (let i = 0; i < dato.length; i++){
+if (actual[dato[i]] !== undefined) actual = actual[dato[i]];
+else break; 
 }
 //agarrar datos de lista u objetos
-if (actual.value !== undefined) actual = actual.value;
-if (actual[0] !== undefined) if (actual[0].value !== undefined) actual = actual.value;
+if (actual && typeof actual === 'object') {
+    if ('value' in actual) {
+      actual = actual.value;
+    } else if (Array.isArray(actual) && actual[0]?.value !== undefined) {
+      actual = actual[0].value;
+    }
+  }  
+
 if (label === true){
  return {dato:actual,label:traerlabel(pais,datoog)};   
 }
@@ -93,10 +107,10 @@ export function contienedato(pais,dato) {
 
 export function comparar(pais1,pais2,dato){
     if (traer(pais1,dato) > traer(pais2,dato)){
-        return true;
+        return false;
     }
     else {
-        return false;
+        return true;
     }
 }
 
@@ -114,12 +128,34 @@ i = 0;
 }
 }
 for (let i = 0, valor = undefined; i < listadatosB.length; i++, valor = traer(pais,dato)){
-    if (typeof(valor) !== "string" && !Array.isArray(traer(valor)) && valor != undefined){
-    resultado = {valor:valor,label:traerlabel(pais,dato),pais:pais,path:dato};
+    if (typeof(valor) !== "string" && !Array.isArray(traer(valor)) && valor != undefined && typeof(valor) !== "object"){
+    if (valor === true) valor = "Verdadero";
+    if (valor === false) valor = "Falso";
+        resultado = {valor:valor,label:traerlabel(pais,dato),pais:pais,path:dato};
     break;
 } else dato = datorandom();
 }
 return resultado;
+}
+
+export function mayoromenor(data){
+let pais1 = data.pais1;
+let pais2 = data.pais2;
+let categoria = data.categoria;
+let label = data.label;
+let input = data.input; //si el pais derecho es mayor deberia ser positivo, si menor negativo
+if (comparar(pais1,pais2,categoria) === true){
+//el de la derecha es mayor
+let pais2mayor = true;
+let pais2menor = false;
+}
+else {
+let pais2mayor = false;
+let pais2menor = true;
+}
+if (input === pais2mayor) let victoria = true;
+else let victoria = false;
+return
 }
 
 export function cuentaexiste(nombre){
