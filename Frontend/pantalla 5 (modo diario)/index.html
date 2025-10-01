@@ -1,46 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Juego de Países - Modo Diario</title>
     <link rel="stylesheet" href="style.css">
-    <h1>MODO DIARIO</h1>
 </head>
 <body>
-    <div> <input class="input"> </input> </div>
-    <div> <boton class="botonAdivinar">Adivinar</boton></div> 
-
-<div class="card">
-    <div class="rectangulo1"></div>
-</div>
-
-<div class="card">
-    <div class="rectangulo2"></div>
-</div>
-
-<div class="card">
-    <div class="rectangulo3"></div>
-</div>
-
-<div class="card">
-    <div class="rectangulo4"></div>
-</div>
-
-<div class="card">
-    <div class="rectangulo5"></div>
-</div>
-
-<div class="input">
-    <input> </input>
-</div>
 
 
+    <h1>MODO DIARIO</h1>
+
+
+   
+    <div class="contenedorInput">
+        <input id="input" class="input" type="text" placeholder="Escribe el país">
+        <button id="enviar" class="botonAdivinar">Adivinar</button>
     </div>
 
+
+ 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
     <script src="main.js"></script>
-
 </body>
 </html>
