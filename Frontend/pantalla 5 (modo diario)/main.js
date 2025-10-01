@@ -1,27 +1,35 @@
 connect2Server();
 
-let input = document.getElementById('input')
+let input = document.getElementById('input');
+let boton = document.getElementById('enviar');
+
 let paisdiario = "argentina";
 let categoria;
 let pista;
 
-function establecerPaisDiario(data){
-paisdiario = data;
-}
-function guardarPistas(data){
-pista = data;
+function establecerPaisDiario(data) {
+    paisdiario = data;
 }
 
-getEvent("obtenerPaisDiario",establecerPaisDiario);
-
-postEvent("obtenerPista",{pais:paisdiario,categoria:categoria},guardarPistas)
-
-//
-
-if(input === paisdiario) {
-    alert('Adivinaste el país del día!')
+function guardarPistas(data) {
+    pista = data;
 }
-else {
-    let nuevoDiv = document.createElement('div')
-    div.textContent = 'Nueva Pista: ' + pista.label + pista.valor
-}
+
+
+getEvent("obtenerPaisDiario", establecerPaisDiario);
+
+
+postEvent("obtenerPista", {
+    pais: paisdiario, 
+    categoria: categoria
+}, guardarPistas);
+
+boton.addEventListener('click', function () {
+    let respuesta = input.value.trim().toLowerCase();
+
+    if (respuesta === paisdiario.toLowerCase()) {
+        alert('¡Adivinaste el país!');
+    } else {
+        alert("Pista: " + (pista || "No hay pista disponible"));
+    }
+});
