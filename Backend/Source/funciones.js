@@ -25,7 +25,15 @@ export function paisdiario() {
    if (diferencia >= listapaises.length) diferencia -= listapaises.length;
    return listapaises[listadias[diferencia]];  
    }
-   
+
+export function paisdiariofront() {
+    let diferencia = (new Date) - (new Date("2025-01-01"));
+    diferencia = Math.floor(diferencia / 86400000);
+    if (diferencia >= listapaises.length) diferencia -= listapaises.length;
+    return {pais:listapaises[listadias[diferencia]],label:listapaises[listadias[diferencia]]};  
+    }
+ 
+
 
 export function traerlabel(dato) {
     for (let i = 0; i < listadatosB.length; i++){ 
@@ -125,7 +133,7 @@ i = 0;
 }
 }
 for (let i = 0, valor = undefined; i < listadatosB.length; i++, valor = traer(pais,dato)){
-    if (typeof(valor) !== "string" && !Array.isArray(traer(valor)) && valor != undefined && typeof(valor) !== "object"){
+    if (typeof(valor) !== "string" && !Array.isArray(valor) && valor != undefined && typeof(valor) !== "object"){
     if (valor === true) valor = "Verdadero";
     if (valor === false) valor = "Falso";
         resultado = {valor:valor,label:traerlabel(dato),pais:pais,labelpais:traerlabelpais(pais),path:dato};
