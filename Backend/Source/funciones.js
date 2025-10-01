@@ -11,17 +11,7 @@ export function truedatorandom(){
     return listadatosB[Math.floor(Math.random() * listadatosB.length)]; 
 }
 
-export function datorandom(){
-    let dato = truedatorandom();
-    let datolista = dato.split(".");
-    for (let i = 0; i < listadatosB.length; i++){ 
-    if (datolista[datolista.length-1] === "unit" || datolista[datolista.length-1] === "units" || datolista[datolista.length-1] === "note" || datolista[datolista.length-1] === "date") {
-        dato = truedatorandom();
-        datolista = dato.split(".");
-    } else break;   
-    }
-return dato;
-}
+
 
 export function paisrandom() {
     let numero = Math.round(Math.random() * listapaises.length);
@@ -49,57 +39,56 @@ export function traerlabelpais(pais) {
        }
 }
    
-export function traer(pais,dato,label) {
-    //Si no hay nada
-if (pais === undefined || (!listapaises.includes(pais) && !listadatosB.includes(dato))){
-return "error";
-}
-//Si solo hay pais o dato esta mal (dato está vacío o no esta en la lista)
-if (dato === undefined || !listadatosB.includes(dato)) {
-    dato = datorandom(); //si datorandom de vuelta no va se rompe
-    return "error";
-} else if (!listapaises.includes(pais)) /*pais = paisdiario()*/ return "error";
-
-//Si hay solo dato
-if (!listapaises.includes(pais) && listadatosB.includes(pais)){
-return "error";
-/*dato = pais; 
-pais = paisdiario();*/
-}
-
-//resto de la funcion
-let datoog = dato;
-dato = dato.split(".");
-for (let i = 0; i < dato.length; i++){
-if (typeof dato[i] === 'string' && dato[i].includes("[")) {
-let [nombrelista, indicelista] = dato[i].split('[');
-indicelista = parseInt(indicelista.replace(']', ''), 10);
-dato.splice(i, 1, nombrelista, indicelista); 
-}
-}
-let actual = data[pais];
-for (let i = 0; i < dato.length; i++){
-if (actual[dato[i]] !== undefined) actual = actual[dato[i]];
-else break; 
-}
-//agarrar datos de lista u objetos
-if (actual && typeof actual === 'object') {
-    if ('value' in actual) {
-      actual = actual.value;
-    } else if (Array.isArray(actual) && actual[0]?.value !== undefined) {
-      actual = actual[0].value;
+export function traer(pais, dato, label) {
+    let datoog = dato;
+    dato = dato.split(".");
+    
+    for (let i = 0; i < dato.length; i++) {
+      if (typeof dato[i] === 'string' && dato[i].includes("[")) {
+        let [nombrelista, indicelista] = dato[i].split('[');
+        indicelista = parseInt(indicelista.replace(']', ''), 10);
+        dato.splice(i, 1, nombrelista, indicelista);
+      }
     }
-  }  
+  
+    let actual = data[pais];
+    
+    for (let i = 0; i < dato.length; i++) {
+      if (actual === undefined) break;
+      actual = actual[dato[i]];
+    }
+  
+    if (actual && typeof actual === 'object') {
+      if ('value' in actual) {
+        actual = actual.value;
+      } else if (Array.isArray(actual) && actual[0]?.value !== undefined) {
+        actual = actual[0].value;
+      }
+    }
+  
+    if (label === true) {
+      return {
+        dato: actual,
+        label: traerlabel(datoog),
+        labelpais: traerlabelpais(pais)
+      };   
+    }
+  
+    return actual;
+  }
+    
 
-if (label === true){
- return {dato:actual,label:traerlabel(datoog),labelpais:traerlabelpais(pais)};   
-}
-return actual;
-}
-
-
-
-
+    export function datorandom(){
+        let dato = truedatorandom();
+        let datolista = dato.split(".");
+        for (let i = 0; i < listadatosB.length; i++){ 
+        if (datolista[datolista.length-1] === "unit" || datolista[datolista.length-1] === "units" || datolista[datolista.length-1] === "note" || datolista[datolista.length-1] === "date" || typeof traer("argentina",dato) === "object" || (typeof traer("argentina",dato) === "string" && traer("argentina",dato).length > 15)) {
+            dato = truedatorandom();
+            datolista = dato.split(".");
+        } else break;   
+        }
+    return dato;
+    }
 
 export function contienedato(pais,dato) {
     if (traer(pais,dato) != undefined){
