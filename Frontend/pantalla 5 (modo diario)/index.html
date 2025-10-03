@@ -15,14 +15,18 @@
         <input id="input" class="input" type="text" placeholder="Escribe el país">
         <button id="enviar" class="botonAdivinar">Adivinar</button>
     </div>
-
-
-    <div class="card"><div class="rec1"></div></div>
-    <div class="card"><div class="rec2"></div></div>
-    <div class="card"><div class="rec3"></div></div>
-    <div class="card"><div class="rec4"></div></div>
-    <div class="card"><div class="rec5"></div></div>
-
+    <div id="popup" class="popup">
+        <div class="popup-content">
+          <h2>¡Adivinaste el país!</h2>
+          <p>Lo lograste</p>
+          <button id="btn-ok" class="btn-popup">Seguir</button>
+     <div id="popupPistas" class="popup-pistas">
+         <h2>Pistas</h2>
+         <div id="listaPistas" class="lista-pistas"></div>
+        </div>
+    <button id="cerrarPopup" class="cerrar-popup">X</button>
+        </div>
+      </div>
  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
