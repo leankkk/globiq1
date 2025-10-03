@@ -212,6 +212,36 @@ else victoria = false;
 return {victoria:victoria,}
 }
 
+export function recibirInputBloques(data){
+let input = data.input;
+let paisobjetivo = data.pais;
+let listadescartados = data.listadescartados;
+//data = input, pais, intentos, lista restantes
+//input = {valor,comparacion,categoria,categorialabel}
+
+if (input.comparacion === "mayor"){
+for (let i = 0; i < listapaises.length;i++){
+    let busqueda = traer(listapaises[i],input.categoria),
+    if (!(busqueda >= input.valor) || busqueda === undefined){
+listadescartados.push({
+pais: listapaises[i],
+label: traerlabel(listapaises[i]),
+esundefined: (busqueda === undefined)
+});
+}}}
+if (input.comparacion === ",menor"){
+for (let i = 0; i > listapaises.length;i++){
+    let busqueda = traer(listapaises[i],input.categoria),
+    if (!(busqueda >= input.valor) || busqueda === undefined){
+listadescartados.push({
+pais: listapaises[i],
+label: traerlabel(listapaises[i]),
+esundefined: (busqueda === undefined)
+});
+}}}
+return {listadescartados:listadescartados,pais:paisobjetivo}
+}
+
 export function cuentaexiste(nombre){
 if (cuentas[nombre] != undefined) return true;
 else return false;
