@@ -212,35 +212,74 @@ else victoria = false;
 return {victoria:victoria,}
 }
 
+
 export function recibirInputBloques(data){
+/* 
+- fijarse en que rango entra el país (mayor o menor)
+- responder la pregunta
+- poner en descartados todos los que están en el rango opuesto
+- poner en posibles los que conviven en el rango con el pais objetivo
+*/
 let input = data.input;
+let victoria = false;
 let paisobjetivo = data.pais;
-let listadescartados = data.listadescartados;
+let intentos = data.intentos;
+let respuesta;
+if (intentos === undefined) intentos = 0;
+let listadescartados = [];
+if (data.listadescartados !== undefined){
+listadescartados = data.listadescartados;
+}
+let listaposibles = [];
+if (data.listaposibles !== undefined){
+listaposibles = data.listaposibles;
+}
 //data = input, pais, intentos, lista restantes
 //input = {valor,comparacion,categoria,categorialabel}
 
+//opcion 1 de comparacion
 if (input.comparacion === "mayor"){
 for (let i = 0; i < listapaises.length;i++){
-    let busqueda = traer(listapaises[i],input.categoria),
+    let busqueda = traer(listapaises[i],input.categoria);
     if (!(busqueda >= input.valor) || busqueda === undefined){
 listadescartados.push({
 pais: listapaises[i],
 label: traerlabel(listapaises[i]),
 esundefined: (busqueda === undefined)
 });
-}}}
-if (input.comparacion === ",menor"){
-for (let i = 0; i > listapaises.length;i++){
-    let busqueda = traer(listapaises[i],input.categoria),
-    if (!(busqueda >= input.valor) || busqueda === undefined){
+}  else if (!(listadescartados.includes(listapaises[i]))){
+    listaposibles.push({
+pais: listapaises[i],
+label: traerlabelpais(listapaises[i]),
+esundefined: (busqueda === undefined)
+})}}}
+
+//opcion 2 de comparacion
+if (input.comparacion === "menor"){
+for (let i = 0; i < listapaises.length;i++){
+    let busqueda = traer(listapaises[i],input.categoria);
+    if (!(busqueda <= input.valor) || busqueda === undefined){
 listadescartados.push({
 pais: listapaises[i],
-label: traerlabel(listapaises[i]),
+label: traerlabelpais(listapaises[i]),
 esundefined: (busqueda === undefined)
 });
-}}}
-return {listadescartados:listadescartados,pais:paisobjetivo}
+} else if (!(listadescartados.includes(listapaises[i]))){
+    listaposibles.push({
+pais: listapaises[i],
+label: traerlabelpais(listapaises[i]),
+esundefined: (busqueda === undefined)
+})}}}
+
+if (listaposibles.lenght === 1 && listaposibles.includes(paisobjetivo)) victoria = true;
+if (listaposibles.includes(paisobjetivo)) respuesta = "Sí";
+else respuesta = "No";
+
+return {victoria:victoria,respuesta:respuesta,/*listadescartados:listadescartados,*/pais:paisobjetivo,intentos:intentos+1,listaposibles:listaposibles};
 }
+
+
+
 
 export function cuentaexiste(nombre){
 if (cuentas[nombre] != undefined) return true;
