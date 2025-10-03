@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Modo Mayor o Menor</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="contenedor">
-       
-        <div class="paisIZQ">
-            <img src="" alt="Argentina" class="pais-img">
-            <h2>ARGENTINA</h2>
-            <p class="territorio">12.000.000 km²</p>
-        </div>
+    <header class="header">
+        <h1>TERRITORIO</h1>
+    </header>
 
-        
-        <div class="vs">
-            <p>VS</p>
-        </div>
-
-
-        <div class="paisDERCHO">
-            <h2>PAIS</h2>
-            <div class="selector">
-                <button class="boton">Mayor &uarr;</button>
-                <button class="boton2">Menor &darr;</button>
+    <main class="contenedor">
+        <div class="ladoIzquierdo">
+            <p class="categoria">Categoria</p>
+            <div class="card paisIZQ">
+                <div class="card-header">PAIS</div>
+                <div class="card-content">
+                    <img src="" alt="Argentina" class="pais-img" />
+                    <h2>ARGENTINA</h2>
+                    <p class="territorio">1000000</p>
+                </div>
             </div>
         </div>
-    </div>
+
+        <div class="vs">VS</div>
+
+        <div class="ladoDerecho">
+            <div class="card paisDERCHO">
+                <div class="card-header">PAIS</div>
+                <div class="selector">
+                    <button id="btnMayor" class="boton">MAYOR</button>
+                    <button id="btnMenor" class="boton2">MENOR</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
