@@ -1,1 +1,4 @@
 ARREGLAR LÓGICA FUNCION ADIVINAR PAIS
+- logica del caso mayor ya hecha
+- testear logica del caso mayor
+- falta caso menor

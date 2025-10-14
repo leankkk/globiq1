@@ -209,7 +209,7 @@ let pais2menor = true;
 }
 if (input === pais2mayor) victoria = true;
 else victoria = false;
-return {victoria:victoria,}
+return {victoria:victoria}
 }
 
 
@@ -237,8 +237,11 @@ listaposibles = data.listaposibles;
 //data = input, pais, intentos, lista restantes
 //input = {valor,comparacion,categoria,categorialabel}
 
-//opcion 1 de comparacion
+
+
+//opcion 1 de comparacion 
 if (input.comparacion === "mayor"){
+/*
 for (let i = 0; i < listapaises.length;i++){
     let busqueda = traer(listapaises[i],input.categoria);
     if (!(busqueda >= input.valor) || busqueda === undefined){
@@ -252,7 +255,37 @@ esundefined: (busqueda === undefined)
 pais: listapaises[i],
 label: traerlabelpais(listapaises[i]),
 esundefined: (busqueda === undefined)
-})}}}
+})}}*/
+let valorobjetivo = traer(paisobjetivo,input.categoria);
+if (valorobjetivo > input.valor) respuesta = true; 
+else respuesta = false;
+
+for (let i = 0; i < listapaises.length; i++){
+let packpais = {
+pais: listapaises[i],
+label: traerlabelpais(listapaises[i]),
+esundefined: (busqueda === undefined)
+    }
+    if (respuesta === true){
+let busqueda = traer(listapaises[i],categoria);
+
+if (busqueda < input.valor) {
+    listadescartados.push(packpais);
+} else if (!(listadescartados.includes(listapaises[i]))){
+    listaposibles.push(packpais)
+}
+}
+else if (respuesta === false){
+let busqueda = traer(listapaises[i],categoria);
+
+if (busqueda > input.valor) {
+    listadescartados.push(packpais);
+} else if (!(listadescartados.includes(listapaises[i]))){
+    listaposibles.push(packpais)
+}
+}
+}
+
 
 //opcion 2 de comparacion
 if (input.comparacion === "menor"){
@@ -276,7 +309,7 @@ if (listaposibles.includes(paisobjetivo)) respuesta = "Sí";
 else respuesta = "No";
 
 return {victoria:victoria,respuesta:respuesta,/*listadescartados:listadescartados,*/pais:paisobjetivo,intentos:intentos+1,listaposibles:listaposibles};
-}
+}}
 
 
 
