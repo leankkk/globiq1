@@ -5,7 +5,7 @@ let btnOk = document.getElementById("btn-ok");
 let input = document.getElementById('input');
 let boton = document.getElementById('enviar');
 
-let paisdiariolabel = "";
+let paisdiariolabel = "argentina";
 let categoria;
 let pistaactual;
 let intentos = 0;
