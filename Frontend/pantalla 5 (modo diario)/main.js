@@ -1,62 +1,42 @@
 connect2Server();
 
-let popup = document.getElementById("popup");
-let btnOk = document.getElementById("btn-ok");
 let input = document.getElementById('input');
 let boton = document.getElementById('enviar');
+let listaPistas = document.getElementById('listaPistas');
+let popup = document.getElementById('popup');
+let btnOk = document.getElementById('btn-ok');
 
-let paisdiariolabel = "argentina";
-let categoria;
-let pistaactual;
+let paisDiario;
 let intentos = 0;
 
 function establecerPaisDiario(data) {
-    paisdiariolabel = data.label;
-    paisdiarioog = data.pais;    
+  paisDiario = data.label;
 }
 
-function guardarPistas(data) {
-    if (pistaactual !== undefined){
-window["pista"+intentos] = pistaactual;
-    }
-    pistaactual = data;
-    intentos++;
-    console.log("pistaactual");
-    let popup = document.getElementById('popupPistas');
-  popup.style.display = 'block';
-
+function mostrarPista(data) {
   let nuevaPista = document.createElement('div');
   nuevaPista.classList.add('pista-item');
-  nuevaPista.textContent = intentos + " - " + pistaactual.label + ": " + pistaactual.valor;
-
-  let lista = document.getElementById('listaPistas');
-  lista.appendChild(nuevaPista);
+  intentos++;
+  nuevaPista.textContent = intentos + ". " + data.label + ": " + data.valor;
+  listaPistas.appendChild(nuevaPista);
+  listaPistas.scrollTop = listaPistas.scrollHeight; // hace que scrollee automáticamente
 }
-
 
 getEvent("obtenerPaisDiario", establecerPaisDiario);
 
+boton.addEventListener('click', () => {
+  let respuesta = input.value.trim().toLowerCase();
 
+  if (respuesta === paisDiario.toLowerCase()) {
+    popup.style.display = "flex";
+  } else {
+    // pedimos pista al backend
+    postEvent("obtenerPista", { pais: paisDiario }, mostrarPista);
+  }
 
-boton.addEventListener('click', function () {
-    let respuesta = input.value.trim().toLowerCase();
-    if (respuesta === paisdiariolabel.toLowerCase()) {
-        popup.style.display = "flex";
-    } else {
-        postEvent("obtenerPista", {
-            pais: paisdiariolabel, 
-            categoria: categoria
-        }, guardarPistas);
-    }
+  input.value = ""; // limpia input después de cada intento
 });
 
-btnOk.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
-
-  document.getElementById('cerrarPopup').addEventListener('click', function () {
-    document.getElementById('popupPistas').style.display = 'none';
-  });
-  
-
-  
+btnOk.addEventListener('click', () => {
+  popup.style.display = "none";
+});
