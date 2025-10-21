@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modo Diario</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>MODO DIARIO</h1>
 
-    <h1>MODO DIARIO</h1>
+  <div class="contenedorInput">
+    <input id="input" type="text" placeholder="Escribe el país">
+    <button id="enviar">Adivinar</button>
+  </div>
 
-   
-    <div class="contenedorInput">
-        <input id="input" class="input" type="text" placeholder="Escribe el país">
-        <button id="enviar" class="botonAdivinar">Adivinar</button>
+  <div id="pistasContainer">
+    <h3>Pistas</h3>
+    <div id="listaPistas"></div>
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2>¡Adivinaste el país!</h2>
+      <p>Lo lograste</p>
+      <button id="btn-ok">Seguir</button>
     </div>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-          <h2>¡Adivinaste el país!</h2>
-          <p>Lo lograste</p>
-          <button id="btn-ok" class="btn-popup">Seguir</button>
-     <div id="popupPistas" class="popup-pistas">
-         <h2>Pistas</h2>
-         <div id="listaPistas" class="lista-pistas"></div>
-        </div>
-    <button id="cerrarPopup" class="cerrar-popup">X</button>
-        </div>
-      </div>
- 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
-    <script src="main.js"></script>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
