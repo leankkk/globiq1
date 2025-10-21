@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Documento</title>
+  <title>Drag & Drop Países</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap"
-    rel="stylesheet"
-  />
 </head>
 <body>
-  <div class="rectangulo inter">El/la ___________ es ___________     opciones   opciones  opciones</div>
-  <img src="world-map-modern-globe-map-generalized-world-map-world-map-on-isolated-background-illustration-vector 1.png" class="mapa">
-  <input type="text" placeholder="Escribí el nombre del país" class="input" />
-  <button class="boton">Adivinar</button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
-  <script src="main.js"></script>
+  <div class="rectangulo">
+    El/la
+    <div class="dropzone" data-pos="1"></div>
+    es
+    <div class="dropzone" data-pos="2"></div>
+    opciones opciones opciones
+  </div>
+
+  <div class="contenedor-bloques">
+    <div class="draggable" draggable="true" data-value="Argentina">deficit</div>
+    <div class="draggable" draggable="true" data-value="Brasil">poblacion</div>
+    <div class="draggable" draggable="true" data-value="Chile">densidad</div>
+  </div>
+
+  <img src="world-map-modern-globe-map-generalized-world-map-world-map-on-isolated-background-illustration-vector 1.png" class="mapa" alt="Mapa mundial" />
+
+  <script src="script.js"></script>
 
 </body>
 </html>
