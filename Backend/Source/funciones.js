@@ -218,29 +218,40 @@ return {paisinicial: paisinicial, labelpaisinicial: traerlabelpais(paisinicial),
 
 export function compararMayorMenor(data){
 //definir rapido las variables
+let pais2mayor;
+let timer = data.timer;
+if (data.timer === undefined) timer = 0;
 let victoria;
 let paisinicial = data.paisinicial;
-let paisiniciallabel = data.paisiniciallabel;
+//let labelpaisinicial = data.labelpaisinicial;
 let pais2 = data.pais2;
+//let labelpais2 = data.labelpais2;
 let dato = data.dato;
+//let valorinicial = data.valorinicial;
 let label = data.label;
 let input = data.input; //si el pais derecho es mayor deberia ser positivo, si menor negativo
 
+
+
 //comparación entre los dos paises
-if (comparar(paisinicial,pais2,dato) === true){
-//el de la derecha es mayor
-let pais2mayor = true;
-let pais2menor = false;
-}
-else {
-let pais2mayor = false;
-let pais2menor = true;
-}
+if (comparar(paisinicial,pais2,dato) === true) pais2mayor = true;
+else pais2mayor = false;
+
 if (input === pais2mayor) victoria = true;
 else victoria = false;
-return {victoria:victoria}
-}
 
+if (victoria === true) {
+nuevoPaisInicial = pais2;
+nuevoValorInicial = traer(dato,pais2);
+
+while (nuevoPais2 === paisinicial || nuevoPais2 === pais2){
+nuevoPais2 = paisrandom();
+} 
+
+return {victoria:victoria, timer: timer, paisinicial: nuevoPaisInicial, labelpaisinicial: traerlabelpais(nuevoPaisInicial),valorinicial: nuevoValorInicial, pais2: nuevoPais2, labelpais2: traerlabelpais(nuevoPais2)}
+}
+else return {victoria: victoria, timer: timer, valorPais2: traer(dato,pais2)}
+}
 
 export function recibirInputBloques(data){
     /* 

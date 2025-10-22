@@ -1,5 +1,6 @@
 frontend/mayoromenor/mainjs 
-seguir laburando con las funciones. chequear que pasa cuando clickeas los botones
+las funnciones estan hechas pero la logica se ve re mal
+por alguna razon el server no se conecta. investifgar
 
 
 function enviarcategorias(data){

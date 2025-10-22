@@ -30,8 +30,9 @@ labelpaisinicial = traerlabelpais(paisinicial);
     timer = timer;
 }
 
-function mayoromenor(data){
-    
+function evaluarResultado(data){
+if (data.victoria) alert("Ganaste. Racha: "+data.timer);
+else alert("Perdiste.")
 }
 
 
@@ -39,47 +40,15 @@ getEvent("obtenerPaisDiario", establecerPaisDiario);
 postEvent("iniciarMayorMenor",{paisInicial: paisDiario, dato: "people.population.total"},iniciarMayorMenor); 
 //está puesto población como dato inical para testear. sacar despues
 
-postEvent("evaluarRespuesta", {/*poner acá el input*/ timer: timer, paisinicial: paisinicial, pais2: pais2,}, mayoromenor);
 
 
-function verificarRespuesta(opcion) {
-    let esMayor = valorDerecho > valorIzquierdo;
-
-    if (opcion === 'mayor' && esMayor === true) {
-        racha++;
-        puntaje++;
-        alert("¡Correcto!");
-    } else if (opcion === 'menor' && esMayor === false) {
-        racha++;
-        puntaje++;
-       
-        
-        alert("¡Correcto!");
-        alert(`Adivinaste. Racha: ${racha} victorias`);
-    } else {
-        alert("Incorrecto");
-       
-        racha = 0;
-        puntaje = 0;
-        alert(`Perdiste. Racha: ${racha} victorias`);
-        
-        return;
-    }
-
-    actualizarRacha();
-    seleccionarPais();  
-}
-
-
-botonMayor.addEventListener('click', function() {
-input = "mayor";
+botonMayor.addEventListener('click', ()=> {
+    postEvent("evaluarRespuesta", {input: true, timer: timer, paisinicial: paisinicial, labelpaisinicial: labelpaisinicial, pais2: pais2, labelpais2: labelpais2, dato: dato, valorinicial: valorinicial, }, evaluarResultado);
 });
 
-botonMenor.addEventListener('click', function() {
-input = "menor"
+botonMenor.addEventListener('click', ()=> {
+    postEvent("evaluarRespuesta", {input: true, timer: timer, paisinicial: paisinicial, labelpaisinicial: labelpaisinicial, pais2: pais2, labelpais2: labelpais2, dato: dato, valorinicial: valorinicial, }, evaluarResultado);
 });
 
-
-obtenerPaises();
 
 
