@@ -1,2 +1,12 @@
+frontend/mayoromenor/mainjs 
+seguir laburando con las funciones. chequear que pasa cuando clickeas los botones
+
+
 function enviarcategorias(data){
     trabahar con esto &
+
+
+
+
+frontend/pantalla4/mainjs
+está puesto para que el juego arranque con poblacion como categoria. sacarlo despues (o no)

@@ -144,34 +144,57 @@ for (let i = 0, valor = undefined; i < listadatosB.length; i++, valor = traer(pa
 return resultado;
 }
 
-export function mayoromenor(data){
-let timer;
-if (data.timer === undefined) timer = 0;
-else data.timer += 1;
-
-let pais2mayor;
-let pais2menor;
-let victoria;
-let input = data.input;
+export function iniciarMayorMenor(data){
+let timer = 0;
 
 let paisinicial;
 if (data.paisinicial === undefined) paisinicial = paisdiario();
 else paisinicial = data.paisinicial;
 
+if (data.pais2 === undefined){
+    let pais2 = paisinicial;
+    while (pais2 === paisinicial){
+    pais2 = paisrandom();
+    }    
+}
+
 let dato;
 if (data.dato === undefined || timer >= 5) dato = datorandom();
 else dato = data.dato;
 
-let valor = undefined;
-while (valor === undefined){
-if (typeof(traer(paisinicial,dato))=== "number") valor = traer(paisinicial,dato);
+let valorinicial = undefined;
+while (valorinicial === undefined){
+if (typeof(traer(paisinicial,dato))=== "number") valorinicial = traer(paisinicial,dato);
 else dato = datorandom();
 }
 
-let pais2 = paisinicial;
-while (pais2 === paisinicial){
-pais2 = paisrandom();
+
+if (data.timer === undefined) timer = 0;
+else data.timer += 1;
+
+return {
+    paisinicial: paisinicial, 
+    labelpaisinicial: traerlabelpais(paisinicial),
+    pais2: pais2, 
+    labelpais2: traerlabelpais(pais2),
+    dato: dato,
+    valorinicial: valorinicial,
+    label: traerlabel(dato),
+    timer: timer
+        };
 }
+
+
+
+
+
+/*
+let pais2mayor;
+let pais2menor;
+let victoria;
+let input = data.input;
+
+
 
 if (comparar(paisinicial,pais2,dato) === true){
     //el de la derecha es mayor
@@ -189,17 +212,22 @@ else if (data.input === pais2menor) victoria = false;
 return {paisinicial: paisinicial, labelpaisinicial: traerlabelpais(paisinicial), pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, valor: valor,label: traerlabel(dato), victoria:victoria, timer: timer};
 }
 
-export function mayoromenorB(data){
+*/
+
+
+
+export function compararMayorMenor(data){
 //definir rapido las variables
 let victoria;
-let pais1 = data.pais1;
+let paisinicial = data.paisinicial;
+let paisiniciallabel = data.paisiniciallabel;
 let pais2 = data.pais2;
 let dato = data.dato;
 let label = data.label;
 let input = data.input; //si el pais derecho es mayor deberia ser positivo, si menor negativo
 
 //comparación entre los dos paises
-if (comparar(pais1,pais2,categoria) === true){
+if (comparar(paisinicial,pais2,dato) === true){
 //el de la derecha es mayor
 let pais2mayor = true;
 let pais2menor = false;
