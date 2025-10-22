@@ -148,9 +148,10 @@ export function iniciarMayorMenor(data){
 let timer = 0;
 
 let paisinicial;
-if (data.paisinicial === undefined) paisinicial = paisdiario();
-else paisinicial = data.paisinicial;
+if (data.paisInicial === undefined) paisinicial = paisdiario();
+else paisinicial = data.paisInicial;
 
+let pais2 = data.pais2;
 if (data.pais2 === undefined){
     let pais2 = paisinicial;
     while (pais2 === paisinicial){
@@ -222,7 +223,7 @@ let pais2mayor;
 let timer = data.timer;
 if (data.timer === undefined) timer = 0;
 let victoria;
-let paisinicial = data.paisinicial;
+let paisinicial = data.paisInicial;
 //let labelpaisinicial = data.labelpaisinicial;
 let pais2 = data.pais2;
 //let labelpais2 = data.labelpais2;
@@ -242,7 +243,7 @@ else victoria = false;
 
 if (victoria === true) {
 nuevoPaisInicial = pais2;
-nuevoValorInicial = traer(dato,pais2);
+nuevoValorInicial = traer(pais2,dato);
 
 while (nuevoPais2 === paisinicial || nuevoPais2 === pais2){
 nuevoPais2 = paisrandom();
@@ -250,7 +251,7 @@ nuevoPais2 = paisrandom();
 
 return {victoria:victoria, timer: timer, paisinicial: nuevoPaisInicial, labelpaisinicial: traerlabelpais(nuevoPaisInicial),valorinicial: nuevoValorInicial, pais2: nuevoPais2, labelpais2: traerlabelpais(nuevoPais2)}
 }
-else return {victoria: victoria, timer: timer, valorPais2: traer(dato,pais2)}
+else return {victoria: victoria, timer: timer, valorPais2: traer(pais2,dato)}
 }
 
 export function recibirInputBloques(data){
@@ -367,7 +368,7 @@ export function recibirInputBloques(data){
     }
     
 
-export function enviarcategorias(data){
+export function enviarCategorias(data){
 let opcionescategorias = [];
 let dato;
 let label;

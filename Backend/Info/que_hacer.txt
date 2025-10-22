@@ -1,10 +1,14 @@
 frontend/mayoromenor/mainjs 
 las funnciones estan hechas pero la logica se ve re mal
-por alguna razon el server no se conecta. investifgar
+
+por alguna razon el server no se conecta. investigar. PUEDE SER QUE SEA ALGO DEL ORDEN, probar cargar primer HTML y despues back o viceversa
 
 
-function enviarcategorias(data){
-    trabahar con esto &
+
+
+
+
+
 
 
 

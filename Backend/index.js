@@ -1,10 +1,11 @@
 import fs from "fs";
 import { subscribeGETEvent, subscribePOSTEvent, startServer } from "soquetic";
-import { traer, contienedato, comparar, paisrandom, paisdiario, paisdiariofront, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats, elegirpista, iniciarMayorMenor, compararMayorMenor} from "./Source/funciones.js";
+import { traer, contienedato, comparar, paisrandom, paisdiario, paisdiariofront, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats, elegirpista, iniciarMayorMenor, compararMayorMenor, enviarCategorias} from "./Source/funciones.js";
 import { listadatos, listapaises, listadias, listalabels, listalabelsPaises} from "./Source/listas.js";
 
 //PANTALLA 4 (higher or lower)
 subscribePOSTEvent("iniciarMayorMenor",iniciarMayorMenor);
+subscribePOSTEvent("obtenerCategorias", enviarCategorias);
 subscribePOSTEvent("evaluarRespuesta",compararMayorMenor);
 //subscribeGETEvent("obtenerPaisDiario",paisdiariofront);
 
