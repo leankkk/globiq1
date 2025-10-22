@@ -366,20 +366,20 @@ export function recibirInputBloques(data){
     return {victoria:victoria,respuesta:respuesta,/*listadescartados:listadescartados,*/pais:paisobjetivo,intentos:intentos+1,listaposibles:listaposibles};
     }
     
-        /*
+
 export function enviarcategorias(data){
-    let opcionescategorias = [];
+let opcionescategorias = [];
 let dato;
 let label;
-    if (data.pais === undefined){
-dato = 
-opcionescategorias.push({})
+let pais = data.pais;
+if (data.cantidad === undefined) data.cantidad = 5;
 
-return opcionescategorias;
-
+while (opcionescategorias.length < data.cantidad){
+dato = datorandom();
+if (traer(dato,pais) !== undefined) opcionescategorias.push({dato: dato, label: traerlabel(dato)})
 }
-}*/
-
+return opcionescategorias;
+}
 
 
 export function cuentaexiste(nombre){
