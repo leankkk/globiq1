@@ -1,82 +1,14 @@
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f0f0f0;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.rectangulo {
-  width: 1160px;
-  min-height: 324px;
-  background-color: #d9d9d9;
-  border-radius: 30px;
-  padding: 40px 60px;
-  font-size: 80px;
-  font-weight: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  user-select: none;
-  position: relative;
-}
-
-.dropzone {
-  display: inline-block;
-  min-width: 250px;
-  height: 100px;
-  border-bottom: 4px solid #333;
-  margin: 0 10px;
-  vertical-align: bottom;
-  cursor: pointer;
-  background-color: #fefefe;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 100px;
-  color: #555;
-  transition: background-color 0.3s ease;
-}
-
-.dropzone.dragover {
-  background-color: #a0c8ff;
-  border-color: #357ABD;
-  color: #000;
-}
-
-.draggable {
-  display: inline-block;
-  background-color: #4a90e2;
-  color: white;
-  border-radius: 12px;
-  padding: 15px 30px;
-  font-size: 40px;
-  cursor: grab;
-  user-select: none;
-  margin: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.draggable:active {
-  cursor: grabbing;
-}
-
-.contenedor-bloques {
-  margin-top: 50px;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1200px;
-}
-
 .mapa {
-  margin-top: 50px;
-  width: 1160px;
-  max-width: 100%;
+  width: 100vw;
+  height: 108vh;
+}
+
+.mapa svg{
+  width: 100%;
+  height: 100%;
+}
+
+.land:hover {
+  cursor: pointer;
+  pointer-events: all;
 }
