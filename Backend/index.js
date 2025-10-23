@@ -5,7 +5,7 @@ import { listadatos, listapaises, listadias, listalabels, listalabelsPaises} fro
 
 //PANTALLA 4 (higher or lower)
 subscribePOSTEvent("iniciarMayorMenor",iniciarMayorMenor);
-subscribePOSTEvent("obtenerCategorias", enviarCategorias);
+subscribePOSTEvent("obtenerCategorias",enviarCategorias);
 subscribePOSTEvent("evaluarRespuesta",compararMayorMenor);
 //subscribeGETEvent("obtenerPaisDiario",paisdiariofront);
 

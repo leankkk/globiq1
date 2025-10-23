@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const data = {
+    let data = {
       nombre: usuario,
       contraseña: password1
     };

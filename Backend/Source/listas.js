@@ -2595,7 +2595,7 @@ export let listalabelsPaises = [
   "Finlandia",
   "Francia",
   "Gabón",
-  "Gambia, La",
+  "Gambia",
   "Georgia",
   "Alemania",
   "Ghana",

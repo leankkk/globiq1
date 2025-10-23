@@ -31,7 +31,7 @@ export function paisdiariofront() {
     let diferencia = (new Date) - (new Date("2025-01-01"));
     diferencia = Math.floor(diferencia / 86400000);
     if (diferencia >= listapaises.length) diferencia -= listapaises.length;
-    return {pais:listapaises[listadias[diferencia]],label:listapaises[listadias[diferencia]]};  
+    return {pais:listapaises[listadias[diferencia]],label:listalabelsPaises[listadias[diferencia]]};  
     }
  
 
@@ -373,11 +373,12 @@ let opcionescategorias = [];
 let dato;
 let label;
 let pais = data.pais;
+let cantidad = data.cantidad;
 if (data.cantidad === undefined) data.cantidad = 5;
 
-while (opcionescategorias.length < data.cantidad){
+while (opcionescategorias.length < cantidad){
 dato = datorandom();
-if (traer(dato,pais) !== undefined) opcionescategorias.push({dato: dato, label: traerlabel(dato)})
+if (traer(pais,dato) !== undefined) opcionescategorias.push({dato: dato, label: traerlabel(dato)})
 }
 return opcionescategorias;
 }
