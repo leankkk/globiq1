@@ -12,3 +12,20 @@
   cursor: pointer;
   pointer-events: all;
 }
+
+
+.rectangulo{
+  width: 1160px;
+height: 324px;
+flex-shrink: 0;
+border-radius: 0 0 25px 25px;
+border: 1px solid #000;
+background: #FFF;
+position: absolute;
+width: 1160;
+height: 324;
+top: 49px;
+left: 428px;
+
+}
+
