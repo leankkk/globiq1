@@ -20,5 +20,4 @@ subscribePOSTEvent("iniciarSesion",revisarlogin);
 subscribePOSTEvent("crearCuenta",crearcuenta);
 
 
-
 startServer();

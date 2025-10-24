@@ -110,10 +110,10 @@ export function contienedato(pais,dato) {
 
 export function comparar(pais1,pais2,dato){
     if (traer(pais1,dato) > traer(pais2,dato)){
-        return false;
+        return true;
     }
     else {
-        return true;
+        return false;
     }
 }
 
@@ -147,25 +147,23 @@ return resultado;
 export function iniciarMayorMenor(data){
 let timer = 0;
 
-let paisinicial;
-if (data.paisInicial === undefined) paisinicial = paisdiario();
-else paisinicial = data.paisInicial;
+let paisInicial;
+if (data.paisInicial === undefined) paisInicial = paisdiario();
+else paisInicial = data.paisInicial;
 
-let pais2 = data.pais2;
-if (data.pais2 === undefined){
-    let pais2 = paisinicial;
-    while (pais2 === paisinicial){
+
+    let pais2 = paisInicial;
+    while (pais2 === paisInicial){
     pais2 = paisrandom();
     }    
-}
 
 let dato;
 if (data.dato === undefined || timer >= 5) dato = datorandom();
 else dato = data.dato;
 
-let valorinicial = undefined;
-while (valorinicial === undefined){
-if (typeof(traer(paisinicial,dato))=== "number") valorinicial = traer(paisinicial,dato);
+let valorInicial = undefined;
+while (valorInicial === undefined){
+if (typeof(traer(paisInicial,dato))=== "number") valorInicial = traer(paisInicial,dato);
 else dato = datorandom();
 }
 
@@ -174,12 +172,12 @@ if (data.timer === undefined) timer = 0;
 else data.timer += 1;
 
 return {
-    paisinicial: paisinicial, 
-    labelpaisinicial: traerlabelpais(paisinicial),
+    paisInicial: paisInicial, 
+    labelpaisInicial: traerlabelpais(paisInicial),
     pais2: pais2, 
     labelpais2: traerlabelpais(pais2),
     dato: dato,
-    valorinicial: valorinicial,
+    valorInicial: valorInicial,
     label: traerlabel(dato),
     timer: timer
         };
@@ -197,7 +195,7 @@ let input = data.input;
 
 
 
-if (comparar(paisinicial,pais2,dato) === true){
+if (comparar(paisInicial,pais2,dato) === true){
     //el de la derecha es mayor
     pais2mayor = true;
     pais2menor = false;
@@ -210,7 +208,7 @@ if (comparar(paisinicial,pais2,dato) === true){
 if (data.input === pais2mayor) victoria = true;
 else if (data.input === pais2menor) victoria = false;
 
-return {paisinicial: paisinicial, labelpaisinicial: traerlabelpais(paisinicial), pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, valor: valor,label: traerlabel(dato), victoria:victoria, timer: timer};
+return {paisInicial: paisInicial, labelpaisInicial: traerlabelpais(paisInicial), pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, valor: valor,label: traerlabel(dato), victoria:victoria, timer: timer};
 }
 
 */
@@ -219,37 +217,30 @@ return {paisinicial: paisinicial, labelpaisinicial: traerlabelpais(paisinicial),
 
 export function compararMayorMenor(data){
 //definir rapido las variables
-let pais2mayor;
 let timer = data.timer;
-if (data.timer === undefined) timer = 0;
+if (data.timer === undefined || data.timer === null) timer = 0;
 let victoria;
-let paisinicial = data.paisInicial;
-//let labelpaisinicial = data.labelpaisinicial;
+let valorInicial = data.valorInicial;
+let paisInicial = data.paisInicial;
+//let labelpaisInicial = data.labelpaisInicial;
 let pais2 = data.pais2;
 //let labelpais2 = data.labelpais2;
 let dato = data.dato;
-//let valorinicial = data.valorinicial;
-let label = data.label;
+//let valorInicial = data.valorInicial;
 let input = data.input; //si el pais derecho es mayor deberia ser positivo, si menor negativo
 
 
 
 //comparación entre los dos paises
-if (comparar(paisinicial,pais2,dato) === true) pais2mayor = true;
-else pais2mayor = false;
-
-if (input === pais2mayor) victoria = true;
-else victoria = false;
+victoria = (input === comparar(paisInicial,pais2,dato));
 
 if (victoria === true) {
-nuevoPaisInicial = pais2;
-nuevoValorInicial = traer(pais2,dato);
+paisInicial = pais2;
+valorInicial = traer(pais2,dato);
+timer++;
+for (pais2 = paisInicial; pais2 === paisInicial; pais2 = paisrandom());
 
-while (nuevoPais2 === paisinicial || nuevoPais2 === pais2){
-nuevoPais2 = paisrandom();
-} 
-
-return {victoria:victoria, timer: timer, paisinicial: nuevoPaisInicial, labelpaisinicial: traerlabelpais(nuevoPaisInicial),valorinicial: nuevoValorInicial, pais2: nuevoPais2, labelpais2: traerlabelpais(nuevoPais2)}
+return {victoria:victoria, timer: timer, paisInicial: paisInicial, labelpaisInicial: traerlabelpais(paisInicial),valorInicial: valorInicial, pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, label: traerlabel(dato)}
 }
 else return {victoria: victoria, timer: timer, valorPais2: traer(pais2,dato)}
 }
