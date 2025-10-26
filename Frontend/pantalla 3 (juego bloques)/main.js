@@ -1,318 +1,197 @@
+c// ======================
+// CONEXIÓN CON BACKEND
+// ======================
+
+// Llama a SoqueTIC
 connect2Server();
 
-function obtenerCodigoISO(nombre) {
-    const mapa = {
-      Afghanistan: "AF",
-      Albania: "AL",
-      Algeria: "DZ",
-      Andorra: "AD",
-      Angola: "AO",
-      "Antigua and Barbuda": "AG",
-      Argentina: "AR",
-      Armenia: "AM",
-      Australia: "AU",
-      Austria: "AT",
-      Azerbaijan: "AZ",
-      Bahamas: "BS",
-      Bahrain: "BH",
-      Bangladesh: "BD",
-      Barbados: "BB",
-      Belarus: "BY",
-      Belgium: "BE",
-      Belize: "BZ",
-      Benin: "BJ",
-      Bhutan: "BT",
-      Bolivia: "BO",
-      "Bosnia and Herzegovina": "BA",
-      Botswana: "BW",
-      Brazil: "BR",
-      Brunei: "BN",
-      Bulgaria: "BG",
-      "Burkina Faso": "BF",
-      Burundi: "BI",
-      Cambodia: "KH",
-      Cameroon: "CM",
-      Canada: "CA",
-      "Cape Verde": "CV",
-      "Central African Republic": "CF",
-      Chad: "TD",
-      Chile: "CL",
-      China: "CN",
-      Colombia: "CO",
-      Comoros: "KM",
-      "Democratic Republic of the Congo": "CD",
-      "Republic of the Congo": "CG",
-      "Costa Rica": "CR",
-      Croatia: "HR",
-      Cuba: "CU",
-      Cyprus: "CY",
-      "Czech Republic": "CZ",
-      Denmark: "DK",
-      Djibouti: "DJ",
-      Dominica: "DM",
-      "Dominican Republic": "DO",
-      Ecuador: "EC",
-      Egypt: "EG",
-      "El Salvador": "SV",
-      "Equatorial Guinea": "GQ",
-      Eritrea: "ER",
-      Estonia: "EE",
-      Eswatini: "SZ",
-      Ethiopia: "ET",
-      Fiji: "FJ",
-      Finland: "FI",
-      France: "FR",
-      Gabon: "GA",
-      Gambia: "GM",
-      Georgia: "GE",
-      Germany: "DE",
-      Ghana: "GH",
-      Greece: "GR",
-      Grenada: "GD",
-      Guatemala: "GT",
-      Guinea: "GN",
-      "Guinea-Bissau": "GW",
-      Guyana: "GY",
-      Haiti: "HT",
-      Honduras: "HN",
-      Hungary: "HU",
-      Iceland: "IS",
-      India: "IN",
-      Indonesia: "ID",
-      Iran: "IR",
-      Iraq: "IQ",
-      Ireland: "IE",
-      Israel: "IL",
-      Italy: "IT",
-      Jamaica: "JM",
-      Japan: "JP",
-      Jordan: "JO",
-      Kazakhstan: "KZ",
-      Kenya: "KE",
-      Kiribati: "KI",
-      "North Korea": "KP",
-      "South Korea": "KR",
-      Kuwait: "KW",
-      Kyrgyzstan: "KG",
-      Laos: "LA",
-      Latvia: "LV",
-      Lebanon: "LB",
-      Lesotho: "LS",
-      Liberia: "LR",
-      Libya: "LY",
-      Liechtenstein: "LI",
-      Lithuania: "LT",
-      Luxembourg: "LU",
-      Madagascar: "MG",
-      Malawi: "MW",
-      Malaysia: "MY",
-      Maldives: "MV",
-      Mali: "ML",
-      Malta: "MT",
-      "Marshall Islands": "MH",
-      Mauritania: "MR",
-      Mauritius: "MU",
-      Mexico: "MX",
-      Micronesia: "FM",
-      Moldova: "MD",
-      Monaco: "MC",
-      Mongolia: "MN",
-      Montenegro: "ME",
-      Morocco: "MA",
-      Mozambique: "MZ",
-      Myanmar: "MM",
-      Namibia: "NA",
-      Nauru: "NR",
-      Nepal: "NP",
-      Netherlands: "NL",
-      "New Zealand": "NZ",
-      Nicaragua: "NI",
-      Niger: "NE",
-      Nigeria: "NG",
-      "North Macedonia": "MK",
-      Norway: "NO",
-      Oman: "OM",
-      Pakistan: "PK",
-      Palau: "PW",
-      Panama: "PA",
-      "Papua New Guinea": "PG",
-      Paraguay: "PY",
-      Peru: "PE",
-      Philippines: "PH",
-      Poland: "PL",
-      Portugal: "PT",
-      Qatar: "QA",
-      Romania: "RO",
-      Russia: "RU",
-      Rwanda: "RW",
-      "Saint Kitts and Nevis": "KN",
-      "Saint Lucia": "LC",
-      "Saint Vincent and the Grenadines": "VC",
-      Samoa: "WS",
-      "San Marino": "SM",
-      "Sao Tome and Principe": "ST",
-      "Saudi Arabia": "SA",
-      Senegal: "SN",
-      Serbia: "RS",
-      Seychelles: "SC",
-      "Sierra Leone": "SL",
-      Singapore: "SG",
-      Slovakia: "SK",
-      Slovenia: "SI",
-      "Solomon Islands": "SB",
-      Somalia: "SO",
-      "South Africa": "ZA",
-      Spain: "ES",
-      "Sri Lanka": "LK",
-      Sudan: "SD",
-      Suriname: "SR",
-      Sweden: "SE",
-      Switzerland: "CH",
-      Syria: "SY",
-      Taiwan: "TW",
-      Tajikistan: "TJ",
-      Tanzania: "TZ",
-      Thailand: "TH",
-      Togo: "TG",
-      Tonga: "TO",
-      "Trinidad and Tobago": "TT",
-      Tunisia: "TN",
-      Turkey: "TR",
-      Turkmenistan: "TM",
-      Tuvalu: "TV",
-      Uganda: "UG",
-      Ukraine: "UA",
-      "United Arab Emirates": "AE",
-      "United Kingdom": "GB",
-      "United States": "US",
-      Uruguay: "UY",
-      Uzbekistan: "UZ",
-      Vanuatu: "VU",
-      Venezuela: "VE",
-      Vietnam: "VN",
-      Yemen: "YE",
-      Zambia: "ZM",
-      Zimbabwe: "ZW"
+/* main.js
+  - Asume que conectaste soqueTIC con connect2Server()
+  - Asume que en el HTML tu SVG tiene <path id="AR" class="land" title="Argentina"> ...
+*/
+
+// -------------------- Conexión SoqueTIC --------------------
+if (typeof connect2Server === 'function') {
+  // inicializa la conexión (puerto default 3000)
+  try { connect2Server(); } catch (e) { console.warn("connect2Server error:", e); }
+} else {
+  console.warn("connect2Server no está definida. Asegurate de incluir soquetic-client.js");
+}
+
+// Helper: mayúsculas en IDs
+function idFromCode(code){
+  if(!code) return null;
+  return String(code).toUpperCase();
+}
+
+// -------------------- Drag & Drop --------------------
+document.querySelectorAll('.bloque').forEach(b => {
+  b.addEventListener('dragstart', (e) => {
+    // guardamos tipo y valor en JSON para poder recuperar
+    const payload = {
+      kind: b.dataset.kind || 'text',
+      value: b.dataset.value || b.textContent.trim(),
+      text: b.textContent.trim()
     };
-  
-    return mapa[nombre] || null;
-  }
+    e.dataTransfer.setData('application/json', JSON.stringify(payload));
+    b.classList.add('dragging');
+  });
+  b.addEventListener('dragend', (e) => b.classList.remove('dragging'));
+});
 
-  
-  let datosPaises = {};
+// Permitimos drops en las tres dropzones
+const dropCategoria = document.getElementById('dropCategoria');
+const dropComparador = document.getElementById('dropComparador');
+const dropValor = document.getElementById('dropValor');
+const dropzones = [dropCategoria, dropComparador, dropValor];
 
-fetch("factbook_clean.json")
-  .then((res) => res.json())
-  .then((data) => {
-    datosPaises = data;
-    console.log("Datos cargados correctamente");
-  })
-  .catch((err) => console.error("Error cargando JSON:", err));
+dropzones.forEach(zone => {
+  zone.addEventListener('dragover', (e) => e.preventDefault());
+  zone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    let raw = e.dataTransfer.getData('application/json') || e.dataTransfer.getData('text/plain');
+    let payload;
+    try { payload = JSON.parse(raw); } catch (err) { payload = { text: raw, kind: 'text', value: raw }; }
 
-
-const dropArea = document.getElementById("drop-area");
-let bloquesSeleccionados = []; 
-
-document.querySelectorAll(".bloque").forEach((bloque) => {
-  bloque.addEventListener("dragstart", (e) => {
-    e.dataTransfer.setData("text", JSON.stringify(bloque.dataset));
+    // crear bloque visual dentro de la dropzone
+    const nb = document.createElement('div');
+    nb.className = 'bloque';
+    nb.textContent = payload.text || payload.value;
+    nb.dataset.kind = payload.kind;
+    nb.dataset.value = payload.value;
+    // permitimos remover bloques con doble click
+    nb.addEventListener('dblclick', () => nb.remove());
+    zone.innerHTML = ''; // para que cada zona solo tenga 1 bloque (como el mock)
+    zone.appendChild(nb);
   });
 });
 
-dropArea.addEventListener("dragover", (e) => e.preventDefault());
+// -------------------- Construcción del objeto input --------------------
+// Esta función lee las 3 dropzones y arma el objeto que espera tu backend
+function construirInputDesdeDropzones(){
+  const categoriaNode = dropCategoria.querySelector('.bloque');
+  const comparadorNode = dropComparador.querySelector('.bloque');
+  const valorNode = dropValor.querySelector('.bloque');
 
-dropArea.addEventListener("drop", (e) => {
-  e.preventDefault();
-  const data = JSON.parse(e.dataTransfer.getData("text"));
-  bloquesSeleccionados.push(data);
-  dropArea.innerHTML += `<div class="dropped">${Object.values(data)[0]}</div>`;
+  const categoria = categoriaNode ? (categoriaNode.dataset.value || categoriaNode.textContent.trim()) : undefined;
+  const comparacion = comparadorNode ? (comparadorNode.dataset.value || comparadorNode.textContent.trim().toLowerCase()) : undefined;
+  let valor = valorNode ? (valorNode.dataset.value || valorNode.textContent.trim()) : undefined;
 
-  if (bloquesSeleccionados.length === 3) {
-    procesarRegla();
+  // intentar parsear valor numérico si parece número
+  if (valor !== undefined) {
+    const n = Number(String(valor).replace(/[^\d\.\-]/g,''));
+    if (!Number.isNaN(n)) valor = n;
+  }
+
+  // retornamos el objeto con la forma que tu backend usa: {valor, comparacion, categoria, categorialabel}
+  return {
+    valor: valor,
+    comparacion: comparacion, // 'mayor' o 'menor' idealmente
+    categoria: categoria,     // path tipo "economy.gdp.value"
+    categorialabel: categoriaNode ? categoriaNode.textContent.trim() : undefined
+  };
+}
+
+// -------------------- Botón Intentar --------------------
+const btnIntentar = document.getElementById('btnIntentar');
+btnIntentar.addEventListener('click', () => {
+  const input = construirInputDesdeDropzones();
+  // Pedimos también el pais objetivo que el frontend debe conocer (si lo tenés)
+  const paisInput = document.getElementById('paisInput').value.trim().toLowerCase();
+
+  // Preparamos payload para el backend según tu spec
+  const payload = {
+    input: input,
+    pais: paisInput || undefined,
+    intentos: 0
+  };
+
+  // Llamada SoqueTIC
+  if (typeof postEvent === 'function') {
+    postEvent("recibirInputBloques", payload, (data) => {
+      console.log("Respuesta backend recibirInputBloques:", data);
+      // Datos que tu backend devuelve (según tu código): listaposibles (array), listadescartados (array)
+      // Algunos endpoints devuelven listadescartados no enviándolos (comentado en tu backend), así que hacemos defensivo
+      const posibles = (data.listaposibles || []).map(p => (p.pais || p).toString().toUpperCase());
+      const descartados = (data.listadescartados || []).map(p => (p.pais || p).toString().toUpperCase());
+
+      // Si backend no devuelve listadescartados pero sí listaposibles, inferimos descartados = todos - posibles
+      if ((!data.listadescartados || data.listadescartados.length === 0) && posibles.length > 0) {
+        // todos los ids presentes en el SVG que tengan class land
+        const all = Array.from(document.querySelectorAll('.mapa .land')).map(el => el.id.toUpperCase()).filter(Boolean);
+        const setPos = new Set(posibles);
+        const inferredDesc = all.filter(id => !setPos.has(id));
+        pintarMapa(posibles, inferredDesc);
+      } else {
+        pintarMapa(posibles, descartados);
+      }
+
+      // si hay victoria, tu backend lo devuelve en 'victoria' según otra función; lo mostramos
+      if (data.victoria === true) {
+        alert("¡Victoria! Encontraste el país objetivo.");
+      } else if (data.respuesta) {
+        // si tu backend devuelve respuesta 'Sí'/'No', lo mostramos pequeño
+        console.log("Respuesta:", data.respuesta);
+      }
+    });
+  } else {
+    console.warn("postEvent no está definido: soquetic-client.js no cargado.");
   }
 });
 
+// -------------------- Pintado del SVG --------------------
+function pintarMapa(posibles = [], descartados = []) {
+  // normalizamos listas a mayúsculas
+  const setPosibles = new Set((posibles || []).map(s => s.toString().toUpperCase()));
+  const setDesc = new Set((descartados || []).map(s => s.toString().toUpperCase()));
 
-function procesarRegla() {
-  const atributo = bloquesSeleccionados.find((b) => b.atributo)?.atributo;
-  const operador = bloquesSeleccionados.find((b) => b.operador)?.operador;
-  const valor = parseFloat(bloquesSeleccionados.find((b) => b.valor)?.valor);
+  // Primero limpiamos clases
+  document.querySelectorAll('.mapa .land').forEach(p => {
+    p.classList.remove('posible','descartado');
+    // restauramos estilo base (si el svg ya tenía inline style no lo tocamos más que quitar clases)
+    // no hacemos style.fill directo para no sobreescribir estilos que tengas en tu svg
+  });
 
-  if (!atributo || !operador || isNaN(valor)) {
-    alert("Falta información en la regla.");
-    return;
-  }
-
-  evaluarCondicion(atributo, operador, valor);
-  bloquesSeleccionados = []; 
-  dropArea.innerHTML = "Soltá acá los bloques";
+  // Aplicamos posibles y descartados (si existe el elemento)
+  setPosibles.forEach(code => {
+    const el = document.getElementById(code);
+    if (el) el.classList.add('posible');
+  });
+  setDesc.forEach(code => {
+    const el = document.getElementById(code);
+    if (el) el.classList.add('descartado');
+  });
 }
 
-
-function evaluarCondicion(atributo, operador, valor) {
-  const svgDoc = document.getElementById("mapaSVG").contentDocument;
-  if (!svgDoc) {
-    console.error("El mapa SVG no está cargado todavía.");
-    return;
-  }
-
-  for (let codigo in datosPaises) {
-    const pais = datosPaises[codigo];
-    let dato = obtenerDatoPais(pais, atributo);
-    if (dato == null) continue;
-
-    let cumple = false;
-    if (operador === "mayor") cumple = dato > valor;
-    if (operador === "menor") cumple = dato < valor;
-    if (operador === "igual") cumple = dato === valor;
-
-    pintarPais(svgDoc, codigo, cumple);
-  }
-}
-
-
-
-function obtenerDatoPais(pais, atributo) {
-  switch (atributo) {
-    case "densidad":
-      return pais.population?.density || pais.density || 0;
-    case "pib":
-      return pais.economy?.gdp?.value || pais.pib || 0;
-    case "superficie":
-      return pais.area?.total?.value || pais.superficie || 0;
-    default:
-      return null;
-  }
-}
-
-
-function pintarPais(svgDoc, codigoISO, cumple) {
-  const pais = svgDoc.getElementById(codigoISO.toUpperCase());
-  if (!pais) return;
-
-  if (cumple) pais.style.fill = "red";
-  else pais.style.fill = "#999"; 
-}
-
-
-document.getElementById("mapaSVG").addEventListener("load", () => {
-  const svgDoc = document.getElementById("mapaSVG").contentDocument;
-  if (!svgDoc) return;
-
-  
-  svgDoc.querySelectorAll("path").forEach((p) => (p.style.fill = "#ccc"));
+// -------------------- Selección de país manual (input + click en SVG) --------------------
+// click en SVG: escribe el input y aplica un highlight temporal
+document.querySelectorAll('.mapa .land').forEach(p => {
+  p.addEventListener('click', () => {
+    const title = p.getAttribute('title') || p.getAttribute('name') || p.id;
+    const input = document.getElementById('paisInput');
+    if (input) input.value = title;
+    // marcar visualmente (clase CSS específica)
+    document.querySelectorAll('.mapa .land').forEach(x => x.classList.remove('selected'));
+    p.classList.add('selected');
+    // opcional: si querés que seleccionar país lo envie al servidor como guess, podés llamar a otra función aquí
+  });
 });
 
+// Botón lupa/flag: buscar por nombre de país escrito
+document.getElementById('btnSelectCountry').addEventListener('click', () => {
+  const q = document.getElementById('paisInput').value.trim().toLowerCase();
+  if (!q) return alert("Escribí el nombre del país (ej: Argentina)");
 
+  let found = false;
+  document.querySelectorAll('.mapa .land').forEach(p => {
+    const title = (p.getAttribute('title') || '').toLowerCase();
+    if (title === q) {
+      p.click();
+      found = true;
+    }
+  });
 
-
-
-
-
-
-
-
-
-
-
-  
+  if (!found) {
+    alert("País no encontrado en el mapa (revisá exactitud del nombre).");
+  }
+});
