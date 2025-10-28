@@ -31,7 +31,7 @@ boton.addEventListener('click', () => {
     popup.style.display = "flex";
   } else {
     // pedimos pista al backend
-    postEvent("obtenerPista", { pais: paisDiario }, mostrarPista);
+    postEvent("obtenerPista", {}, mostrarPista);
   }
 
   input.value = ""; // limpia input después de cada intento

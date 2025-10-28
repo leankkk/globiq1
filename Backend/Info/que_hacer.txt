@@ -2,9 +2,16 @@ frontend/mayoromenor/mainjs
 agregar opcion de cambiar categoría.
 mostrar respuesta cuando perdés.
 
+STATS
 
+
+MAYORMENOR: arreglar para q paisinicial (en el inicio de todo, pais diario) no tire undefinded
 
 ahora el server se conecta pero crashea dsp de un tiempo y aparte el back no responde a los postevents. preguntar
 INVESTIGAR ESTO. PREGUNTARLE A SHULI. IVO NO PUDO ARREGLARLO
 
 agregar funcion de datos quemados a modo mayor o menor. revisar si los otros modos tmb tienen
+
+
+poner numeros mas lindos (M para millones, etc.)
+

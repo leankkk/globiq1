@@ -130,29 +130,38 @@ export function comparar(pais1,pais2,dato){
 }
 
 export function elegirpista(data){
+    console.log(data)
     let pais = data.pais;
     let dato = data.dato;
+    let valor;
     let resultado = undefined;
-if (data.dato === undefined){
-    dato = datorandom();
-}
-if (data.pais === undefined){
-    pais = paisdiario();
-}
-for (let i = 0; i < quemados.length; i++){    
+    if (data.dato === undefined){
+        dato = datorandom();
+    }
+    if (data.pais === undefined){
+        pais = paisdiario();
+    }
+    console.log("1er paso hecho")
+
+/*for (let i = 0; i < quemados.length; i++){    
 if (quemados[i].dato === dato){
 dato = datorandom();
 i = 0;
 }
-}
-for (let i = 0, valor = undefined; i < listadatosB.length; i++, valor = traer(pais,dato)){
-    if (typeof(valor) !== "string" && !Array.isArray(valor) && valor != undefined && typeof(valor) !== "object"){
+}*/
+for (let i = 0; i < listadatosB.length; i++){
+    console.log(i);
+    valor = traer(pais,dato);
+    console.log(vaalor)
+    if (typeof valor === "number"){
     if (valor === true) valor = "Verdadero";
     if (valor === false) valor = "Falso";
-        resultado = {valor:valor,label:traerlabel(dato),pais:pais,labelpais:traerlabelpais(pais),path:dato};
+        resultado = {valor:valor,label:traerlabel(dato),pais:pais,labelpais:traerlabelpais(pais),dato:dato};
     break;
-} else dato = datorandom();
+} 
+else {console.log(dato); dato = datorandom();}
 }
+console.log(resultado)
 return resultado;
 }
 
@@ -165,17 +174,16 @@ let paisInicial;
 if (data.paisInicial === undefined) paisInicial = paisdiario();
 else paisInicial = data.paisInicial;
 
-
     let pais2 = paisInicial;
     while (pais2 === paisInicial){
     pais2 = paisrandom();
     }    
 
 let dato;
-if (data.dato === undefined || timer >= 5) dato = datorandomnum();
+if (typeof data.dato !== "string" || timer >= 5) dato = datorandomnum();
 else dato = data.dato;
 
-let valorInicial = undefined;
+let valorInicial = traer(paisInicial,dato);
 
 
 if (data.timer === undefined) timer = 0;
@@ -236,10 +244,9 @@ let paisInicial = data.paisInicial;
 let pais2 = data.pais2;
 //let labelpais2 = data.labelpais2;
 let dato = data.dato;
-//let valorInicial = data.valorInicial;
 let input = data.input; //si el pais derecho es mayor deberia ser positivo, si menor negativo
 
-if (timer > 5) dato = datorandom();
+
 
 
 //comparación entre los dos paises
@@ -248,11 +255,14 @@ victoria = (input === comparar(paisInicial,pais2,dato));
 if (victoria === true) {
 paisInicial = pais2;
 
-while (valorInicial === undefined) {
-valorInicial = traer(pais2,dato);
-if (valorInicial === undefined) pais2 = paisrandom();
+valorInicial = traer(paisInicial, dato);
+if (valorInicial === undefined) {
+  paisInicial = paisrandom();
+  valorInicial = traer(paisInicial, dato);
 }
+
 timer++;
+if (timer % 5 === 0) dato = datorandom();
 for (pais2 = paisInicial; pais2 === paisInicial; pais2 = paisrandom());
 
 return {victoria:victoria, timer: timer, paisInicial: paisInicial, labelpaisInicial: traerlabelpais(paisInicial),valorInicial: valorInicial, pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, label: traerlabel(dato)}
@@ -417,3 +427,8 @@ export function actualizarstats(data){
 cuentas[data.nombre].stats = data.stats;
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2));
 } 
+
+export function enviarStats(data){
+let database = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
+return database[data.nombre];
+}

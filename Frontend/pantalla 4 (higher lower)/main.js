@@ -5,9 +5,11 @@ let paisInicialDato = document.getElementById("paisInicialDato");
 let botonMayor = document.getElementById("btnMayor");
 let botonMenor = document.getElementById("btnMenor");
 
+let stats;
 let paisInicial;
 let labelpaisInicial;
 let labelpais2;
+let usuario = "global";
 let pais2;
 let dato;
 let valorInicial;
@@ -36,9 +38,11 @@ labelpaisInicial = data.labelpaisInicial;
   }
 
 
-function armarBloques(data){
-    //armar los bloques a partir de las categorias recibidas
+function getStats(data){
+ stats = data;
 }
+
+function guardarStats(){};
 
 function evaluarResultado(data){
 if (data.victoria) {
@@ -53,7 +57,9 @@ alert("Ganaste. Racha: "+data.timer);
     categoriaNombre.innerText = data.label;
 }
 else {
-alert("Perdiste. Puntaje: "+data.timer);
+mostrarPopUp(data.timer);
+getEvent("getStats",{nombre:usuario},getStats)
+postEvent("guardarStats",{nombre:usuario, stats: {mayormenor: {racha: timer}}},guardarStats);
 pais2Nombre.innerText = data.labelPais2 + ": "+data.valorPais2;
 postEvent("iniciarMayorMenor",{}, iniciarMayorMenor); 
 //se muestra undefined en el nombre de pais 2. eso es porque en el backend se reemplaza labelpais2 por el nuevo pais y el viejo se pierde. agregar forma de arreglarlo. vincular con sist. de quemados
@@ -86,16 +92,6 @@ function mostrarPopUp(puntaje) {
     modal.style.display = "block"; 
 }
 
-
-function evaluarResultado(data) {
-    if (data.victoria) {
-        alert("Ganaste. Racha: " + data.timer);
-      
-    } else {
-      
-        mostrarPopUp(data.timer);
-    }
-}
 
 
 span.onclick = function() {
