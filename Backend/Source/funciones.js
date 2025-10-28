@@ -152,7 +152,7 @@ i = 0;
 for (let i = 0; i < listadatosB.length; i++){
     console.log(i);
     valor = traer(pais,dato);
-    console.log(vaalor)
+    console.log(valor)
     if (typeof valor === "number"){
     if (valor === true) valor = "Verdadero";
     if (valor === false) valor = "Falso";
@@ -264,7 +264,7 @@ if (valorInicial === undefined) {
 }
 
 timer++;
-if (timer % 5 === 0) dato = datorandom();
+if (timer % 5 === 0) dato = datorandomnum();
 for (pais2 = paisInicial; pais2 === paisInicial; pais2 = paisrandom());
 
 return {victoria:victoria, timer: timer, paisInicial: paisInicial, labelpaisInicial: traerlabelpais(paisInicial),valorInicial: valorInicial, pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, label: traerlabel(dato)}
