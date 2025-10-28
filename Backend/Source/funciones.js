@@ -181,6 +181,8 @@ let valorInicial = undefined;
 if (data.timer === undefined) timer = 0;
 else data.timer += 1;
 
+
+
 return {
     paisInicial: paisInicial, 
     labelpaisInicial: traerlabelpais(paisInicial),

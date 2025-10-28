@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Modo Mayor o Menor</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="node_modules/flag-icon-css/css/flag-icon.min.css" />
 </head>
 <body>
     <header class="header">
@@ -17,8 +18,10 @@
             <div class="card paisIZQ">
                 <div class="card-header">PAIS</div>
                 <div class="card-content">
-                    <img src="" alt="Argentina" class="pais-img" />
-                    <h2 id="paisInicialNombre">ARGENTINA</h2>
+                  
+                    <h2 id="paisInicialNombre">
+                        <span class="flag-icon flag-icon-ar"></span> ARGENTINA
+                    </h2>
                     <p class="territorio" id="paisInicialDato">1000000</p>
                 </div>
             </div>
@@ -28,7 +31,9 @@
 
         <div class="ladoDerecho">
             <div class="card paisDERCHO">
-                <div class="card-header" id="pais2Nombre">PAIS</div>
+                <div class="card-header" id="pais2Nombre">
+                    <span class="flag-icon flag-icon-ru"></span> RUMANIA
+                </div>
                 <div class="selector">
                     <button id="btnMayor" class="boton">MAYOR</button>
                     <button id="btnMenor" class="boton2">MENOR</button>
@@ -36,23 +41,23 @@
             </div>
         </div>
 
-      
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p id="mensajeResultado">¡Has perdido! Tu puntaje es: 0</p>
-        <div class="botones">
-            <button id="btnJugar" class="btn-jugar">Jugar de nuevo</button>
-            <button id="btnPrincipal" class="btn-principal">Ir a la página principal</button>
+        
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="mensajeResultado">¡Has perdido! Tu puntaje es: 0</p>
+                <div class="botones">
+                    <button id="btnJugar" class="btn-jugar">Jugar de nuevo</button>
+                    <button id="btnPrincipal" class="btn-principal">Ir a la página principal</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-
     </main>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
+
