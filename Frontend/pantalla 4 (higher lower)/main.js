@@ -55,15 +55,14 @@ alert("Ganaste. Racha: "+data.timer);
 else {
 alert("Perdiste. Puntaje: "+data.timer);
 pais2Nombre.innerText = data.labelPais2 + ": "+data.valorPais2;
+postEvent("iniciarMayorMenor",{}, iniciarMayorMenor); 
 //se muestra undefined en el nombre de pais 2. eso es porque en el backend se reemplaza labelpais2 por el nuevo pais y el viejo se pierde. agregar forma de arreglarlo. vincular con sist. de quemados
 }
 
 }
 
 
-postEvent("iniciarMayorMenor",{dato: "people.population.total"}, iniciarMayorMenor); 
-//está puesto población como dato inical para testear. sacar despues
-//postEvent("obtenerCategorias",{pais: paisDiario, cantidad: 5}, armarBloques);
+postEvent("iniciarMayorMenor",{}, iniciarMayorMenor); 
 
 
 botonMayor.addEventListener("click", ()=> {

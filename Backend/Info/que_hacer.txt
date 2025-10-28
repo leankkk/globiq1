@@ -1,18 +1,10 @@
 frontend/mayoromenor/mainjs 
-las funnciones estan hechas pero la logica se ve re mal
-METER LA FUNCION DE INICIAR ADENTRO DE ESTABLECER PAIS DIARIO. HAY QUE ESPERAR A Q TERMINE LA PRIMERA PARA SEGUIR
+agregar opcion de cambiar categoría.
+mostrar respuesta cuando perdés.
+
+
 
 ahora el server se conecta pero crashea dsp de un tiempo y aparte el back no responde a los postevents. preguntar
 INVESTIGAR ESTO. PREGUNTARLE A SHULI. IVO NO PUDO ARREGLARLO
 
 agregar funcion de datos quemados a modo mayor o menor. revisar si los otros modos tmb tienen
-
-
-
-
-
-
-
-
-frontend/pantalla4/mainjs
-está puesto para que el juego arranque con poblacion como categoria. sacarlo despues (o no)

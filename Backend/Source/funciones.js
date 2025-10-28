@@ -99,6 +99,18 @@ export function traer(pais, dato, label) {
     return dato;
     }
 
+export function datorandomnum(){
+    let dato = truedatorandom();
+    let datolista = dato.split(".");
+    for (let i = 0; i < listadatosB.length; i++){ 
+    if (datolista[datolista.length-1] === "unit" || datolista[datolista.length-1] === "units" || datolista[datolista.length-1] === "note" || datolista[datolista.length-1] === "date" || typeof traer("argentina",dato) === "object" || typeof traer("argentina",dato) === "string") {
+        dato = truedatorandom();
+        datolista = dato.split(".");
+    } else break;   
+    }
+return dato;
+}
+
 export function contienedato(pais,dato) {
     if (traer(pais,dato) != undefined){
         return true;
@@ -144,6 +156,8 @@ for (let i = 0, valor = undefined; i < listadatosB.length; i++, valor = traer(pa
 return resultado;
 }
 
+
+
 export function iniciarMayorMenor(data){
 let timer = 0;
 
@@ -158,14 +172,10 @@ else paisInicial = data.paisInicial;
     }    
 
 let dato;
-if (data.dato === undefined || timer >= 5) dato = datorandom();
+if (data.dato === undefined || timer >= 5) dato = datorandomnum();
 else dato = data.dato;
 
 let valorInicial = undefined;
-while (valorInicial === undefined){
-if (typeof(traer(paisInicial,dato))=== "number") valorInicial = traer(paisInicial,dato);
-else dato = datorandom();
-}
 
 
 if (data.timer === undefined) timer = 0;
@@ -229,6 +239,7 @@ let dato = data.dato;
 //let valorInicial = data.valorInicial;
 let input = data.input; //si el pais derecho es mayor deberia ser positivo, si menor negativo
 
+if (timer > 5) dato = datorandom();
 
 
 //comparación entre los dos paises
@@ -236,7 +247,11 @@ victoria = (input === comparar(paisInicial,pais2,dato));
 
 if (victoria === true) {
 paisInicial = pais2;
+
+while (valorInicial === undefined) {
 valorInicial = traer(pais2,dato);
+if (valorInicial === undefined) pais2 = paisrandom();
+}
 timer++;
 for (pais2 = paisInicial; pais2 === paisInicial; pais2 = paisrandom());
 
@@ -362,14 +377,14 @@ export function recibirInputBloques(data){
 export function enviarCategorias(data){
 let opcionescategorias = [];
 let dato;
-let label;
+let busqueda;
 let pais = data.pais;
-let cantidad = data.cantidad;
-if (data.cantidad === undefined) data.cantidad = 5;
-
+let cantidad = 5;
+console.log(data.pais);
 while (opcionescategorias.length < cantidad){
 dato = datorandom();
-if (traer(pais,dato) !== undefined) opcionescategorias.push({dato: dato, label: traerlabel(dato)})
+busqueda = traer(pais,dato);
+if (typeof busqueda === "number") opcionescategorias.push({dato: dato, label: traerlabel(dato)})
 }
 return opcionescategorias;
 }
