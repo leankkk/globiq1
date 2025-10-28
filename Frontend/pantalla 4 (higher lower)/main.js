@@ -9,7 +9,8 @@ let stats;
 let paisInicial;
 let labelpaisInicial;
 let labelpais2;
-let usuario = "global";
+let usuario = sessionStorage.getItem("usuario");
+if (usuario === undefined || null) usuario = "Sin usuario" 
 let pais2;
 let dato;
 let valorInicial;
@@ -88,7 +89,7 @@ let btnPrincipal = document.getElementById("btnPrincipal");
 
 
 function mostrarPopUp(puntaje) {
-    mensajeResultado.innerText = "¡Has perdido! Tu puntaje es: " + puntaje;
+    mensajeResultado.innerText = "¡Perdiste! Tu puntaje es: " + puntaje;
     modal.style.display = "block"; 
 }
 

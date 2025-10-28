@@ -1,10 +1,10 @@
 connect2Server();
-
 let input = document.getElementById('input');
 let boton = document.getElementById('enviar');
 let listaPistas = document.getElementById('listaPistas');
 let popup = document.getElementById('popup');
 let btnOk = document.getElementById('btn-ok');
+let intentosDOM = document.getElementById("cantidaddeintentosDOM")
 
 let paisDiario;
 let intentos = 0;
@@ -28,6 +28,7 @@ boton.addEventListener('click', () => {
   let respuesta = input.value.trim().toLowerCase();
 
   if (respuesta === paisDiario.toLowerCase()) {
+    intentosDOM.innerText = "Cantidad de pistas:  "+intentos;
     popup.style.display = "flex";
   } else {
     // pedimos pista al backend

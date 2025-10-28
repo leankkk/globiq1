@@ -48,14 +48,32 @@ export function traerlabelpais(pais) {
        }
 }
    
+export function traerlabelvalor(num) {
+    const sufijos = ["", "K", "M", "B", "T"];
+    let indiceSufijo = 0;
+
+    while (num >= 1000 && indiceSufijo < sufijos.length - 1) {
+        num /= 1000;
+        indiceSufijo++;
+    }
+
+    const partes = num.toFixed(2).split(".");
+    const parteEntera = partes[0];
+    let parteDecimal = partes[1];
+
+    parteDecimal = parteDecimal ? "," + parteDecimal : "";
+
+    return `${parteEntera}${parteDecimal}${sufijos[indiceSufijo]}`;
+}
+
 export function traer(pais, dato, label) {
     let datoog = dato;
     dato = dato.split(".");
     
     for (let i = 0; i < dato.length; i++) {
-      if (typeof dato[i] === 'string' && dato[i].includes("[")) {
-        let [nombrelista, indicelista] = dato[i].split('[');
-        indicelista = parseInt(indicelista.replace(']', ''), 10);
+      if (typeof dato[i] === "string" && dato[i].includes("[")) {
+        let [nombrelista, indicelista] = dato[i].split("[");
+        indicelista = parseInt(indicelista.replace("]", ""), 10);
         dato.splice(i, 1, nombrelista, indicelista);
       }
     }
@@ -67,8 +85,8 @@ export function traer(pais, dato, label) {
       actual = actual[dato[i]];
     }
   
-    if (actual && typeof actual === 'object') {
-      if ('value' in actual) {
+    if (actual && typeof actual === "object") {
+      if ("value" in actual) {
         actual = actual.value;
       } else if (Array.isArray(actual) && actual[0]?.value !== undefined) {
         actual = actual[0].value;
@@ -103,7 +121,7 @@ export function datorandomnum(){
     let dato = truedatorandom();
     let datolista = dato.split(".");
     for (let i = 0; i < listadatosB.length; i++){ 
-    if (datolista[datolista.length-1] === "unit" || datolista[datolista.length-1] === "units" || datolista[datolista.length-1] === "note" || datolista[datolista.length-1] === "date" || typeof traer("argentina",dato) === "object" || typeof traer("argentina",dato) === "string") {
+    if (datolista[datolista.length-1] === "unit" || datolista[datolista.length-1] === "units" || datolista[datolista.length-1] === "note" || datolista[datolista.length-1] === "date" || typeof traer("argentina",dato) !== "number") {
         dato = truedatorandom();
         datolista = dato.split(".");
     } else break;   
@@ -256,6 +274,8 @@ victoria = (input === comparar(paisInicial,pais2,dato));
 
 if (victoria === true) {
 paisInicial = pais2;
+timer++;
+if (timer % 5 === 0) dato = datorandomnum();
 
 valorInicial = traer(paisInicial, dato);
 if (valorInicial === undefined) {
@@ -263,8 +283,6 @@ if (valorInicial === undefined) {
   valorInicial = traer(paisInicial, dato);
 }
 
-timer++;
-if (timer % 5 === 0) dato = datorandomnum();
 for (pais2 = paisInicial; pais2 === paisInicial; pais2 = paisrandom());
 
 return {victoria:victoria, timer: timer, paisInicial: paisInicial, labelpaisInicial: traerlabelpais(paisInicial),valorInicial: valorInicial, pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, label: traerlabel(dato)}
