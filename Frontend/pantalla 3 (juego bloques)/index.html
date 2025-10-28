@@ -8,26 +8,26 @@
 </head>
 <body>
 
-  <div id="bloquesDisponibles">
-  <div class="bloque" draggable="true" data-tipo="variable">El/La</div>
-  <div class="bloque" draggable="true" data-tipo="comparador">es</div>
-  <div class="bloque" draggable="true" data-tipo="valor">mayor</div>
-</div>
-
-<div id="bloquesPregunta" class="dropzone">
-  Arrastrá acá los bloques
-</div>
-
-<button id="btnIntentar">Intentar</button>
-
-
-  <div class="rectangulo">
-    
+  <!-- Contenedor de la caja de texto para preguntas -->
+  <div class="cajatexto">
+    <p id="textoPregunta">El/la <span id="espacio1" class="drop-space">______</span> es <span id="espacio2" class="drop-space">______</span></p>
   </div>
 
+  <!-- Contenedor de los bloques draggeables -->
+  <div class="preguntas">
+    <div class="bloque" draggable="true" id="bloque1">Medallas Olímpicas</div>
+    <div class="bloque" draggable="true" id="bloque2">Mayor Población</div>
+    <div class="bloque" draggable="true" id="bloque3">Superficie Mayor a 1,000,000 km²</div>
+  </div>
+
+  <!-- Zona para soltar los bloques (espacios dentro de la frase) -->
+  <div class="zona-suelta" id="zonaSuelta">
+    <p>Arrastra los bloques a los espacios</p>
+  </div>
+  
 <div class="mapa">
   <svg xmlns="http://www.w3.org/2000/svg"
-  xmlns:amcharts="http://amcharts.com/ammap"
+xmlns:amcharts="http://amcharts.com/ammap"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   version="1.1"
   viewBox="0 0 1000 500"
