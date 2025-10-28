@@ -75,4 +75,50 @@ botonMenor.addEventListener("click", ()=> {
 });
 
 
+let modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
+let mensajeResultado = document.getElementById("mensajeResultado");
+let btnJugar = document.getElementById("btnJugar");
+let btnPrincipal = document.getElementById("btnPrincipal");
 
+
+function mostrarPopUp(puntaje) {
+    mensajeResultado.innerText = "¡Has perdido! Tu puntaje es: " + puntaje;
+    modal.style.display = "block"; 
+}
+
+
+function evaluarResultado(data) {
+    if (data.victoria) {
+        alert("Ganaste. Racha: " + data.timer);
+      
+    } else {
+      
+        mostrarPopUp(data.timer);
+    }
+}
+
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+btnJugar.onclick = function() {
+    modal.style.display = "none";
+
+
+    location.reload();  
+}
+
+
+btnPrincipal.onclick = function() {
+    window.location.href = "../home/index.html";  
+}
