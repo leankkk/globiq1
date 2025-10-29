@@ -6,7 +6,6 @@ implementar STATS en modo diario y adivinar pais
 
 ARREGLAR ERROR (el mismo q en weather girls) de que cuando se cambia un dato del back se recarga el front
 
-poner numeros mas lindos (M para millones, etc.)
 
 agregar funcion de datos quemados a modo mayor o menor. revisar si los otros modos tmb tienen
 
