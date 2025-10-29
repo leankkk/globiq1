@@ -3,7 +3,9 @@ let paisInicialNombre = document.getElementById("paisInicialNombre");
 let paisInicialDato = document.getElementById("paisInicialDato");
 let botonMayor = document.getElementById("btnMayor");
 let botonMenor = document.getElementById("btnMenor");
+let btnCambiarCategoria = document.getElementById("btnCambiarCategoria");
 
+let intentosCambiarCategoria = 3;
 let stats;
 let paisInicial;
 let labelpaisInicial;
@@ -20,6 +22,25 @@ let paisDiario = "placeholder";
 let racha = 0;
 let puntaje = 0;
 let paises = [];  
+
+function cambiarCategoria(){
+    if (intentosCambiarCategoria > 0){
+postEvent("cambiarCategoria",{paisInicial: paisInicial, 
+    labelpaisInicial: labelpaisInicial,
+        pais2: pais2,
+        labelpais2: labelpais2,
+        dato: dato,
+        valorInicial: valorInicial,
+        labelvalorInicial: labelvalorInicial,
+        label: label,
+        timer: timer},iniciarMayorMenor);
+        intentosCambiarCategoria--;
+        btnCambiarCategoria.innerText = "Cambiar de categoría (" + intentosCambiarCategoria + ")";
+    }
+    else if (intentosCambiarCategoria === 0) btnCambiarCategoria.disabled = "true";
+
+
+}
 
 function iniciarMayorMenor(data) {
     paisInicial = data.paisInicial; 
@@ -104,7 +125,7 @@ function mostrarPopUp(puntaje) {
 }
 
 
-
+btnCambiarCategoria.addEventListener("click",cambiarCategoria);
 
 
 

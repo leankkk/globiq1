@@ -296,6 +296,20 @@ return {victoria:victoria, timer: timer, paisInicial: paisInicial, labelpaisInic
 else return {victoria: victoria, timer: timer, valorPais2: traer(pais2,dato)}
 }
 
+export function iniciarBloques(){
+    let listaposibles = [] //poner todos los paises
+for (let i = 0; i < listapaises.length; i++){
+    listaposibles.push({
+pais: listapaises[i],
+label: traerlabelpais[i],
+    });
+}
+    let pais = paisrandom();
+    let categorias = enviarCategorias({pais:pais});
+    return {pais:pais,listaposibles:listaposibles,categorias:categorias};
+}
+
+
 export function recibirInputBloques(data){
     /* 
     - fijarse en que rango entra el país (mayor o menor)
@@ -323,7 +337,7 @@ export function recibirInputBloques(data){
     
     
     //opcion 1 de comparacion 
-    if (input.comparacion === "mayor"){
+    if (input.comparacion === "Mayor"){
     /*
     for (let i = 0; i < listapaises.length;i++){
         let busqueda = traer(listapaises[i],input.categoria);
@@ -371,7 +385,7 @@ export function recibirInputBloques(data){
     
     
     //opcion 2 de comparacion
-    else if (input.comparacion === "menor"){
+    else if (input.comparacion === "Menor"){
     let valorobjetivo = traer(paisobjetivo,input.categoria);
     if (valorobjetivo < input.valor) respuesta = true; 
     else respuesta = false;
@@ -409,6 +423,12 @@ export function recibirInputBloques(data){
     return {victoria:victoria,respuesta:respuesta,/*listadescartados:listadescartados,*/pais:paisobjetivo,intentos:intentos+1,listaposibles:listaposibles};
     }
     
+export function traerDatoPorLabel(label){
+        for (let i = 0; i < listalabelsB.length; i++){ 
+            if (listalabelsB[i] === label) return listadatosB[i];   
+           }
+}
+
 
 export function enviarCategorias(data){
 let opcionescategorias = [];
@@ -459,4 +479,17 @@ fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2));
 export function enviarStats(data){
 let database = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
 return database[data.nombre];
+}
+
+export function cambiarCategoria(data){
+let categoriaAEvitar = data.dato;
+let categoriaNueva = categoriaAEvitar;
+while (categoriaNueva === categoriaAEvitar){
+categoriaNueva = datorandomnum();
+}
+data.dato = categoriaNueva;
+data.label = traerlabel(categoriaNueva);
+data.valorInicial = traer(data.paisInicial,categoriaNueva);
+data.labelvalorInicial = traerlabelvalor(data.valorInicial)
+return data;
 }

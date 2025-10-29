@@ -6,6 +6,7 @@ let popup = document.getElementById('popup');
 let btnOk = document.getElementById('btn-ok');
 let intentosDOM = document.getElementById("cantidaddeintentosDOM");
 let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
+let btnCambiarCategoria = document.getElementById("btnCambiarCategoria");
 
 let paisDiario;
 let intentos = 0;

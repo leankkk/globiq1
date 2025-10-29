@@ -1,6 +1,6 @@
 import fs from "fs";
 //import { subscribeGETEvent, subscribePOSTEvent, startServer } from "soquetic";
-import { traer, contienedato, comparar, paisrandom, paisdiario, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats, elegirpista, compararMayorMenor, iniciarMayorMenor, traerlabelvalor, traerlabel, recibirInputBloques, enviarCategorias, datorandomnum } from "./Source/funciones.js";
+import { traer, contienedato, comparar, paisrandom, paisdiario, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats, elegirpista, compararMayorMenor, iniciarMayorMenor, traerlabelvalor, traerlabel, recibirInputBloques, enviarCategorias, datorandomnum, traerDatoPorLabel } from "./Source/funciones.js";
 import { listadatos, listapaises, listadias, listalabels, listadatosB, listalabelsB} from "./Source/listas.js";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
 
@@ -21,4 +21,3 @@ i++;
 /*for (i = 0; i < listadatosB.length; i++){
 if (!typeof(traer("argentina",listadatosB[i])) === "string" && !Array.isArray(traer("argentina",listadatosB[i])) && traer)
 console.log(listalabelsB[i],listadatosB[i],traer("argentina",listadatosB[i]),"\n");*/
-
