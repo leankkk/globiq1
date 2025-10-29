@@ -322,6 +322,7 @@ export function recibirInputBloques(data){
     let paisobjetivo = data.pais;
     let intentos = data.intentos;
     let respuesta;
+    let respuestatexto;
     if (intentos === undefined) intentos = 0;
     let listadescartados = [];
     if (data.listadescartados !== undefined){
@@ -331,6 +332,8 @@ export function recibirInputBloques(data){
     if (data.listaposibles !== undefined){
     listaposibles = data.listaposibles;
     }
+    let categoria = traerDatoPorLabel(input.categoria);
+    console.log(categoria);
     //data = input, pais, intentos, lista restantes
     //input = {valor,comparacion,categoria,categorialabel}
     
@@ -338,27 +341,12 @@ export function recibirInputBloques(data){
     
     //opcion 1 de comparacion 
     if (input.comparacion === "Mayor"){
-    /*
-    for (let i = 0; i < listapaises.length;i++){
-        let busqueda = traer(listapaises[i],input.categoria);
-        if (!(busqueda >= input.valor) || busqueda === undefined){
-    listadescartados.push({
-    pais: listapaises[i],
-    label: traerlabel(listapaises[i]),
-    esundefined: (busqueda === undefined)
-    });
-    }  else if (!(listadescartados.includes(listapaises[i]))){
-        listaposibles.push({
-    pais: listapaises[i],
-    label: traerlabelpais(listapaises[i]),
-    esundefined: (busqueda === undefined)
-    })}}*/
-    let valorobjetivo = traer(paisobjetivo,input.categoria);
+    let valorobjetivo = traer(paisobjetivo,categoria);
     if (valorobjetivo > input.valor) respuesta = true; 
     else respuesta = false;
     
     for (let i = 0; i < listapaises.length; i++){
-        let busqueda = traer(listapaises[i],input.categoria); 
+        let busqueda = traer(listapaises[i],categoria); 
         let packpais = {
     pais: listapaises[i],
     label: traerlabelpais(listapaises[i]),
@@ -386,12 +374,12 @@ export function recibirInputBloques(data){
     
     //opcion 2 de comparacion
     else if (input.comparacion === "Menor"){
-    let valorobjetivo = traer(paisobjetivo,input.categoria);
+    let valorobjetivo = traer(paisobjetivo,categoria);
     if (valorobjetivo < input.valor) respuesta = true; 
     else respuesta = false;
     
     for (let i = 0; i < listapaises.length;i++){
-        let busqueda = traer(listapaises[i],input.categoria);
+        let busqueda = traer(listapaises[i],categoria);
         let packpais = {
     pais: listapaises[i],
     label: traerlabelpais(listapaises[i]),
@@ -417,10 +405,15 @@ export function recibirInputBloques(data){
     }
     
     if (listaposibles.length === 1 && listaposibles.some(p => p.pais === paisobjetivo)) victoria = true;
-    if (listaposibles.some(p => p.pais === paisobjetivo)) respuesta = "Sí";
-    else respuesta = "No";
+    if (listaposibles.some(p => p.pais === paisobjetivo)) respuestatexto = "Sí";
+    else respuestatexto = "No";
     
-    return {victoria:victoria,respuesta:respuesta,/*listadescartados:listadescartados,*/pais:paisobjetivo,intentos:intentos+1,listaposibles:listaposibles};
+    return {victoria: victoria,
+        respuesta: respuestatexto,
+        listadescartados: listadescartados,
+        pais: paisobjetivo,
+        intentos: intentos+1,
+        listaposibles: listaposibles};
     }
     
 export function traerDatoPorLabel(label){
@@ -438,7 +431,7 @@ let pais = data.pais;
 let cantidad = 5;
 console.log(data.pais);
 while (opcionescategorias.length < cantidad){
-dato = datorandom();
+dato = datorandomnum();
 busqueda = traer(pais,dato);
 if (typeof busqueda === "number") opcionescategorias.push({dato: dato, label: traerlabel(dato)})
 }

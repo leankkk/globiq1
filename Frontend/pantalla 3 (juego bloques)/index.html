@@ -11,15 +11,27 @@
   <div class="container">
 
     <div class="pregunta">
-      <span>El/la</span>
+      <span>¿El/la</span>
       <div class="slot" id="slot1" data-slot="1"></div>
       <span>es</span>
       <div class="slot" id="slot2" data-slot="2"></div>
       <span>a</span>
       <input type="number" id="inputFinal" placeholder="0" class="input-slot" />
+      <span>?</span>
     </div>
 
     <button id="btnAdivinar" class="boton-adivinar">Adivinar</button>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="mensajeResultado">¡Has perdido! Tu puntaje es: 0</p>
+          <div class="botones">
+              <button id="btnJugar" class="btn-jugar">Jugar de nuevo</button>
+              <button id="btnPrincipal" class="btn-principal">Ir a la página principal</button>
+          </div>
+      </div>
+  </div>
 
     <div class="bloques" id="bloques">
       <div class="bloque" id="MOM" draggable="true">Mayor</div>
@@ -30,6 +42,10 @@
       <div class="bloque" id="bloque4" draggable="true">Placeholder 4</div>
       <div class="bloque" id="bloque5" draggable="true">Placeholder 5, categoria otra, etc.</div>
     </div>
+
+<div>
+ <h1 id="respuestaDiv" class="invisible"> Respuesta:</h1> 
+</div>
 
   </div>
     <div class="mapa">
@@ -302,7 +318,8 @@
 </div>
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
   <script src="main.js"></script>
 
 </body>
