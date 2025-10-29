@@ -77,3 +77,15 @@ button:hover {
   padding: 30px;
   border-radius: 10px;
 }
+
+.rendirse{
+  background-color: #1518d8;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 148px;
+  left: 1500px;
+ 
+  
+    
+}

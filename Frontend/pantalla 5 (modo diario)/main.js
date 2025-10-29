@@ -40,4 +40,14 @@ boton.addEventListener('click', () => {
 
 btnOk.addEventListener('click', () => {
   popup.style.display = "none";
+  window.location.href = "../home/index.html"
+
 });
+
+btnRend.addEventListener('click',  () => {
+window.location.href = "..home/index.html"
+rendirse.style.display = "none"
+}
+)
+
+
