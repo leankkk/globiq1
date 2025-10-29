@@ -40,6 +40,10 @@ body {
   transition: border-color 0.3s, background-color 0.3s;
 }
 
+#slot2 {
+  background-color: #86f786;
+}
+
 .slot.hovered {
   border-color: #4caf50;
   background-color: #eafbea;
@@ -62,6 +66,10 @@ body {
   cursor: grab;
   user-select: none;
   transition: background-color 0.2s, transform 0.2s;
+}
+
+#MOM {
+  background-color: #86f786;
 }
 
 .bloque:active {
@@ -99,4 +107,58 @@ body {
 .land:hover {
   fill: #a3c9a8;
   cursor: pointer;
+}
+
+.input-slot {
+  width: 180px;
+  height: 40px;
+  border: 2px solid #bbb;
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 1.1em;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.input-slot:focus {
+  border-color: #4caf50;
+  background-color: #f5fff5;
+}
+
+.input-slot {
+  width: 180px;
+  height: 40px;
+  border: 2px solid #bbb;
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 1.1em;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.input-slot:focus {
+  border-color: #4caf50;
+  background-color: #f5fff5;
+}
+
+.boton-adivinar {
+  width: 180px;
+  height: 45px;
+  border: 2px solid #bbb;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.boton-adivinar:hover {
+  background-color: #eafbea;
+  border-color: #4caf50;
 }
