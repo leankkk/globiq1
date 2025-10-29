@@ -1,3 +1,5 @@
+ARREGLAR STATS MODO DIARIO. tira en cuentas.json "undefined" de usuario
+
 frontend/mayoromenor/mainjs 
 agregar opcion de cambiar categoría.
 mostrar respuesta cuando perdés.
