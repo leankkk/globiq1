@@ -53,7 +53,21 @@
     "contraseña": "",
     "stats": {
       "mayormenor": {
-        "racha": 3
+        "racha": 1
+      }
+    }
+  },
+  "undefined": {
+    "stats": {
+      "nombre": "Sin usuario",
+      "contraseña": "",
+      "stats": {
+        "mayormenor": {
+          "racha": 1
+        },
+        "diario": {
+          "puntaje": 1
+        }
       }
     }
   },

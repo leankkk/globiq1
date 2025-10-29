@@ -8,8 +8,7 @@ let stats;
 let paisInicial;
 let labelpaisInicial;
 let labelpais2;
-let usuario = sessionStorage.getItem("usuario");
-if (usuario === undefined || usuario === null) usuario = "Sin usuario" 
+let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario" 
 let pais2;
 let dato;
 let valorInicial;
@@ -21,12 +20,6 @@ let paisDiario = "placeholder";
 let racha = 0;
 let puntaje = 0;
 let paises = [];  
-
-async function enviarstats(){
-    console.log("envio de stats iniciado")
-postEvent("recibirStats",{nombre:usuario},getStats);
-postEvent("guardarStats",{nombre:usuario, stats: {mayormenor: {racha: timer}}},guardarStats);
-}
 
 function iniciarMayorMenor(data) {
     paisInicial = data.paisInicial; 
@@ -44,9 +37,20 @@ labelpaisInicial = data.labelpaisInicial;
     categoriaNombre.innerText = label;
   }
 
+  async function enviarstats(){
+    console.log("envio de stats iniciado")
+postEvent("recibirStats",{nombre:usuario},getStats);
+}
 
 function getStats(data){
  stats = data;
+ console.log(stats);
+ stats.stats.mayormenor ??= {};
+ let racha = stats.stats.mayormenor.racha ?? Math.max(timer, stats.stats.mayormenor.racha);
+ stats.stats.mayormenor.racha = Math.max(timer, stats.stats.mayormenor.racha);
+ console.log(racha, timer, stats.stats.mayormenor.racha);
+ stats.stats.mayormenor.racha ??= racha; 
+ postEvent("guardarStats",{stats},guardarStats);
 }
 
 function guardarStats(){};
