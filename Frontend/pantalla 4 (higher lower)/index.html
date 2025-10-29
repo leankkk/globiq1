@@ -9,31 +9,34 @@
 <body>
     <header class="header">
         <h1 id="categoriaNombre">TERRITORIO</h1>
+        <button id="btnCambiarCategoria" class="boton2">Cambiar de categoría (3)</button>
     </header>
 
-    <button id="btnCambiarCategoria" class="boton2">Cambiar de categoría (3)</button>
-
     <main class="contenedor">
+        <!-- Tarjeta izquierda -->
         <div class="ladoIzquierdo">
-            <p class="categoria">Categoria</p>
             <div class="card paisIZQ">
-                <div class="card-header">PAIS</div>
+                <!-- Ahora acá va el nombre del país -->
+                <div class="card-header" id="paisInicialNombre">
+                    <span class="flag-icon" id="banderaInicial"></span>
+                    <span id="nombrePaisIZQ">Argentina</span>
+                </div>
+
+                <!-- Y acá abajo va el dato/pista -->
                 <div class="card-content">
-                  
-                    <h2 id="paisInicialNombre">
-                        <span class="flag-icon flag-icon-ar"></span> ARGENTINA
-                    </h2>
-                    <p class="territorio" id="paisInicialDato">1000000</p>
+                    <h2 id="paisInicialDato">2.780.400 km²</h2>
                 </div>
             </div>
         </div>
 
         <div class="vs">VS</div>
 
+        <!-- Tarjeta derecha -->
         <div class="ladoDerecho">
             <div class="card paisDERCHO">
                 <div class="card-header" id="pais2Nombre">
-                    <span class="flag-icon flag-icon-ru"></span> RUMANIA
+                    <span class="flag-icon" id="banderaDerecha"></span>
+                    <span id="nombrePaisDER">Rumania</span>
                 </div>
                 <div class="selector">
                     <button id="btnMayor" class="boton">MAYOR</button>
@@ -42,7 +45,7 @@
             </div>
         </div>
 
-        
+        <!-- Modal -->
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -55,10 +58,8 @@
         </div>
     </main>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
-
