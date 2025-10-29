@@ -301,7 +301,7 @@ export function iniciarBloques(){
 for (let i = 0; i < listapaises.length; i++){
     listaposibles.push({
 pais: listapaises[i],
-label: traerlabelpais[i],
+label: traerlabelpais(listapaises[i]),
     });
 }
     let pais = paisrandom();
@@ -440,7 +440,7 @@ console.log(data.pais);
 while (opcionescategorias.length < cantidad){
 dato = datorandom();
 busqueda = traer(pais,dato);
-if (typeof busqueda === "number") opcionescategorias.push({dato: dato, label: traerlabel(dato)})
+if (typeof busqueda === "number" && !opcionescategorias.includes({dato: dato, label: traerlabel(dato)})) opcionescategorias.push({dato: dato, label: traerlabel(dato)})
 }
 return opcionescategorias;
 }

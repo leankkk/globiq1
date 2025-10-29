@@ -1,5 +1,9 @@
 ARREGLAR STATS MODO DIARIO. tira en cuentas.json "undefined" de usuario
 
+poner indicador de RACHA en modo mayormenor
+
+
+
 implementar STATS en modo diario y adivinar pais
 
 
