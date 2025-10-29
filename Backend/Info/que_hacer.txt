@@ -2,9 +2,9 @@ frontend/mayoromenor/mainjs
 agregar opcion de cambiar categoría.
 mostrar respuesta cuando perdés.
 
-STATS
+implementar STATS en modo diario y adivinar pais
 
-
+ARREGLAR ERROR (el mismo q en weather girls) de que cuando se cambia un dato del back se recarga el front
 
 poner numeros mas lindos (M para millones, etc.)
 

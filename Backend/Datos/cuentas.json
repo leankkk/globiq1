@@ -37,10 +37,24 @@
   },
   "luciocamde": {
     "nombre": "luciocamde",
-    "contraseña": "justo"
+    "contraseña": "justo",
+    "stats": {
+      "mayormenor": {
+        "racha": 1
+      }
+    }
   },
   "24deoctubre": {
     "nombre": "24deoctubre",
     "contraseña": "241025"
+  },
+  "Sin usuario": {
+    "nombre": "Sin usuario",
+    "contraseña": "",
+    "stats": {
+      "mayormenor": {
+        "racha": 3
+      }
+    }
   }
 }

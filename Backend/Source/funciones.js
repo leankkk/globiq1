@@ -49,6 +49,8 @@ export function traerlabelpais(pais) {
 }
    
 export function traerlabelvalor(num) {
+    if (typeof num !== "number") return undefined;
+    if (Number.isInteger(num) && num / 1000 < 1) return String(num);
     const sufijos = ["", "K", "M", "B", "T"];
     let indiceSufijo = 0;
 
@@ -61,10 +63,13 @@ export function traerlabelvalor(num) {
     const parteEntera = partes[0];
     let parteDecimal = partes[1];
 
-    parteDecimal = parteDecimal ? "," + parteDecimal : "";
+    if (parteDecimal === "00") parteDecimal = "";
+    else parteDecimal = "," + parteDecimal;
 
     return `${parteEntera}${parteDecimal}${sufijos[indiceSufijo]}`;
 }
+
+
 
 export function traer(pais, dato, label) {
     let datoog = dato;
@@ -216,6 +221,7 @@ return {
     labelpais2: traerlabelpais(pais2),
     dato: dato,
     valorInicial: valorInicial,
+    labelvalorInicial: traerlabelvalor(valorInicial),
     label: traerlabel(dato),
     timer: timer
         };
@@ -285,7 +291,7 @@ if (valorInicial === undefined) {
 
 for (pais2 = paisInicial; pais2 === paisInicial; pais2 = paisrandom());
 
-return {victoria:victoria, timer: timer, paisInicial: paisInicial, labelpaisInicial: traerlabelpais(paisInicial),valorInicial: valorInicial, pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, label: traerlabel(dato)}
+return {victoria:victoria, timer: timer, paisInicial: paisInicial, labelpaisInicial: traerlabelpais(paisInicial),valorInicial: valorInicial, labelvalorInicial: traerlabelvalor(valorInicial), pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, label: traerlabel(dato)}
 }
 else return {victoria: victoria, timer: timer, valorPais2: traer(pais2,dato)}
 }
@@ -444,6 +450,8 @@ else return {login:false};
 }
 
 export function actualizarstats(data){
+cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json", "utf8"));
+if (!cuentas[data.nombre]) cuentas[data.nombre] = {}; 
 cuentas[data.nombre].stats = data.stats;
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2));
 } 

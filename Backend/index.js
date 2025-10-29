@@ -8,7 +8,7 @@ subscribePOSTEvent("iniciarMayorMenor",iniciarMayorMenor);
 subscribePOSTEvent("obtenerCategorias",enviarCategorias);
 subscribePOSTEvent("evaluarRespuesta",compararMayorMenor);
 subscribePOSTEvent("guardarStats",actualizarstats);
-subscribeGETEvent("getStats",enviarStats);
+subscribePOSTEvent("recibirStats",enviarStats);
 //subscribeGETEvent("obtenerPaisDiario",paisdiariofront);
 
 //PANTALLA 5 (diario)
