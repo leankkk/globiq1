@@ -301,6 +301,7 @@ for (let i = 0; i < listapaises.length; i++){
     listaposibles.push({
 pais: listapaises[i],
 label: traerlabelpais(listapaises[i]),
+esundefined: (traer(listapaises[i],datorandomnum()) === undefined)
     });
 }
     let pais = paisrandom();
@@ -341,14 +342,23 @@ export function recibirInputBloques(data){
     let esMayor = valorobjetivo > input.valor;
     let esMenor = valorobjetivo < input.valor;
 
-    for (let i = 0; i < listaposibles.length; i++){
+    for (let i = listaposibles.length - 1; i >= 0; i--){
         let busqueda = traer(listaposibles[i].pais,categoria); 
         console.log(busqueda);
         let packpais = {
-            pais: listaposibles[i], // REVISAR ESTO
+            pais: listaposibles[i].pais, // REVISAR ESTO
             label: traerlabelpais(listaposibles[i].pais),
             esundefined: (busqueda === undefined)
         }
+        
+        if (packpais.esundefined) {
+    // si no tiene datos, descartarlo directamente
+    if (!listadescartados.some(p => p.pais === packpais.pais)) listadescartados.push(packpais);
+    listaposibles.splice(i,1);
+    i--;
+    console.log("El país no tiene datos: "+packpais.label);
+    continue;
+}
         if (busqueda === undefined) continue;
 
         // AHORA ESTÁ PUESTO PARA QUE SOLO VAYA SACANDO DE LISTAPOSIIBES, QUE NUNCA SUME
@@ -356,8 +366,9 @@ export function recibirInputBloques(data){
             //listaposibles.push(packpais);
             console.log("El país puede ser: "+packpais.label);
         } else {
-           if (!listadescartados.includes(packpais)) listadescartados.push(packpais);
-            listaposibles.toSpliced(i,200);
+           if ((!listadescartados.some(p => p.pais === packpais.pais) || listaposibles[i].esundefined)) listadescartados.push(packpais);
+           if (listaposibles.some(p => p.pais === packpais.pais)) listaposibles.splice(i,1);
+            i--;
             console.log("El país no es: "+packpais.label);
         }
     }
@@ -367,6 +378,7 @@ export function recibirInputBloques(data){
     if ((esMayor && input.comparacion === "Mayor") || (esMenor && input.comparacion === "Menor")) respuestatexto = "Sí";
     else respuestatexto = "No";
 
+    console.log(listaposibles[0],listadescartados[0], listaposibles.length,listadescartados.length)
     return {
         victoria: victoria,
         respuesta: respuestatexto,

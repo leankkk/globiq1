@@ -1,8 +1,8 @@
+MODOBLOQUES: Agregar una forma de adivinar a mano, y lista de los posibles y descartados en el front;
+
 ARREGLAR STATS MODO DIARIO. tira en cuentas.json "undefined" de usuario
 
 implementar STATS en modo diario y adivinar pais
-
-EL MODO BLOQUES FUNCIONA PERO LISTAPOSIBLES NO PIERDE VALORES
 
 ahora el server se conecta pero crashea dsp de un tiempo y aparte el back no responde a los postevents. preguntar
 INVESTIGAR ESTO. PREGUNTARLE A SHULI. IVO NO PUDO ARREGLARLO

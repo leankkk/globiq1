@@ -1,5 +1,7 @@
 connect2Server();
 
+let modal = document.getElementById("myModal")
+let mensajeResultado = document.getElementById("mensajeResultado");
 let bloquesContainer = document.getElementById('bloques');
 let bloque1 = document.getElementById('bloque1');
 let bloque2 = document.getElementById('bloque2');
@@ -16,11 +18,13 @@ let listadescartados;
 let listaposibles;
 
 function mostrarPopUp(intentos) {
-  mensajeResultado.innerText = "¡Adivinaste el país ("+ listaposibles[0].nombre +")! Te llevó " + intentos +" intentos.";
+  mensajeResultado.innerText = "¡Adivinaste el país ("+ paisobjetivo +")! Te llevó " + intentos +" intentos.";
   modal.style.display = "block"; 
 }
 
 function evaluarRespuestaFront(data){
+  listadescartados = data.listadescartados;
+  listaposibles = data.listaposibles;
 if (data.victoria){
 mostrarPopUp(data.intentos);
 enviarstats();
