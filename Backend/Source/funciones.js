@@ -317,9 +317,8 @@ export function recibirInputBloques(data){
     */
     let input = data.input;
     let victoria = false;
-    let paisobjetivo = data.pais;
+    let paisobjetivo = data.paisobjetivo;
     let intentos = data.intentos;
-    let respuesta;
     let respuestatexto;
     if (intentos === undefined) intentos = 0;
     let listadescartados = [];
@@ -331,52 +330,50 @@ export function recibirInputBloques(data){
         listaposibles = data.listaposibles;
     }
     let categoria = traerDatoPorLabel(input.categoria);
-    console.log(categoria);
+    console.log(categoria); //FUNCIONA BIEN
     //data = input, pais, intentos, lista restantes
     //input = {valor,comparacion,categoria,categorialabel}
     
     let valorobjetivo = traer(paisobjetivo,categoria);
+    console.log(valorobjetivo, paisobjetivo,categoria); //FALLA ESTO
 
     // Determinar en qué rango está el país objetivo
     let esMayor = valorobjetivo > input.valor;
     let esMenor = valorobjetivo < input.valor;
 
-    for (let i = 0; i < listapaises.length; i++){
-        let busqueda = traer(listapaises[i],categoria); 
+    for (let i = 0; i < listaposibles.length; i++){
+        let busqueda = traer(listaposibles[i].pais,categoria); 
+        console.log(busqueda);
         let packpais = {
-            pais: listapaises[i],
-            label: traerlabelpais(listapaises[i]),
+            pais: listaposibles[i], // REVISAR ESTO
+            label: traerlabelpais(listaposibles[i].pais),
             esundefined: (busqueda === undefined)
         }
         if (busqueda === undefined) continue;
 
-        // Mantener solo los que están en el mismo rango que el país objetivo
-        if (esMayor && busqueda > input.valor){
-            listaposibles.push(packpais);
-        } 
-        else if (esMenor && busqueda < input.valor){
-            listaposibles.push(packpais);
-        }
-        else if (!esMayor && !esMenor && busqueda === input.valor){
-            // Caso de igualdad exacta
-            listaposibles.push(packpais);
-        }
-        else {
-            listadescartados.push(packpais);
+        // AHORA ESTÁ PUESTO PARA QUE SOLO VAYA SACANDO DE LISTAPOSIIBES, QUE NUNCA SUME
+        if ((esMayor && busqueda > input.valor) || (esMenor && busqueda < input.valor) || (!esMayor && !esMenor && busqueda === input.valor)){
+            //listaposibles.push(packpais);
+            console.log("El país puede ser: "+packpais.label);
+        } else {
+           if (!listadescartados.includes(packpais)) listadescartados.push(packpais);
+            listaposibles.toSpliced(i,200);
+            console.log("El país no es: "+packpais.label);
         }
     }
     
     if (listaposibles.length === 1 && listaposibles.some(p => p.pais === paisobjetivo)) victoria = true;
-    if (listaposibles.some(p => p.pais === paisobjetivo)) respuestatexto = "Sí";
+    //armar respuesta
+    if ((esMayor && input.comparacion === "Mayor") || (esMenor && input.comparacion === "Menor")) respuestatexto = "Sí";
     else respuestatexto = "No";
-    
+
     return {
         victoria: victoria,
         respuesta: respuestatexto,
+        listaposibles: listaposibles,
         listadescartados: listadescartados,
         pais: paisobjetivo,
         intentos: intentos+1,
-        listaposibles: listaposibles
     };
 }
 

@@ -1,15 +1,10 @@
 ARREGLAR STATS MODO DIARIO. tira en cuentas.json "undefined" de usuario
 
-poner indicador de RACHA en modo mayormenor
-
-
-
 implementar STATS en modo diario y adivinar pais
 
-
-agregar funcion de datos quemados a modo mayor o menor. revisar si los otros modos tmb tienen
-
-
+EL MODO BLOQUES FUNCIONA PERO LISTAPOSIBLES NO PIERDE VALORES
 
 ahora el server se conecta pero crashea dsp de un tiempo y aparte el back no responde a los postevents. preguntar
 INVESTIGAR ESTO. PREGUNTARLE A SHULI. IVO NO PUDO ARREGLARLO
+
+agregar funcion de datos quemados a modo mayor o menor. revisar si los otros modos tmb tienen
