@@ -64,6 +64,9 @@
       "stats": {
         "mayormenor": {
           "racha": 1
+        },
+        "diario": {
+          "puntaje": 7
         }
       }
     }
@@ -71,5 +74,9 @@
   "dritokon": {
     "nombre": "dritokon",
     "contraseña": "lean"
+  },
+  "martin": {
+    "nombre": "martin",
+    "contraseña": "iud"
   }
 }

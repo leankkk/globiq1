@@ -62,11 +62,7 @@ input {
   font-size: 16px;
 }  
 
-.logo {
-  top: 200px;
-  left: 832px;
-  position: absolute;
-}
+
 
 .toggle {
   position: absolute;
@@ -85,4 +81,38 @@ input {
   width: 24px;
   height: 24px;
   color: #555;
+}
+
+
+.btn {
+  margin: 20px 0;
+  padding: 10px 30px;
+  background-color: #555;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+} 
+
+
+.btn:hover {
+  background-color: gray;
+}
+
+
+.btn-crear-cuenta {
+  background-color: #2d88d3; 
+}
+
+.btn-crear-cuenta:hover {
+  background-color: #2174a3; 
+}
+
+.logo{
+  width: 367px;
+height: 101px;
+flex-shrink: 0;
+position: absolute;
+top: 298px;
+left: 769px;
 }

@@ -9,15 +9,29 @@
 <body>
   <h1>MODO DIARIO</h1>
 
+
   <div class="contenedorInput">
-    <input id="input" type="text" placeholder="Escribe el país">
+    <input id="input" type="text" placeholder="Escribe un pais...">
     <button id="enviar">Adivinar</button>
   </div>
+
 
   <div id="pistasContainer">
     <h3>Pistas</h3>
     <div id="listaPistas"></div>
   </div>
+
+
+  <div id="intentosContainer">
+    <h3>Intentos</h3>
+    <div id="listaIntentos"></div>
+  </div>
+
+
+ 
+ 
+ 
+
 
   <div id="popup" class="popup">
     <div class="popup-content">
@@ -27,12 +41,15 @@
     </div>
   </div>
 
+
   <div id= "rendimiento" class = "rendirse">
 <button id = btn-rend>🚩</button>
-    
+   
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
+
+
