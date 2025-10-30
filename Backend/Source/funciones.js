@@ -202,9 +202,8 @@ else paisInicial = data.paisInicial;
     pais2 = paisrandom();
     }    
 
-let dato;
-if (typeof data.dato !== "string" || timer >= 5) dato = datorandomnum();
-else dato = data.dato;
+let dato = datorandomnum();
+while (traer(paisInicial,dato) === undefined) dato = datorandomnum();
 
 let valorInicial = traer(paisInicial,dato);
 
@@ -309,7 +308,6 @@ label: traerlabelpais(listapaises[i]),
     return {pais:pais,listaposibles:listaposibles,categorias:categorias};
 }
 
-
 export function recibirInputBloques(data){
     /* 
     - fijarse en que rango entra el país (mayor o menor)
@@ -326,95 +324,62 @@ export function recibirInputBloques(data){
     if (intentos === undefined) intentos = 0;
     let listadescartados = [];
     if (data.listadescartados !== undefined){
-    listadescartados = data.listadescartados;
+        listadescartados = data.listadescartados;
     }
     let listaposibles = [];
     if (data.listaposibles !== undefined){
-    listaposibles = data.listaposibles;
+        listaposibles = data.listaposibles;
     }
     let categoria = traerDatoPorLabel(input.categoria);
     console.log(categoria);
     //data = input, pais, intentos, lista restantes
     //input = {valor,comparacion,categoria,categorialabel}
     
-    
-    
-    //opcion 1 de comparacion 
-    if (input.comparacion === "Mayor"){
     let valorobjetivo = traer(paisobjetivo,categoria);
-    if (valorobjetivo > input.valor) respuesta = true; 
-    else respuesta = false;
-    
+
+    // Determinar en qué rango está el país objetivo
+    let esMayor = valorobjetivo > input.valor;
+    let esMenor = valorobjetivo < input.valor;
+
     for (let i = 0; i < listapaises.length; i++){
         let busqueda = traer(listapaises[i],categoria); 
         let packpais = {
-    pais: listapaises[i],
-    label: traerlabelpais(listapaises[i]),
-    esundefined: (busqueda === undefined)
+            pais: listapaises[i],
+            label: traerlabelpais(listapaises[i]),
+            esundefined: (busqueda === undefined)
         }
-        if (respuesta === true){
-    // Si el país objetivo es MAYOR, solo son posibles los mayores o iguales al valor
-    if (busqueda !== undefined && busqueda > input.valor) {
-        listaposibles.push(packpais);
-    } else if (busqueda !== undefined) {
-        listadescartados.push(packpais);
-    }
-    }
-    else if (respuesta === false){
-    // Si el país objetivo NO es mayor, solo son posibles los menores o iguales
-    if (busqueda !== undefined && busqueda <= input.valor) {
-        listaposibles.push(packpais);
-    } else if (busqueda !== undefined) {
-        listadescartados.push(packpais);
-    }
-    }
-    }
-    }
-    
-    
-    //opcion 2 de comparacion
-    else if (input.comparacion === "Menor"){
-    let valorobjetivo = traer(paisobjetivo,categoria);
-    if (valorobjetivo < input.valor) respuesta = true; 
-    else respuesta = false;
-    
-    for (let i = 0; i < listapaises.length;i++){
-        let busqueda = traer(listapaises[i],categoria);
-        let packpais = {
-    pais: listapaises[i],
-    label: traerlabelpais(listapaises[i]),
-    esundefined: (busqueda === undefined)
+        if (busqueda === undefined) continue;
+
+        // Mantener solo los que están en el mismo rango que el país objetivo
+        if (esMayor && busqueda > input.valor){
+            listaposibles.push(packpais);
+        } 
+        else if (esMenor && busqueda < input.valor){
+            listaposibles.push(packpais);
         }
-        if (respuesta === true){
-    // Si el país objetivo es MENOR, solo son posibles los menores o iguales
-    if (busqueda !== undefined && busqueda < input.valor) {
-        listaposibles.push(packpais);
-    } else if (busqueda !== undefined) {
-        listadescartados.push(packpais);
-    }
-    }
-    else if (respuesta === false){
-    // Si el país objetivo NO es menor, solo son posibles los mayores o iguales
-    if (busqueda !== undefined && busqueda >= input.valor) {
-        listaposibles.push(packpais);
-    } else if (busqueda !== undefined) {
-        listadescartados.push(packpais);
-    }
-    }
-    }
+        else if (!esMayor && !esMenor && busqueda === input.valor){
+            // Caso de igualdad exacta
+            listaposibles.push(packpais);
+        }
+        else {
+            listadescartados.push(packpais);
+        }
     }
     
     if (listaposibles.length === 1 && listaposibles.some(p => p.pais === paisobjetivo)) victoria = true;
     if (listaposibles.some(p => p.pais === paisobjetivo)) respuestatexto = "Sí";
     else respuestatexto = "No";
     
-    return {victoria: victoria,
+    return {
+        victoria: victoria,
         respuesta: respuestatexto,
         listadescartados: listadescartados,
         pais: paisobjetivo,
         intentos: intentos+1,
-        listaposibles: listaposibles};
-    }
+        listaposibles: listaposibles
+    };
+}
+
     
 export function traerDatoPorLabel(label){
         for (let i = 0; i < listalabelsB.length; i++){ 

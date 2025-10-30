@@ -4,6 +4,7 @@ let paisInicialDato = document.getElementById("paisInicialDato");
 let botonMayor = document.getElementById("btnMayor");
 let botonMenor = document.getElementById("btnMenor");
 let btnCambiarCategoria = document.getElementById("btnCambiarCategoria");
+let rachaContador = document.getElementById("rachaContador");
 
 let intentosCambiarCategoria = 3;
 let stats;
@@ -22,6 +23,8 @@ let paisDiario = "placeholder";
 let racha = 0;
 let puntaje = 0;
 let paises = [];  
+
+
 
 function cambiarCategoria(){
     if (intentosCambiarCategoria > 0){
@@ -78,7 +81,6 @@ function guardarStats(){};
 
 function evaluarResultado(data){
 if (data.victoria) {
-alert("Ganaste. Racha: "+data.timer);
  paisInicial = data.paisInicial; 
     pais2 = data.pais2;
     dato = data.dato;
@@ -88,12 +90,12 @@ alert("Ganaste. Racha: "+data.timer);
     paisInicialDato.innerText = data.labelvalorInicial;
     pais2Nombre.innerText = data.labelpais2;
     categoriaNombre.innerText = data.label;
+    rachaContador.innerText = timer;
 }
 else {
 mostrarPopUp(data.timer);
 enviarstats();
 pais2Nombre.innerText = data.labelPais2 + ": "+data.valorPais2;
-postEvent("iniciarMayorMenor",{}, iniciarMayorMenor); 
 //se muestra undefined en el nombre de pais 2. eso es porque en el backend se reemplaza labelpais2 por el nuevo pais y el viejo se pierde. agregar forma de arreglarlo. vincular con sist. de quemados
 }
 
@@ -128,22 +130,31 @@ function mostrarPopUp(puntaje) {
 btnCambiarCategoria.addEventListener("click",cambiarCategoria);
 
 
+let popupayuda = document.getElementById("popupayuda");
+let cerrarayuda = document.getElementById("cerrarayuda");
+let btnAyuda = document.getElementById("btnAyuda");
 
+  cerrarayuda.onclick = () => {
+    popupayuda.style.display = "none";
+  };
 
+  window.addEventListener("click", (e) => {
+    if (e.target === popupayuda) {
+      popupayuda.style.display = "none";
+    }
+  });
 
+btnAyuda.addEventListener("click",()=>{
+ popupayuda.style.display = "flex";
+});
 
-
-
-
-
-span.onclick = function() {
-    modal.style.display = "none";
+cerrarayuda.onclick = function() {
+    popupayuda.style.display = "none";
 }
 
-
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == popupayuda) {
+        popupayuda.style.display = "none";
     }
 }
 

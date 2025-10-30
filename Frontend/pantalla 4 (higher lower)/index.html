@@ -13,16 +13,16 @@
     </header>
 
     <main class="contenedor">
-        <!-- Tarjeta izquierda -->
+
         <div class="ladoIzquierdo">
             <div class="card paisIZQ">
-                <!-- Ahora acá va el nombre del país -->
+       
                 <div class="card-header" id="paisInicialNombre">
                     <span class="flag-icon" id="banderaInicial"></span>
                     <span id="nombrePaisIZQ">Argentina</span>
                 </div>
 
-                <!-- Y acá abajo va el dato/pista -->
+
                 <div class="card-content">
                     <h2 id="paisInicialDato">2.780.400 km²</h2>
                 </div>
@@ -31,7 +31,6 @@
 
         <div class="vs">VS</div>
 
-        <!-- Tarjeta derecha -->
         <div class="ladoDerecho">
             <div class="card paisDERCHO">
                 <div class="card-header" id="pais2Nombre">
@@ -58,8 +57,30 @@
         </div>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+<h3>Racha:</h3> <h2 id="rachaContador">0</h2>
+<br>
+    <button id="btnAyuda" class="centrado" class="boton"><h1>?</h1></button>
+
+   
+
+    <div id="popupayuda" class="modal">
+  <div class="modal-content">
+    <span id="cerrarayuda" class="close">&times;</span>
+    <h2>Cómo jugar</h2>
+    <br>
+    <p>
+     Tu objetivo es adivinar si el segundo pais tiene un valor 
+     mayor o menor que el primero en una categoría específica.  
+    </p>
+    <br>
+    <p>
+     Si acertás, tu racha aumenta y los países y la categoría cambian.
+      Si fallás, el juego termina y podés intentar de nuevo para mejorar tu racha.
+    </p>
+  </div>
+</div>
+</body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
     <script src="main.js"></script>
-</body>
 </html>
