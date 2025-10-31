@@ -62,31 +62,9 @@
     "contraseña": "",
     "stats": {
       "mayormenor": {
-        "racha": 4,
-        "categoriasAcertadas": [
-          {
-            "dato": "economy.external_debt.global_rank",
-            "cantidad": 4
-          }
-        ],
-        "paisesAcertados": [
-          {
-            "pais": "paraguay",
-            "cantidad": 1
-          },
-          {
-            "pais": "morocco",
-            "cantidad": 1
-          },
-          {
-            "pais": "cabo_verde",
-            "cantidad": 1
-          },
-          {
-            "pais": "sweden",
-            "cantidad": 1
-          }
-        ]
+        "racha": 1,
+        "categoriasAcertadas": [],
+        "paisesAcertados": []
       }
     }
   },
@@ -97,5 +75,9 @@
   "martin": {
     "nombre": "martin",
     "contraseña": "iud"
+  },
+  "sssssssssssssss": {
+    "nombre": "sssssssssssssss",
+    "contraseña": "sss"
   }
 }

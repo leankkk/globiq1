@@ -43,6 +43,10 @@ input {
   height: 100%;
   font-size: 20px;
   padding-right: 40px;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 ::placeholder {
@@ -62,6 +66,29 @@ input {
 border: 1px solid rgba(195, 195, 196, 0.00);
 } 
 
+.button{
+  display: flex;
+width: 494px;
+height: 75px;
+padding: 10px 334px 10px 350px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+border-radius: 15px;
+border: 1px solid rgba(195, 195, 196, 0.00);
+font-family: Inter;
+font-size: 32px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.button:hover{
+
+  color: #616260;
+
+}
 
 .btn:hover {
   background-color: gray; 
@@ -76,7 +103,7 @@ border: 1px solid rgba(195, 195, 196, 0.00);
 
 .toggle {
   position: absolute;
-  right: 400px;
+  right: 450px;
   top: 50%;
   transform: translateY(-50%); 
   background: transparent;
@@ -105,6 +132,8 @@ border: 1px solid rgba(195, 195, 196, 0.00);
 } 
 
 
+
+
 .btn:hover {
   background-color: gray;
 }
@@ -120,11 +149,11 @@ border: 1px solid rgba(195, 195, 196, 0.00);
 
 .logo{
   width: 367px;
-height: 101px;
+height: 101vh;
 flex-shrink: 0;
 position: absolute;
-top: 298px;
-left: 769px;
+top: -7px;
+left: 480px;
 }
 
 
