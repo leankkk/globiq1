@@ -7,5 +7,6 @@
 7*perfil del usuario y stats - todos los juegos
 8*boton de rendirse (dice q país era y hace lo mismo q cuando perdes) - diario y bloques
 9*popup como jugar - bloques y diario
+10*(no es importante) poner enter en vez del teclado en el diario
 
 EN ORDEN DE PRIORIDAD. Hay que hacer todos.
