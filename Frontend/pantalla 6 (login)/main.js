@@ -31,3 +31,4 @@ botonlogin.addEventListener("click", () => {
     postEvent("iniciarSesion", infocuenta, realizarinicio);
 });
 
+
