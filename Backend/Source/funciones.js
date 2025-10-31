@@ -306,7 +306,7 @@ esundefined: (traer(listapaises[i],datorandomnum()) === undefined)
 }
     let pais = paisrandom();
     let categorias = enviarCategorias({pais:pais});
-    return {pais:pais,listaposibles:listaposibles,categorias:categorias};
+    return {pais:pais,labelPaisObjetivo: traerlabelpais(pais),listaposibles:listaposibles,categorias:categorias};
 }
 
 export function recibirInputBloques(data){
@@ -401,9 +401,9 @@ export function enviarCategorias(data){
 let opcionescategorias = [];
 let dato;
 let busqueda;
-let pais = data.pais;
+let pais = data.pais ?? "";
 let cantidad = 5;
-console.log(data.pais);
+console.log(data.pais ?? "");
 while (opcionescategorias.length < cantidad){
 dato = datorandomnum();
 busqueda = traer(pais,dato);
@@ -439,9 +439,11 @@ else return {login:false};
 export function actualizarstats(data){
 cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json", "utf8"));
 if (!cuentas[data.nombre]) cuentas[data.nombre] = {}; 
-cuentas[data.nombre] = data.stats;
+if (!cuentas[data.nombre].stats) cuentas[data.nombre].stats = {};
+cuentas[data.nombre].stats = data.stats;
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2));
 } 
+    
 
 export function enviarStats(data){
 let database = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));

@@ -16,41 +16,66 @@ let intentos;
 let paisobjetivo;
 let listadescartados;
 let listaposibles;
+let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
 
 function mostrarPopUp(intentos) {
-  mensajeResultado.innerText = "¡Adivinaste el país ("+ paisobjetivo +")! Te llevó " + intentos +" intentos.";
+  mensajeResultado.innerText = "¡Adivinaste el país ("+ labelPaisObjetivo +")! Te llevó " + intentos +" intentos.";
   modal.style.display = "block"; 
 }
+
+function actualizarCategorias(data){
+  categorias = data
+  bloque1.innerText = categorias[0].label;
+  bloque2.innerText = categorias[1].label;
+  bloque3.innerText = categorias[2].label;
+  bloque4.innerText = categorias[3].label;
+  bloque5.innerText = categorias[4].label;
+};
+
+
 
 function evaluarRespuestaFront(data){
   listadescartados = data.listadescartados;
   listaposibles = data.listaposibles;
+  intentos = data.intentos;
 if (data.victoria){
 mostrarPopUp(data.intentos);
 enviarstats();
 document.getElementById("btnAdivinar").disabled = true;
+getEvent("iniciarBloques",establecerVariablesInicio);
 }
 else {
 respuesta.classList.remove("invisible");
 respuesta.innerText = "Respuesta: "+data.respuesta;
 actualizarListasFront(data.listaposibles, data.listadescartados);
+postEvent("obtenerCategorias",{pais:paisobjetivo}, actualizarCategorias)
 }
 }
 
 async function enviarstats(){
   console.log("envio de stats iniciado")
-postEvent("recibirStats",{nombre:usuario},getStats);
+  postEvent("recibirStats",{nombre:usuario},getStats);
 }
 
 function getStats(data){
   stats = data;
   console.log(stats);
+  if (!stats) stats = {};
+  stats.stats ??= {};
   stats.stats.bloques ??= {};
-  let statintentos = stats.stats.bloques.statintentos ?? Math.max(timer, stats.stats.bloques.statintentos);
-  stats.stats.bloques.statintentos = Math.max(timer, stats.stats.bloques.statintentos);
-  console.log(statintentos, timer, stats.stats.bloques.statintentos);
-  stats.stats.bloques.statintentos ??= statintentos; 
-  postEvent("guardarStats",{stats},guardarStats);
+  
+  let prevIntentos = Number(stats.stats.bloques.intentos);
+  if (!Number.isFinite(prevIntentos)) prevIntentos = 0;
+  let currentIntentos = Number(intentos);
+  if (!Number.isFinite(currentIntentos)) currentIntentos = 0;
+
+  let statintentos = Math.min(currentIntentos, prevIntentos || currentIntentos);
+
+  stats.stats.bloques.intentos = statintentos;
+  console.log(intentos, prevIntentos, stats.stats.bloques.intentos);
+  stats.stats.bloques.intentos ??= statintentos; 
+
+  postEvent("guardarStats",{nombre:usuario, stats:stats.stats},guardarStats);
  }
  
  function guardarStats(){};
@@ -58,6 +83,7 @@ function getStats(data){
 function establecerVariablesInicio(data){
   intentos = 0;
   paisobjetivo = data.pais;
+  labelPaisObjetivo = data.labelPaisObjetivo;
   listadescartados = [];
   listaposibles = data.listaposibles;
   categorias = data.categorias;
@@ -171,6 +197,9 @@ function actualizarListasFront(posibles, descartados) {
     li.textContent = p.label || p.pais;
     ulDescartados.appendChild(li);
   });
+
+  document.getElementById("posiblesHTMLTexto").innerText = "Posibles ("+posibles.length+")";
+  document.getElementById("descartadosHTMLTexto").innerText = "Descartados ("+descartados.length+")";
 }
 
 // Función para mostrar popup de error

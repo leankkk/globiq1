@@ -1,6 +1,3 @@
-MODOBLOQUES: Agregar una forma de adivinar a mano, y lista de los posibles y descartados en el front;
-MODOBLOQUES (PRIORIDADA): Hacer que cambien las categorias con cada pregunta
-
 seguir con paisesacertados modo bloques
 
 ARREGLAR STATS MODO DIARIO. tira en cuentas.json "undefined" de usuario
