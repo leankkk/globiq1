@@ -28,11 +28,16 @@ Adivinar:
 
 Mayor o menor:
     Principales:
-        - Récord
+        - Récord X
         - Racha de días
     Secundarias:
         - Categoría con mas aciertos
         - País con más aciertos
+        - Racha promedio
+        - Ratio de victorias/derrotas
+        - Winrate (correct guess rate)
+        - Adivinados correctamente totales
+        - Errores totales
 
 General:
     - Datos agotados

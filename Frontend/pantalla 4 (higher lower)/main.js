@@ -28,6 +28,26 @@ let racha = 0;
 let puntaje = 0;
 let paises = [];  
 
+//FUNCIÓN DE STATS LISTAS CATEGORIAS Y PAISES
+function compararListasAcertados(stats,esCategoria){
+//version para categorias
+    if (esCategoria){
+console.log(esCategoria,stats)
+let categoriasEnStats = stats.stats.mayormenor.categoriasAcertadas;
+console.log(categoriasEnStats);
+for (let i = 0; i < categoriasAcertadas.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
+    for (let c = 0; c < categoriasEnStats; c++){
+        if (categoriasEnStats[c].dato === categoriasAcertadas[i].dato){
+            categoriasEnStats[c].cantidad += categoriasAcertadas[i].cantidad;
+        }
+    }
+    console.log(categoriasEnStats);
+
+}
+return categoriasEnStats;
+}
+}
+
 
 
 function cambiarCategoria(){
@@ -77,6 +97,12 @@ function getStats(data){
  //para la racha
  let racha = (Math.max(timer,stats.stats.mayormenor.racha)) ?? timer;
  stats.stats.mayormenor.racha = racha;
+ //para listas categorias y eso
+ let statpaisesAcertados = compararListasAcertados(stats,true) ?? paisesAcertados;
+ let statcategoriasAcertadas = compararListasAcertados(stats,false) ?? categoriasAcertadas;
+ stats.stats.mayormenor.categoriasAcertadas = statcategoriasAcertadas;
+ stats.stats.mayormenor.paisesAcertados = statpaisesAcertados;
+
  console.log(racha, timer, stats.stats.mayormenor.racha);
  //racha de dias
 
@@ -98,10 +124,31 @@ if (data.victoria) {
     categoriaNombre.innerText = data.label;
     rachaContador.innerText = timer;
 
-if (){
-categoriasAcertadas.push({dato:dato,cantidad:1});
-paisesAcertados.push({pais:pais2,cantidad:1});
+    if (categoriasAcertadas.some(p => p.dato === dato)){
+        for (let i = 0; i < categoriasAcertadas.length; i++){
+            if (categoriasAcertadas[i].dato === dato){
+            categoriasAcertadas[i].cantidad++;
+            break;
+            } 
+        }
+        } else {
+            categoriasAcertadas.push({dato:dato,cantidad:1});
+        }  
+
+if (paisesAcertados.some(p => p.pais === paisInicial)){
+for (let i = 0; i < paisesAcertados.length; i++){
+    if (paisesAcertados[i].pais === paisInicial){
+    paisesAcertados[i].cantidad++;
+    break;
+    } 
 }
+} else {
+    paisesAcertados.push({pais:paisInicial,cantidad:1});
+}  
+    
+//console.log(paisesAcertados,categoriasAcertadas);
+
+
 }
 else {
 mostrarPopUp(data.timer);

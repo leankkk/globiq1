@@ -439,7 +439,7 @@ else return {login:false};
 export function actualizarstats(data){
 cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json", "utf8"));
 if (!cuentas[data.nombre]) cuentas[data.nombre] = {}; 
-cuentas[data.nombre].stats = data.stats;
+cuentas[data.nombre] = data.stats;
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2));
 } 
 

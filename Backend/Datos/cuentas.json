@@ -58,16 +58,35 @@
     }
   },
   "undefined": {
+    "nombre": "Sin usuario",
+    "contraseña": "",
     "stats": {
-      "nombre": "Sin usuario",
-      "contraseña": "",
-      "stats": {
-        "mayormenor": {
-          "racha": 1
-        },
-        "diario": {
-          "puntaje": 7
-        }
+      "mayormenor": {
+        "racha": 4,
+        "categoriasAcertadas": [
+          {
+            "dato": "economy.external_debt.global_rank",
+            "cantidad": 4
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "paraguay",
+            "cantidad": 1
+          },
+          {
+            "pais": "morocco",
+            "cantidad": 1
+          },
+          {
+            "pais": "cabo_verde",
+            "cantidad": 1
+          },
+          {
+            "pais": "sweden",
+            "cantidad": 1
+          }
+        ]
       }
     }
   },
