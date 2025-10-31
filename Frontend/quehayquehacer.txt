@@ -1,0 +1,11 @@
+1*integrar el diseño con el front - TODAS LAS PANTALLAS
+2*lista de paises posibles y paises descartados - juego bloques
+3*arreglar mapa del front y hacerlo funcionar - bloques
+4*popup de victoria - juego bloques
+5*menu hamburguesa - todos los juegos
+6*integrar el login con los juegos (bienvenido, x) - todos los juegos
+7*perfil del usuario y stats - todos los juegos
+8*boton de rendirse (dice q país era y hace lo mismo q cuando perdes) - diario y bloques
+9*popup como jugar - bloques y diario
+
+EN ORDEN DE PRIORIDAD. Hay que hacer todos.

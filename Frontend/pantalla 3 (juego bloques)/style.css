@@ -214,3 +214,88 @@ body {
   background-color: #eafbea;
   border-color: #4caf50;
 }
+
+.listas-paises {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.lista {
+  width: 300px;
+  max-height: 250px;
+  background-color: #fff;
+  border: 2px solid #bbb;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  padding: 10px;
+  text-align: left;
+}
+
+.lista h3 {
+  text-align: center;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.lista ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista li {
+  padding: 4px 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95em;
+}
+
+.lista li:last-child {
+  border-bottom: none;
+}
+
+
+/* Modal genérico */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.modal-content p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.modal-content button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.modal-content button:hover {
+  background-color: #3b913d;
+}

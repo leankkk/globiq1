@@ -33,6 +33,7 @@ document.getElementById("btnAdivinar").disabled = true;
 else {
 respuesta.classList.remove("invisible");
 respuesta.innerText = "Respuesta: "+data.respuesta;
+actualizarListasFront(data.listaposibles, data.listadescartados);
 }
 }
 
@@ -128,16 +129,65 @@ let valorInputFinal = 0;
 document.getElementById('btnAdivinar').addEventListener('click', () => {
   valorSlot1 = document.querySelector('#slot1').textContent.trim();
   valorSlot2 = document.querySelector('#slot2').textContent.trim();
-  valorInputFinal = document.querySelector('#inputFinal').value;
-input = {
-  comparacion: valorSlot2,
-  valor: parseInt(valorInputFinal),
-  categoria: valorSlot1
+  valorInputFinal = document.querySelector('#inputFinal').value.trim();
+
+  // Validar que todo esté completo
+  if (!valorSlot1 || !valorSlot2 || !valorInputFinal) {
+    mostrarError("Debes completar todos los campos antes de adivinar.");
+    return;
+  }
+
+  input = {
+    comparacion: valorSlot2,
+    valor: parseInt(valorInputFinal),
+    categoria: valorSlot1
+  };
+
+  postEvent("evaluarRespuestaBloques", {
+    input: input,
+    paisobjetivo: paisobjetivo,
+    intentos: intentos,
+    listadescartados: listadescartados,
+    listaposibles: listaposibles,
+  }, evaluarRespuestaFront);
+});
+
+
+function actualizarListasFront(posibles, descartados) {
+  const ulPosibles = document.getElementById("ulPosibles");
+  const ulDescartados = document.getElementById("ulDescartados");
+
+  ulPosibles.innerHTML = "";
+  ulDescartados.innerHTML = "";
+
+  posibles.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = p.label || p.pais;
+    ulPosibles.appendChild(li);
+  });
+
+  descartados.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = p.label || p.pais;
+    ulDescartados.appendChild(li);
+  });
 }
-postEvent("evaluarRespuestaBloques",{
-  input: input,
-  paisobjetivo: paisobjetivo, //
-intentos: intentos, //
-listadescartados: listadescartados,//
-listaposibles: listaposibles,//
-}, evaluarRespuestaFront)});
+
+// Función para mostrar popup de error
+function mostrarError(mensaje) {
+  const errorModal = document.getElementById("errorModal");
+  const errorMensaje = document.getElementById("errorMensaje");
+  errorMensaje.innerText = mensaje;
+  errorModal.style.display = "block";
+}
+
+// Cerrar el popup
+document.getElementById("cerrarError").addEventListener("click", () => {
+  document.getElementById("errorModal").style.display = "none";
+});
+
+// También cerrar si se hace clic fuera
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("errorModal");
+  if (e.target === modal) modal.style.display = "none";
+});

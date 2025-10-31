@@ -32,6 +32,12 @@
           </div>
       </div>
   </div>
+  <div id="errorModal" class="modal">
+    <div class="modal-content">
+      <p id="errorMensaje">Debes completar todos los campos antes de adivinar.</p>
+      <button id="cerrarError">OK</button>
+    </div>
+  </div>
 
     <div class="bloques" id="bloques">
       <div class="bloque" id="MOM" draggable="true">Mayor</div>
@@ -45,6 +51,18 @@
 
 <div>
  <h1 id="respuestaDiv" class="invisible"> Respuesta:</h1> 
+</div>
+
+<div class="listas-paises">
+  <div class="lista" id="listaPosibles">
+    <h3>Posibles</h3>
+    <ul id="ulPosibles"></ul>
+  </div>
+
+  <div class="lista" id="listaDescartados">
+    <h3>Descartados</h3>
+    <ul id="ulDescartados"></ul>
+  </div>
 </div>
 
   </div>
