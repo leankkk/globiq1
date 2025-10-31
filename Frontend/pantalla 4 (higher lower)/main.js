@@ -6,8 +6,12 @@ let botonMenor = document.getElementById("btnMenor");
 let btnCambiarCategoria = document.getElementById("btnCambiarCategoria");
 let rachaContador = document.getElementById("rachaContador");
 
-let intentosCambiarCategoria = 3;
+//Para las stats
 let stats;
+let categoriasAcertadas = [];
+let paisesAcertados = [];
+
+let intentosCambiarCategoria = 3;
 let paisInicial;
 let labelpaisInicial;
 let labelpais2;
@@ -70,10 +74,12 @@ function getStats(data){
  stats = data;
  console.log(stats);
  stats.stats.mayormenor ??= {};
- let racha = stats.stats.mayormenor.racha ?? Math.max(timer, stats.stats.mayormenor.racha);
- stats.stats.mayormenor.racha = Math.max(timer, stats.stats.mayormenor.racha);
+ //para la racha
+ let racha = (Math.max(timer,stats.stats.mayormenor.racha)) ?? timer;
+ stats.stats.mayormenor.racha = racha;
  console.log(racha, timer, stats.stats.mayormenor.racha);
- stats.stats.mayormenor.racha ??= racha; 
+ //racha de dias
+
  postEvent("guardarStats",{stats},guardarStats);
 }
 
@@ -91,6 +97,11 @@ if (data.victoria) {
     pais2Nombre.innerText = data.labelpais2;
     categoriaNombre.innerText = data.label;
     rachaContador.innerText = timer;
+
+if (){
+categoriasAcertadas.push({dato:dato,cantidad:1});
+paisesAcertados.push({pais:pais2,cantidad:1});
+}
 }
 else {
 mostrarPopUp(data.timer);
