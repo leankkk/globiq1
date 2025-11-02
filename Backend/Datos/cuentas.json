@@ -62,16 +62,10 @@
     "contraseña": "",
     "stats": {
       "mayormenor": {
-<<<<<<< HEAD
         "racha": 1
       },
       "bloques": {
         "intentos": null
-=======
-        "racha": 1,
-        "categoriasAcertadas": [],
-        "paisesAcertados": []
->>>>>>> 431fda273b933986a1e66a595f10511c2f4a8028
       }
     }
   },

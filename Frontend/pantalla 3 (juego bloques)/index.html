@@ -8,62 +8,86 @@
 </head>
 <body>
 
+
   <div class="container">
+    <div class="layout">
 
-    <div class="pregunta">
-      <span>¿El/la</span>
-      <div class="slot" id="slot1" data-slot="1"></div>
-      <span>es</span>
-      <div class="slot" id="slot2" data-slot="2"></div>
-      <span>a</span>
-      <input type="number" id="inputFinal" placeholder="0" class="input-slot" />
-      <span>?</span>
-    </div>
+      <!-- Columna izquierda -->
+      <div class="col izquierda">
 
-    <button id="btnAdivinar" class="boton-adivinar">Adivinar</button>
+        <div class="pregunta">
+          <span>¿El/la</span>
+          <div class="slot" id="slot1" data-slot="1"></div>
+          <span>es</span>
+          <div class="slot" id="slot2" data-slot="2"></div>
+          <span>a</span>
+          <input type="number" id="inputFinal" placeholder="0" class="input-slot" />
+          <span>?</span>
+        </div>
 
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <p id="mensajeResultado">¡Has perdido! Tu puntaje es: 0</p>
-          <div class="botones">
-              <button id="btnJugar" class="btn-jugar">Jugar de nuevo</button>
-              <button id="btnPrincipal" class="btn-principal">Ir a la página principal</button>
+        <button id="btnAdivinar" class="boton-adivinar">Preguntar</button>
+
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <p id="mensajeResultado">¡Has perdido! Tu puntaje es: 0</p>
+              <div class="botones">
+                  <button id="btnJugar" class="btn-jugar">Jugar de nuevo</button>
+                  <button id="btnPrincipal" class="btn-principal">Ir a la página principal</button>
+              </div>
           </div>
-      </div>
-  </div>
-  <div id="errorModal" class="modal">
-    <div class="modal-content">
-      <p id="errorMensaje">Debes completar todos los campos antes de adivinar.</p>
-      <button id="cerrarError">OK</button>
-    </div>
-  </div>
+        </div>
 
-    <div class="bloques" id="bloques">
-      <div class="bloque" id="MOM" draggable="true">Mayor</div>
-      <div class="bloque" id="MOM" draggable="true">Menor</div>
-      <div class="bloque" id="bloque1" draggable="true">Placeholder 1</div>
-      <div class="bloque" id="bloque2" draggable="true">Placeholder 2</div>
-      <div class="bloque" id="bloque3" draggable="true">Placeholder 3</div>
-      <div class="bloque" id="bloque4" draggable="true">Placeholder 4</div>
-      <div class="bloque" id="bloque5" draggable="true">Placeholder 5, categoria otra, etc.</div>
-    </div>
+        <div id="errorModal" class="modal">
+          <div class="modal-content">
+            <p id="errorMensaje">Debes completar todos los campos antes de adivinar.</p>
+            <button id="cerrarError">OK</button>
+          </div>
+        </div>
 
-<div>
- <h1 id="respuestaDiv" class="invisible"> Respuesta:</h1> 
-</div>
+        <div class="bloques" id="bloques">
+          <div class="bloque" id="MOM" draggable="true">Mayor</div>
+          <div class="bloque" id="MOM" draggable="true">Menor</div>
+          <div class="bloque" id="bloque1" draggable="true">Placeholder 1</div>
+          <div class="bloque" id="bloque2" draggable="true">Placeholder 2</div>
+          <div class="bloque" id="bloque3" draggable="true">Placeholder 3</div>
+          <div class="bloque" id="bloque4" draggable="true">Placeholder 4</div>
+          <div class="bloque" id="bloque5" draggable="true">Placeholder 5, categoria otra, etc.</div>
+        </div>
 
-<div class="listas-paises">
-  <div class="lista" id="listaPosibles">
-    <h3 id="posiblesHTMLTexto">Posibles</h3>
-    <ul id="ulPosibles"></ul>
-  </div>
+        <div>
+          <h1 id="respuestaDiv" class="invisible"> Respuesta:</h1> 
+        </div>
 
-  <div class="lista" id="listaDescartados">
-    <h3 id="descartadosHTMLTexto">Descartados</h3>
-    <ul id="ulDescartados"></ul>
-  </div>
-</div>
+      </div> <!-- cierre izquierda -->
+
+      <!-- Columna derecha -->
+      <div class="col derecha">
+
+        <div class="listas-paises">
+          <div class="lista" id="listaPosibles">
+            <h3 id="posiblesHTMLTexto">Posibles</h3>
+            <ul id="ulPosibles"></ul>
+          </div>
+
+          <div class="lista" id="listaDescartados">
+            <h3 id="descartadosHTMLTexto">Descartados</h3>
+            <ul id="ulDescartados"></ul>
+          </div>
+        </div>
+
+        <div class="adivinar-pais-box">
+          <input list="listaPaises" id="inputAdivinarPais" placeholder="Nombre del país">
+          <datalist id="listaPaises"></datalist>
+          <button id="btnAdivinarPais">Adivinar país</button>
+        </div>
+
+      </div> <!-- cierre derecha -->
+
+    </div> <!-- cierre layout -->
+  </div> <!-- cierre container -->
+
+
 
   </div>
     <div class="mapa">

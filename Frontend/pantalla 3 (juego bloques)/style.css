@@ -299,3 +299,38 @@ body {
 .modal-content button:hover {
   background-color: #3b913d;
 }
+
+.adivinar-pais-box {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#inputAdivinarPais {
+  padding: 8px;
+  width: 250px;
+  border: 2px solid #bbb;
+  border-radius: 6px;
+}
+.layout {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.col {
+  flex: 1;
+  min-width: 300px;
+}
+
+.izquierda {
+  text-align: center;
+}
+
+.derecha {
+  text-align: center;
+  border-left: 2px solid #ccc;
+  padding-left: 20px;
+}
