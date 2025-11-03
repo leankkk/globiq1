@@ -8,6 +8,6 @@
 8*boton de rendirse (dice q país era y hace lo mismo q cuando perdes) - diario y bloques
 9*popup como jugar - bloques y diario
 10*(no es importante) poner enter en vez del teclado en el diario
-11*(si es que se puede) poner en bloques lo de qe}ue en el input dice ar (argentina, argelia, australia)
+11*(si es que se puede) poner en bloques lo de que en el input dice ar (argentina, argelia, australia)
 
 EN ORDEN DE PRIORIDAD. Hay que hacer todos.

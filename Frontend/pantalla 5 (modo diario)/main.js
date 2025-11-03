@@ -7,6 +7,12 @@ let btnOk = document.getElementById('btn-ok');
 let intentosDOM = document.getElementById("cantidaddeintentosDOM");
 let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
 let btnCambiarCategoria = document.getElementById("btnCambiarCategoria");
+let rendirseBtn = document.getElementById("rendirseBtn");
+let popupRendirse = document.getElementById("popupRendirse");
+let paisCorrectoDOM = document.getElementById("paisCorrectoDOM");
+let btnVolver = document.getElementById("btn-volver");
+
+
 let intentosFallidos = [];  
 
 
@@ -99,13 +105,11 @@ btnOk.addEventListener('click', () => {
 });
 
 
-let btnRend = document.getElementById("btn-rend");
-let rendirse = document.getElementById("rendirse");
 
 
-btnRend.addEventListener('click', () => {
+
+rendirseBtn.addEventListener("click", () => {
   window.location.href = "../home/index.html";
-  rendirse.style.display = "none";
 });
 
 

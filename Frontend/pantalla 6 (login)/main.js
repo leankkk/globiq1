@@ -2,6 +2,8 @@ connect2Server();
 let botonlogin = document.getElementById("loginBtn"); 
 let placeholderContraseña = document.getElementById("password");
 let placeholderUsuario = document.getElementById("usuario");
+let botonregistro = document.getElementById("registroBtn");
+
 function togglePassword(id) { 
     let input = document.getElementById(id);
     input.type = input.type === "password" ? "text" : "password";
@@ -23,4 +25,8 @@ botonlogin.addEventListener("click", () => {
     };
     console.log("Se activó el botón");
     postEvent("iniciarSesion", infocuenta, realizarinicio);
+});
+
+botonregistro.addEventListener("click", () => {
+    window.location.href = "../pantalla 7 (registro)/index.html"; 
 });

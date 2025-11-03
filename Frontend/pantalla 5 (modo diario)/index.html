@@ -41,11 +41,25 @@
     </div>
   </div>
 
-
-  <div id= "rendimiento" class = "rendirse">
-<button id = btn-rend>🚩</button>
-   
+  <div id="popupRendirse" class="popup">
+  <div class="popup-content">
+    <h2>Te rendiste</h2>
+    <p id="paisCorrectoDOM"></p>
+    <button id="btn-volver">VOLVER</button>
   </div>
+</div>
+
+
+
+ <button id="rendirseBtn" class="btn-rendirse">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="white" stroke-width="2" 
+       stroke-linecap="round" stroke-linejoin="round" class="icon-flag">
+    <path d="M4 22V2h16l-2 4 2 4H4"/>
+  </svg>
+</button>
+
+   
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
   <script src="main.js"></script>

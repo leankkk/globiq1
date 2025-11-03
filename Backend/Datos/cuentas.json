@@ -99,5 +99,9 @@
   "hola": {
     "nombre": "hola",
     "contraseña": "hola"
+  },
+  "globiq": {
+    "nombre": "globiq",
+    "contraseña": "flafy"
   }
 }
