@@ -6,10 +6,11 @@ Cuenta:
 
 Diario:
     Principales:
-        - Racha
+        - Menores intentos
         - Victorias sobre intentos (x/y)
         - Porcentaje de efectividad
     Secundarias
+        - Racha
         - Racha más larga
         - Partida más rápida
         - Tiempo promedio
@@ -17,10 +18,11 @@ Diario:
 
 Adivinar:
     Principales:
-        - Racha
+        - Menor número de intentos
         - Victorias sobre intentos (x/y)
         - Porcentaje de efectividad
     Secundarias:
+        - Racha
         - Racha más larga
         - Partida más rápida
         - Tiempo promedio

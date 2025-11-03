@@ -106,7 +106,7 @@ function getStats(data){
  console.log(racha, timer, stats.stats.mayormenor.racha);
  //racha de dias
 
- postEvent("guardarStats",{stats},guardarStats);
+ postEvent("guardarStats",stats,guardarStats);
 }
 
 function guardarStats(){};

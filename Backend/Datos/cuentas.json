@@ -52,22 +52,37 @@
     "nombre": "Sin usuario",
     "contraseña": "",
     "stats": {
-      "bloques": {
-        "intentos": 49
+      "nombre": "Sin usuario",
+      "contraseña": "",
+      "stats": {
+        "bloques": {
+          "intentos": 49
+        },
+        "mayormenor": {
+          "racha": 2,
+          "categoriasAcertadas": [
+            {
+              "dato": "economy.gdp.real_growth_rate.global_rank",
+              "cantidad": 2
+            }
+          ],
+          "paisesAcertados": [
+            {
+              "dato": "people.drinking_water_source.improved.rural.value",
+              "cantidad": 4
+            },
+            {
+              "dato": "transportation.air_transport.airports.paved.total",
+              "cantidad": 1
+            }
+          ]
+        }
       }
     }
   },
   "undefined": {
     "nombre": "Sin usuario",
-    "contraseña": "",
-    "stats": {
-      "mayormenor": {
-        "racha": 1
-      },
-      "bloques": {
-        "intentos": null
-      }
-    }
+    "contraseña": ""
   },
   "dritokon": {
     "nombre": "dritokon",
