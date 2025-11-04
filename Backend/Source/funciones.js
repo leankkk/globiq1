@@ -422,7 +422,12 @@ export function crearcuenta(data){
 if (!cuentaexiste(data.nombre)){ 
 cuentas[data.nombre] = {
     nombre: data.nombre,
-    contraseña: data.contraseña
+    contraseña: data.contraseña,
+    stats: {
+        diario: {},
+        mayormenor: {},
+        bloques: {}
+    }
 }
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2))
 return {ok:true}

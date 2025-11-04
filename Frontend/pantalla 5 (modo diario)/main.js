@@ -22,7 +22,7 @@ let intentos = 0;
 
 async function enviarstats(){
   console.log("envio de stats iniciado");
-  postEvent("recibirStats", { nombre: usuario }, getStats);
+  postEvent("enviarStatsAlFront", { nombre: usuario }, getStats);
 }
 
 
@@ -35,7 +35,7 @@ function getStats(data) {
   stats.stats.diario.puntaje = Math.min(intentos, stats.stats.diario.puntaje);
   console.log(puntaje, intentos, stats.stats.diario.puntaje);
   stats.stats.diario.puntaje ??= puntaje;
-  postEvent("guardarStats", { stats }, guardarStats);
+  postEvent("guardarStatsEnElBack", { stats }, guardarStats);
 }
 
 

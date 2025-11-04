@@ -1,107 +1,29 @@
 {
-  "marcozzi": {
-    "nombre": "marcozzi",
-    "contraseña": "marcontraseña123",
-    "stats": {
-      "racha": 2,
-      "highest": 5
-    }
-  },
-  "ivo": {
-    "nombre": "ivo",
-    "contraseña": "hola"
-  },
-  "iud": {
-    "nombre": "iud",
-    "contraseña": "sofiiud"
-  },
-  "martiniudmatz": {
-    "nombre": "martiniudmatz",
-    "contraseña": "sofiiud"
-  },
-  "leandro": {
-    "nombre": "leandro",
-    "contraseña": "kona"
-  },
-  "flafy": {
-    "nombre": "flafy",
-    "contraseña": "marcozzi"
-  },
-  "lucio": {
-    "nombre": "lucio",
-    "contraseña": "camde12"
-  },
-  "luciocam": {
-    "nombre": "luciocam",
-    "contraseña": "sus"
-  },
-  "luciocamde": {
-    "nombre": "luciocamde",
-    "contraseña": "justo",
-    "stats": {
-      "mayormenor": {
-        "racha": 1
-      }
-    }
-  },
-  "24deoctubre": {
-    "nombre": "24deoctubre",
-    "contraseña": "241025"
-  },
   "Sin usuario": {
     "nombre": "Sin usuario",
     "contraseña": "",
     "stats": {
-      "nombre": "Sin usuario",
-      "contraseña": "",
-      "stats": {
-        "bloques": {
-          "intentos": 49
-        },
-        "mayormenor": {
-          "racha": 2,
-          "categoriasAcertadas": [
-            {
-              "dato": "economy.gdp.real_growth_rate.global_rank",
-              "cantidad": 2
-            }
-          ],
-          "paisesAcertados": [
-            {
-              "dato": "people.drinking_water_source.improved.rural.value",
-              "cantidad": 4
-            },
-            {
-              "dato": "transportation.air_transport.airports.paved.total",
-              "cantidad": 1
-            }
-          ]
-        }
-      }
+      "diario": {},
+      "mayormenor": {
+        "racha": 6,
+        "categoriasAcertadas": [
+          {
+            "dato": "people.youth_unemployment.global_rank",
+            "cantidad": 1
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "dato": "economy.public_debt.global_rank",
+            "cantidad": 4
+          },
+          {
+            "dato": "communications.telephones.mobile_cellular.global_rank",
+            "cantidad": 2
+          }
+        ]
+      },
+      "bloques": {}
     }
-  },
-  "undefined": {
-    "nombre": "Sin usuario",
-    "contraseña": ""
-  },
-  "dritokon": {
-    "nombre": "dritokon",
-    "contraseña": "lean"
-  },
-  "martin": {
-    "nombre": "martin",
-    "contraseña": "iud"
-  },
-  "sssssssssssssss": {
-    "nombre": "sssssssssssssss",
-    "contraseña": "sss"
-  },
-  "hola": {
-    "nombre": "hola",
-    "contraseña": "hola"
-  },
-  "globiq": {
-    "nombre": "globiq",
-    "contraseña": "flafy"
   }
 }

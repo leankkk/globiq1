@@ -11,8 +11,8 @@ subscribePOSTEvent("evaluarRespuestaBloques",recibirInputBloques);
 subscribePOSTEvent("iniciarMayorMenor",iniciarMayorMenor);
 subscribePOSTEvent("obtenerCategorias",enviarCategorias);
 subscribePOSTEvent("evaluarRespuesta",compararMayorMenor);
-subscribePOSTEvent("guardarStats",actualizarstats);
-subscribePOSTEvent("recibirStats",enviarStats);
+subscribePOSTEvent("guardarStatsEnElBack",actualizarstats);
+subscribePOSTEvent("enviarStatsAlFront",enviarStats);
 subscribePOSTEvent("cambiarCategoria",cambiarCategoria);
 //subscribeGETEvent("obtenerPaisDiario",paisdiariofront);
 

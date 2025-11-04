@@ -7,7 +7,7 @@ let btnCambiarCategoria = document.getElementById("btnCambiarCategoria");
 let rachaContador = document.getElementById("rachaContador");
 
 //Para las stats
-let stats;
+let infousuario;
 let categoriasAcertadas = [];
 let paisesAcertados = [];
 
@@ -29,11 +29,11 @@ let puntaje = 0;
 let paises = [];  
 
 //FUNCIÓN DE STATS LISTAS CATEGORIAS Y PAISES
-function compararListasAcertados(stats,esCategoria){
+function compararListasAcertados(info,esCategoria){
 //version para categorias
     if (esCategoria){
-console.log(esCategoria,stats)
-let categoriasEnStats = stats.stats.mayormenor.categoriasAcertadas;
+console.log(esCategoria,info)
+let categoriasEnStats = info.stats.mayormenor.categoriasAcertadas;
 console.log(categoriasEnStats);
 for (let i = 0; i < categoriasAcertadas.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
     for (let c = 0; c < categoriasEnStats; c++){
@@ -85,31 +85,40 @@ labelpaisInicial = data.labelpaisInicial;
     categoriaNombre.innerText = label;
   }
 
+
+
+  //STATS
+
+
   async function enviarstats(){
     console.log("envio de stats iniciado")
-postEvent("recibirStats",{nombre:usuario},getStats);
+postEvent("enviarStatsAlFront",{nombre:usuario},getStats);
 }
 
 function getStats(data){
- stats = data;
- console.log(stats);
- stats.stats.mayormenor ??= {};
+ infousuario = data;
+ console.log(infousuario);
+ infousuario.stats.mayormenor ??= {};
  //para la racha
- let racha = (Math.max(timer,stats.stats.mayormenor.racha)) ?? timer;
- stats.stats.mayormenor.racha = racha;
+ let racha = (Math.max(timer,infousuario.stats.mayormenor.racha)) ?? timer;
+ infousuario.stats.mayormenor.racha = racha;
  //para listas categorias y eso
- let statpaisesAcertados = compararListasAcertados(stats,true) ?? paisesAcertados;
- let statcategoriasAcertadas = compararListasAcertados(stats,false) ?? categoriasAcertadas;
- stats.stats.mayormenor.categoriasAcertadas = statcategoriasAcertadas;
- stats.stats.mayormenor.paisesAcertados = statpaisesAcertados;
+ let statpaisesAcertados = compararListasAcertados(infousuario,true) ?? paisesAcertados;
+ let statcategoriasAcertadas = compararListasAcertados(infousuario,false) ?? categoriasAcertadas;
+ infousuario.stats.mayormenor.categoriasAcertadas = statcategoriasAcertadas;
+ infousuario.stats.mayormenor.paisesAcertados = statpaisesAcertados;
 
- console.log(racha, timer, stats.stats.mayormenor.racha);
+ console.log(racha, timer, infousuario.stats.mayormenor.racha);
  //racha de dias
 
- postEvent("guardarStats",stats,guardarStats);
+ postEvent("guardarStatsEnElBack",infousuario,guardarStats);
 }
 
 function guardarStats(){};
+
+
+
+//
 
 function evaluarResultado(data){
 if (data.victoria) {
