@@ -152,3 +152,64 @@ background: #009E8B;
     top: 3px;
     left: 445px;
   }
+/* Contenedor del menú */
+.menu-container {
+    position: fixed;        /* fijo en pantalla */
+    top: 15px;
+    right: 20px;
+    z-index: 1000;          /* que quede por encima de todo */
+  }
+  
+  /* Ícono ☰ */
+  .menu-icon {
+    font-size: 32px;
+    cursor: pointer;
+    user-select: none;
+    color: #111;
+    transition: transform 0.2s;
+  }
+  
+  .menu-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Menú desplegable */
+  .menu-options {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    background-color: #2f2f2f;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: 180px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  
+  /* Ítems */
+  .menu-options li {
+    padding: 0;
+  }
+  
+  /* Enlaces */
+  .menu-options a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    transition: background 0.3s, padding-left 0.2s;
+  }
+  
+  .menu-options a:hover {
+    background-color: #444;
+    padding-left: 20px;
+  }
+  
+  /* Mostrar el menú mientras el mouse esté sobre el ícono o el menú */
+  .menu-container:hover .menu-options {
+    display: flex;
+  }
+  
