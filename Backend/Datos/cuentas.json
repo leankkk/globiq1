@@ -13,14 +13,62 @@
         ]
       },
       "mayormenor": {
-        "racha": 3,
+        "racha": 10,
+        "listaRachas": [
+          10,
+          10,
+          0,
+          8,
+          0,
+          7,
+          4,
+          0,
+          3,
+          0,
+          7,
+          0,
+          2,
+          0,
+          6,
+          2,
+          9,
+          0,
+          0,
+          3
+        ],
+        "promedioRachas": 3.55,
         "categoriasAcertadas": [
           {
-            "dato": "economy.taxes_and_other_revenues.percent_of_gdp",
-            "cantidad": 2
+            "dato": "people.total_fertility_rate.global_rank",
+            "cantidad": 4
+          },
+          {
+            "dato": "transportation.air_transport.airports.paved.under_914_metres",
+            "cantidad": 5
+          },
+          {
+            "dato": "communications.internet.users.global_rank",
+            "cantidad": 12
+          },
+          {
+            "dato": "communications.internet.users.global_rank",
+            "cantidad": 12
           }
         ],
-        "paisesAcertados": []
+        "paisesAcertados": [
+          {
+            "pais": "malaysia",
+            "cantidad": 1
+          },
+          {
+            "pais": "mexico",
+            "cantidad": 1
+          },
+          {
+            "pais": "belarus",
+            "cantidad": 1
+          }
+        ]
       },
       "bloques": {
         "puntaje": null,

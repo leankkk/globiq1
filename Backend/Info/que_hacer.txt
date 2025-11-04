@@ -5,5 +5,6 @@ agregar pantalla de stats
 CATEGORIAS ACERTADAS HIGHER OR LOWER:
 - las categorias siempre se sobreescriben y no se actualizan
 - los paises acertados ni estan
+- FALTA AGREGAR UN PUSH A LA LISTA EN STATS CUANDO NO EXISTE LA CATEGORIA DE ANTES
 
 agregar funcion de datos quemados a modo mayor o menor? ya no hace falta casi

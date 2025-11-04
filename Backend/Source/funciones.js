@@ -1,7 +1,7 @@
 //Importando datos
 import fs, { Stats } from "fs";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
-import { listapaises , listadatos , listadias , listalabels, listadatosB, listalabelsB, listalabelsPaises} from "./listas.js";
+import { listapaises , listadatos , listadias , listalabels, listadatosB, listalabelsB, listalabelsPaises, listaCodigosPaises} from "./listas.js";
 import path from "path";
 let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
 let quemados = JSON.parse(fs.readFileSync("./Datos/datos_quemados.json","utf-8"));
@@ -39,6 +39,12 @@ export function paisdiariofront() {
 export function traerlabel(dato) {
     for (let i = 0; i < listadatosB.length; i++){ 
         if (listadatosB[i] === dato) return listalabelsB[i];   
+       }
+}
+
+export function traerlabelCodigoPais(pais) {
+    for (let i = 0; i < listapaises.length; i++){ 
+        if (listapaises[i] === pais) return listaCodigosPaises[i];   
        }
 }
 
@@ -301,6 +307,7 @@ for (let i = 0; i < listapaises.length; i++){
     listaposibles.push({
 pais: listapaises[i],
 label: traerlabelpais(listapaises[i]),
+codigo: traerlabelCodigoPais(listapaises[i]),
 esundefined: (traer(listapaises[i],datorandomnum()) === undefined)
     });
 }
@@ -348,6 +355,7 @@ export function recibirInputBloques(data){
         let packpais = {
             pais: listaposibles[i].pais, // REVISAR ESTO
             label: traerlabelpais(listaposibles[i].pais),
+            codigo: traerlabelCodigoPais(listaposibles[i].pais),
             esundefined: (busqueda === undefined)
         }
         
@@ -432,6 +440,8 @@ cuentas[data.nombre] = {
         },
         mayormenor: {
             racha: 0,
+            promedioRachas: null,
+            listaRachas: [],
             categoriasAcertadas: [],
             paisesAcertados: []
         },

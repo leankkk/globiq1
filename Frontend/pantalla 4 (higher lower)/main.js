@@ -34,26 +34,30 @@ function compararListasAcertados(info,esCategoria){
     if (esCategoria){
 console.log(esCategoria,info)
 let categoriasEnStats = info.stats.mayormenor.categoriasAcertadas;
-console.log(categoriasEnStats);
+//hasta aca td bien
 for (let i = 0; i < categoriasAcertadas.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
-    console.log("Se pasó a la categoría "+(i+1)+" de las acertadas actuales");
+    console.log("Se pasó a la categoría "+(i+1)+" de las acertadas actuales: ",categoriasAcertadas[i]);
     
-   if (categoriasEnStats.some(p => categoriasAcertadas.includes(p.dato))){
-    for (let c = 0; c < categoriasEnStats; c++){
+    for (let c = 0; c < categoriasEnStats.length; c++){
         if (categoriasEnStats[c].dato === categoriasAcertadas[i].dato){
             categoriasEnStats[c].cantidad += categoriasAcertadas[i].cantidad;
+            console.log(categoriasEnStats[c].cantidad);
         }
         console.log("c =",c)
     }
-    console.log("categorias en stats:",categoriasEnStats);
-}
 
 }
 return categoriasEnStats;
 }
 }
 
-
+function calcularPromedioRacha(stats){
+    let sumatoria = 0;
+    for (let i = 0; i < stats.stats.mayormenor.listaRachas.length; i++){
+      sumatoria += stats.stats.mayormenor.listaRachas[i]
+    }
+    return sumatoria / stats.stats.mayormenor.listaRachas.length;
+    }
 
 function cambiarCategoria(){
     if (intentosCambiarCategoria > 0){
@@ -96,24 +100,27 @@ labelpaisInicial = data.labelpaisInicial;
 
 
   async function enviarstats(){
-    console.log("envio de stats iniciado")
+   // console.log("envio de stats iniciado")
 postEvent("enviarStatsAlFront",{nombre:usuario},getStats);
 }
 
 function getStats(data){
  infousuario = data;
- console.log(infousuario);
+ //console.log(infousuario);
  infousuario.stats.mayormenor ??= {};
  //para la racha
  let racha = (Math.max(timer,infousuario.stats.mayormenor.racha)) ?? timer;
  infousuario.stats.mayormenor.racha = racha;
  //para listas categorias y eso
- let statpaisesAcertados = compararListasAcertados(infousuario,true) ?? paisesAcertados;
- let statcategoriasAcertadas = compararListasAcertados(infousuario,false) ?? categoriasAcertadas;
+ let statpaisesAcertados = compararListasAcertados(infousuario,false) ?? paisesAcertados;
+ let statcategoriasAcertadas = compararListasAcertados(infousuario,true) ?? categoriasAcertadas;
  infousuario.stats.mayormenor.categoriasAcertadas = statcategoriasAcertadas;
  infousuario.stats.mayormenor.paisesAcertados = statpaisesAcertados;
+ infousuario.stats.mayormenor.listaRachas.push(timer);
+ infousuario.stats.mayormenor.promedioRachas = calcularPromedioRacha(infousuario);
+ 
 
- console.log(racha, timer, infousuario.stats.mayormenor.racha);
+ //console.log(racha, timer, infousuario.stats.mayormenor.racha);
  //racha de dias
 
  postEvent("guardarStatsEnElBack",infousuario,guardarStats);
