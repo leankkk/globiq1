@@ -1,6 +1,6 @@
 connect2Server();
 
-let modal = document.getElementById("myModal")
+let modal = document.getElementById("myModal");
 let mensajeResultado = document.getElementById("mensajeResultado");
 let bloquesContainer = document.getElementById('bloques');
 let bloque1 = document.getElementById('bloque1');
@@ -9,22 +9,24 @@ let bloque3 = document.getElementById('bloque3');
 let bloque4 = document.getElementById('bloque4');
 let bloque5 = document.getElementById('bloque5');
 let slots = document.querySelectorAll('.slot');
-let respuesta =  document.getElementById("respuestaDiv");
+let respuesta = document.getElementById("respuestaDiv");
+let inputAdivinarPais = document.getElementById('inputFinal');
+let labelPaisObjetivo;
 let dragged = null;
 let input = {};
-let intentos;
+let intentos = 3;
 let paisobjetivo;
 let listadescartados;
 let listaposibles;
 let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
 
 function mostrarPopUp(intentos) {
-  mensajeResultado.innerText = "¡Adivinaste el país ("+ labelPaisObjetivo +")! Te llevó " + intentos +" intentos.";
-  modal.style.display = "block"; 
+  mensajeResultado.innerText = "¡Adivinaste el país (" + labelPaisObjetivo + ")! Te llevó " + intentos + " intentos.";
+  modal.style.display = "block";
 }
 
-function actualizarCategorias(data){
-  categorias = data
+function actualizarCategorias(data) {
+  categorias = data;
   bloque1.innerText = categorias[0].label;
   bloque2.innerText = categorias[1].label;
   bloque3.innerText = categorias[2].label;
@@ -32,38 +34,43 @@ function actualizarCategorias(data){
   bloque5.innerText = categorias[4].label;
 };
 
+if (inputAdivinarPais.value === labelPaisObjetivo) {
+  mostrarPopUp(data.intentos);
+  enviarstats();
+  document.getElementById("btnAdivinar").disabled = true;
+  getEvent("iniciarBloques", establecerVariablesInicio);
+}
 
-
-function evaluarRespuestaFront(data){
+function evaluarRespuestaFront(data) {
   listadescartados = data.listadescartados;
   listaposibles = data.listaposibles;
   intentos = data.intentos;
-if (data.victoria){
-mostrarPopUp(data.intentos);
-enviarstats();
-document.getElementById("btnAdivinar").disabled = true;
-getEvent("iniciarBloques",establecerVariablesInicio);
-}
-else {
-respuesta.classList.remove("invisible");
-respuesta.innerText = "Respuesta: "+data.respuesta;
-actualizarListasFront(data.listaposibles, data.listadescartados);
-postEvent("obtenerCategorias",{pais:paisobjetivo}, actualizarCategorias)
-}
-}
-
-async function enviarstats(){
-  console.log("envio de stats iniciado")
-  postEvent("recibirStats",{nombre:usuario},getStats);
+  if (data.victoria) {
+    mostrarPopUp(data.intentos);
+    enviarstats();
+    document.getElementById("btnAdivinar").disabled = true;
+    getEvent("iniciarBloques", establecerVariablesInicio);
+  }
+  else {
+    respuesta.classList.remove("invisible");
+    respuesta.innerText = "Respuesta: " + data.respuesta;
+    actualizarListasFront(data.listaposibles, data.listadescartados);
+    postEvent("obtenerCategorias", { pais: paisobjetivo }, actualizarCategorias);
+  }
 }
 
-function getStats(data){
+async function enviarstats() {
+  console.log("envio de stats iniciado");
+  postEvent("recibirStats", { nombre: usuario }, getStats);
+}
+
+function getStats(data) {
   stats = data;
   console.log(stats);
   if (!stats) stats = {};
   stats.stats ??= {};
   stats.stats.bloques ??= {};
-  
+
   let prevIntentos = Number(stats.stats.bloques.intentos);
   if (!Number.isFinite(prevIntentos)) prevIntentos = 0;
   let currentIntentos = Number(intentos);
@@ -73,14 +80,14 @@ function getStats(data){
 
   stats.stats.bloques.intentos = statintentos;
   console.log(intentos, prevIntentos, stats.stats.bloques.intentos);
-  stats.stats.bloques.intentos ??= statintentos; 
+  stats.stats.bloques.intentos ??= statintentos;
 
-  postEvent("guardarStats",{nombre:usuario, stats:stats.stats},guardarStats);
- }
- 
- function guardarStats(){};
+  postEvent("guardarStats", { nombre: usuario, stats: stats.stats }, guardarStats);
+}
 
-function establecerVariablesInicio(data){
+function guardarStats() { };
+
+function establecerVariablesInicio(data) {
   intentos = 0;
   paisobjetivo = data.pais;
   labelPaisObjetivo = data.labelPaisObjetivo;
@@ -92,9 +99,9 @@ function establecerVariablesInicio(data){
   bloque3.innerText = categorias[2].label;
   bloque4.innerText = categorias[3].label;
   bloque5.innerText = categorias[4].label;
-  }
+}
 
-getEvent("iniciarBloques",establecerVariablesInicio);
+getEvent("iniciarBloques", establecerVariablesInicio);
 
 document.querySelectorAll('.bloque').forEach(bloque => {
   bloque.addEventListener('dragstart', e => {
@@ -113,7 +120,7 @@ slots.forEach(slot => {
   slot.addEventListener('dragover', e => {
     e.preventDefault();
 
-    if (dragged && dragged.id === "MOM" && slot.id !== "slot2") return; 
+    if (dragged && dragged.id === "MOM" && slot.id !== "slot2") return;
     if (dragged && dragged.id !== "MOM" && slot.id === "slot2") return;
 
     slot.classList.add('hovered');
@@ -198,8 +205,8 @@ function actualizarListasFront(posibles, descartados) {
     ulDescartados.appendChild(li);
   });
 
-  document.getElementById("posiblesHTMLTexto").innerText = "Posibles ("+posibles.length+")";
-  document.getElementById("descartadosHTMLTexto").innerText = "Descartados ("+descartados.length+")";
+  document.getElementById("posiblesHTMLTexto").innerText = "Posibles (" + posibles.length + ")";
+  document.getElementById("descartadosHTMLTexto").innerText = "Descartados (" + descartados.length + ")";
 }
 
 // Función para mostrar popup de error
@@ -219,4 +226,46 @@ document.getElementById("cerrarError").addEventListener("click", () => {
 window.addEventListener("click", (e) => {
   const modal = document.getElementById("errorModal");
   if (e.target === modal) modal.style.display = "none";
+});
+
+
+// ====================================================
+// NUEVA LÓGICA: BOTÓN “ADIVINAR PAÍS” CON INTENTOS
+// ====================================================
+
+let intentosPais = 3; // límite de intentos para adivinar el país
+
+document.getElementById("btnAdivinarPais").addEventListener("click", () => {
+  const inputPais = document.getElementById("inputAdivinarPais").value.trim();
+
+  if (!inputPais) {
+    mostrarError("Debes ingresar un país antes de adivinar.");
+    return;
+  }
+
+  // si ya se quedó sin intentos
+  if (intentosPais <= 0) {
+    mostrarError("No te quedan más intentos. 😢");
+    document.getElementById("btnAdivinarPais").disabled = true;
+    return;
+  }
+
+  // comprobar si acertó
+  if (inputPais.toLowerCase() === labelPaisObjetivo.toLowerCase()) {
+    mostrarPopUp(intentos);
+    enviarstats();
+    document.getElementById("btnAdivinarPais").disabled = true;
+    document.getElementById("btnAdivinar").disabled = true;
+    getEvent("iniciarBloques", establecerVariablesInicio);
+  } else {
+    intentosPais--;
+    if (intentosPais > 0) {
+      mostrarError(`País incorrecto. Te quedan ${intentosPais} intento${intentosPais === 1 ? "" : "s"}.`);
+    } else {
+      mostrarError(`País incorrecto. No te quedan más intentos.`);
+      document.getElementById("btnAdivinarPais").disabled = true;
+      document.getElementById("btnAdivinar").disabled = true;
+    }
+  }
+
 });
