@@ -424,9 +424,23 @@ cuentas[data.nombre] = {
     nombre: data.nombre,
     contraseña: data.contraseña,
     stats: {
-        diario: {},
-        mayormenor: {},
-        bloques: {}
+        diario: {
+            puntaje: null,
+            partidasJugadas: null,
+            promedioPuntajes: null,
+            listaPuntajes: []
+        },
+        mayormenor: {
+            racha: 0,
+            categoriasAcertadas: [],
+            paisesAcertados: []
+        },
+        bloques: {
+            puntaje: null,
+            partidasJugadas: null,
+            promedioPuntajes: null,
+            listaPuntajes: []
+        }
     }
 }
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2))
@@ -442,16 +456,18 @@ else return {login:false};
 }
 
 export function actualizarstats(data){
-cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json", "utf8"));
-if (!cuentas[data.nombre]) cuentas[data.nombre] = {}; 
-if (!cuentas[data.nombre].stats) cuentas[data.nombre].stats = {};
-cuentas[data.nombre].stats = data.stats;
+cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json", "utf-8"));
+//if (!cuentas[data.nombre]) cuentas[data.nombre] = {}; 
+//if (!cuentas[data.nombre].stats) cuentas[data.nombre].stats = {};
+console.log("Cuentas: "+cuentas);
+cuentas[data.nombre] = data;
+console.log("Nombre: "+data.nombre,", Info editada: ",cuentas[data.nombre]);
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2));
 } 
     
 
 export function enviarStats(data){
-let database = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
+let database = JSON.parse(fs.readFileSync("./Datos/cuentas.json", "utf-8"));
 return database[data.nombre];
 }
 

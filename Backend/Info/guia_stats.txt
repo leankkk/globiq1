@@ -7,7 +7,7 @@ Cuenta:
 Diario:
     Principales:
         - Menores intentos
-        - Victorias sobre intentos (x/y)
+        - Promedio de intentos
         - Porcentaje de efectividad
     Secundarias
         - Racha

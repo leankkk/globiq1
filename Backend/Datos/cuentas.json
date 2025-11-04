@@ -3,27 +3,31 @@
     "nombre": "Sin usuario",
     "contraseña": "",
     "stats": {
-      "diario": {},
-      "mayormenor": {
-        "racha": 6,
-        "categoriasAcertadas": [
-          {
-            "dato": "people.youth_unemployment.global_rank",
-            "cantidad": 1
-          }
-        ],
-        "paisesAcertados": [
-          {
-            "dato": "economy.public_debt.global_rank",
-            "cantidad": 4
-          },
-          {
-            "dato": "communications.telephones.mobile_cellular.global_rank",
-            "cantidad": 2
-          }
+      "diario": {
+        "puntaje": 5,
+        "partidasJugadas": null,
+        "promedioPuntajes": 9,
+        "listaPuntajes": [
+          5,
+          13
         ]
       },
-      "bloques": {}
+      "mayormenor": {
+        "racha": 3,
+        "categoriasAcertadas": [
+          {
+            "dato": "economy.taxes_and_other_revenues.percent_of_gdp",
+            "cantidad": 2
+          }
+        ],
+        "paisesAcertados": []
+      },
+      "bloques": {
+        "puntaje": null,
+        "partidasJugadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": []
+      }
     }
   }
 }

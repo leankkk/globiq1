@@ -36,12 +36,17 @@ console.log(esCategoria,info)
 let categoriasEnStats = info.stats.mayormenor.categoriasAcertadas;
 console.log(categoriasEnStats);
 for (let i = 0; i < categoriasAcertadas.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
+    console.log("Se pasó a la categoría "+(i+1)+" de las acertadas actuales");
+    
+   if (categoriasEnStats.some(p => categoriasAcertadas.includes(p.dato))){
     for (let c = 0; c < categoriasEnStats; c++){
         if (categoriasEnStats[c].dato === categoriasAcertadas[i].dato){
             categoriasEnStats[c].cantidad += categoriasAcertadas[i].cantidad;
         }
+        console.log("c =",c)
     }
-    console.log(categoriasEnStats);
+    console.log("categorias en stats:",categoriasEnStats);
+}
 
 }
 return categoriasEnStats;

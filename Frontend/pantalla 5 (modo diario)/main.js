@@ -20,6 +20,15 @@ let paisDiario;
 let intentos = 0;
 
 
+//FUNCIóN PARA PROMEDIAR TODOS LOS INTENTOS Y SACAR PROMEDIO
+function calcularPromedioPuntaje(stats){
+let sumatoria = 0;
+for (let i = 0; i < stats.stats.diario.listaPuntajes.length; i++){
+  sumatoria += stats.stats.diario.listaPuntajes[i]
+}
+return sumatoria / stats.stats.diario.listaPuntajes.length;
+}
+
 async function enviarstats(){
   console.log("envio de stats iniciado");
   postEvent("enviarStatsAlFront", { nombre: usuario }, getStats);
@@ -35,7 +44,10 @@ function getStats(data) {
   stats.stats.diario.puntaje = Math.min(intentos, stats.stats.diario.puntaje);
   console.log(puntaje, intentos, stats.stats.diario.puntaje);
   stats.stats.diario.puntaje ??= puntaje;
-  postEvent("guardarStatsEnElBack", { stats }, guardarStats);
+
+  stats.stats.diario.listaPuntajes.push(intentos);
+  stats.stats.diario.promedioPuntajes = calcularPromedioPuntaje(stats);
+  postEvent("guardarStatsEnElBack", stats, guardarStats);
 }
 
 
