@@ -20,7 +20,7 @@ let paisDiario;
 let intentos = 0;
 
 
-//FUNCIóN PARA PROMEDIAR TODOS LOS INTENTOS Y SACAR PROMEDIO
+
 function calcularPromedioPuntaje(stats){
 let sumatoria = 0;
 for (let i = 0; i < stats.stats.diario.listaPuntajes.length; i++){

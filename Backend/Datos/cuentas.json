@@ -4,12 +4,13 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": 5,
+        "puntaje": 0,
         "partidasJugadas": null,
-        "promedioPuntajes": 9,
+        "promedioPuntajes": 6,
         "listaPuntajes": [
           5,
-          13
+          13,
+          0
         ]
       },
       "mayormenor": {
