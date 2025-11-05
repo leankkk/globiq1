@@ -1,9 +1,10 @@
+
 /* Contenedor del menú */
 .menu-container {
-  position: fixed;         /* fijo en pantalla */
-  top: 15px;               /* distancia desde arriba */
-  right: 20px;             /* distancia desde la derecha */
-  z-index: 1000;           /* que quede por encima de todo */
+  position: fixed;        /* fijo en pantalla */
+  top: 15px;
+  right: 20px;
+  z-index: 1000;          /* que quede por encima de todo */
 }
 
 /* Ícono ☰ */
@@ -29,21 +30,27 @@
   position: absolute;
   right: 0;
   top: 40px;
-  width: 160px;
+  width: 180px;
   display: none;
   flex-direction: column;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
+/* Ítems */
 .menu-options li {
+  padding: 0;
+}
+
+/* Enlaces */
+.menu-options a {
   color: white;
+  text-decoration: none;
+  display: block;
   padding: 10px 15px;
-  text-align: left;
-  cursor: pointer;
   transition: background 0.3s, padding-left 0.2s;
 }
 
-.menu-options li:hover {
+.menu-options a:hover {
   background-color: #444;
   padding-left: 20px;
 }
@@ -58,10 +65,11 @@ body {
   background-color: #f1f1f1;
   margin: 0;
   padding: 0;
+  min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  justify-content: flex-start; /* Asegura que el contenido se alinee desde la parte superior */
 }
 
 
@@ -186,23 +194,30 @@ body {
 
 .mapa {
   width: 100%;
+  height: 100vh; /* Asegura que el contenedor ocupe el 100% de la altura de la pantalla */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Alinea el mapa hacia la parte superior */
   background-color: #fafafa;
-  margin-top: 40px;
-  overflow: visible;
+  margin-top: 0; /* Quitar el margen superior */
+  overflow: visible; /* Permite que el mapa no se recorte */
+  padding-bottom: 0px; /* Evitar recortes si la altura es ajustada */
+  flex-grow: 1;
 }
 
 .mapa svg {
   width: 100%;
-  height: auto;
-  max-width: 1400px;
-  aspect-ratio: 2 / 1;
-  object-fit: contain;
+  height: auto; /* La altura se ajustará dinámicamente */
+  max-width: 100%; /* No excederá el ancho del contenedor */
+  object-fit: contain; /* Ajusta el mapa sin distorsionar */
   border: 1px solid #ccc;
   border-radius: 10px;
 }
+
+
+
+
+
 
 .land {
   fill: #d8d8d8;

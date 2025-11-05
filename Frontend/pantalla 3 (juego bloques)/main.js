@@ -24,6 +24,14 @@ function mostrarPopUp(intentos) {
   mensajeResultado.innerText = "¡Adivinaste el país (" + labelPaisObjetivo + ")! Te llevó " + intentos + " intentos.";
   modal.style.display = "block";
 }
+  
+document.getElementById("btnJugar").addEventListener("click", () => {
+  location.reload();
+});
+
+document.getElementById("btnPrincipal").addEventListener("click", () => {
+  window.location.href = "../home/index.html";
+});
 
 function actualizarCategorias(data) {
   categorias = data;
