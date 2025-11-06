@@ -1,4 +1,4 @@
-connect2Server();
+connect2Server(3001);
 let botonlogin = document.getElementById("loginBtn"); 
 let placeholderContraseña = document.getElementById("password");
 let placeholderUsuario = document.getElementById("usuario");

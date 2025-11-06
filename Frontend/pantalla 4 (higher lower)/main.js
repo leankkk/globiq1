@@ -1,4 +1,4 @@
-connect2Server();
+connect2Server(3001);
 let paisInicialNombre = document.getElementById("paisInicialNombre");
 let paisInicialDato = document.getElementById("paisInicialDato");
 let botonMayor = document.getElementById("btnMayor");
@@ -37,19 +37,50 @@ let categoriasEnStats = info.stats.mayormenor.categoriasAcertadas;
 //hasta aca td bien
 for (let i = 0; i < categoriasAcertadas.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
     console.log("Se pasó a la categoría "+(i+1)+" de las acertadas actuales: ",categoriasAcertadas[i]);
-    
+    let existe = false;
     for (let c = 0; c < categoriasEnStats.length; c++){
         if (categoriasEnStats[c].dato === categoriasAcertadas[i].dato){
             categoriasEnStats[c].cantidad += categoriasAcertadas[i].cantidad;
             console.log(categoriasEnStats[c].cantidad);
+            existe = true;
         }
         console.log("c =",c)
     }
+    if (existe === false) categoriasEnStats.push(categoriasAcertadas[i]);
 
 }
 return categoriasEnStats;
 }
+if (!esCategoria){
+    console.log(esCategoria,info)
+    let paisesEnStats = info.stats.mayormenor.paisesAcertados;
+    //hasta aca td bien
+    for (let i = 0; i < paisesAcertados.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
+        console.log("Se pasó a la categoría "+(i+1)+" de las acertadas actuales: ",paisesAcertados[i]);
+        let existe = false;
+        for (let c = 0; c < paisesEnStats.length; c++){
+            if (paisesEnStats[c].pais === paisesAcertados[i].pais){
+                paisesEnStats[c].cantidad += paisesAcertados[i].cantidad;
+                console.log(paisesEnStats[c].cantidad);
+                existe = true;
+            }
+            console.log("c =",c)
+        }
+        if (existe === false) paisesEnStats.push(paisesAcertados[i]);
+    
+    }
+    return paisesEnStats;
+    }
 }
+
+function calcularMasAcertado(lista){
+let indiceDelMayor = 0;
+for (let i = 0; i < lista.length; i++){
+    if (lista[i].cantidad > indiceDelMayor) indiceDelMayor = i;
+}
+return lista[indiceDelMayor];
+}
+
 
 function calcularPromedioRacha(stats){
     let sumatoria = 0;
@@ -118,8 +149,9 @@ function getStats(data){
  infousuario.stats.mayormenor.paisesAcertados = statpaisesAcertados;
  infousuario.stats.mayormenor.listaRachas.push(timer);
  infousuario.stats.mayormenor.promedioRachas = calcularPromedioRacha(infousuario);
- 
-
+ infousuario.stats.mayormenor.categoriaMasAcertada = calcularMasAcertado(statcategoriasAcertadas);
+ infousuario.stats.mayormenor.paisMasAcertado = calcularMasAcertado(statpaisesAcertados);
+ infousuario.stats.mayormenor.rondasJugadas++;
  //console.log(racha, timer, infousuario.stats.mayormenor.racha);
  //racha de dias
 
@@ -145,39 +177,17 @@ if (data.victoria) {
     categoriaNombre.innerText = data.label;
     rachaContador.innerText = timer;
 
-    if (categoriasAcertadas.some(p => p.dato === dato)){
-        for (let i = 0; i < categoriasAcertadas.length; i++){
-            if (categoriasAcertadas[i].dato === dato){
-            categoriasAcertadas[i].cantidad++;
-            break;
-            } 
-        }
-        } else {
-            categoriasAcertadas.push({dato:dato,cantidad:1});
-        }  
 
-if (paisesAcertados.some(p => p.pais === paisInicial)){
-for (let i = 0; i < paisesAcertados.length; i++){
-    if (paisesAcertados[i].pais === paisInicial){
-    paisesAcertados[i].cantidad++;
-    break;
-    } 
-}
-} else {
-    paisesAcertados.push({pais:paisInicial,cantidad:1});
-}  
-    
+ 
+        
 //console.log(paisesAcertados,categoriasAcertadas);
-
-
 }
 else {
-mostrarPopUp(data.timer);
-enviarstats();
-pais2Nombre.innerText = data.labelPais2 + ": "+data.valorPais2;
-//se muestra undefined en el nombre de pais 2. eso es porque en el backend se reemplaza labelpais2 por el nuevo pais y el viejo se pierde. agregar forma de arreglarlo. vincular con sist. de quemados
-}
-
+    mostrarPopUp(data.timer);
+    enviarstats();
+    pais2Nombre.innerText = data.labelpais2 + ": "+data.valorPais2;
+    //se muestra undefined en el nombre de pais 2. eso es porque en el backend se reemplaza labelpais2 por el nuevo pais y el viejo se pierde. agregar forma de arreglarlo. vincular con sist. de quemados
+    }
 }
 
 
