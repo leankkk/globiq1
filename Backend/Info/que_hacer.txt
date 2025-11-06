@@ -1,3 +1,9 @@
+ESTAN PUESTOS LOS PUERTOS EN 3001 PARA EVITAR UN BUG. SI DA PROBLEMAS CAMBIAR
+
+se borran algunas categorias de stats cada vez. puede ser de casuallidad, pero investifar si siggue pasando
+
+cambiar popup de victoria adivinar pais. ahora dice la cantidad de intentos de adivinar, pero no de preguntas
+
 seguir con paisesacertados modo bloques
 
 agregar pantalla de stats

@@ -4,78 +4,31 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": 0,
-        "partidasJugadas": null,
-        "promedioPuntajes": 6,
-        "listaPuntajes": [
-          5,
-          13,
-          0
-        ]
+        "puntaje": null,
+        "rondasJugadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": []
       },
       "mayormenor": {
-        "racha": 10,
-        "listaRachas": [
-          10,
-          10,
-          0,
-          8,
-          0,
-          7,
-          4,
-          0,
-          3,
-          0,
-          7,
-          0,
-          2,
-          0,
-          6,
-          2,
-          9,
-          0,
-          0,
-          3
-        ],
-        "promedioRachas": 3.55,
-        "categoriasAcertadas": [
-          {
-            "dato": "people.total_fertility_rate.global_rank",
-            "cantidad": 4
-          },
-          {
-            "dato": "transportation.air_transport.airports.paved.under_914_metres",
-            "cantidad": 5
-          },
-          {
-            "dato": "communications.internet.users.global_rank",
-            "cantidad": 12
-          },
-          {
-            "dato": "communications.internet.users.global_rank",
-            "cantidad": 12
-          }
-        ],
-        "paisesAcertados": [
-          {
-            "pais": "malaysia",
-            "cantidad": 1
-          },
-          {
-            "pais": "mexico",
-            "cantidad": 1
-          },
-          {
-            "pais": "belarus",
-            "cantidad": 1
-          }
-        ]
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {}
       },
       "bloques": {
         "puntaje": null,
+        "rondasJugadas": null,
         "partidasJugadas": null,
         "promedioPuntajes": null,
-        "listaPuntajes": []
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {}
       }
     }
   }
