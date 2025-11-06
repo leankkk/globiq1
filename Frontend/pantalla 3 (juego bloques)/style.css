@@ -404,3 +404,19 @@ body {
   border-left: 2px solid #ccc;
   padding-left: 20px;
 }
+
+/* Colores dinámicos del mapa */
+.land {
+  fill: #d8d8d8;
+  stroke: #999;
+  stroke-width: 0.5;
+  transition: fill 0.3s ease;
+}
+
+.land.posible {
+  fill: #4caf50; /* azul */
+}
+
+.land.descartado {
+  fill: #e57373; /* rojo suave */
+}
