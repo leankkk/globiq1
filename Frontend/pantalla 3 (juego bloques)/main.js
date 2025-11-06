@@ -1,4 +1,4 @@
-connect2Server();
+connect2Server(3001);
 
 let modal = document.getElementById("myModal");
 let mensajeResultado = document.getElementById("mensajeResultado");
@@ -42,27 +42,27 @@ function actualizarCategorias(data) {
   bloque5.innerText = categorias[4].label;
 };
 
-if (inputAdivinarPais.value === labelPaisObjetivo) {
-  mostrarPopUp(data.intentos);
-  enviarstats();
-  document.getElementById("btnAdivinar").disabled = true;
-  getEvent("iniciarBloques", establecerVariablesInicio);
-}
-
 function evaluarRespuestaFront(data) {
   listadescartados = data.listadescartados;
   listaposibles = data.listaposibles;
   intentos = data.intentos;
+
   if (data.victoria) {
     mostrarPopUp(data.intentos);
     enviarstats();
     document.getElementById("btnAdivinar").disabled = true;
     getEvent("iniciarBloques", establecerVariablesInicio);
-  }
-  else {
+  } else {
     respuesta.classList.remove("invisible");
     respuesta.innerText = "Respuesta: " + data.respuesta;
+
+    // Actualiza listas HTML
     actualizarListasFront(data.listaposibles, data.listadescartados);
+
+    // 🔵 NUEVO: actualiza el mapa visualmente
+    actualizarMapa(data.listaposibles, data.listadescartados);
+
+    // Refresca categorías
     postEvent("obtenerCategorias", { pais: paisobjetivo }, actualizarCategorias);
   }
 }
@@ -96,7 +96,7 @@ function getStats(data) {
 function guardarStats() { };
 
 function establecerVariablesInicio(data) {
-  intentos = 0;
+  intentos = 3; // debe empezar con 3, no con 0
   paisobjetivo = data.pais;
   labelPaisObjetivo = data.labelPaisObjetivo;
   listadescartados = [];
@@ -108,6 +108,7 @@ function establecerVariablesInicio(data) {
   bloque4.innerText = categorias[3].label;
   bloque5.innerText = categorias[4].label;
 }
+
 
 getEvent("iniciarBloques", establecerVariablesInicio);
 
@@ -217,6 +218,30 @@ function actualizarListasFront(posibles, descartados) {
   document.getElementById("descartadosHTMLTexto").innerText = "Descartados (" + descartados.length + ")";
 }
 
+function actualizarMapa(posibles, descartados) {
+  // Quitar colores previos
+  document.querySelectorAll("svg .land").forEach(pais => {
+    pais.classList.remove("posible", "descartado");
+  });
+
+  // Pintar los posibles de azul
+  posibles.forEach(p => {
+    if (p.codigo) {
+      const el = document.getElementById(p.codigo);
+      if (el) el.classList.add("posible");
+    }
+  });
+
+  // Pintar los descartados de rojo
+  descartados.forEach(p => {
+    if (p.codigo) {
+      const el = document.getElementById(p.codigo);
+      if (el) el.classList.add("descartado");
+    }
+  });
+}
+
+
 // Función para mostrar popup de error
 function mostrarError(mensaje) {
   const errorModal = document.getElementById("errorModal");
@@ -237,11 +262,7 @@ window.addEventListener("click", (e) => {
 });
 
 
-// ====================================================
-// NUEVA LÓGICA: BOTÓN “ADIVINAR PAÍS” CON INTENTOS
-// ====================================================
-
-let intentosPais = 3; // límite de intentos para adivinar el país
+let intentosPais = 3; // intentos para adivinar el país
 
 document.getElementById("btnAdivinarPais").addEventListener("click", () => {
   const inputPais = document.getElementById("inputAdivinarPais").value.trim();
@@ -251,29 +272,28 @@ document.getElementById("btnAdivinarPais").addEventListener("click", () => {
     return;
   }
 
-  // si ya se quedó sin intentos
+  // Si ya se quedó sin intentos
   if (intentosPais <= 0) {
-    mostrarError("No te quedan más intentos. 😢");
+    mostrarError("No te quedan más intentos.");
     document.getElementById("btnAdivinarPais").disabled = true;
     return;
   }
 
-  // comprobar si acertó
+  // Comparar con el país objetivo
   if (inputPais.toLowerCase() === labelPaisObjetivo.toLowerCase()) {
-    mostrarPopUp(intentos);
+    const intentosUsados = 4 - intentosPais; // 3 intentos totales, así calculamos cuántos usó
+    mostrarPopUp(intentosUsados);
     enviarstats();
     document.getElementById("btnAdivinarPais").disabled = true;
     document.getElementById("btnAdivinar").disabled = true;
-    getEvent("iniciarBloques", establecerVariablesInicio);
   } else {
     intentosPais--;
     if (intentosPais > 0) {
-      mostrarError(`País incorrecto. Te quedan ${intentosPais} intento${intentosPais === 1 ? "" : "s"}.`);
+      mostrarError(`Incorrecto. Te quedan ${intentosPais} intento${intentosPais === 1 ? "" : "s"}.`);
     } else {
-      mostrarError(`País incorrecto. No te quedan más intentos.`);
+      mostrarError("Incorrecto. No te quedan más intentos.");
       document.getElementById("btnAdivinarPais").disabled = true;
       document.getElementById("btnAdivinar").disabled = true;
     }
   }
-
 });

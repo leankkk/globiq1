@@ -1,4 +1,4 @@
-connect2Server();
+connect2Server(3001);
 let paisInicialNombre = document.getElementById("paisInicialNombre");
 let paisInicialDato = document.getElementById("paisInicialDato");
 let botonMayor = document.getElementById("btnMayor");

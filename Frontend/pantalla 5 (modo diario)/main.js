@@ -1,4 +1,4 @@
-connect2Server();
+connect2Server(3001);
 let input = document.getElementById('input');
 let boton = document.getElementById('enviar');
 let listaPistas = document.getElementById('listaPistas');

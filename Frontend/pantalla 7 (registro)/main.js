@@ -1,4 +1,4 @@
-connect2Server(); 
+connect2Server(3001); 
 
 function togglePassword(id) {
   const input = document.getElementById(id);
