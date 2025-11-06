@@ -78,5 +78,55 @@
         "listaPuntajes": []
       }
     }
+  },
+  "hola": {
+    "nombre": "hola",
+    "contraseña": "1234",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "partidasJugadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": []
+      },
+      "mayormenor": {
+        "racha": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": []
+      },
+      "bloques": {
+        "puntaje": null,
+        "partidasJugadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": []
+      }
+    }
+  },
+  "holaa": {
+    "nombre": "holaa",
+    "contraseña": "123",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "partidasJugadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": []
+      },
+      "mayormenor": {
+        "racha": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": []
+      },
+      "bloques": {
+        "puntaje": null,
+        "partidasJugadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": []
+      }
+    }
   }
 }

@@ -1,10 +1,133 @@
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #dcefe8;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-/* Contenedor del menú */
+/* ======== LOGIN ======== */
+.contenedor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideDown 0.8s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.logo {
+  width: 12vw;
+  height: auto;
+  margin-bottom: 6vh;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+
+input {
+  width: 25.7vw;
+  height: 7.2vh;
+  border: none;
+  border-radius: 1vh;
+  font-size: 2.96vh;
+  padding-left: 1vw;
+  box-sizing: border-box;
+}
+
+.input-pass {
+  position: relative;
+  width: 25.7vw;
+}
+
+.input-pass input {
+  width: 100%;
+}
+
+.ver {
+  position: absolute;
+  right: 1vw;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+button,
+a#registroBtn {
+  width: 25.7vw;
+  height: 7.2vh;
+  font-size: 2.96vh;
+  border-radius: 1vh;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#loginBtn {
+  background-color: #009e8b;
+  color: white;
+  font-weight: 600;
+}
+
+#registroBtn {
+  background-color: transparent;
+  border: 0.3vh solid #616260;
+  color: #616260;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+#registroBtn::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transition: top 0.3s ease;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+#registroBtn:hover::before {
+  top: 0;
+}
+
+#registroBtn:hover {
+  color: black;
+}
+
 .menu-container {
-  position: fixed;        /* fijo en pantalla */
+  position: fixed;       
   top: 15px;
   right: 20px;
-  z-index: 1000;          /* que quede por encima de todo */
+  z-index: 1000;          
 }
 
 /* Ícono ☰ */
@@ -20,7 +143,7 @@
   transform: scale(1.1);
 }
 
-/* Menú desplegable */
+
 .menu-options {
   list-style: none;
   margin: 0;
@@ -34,6 +157,7 @@
   display: none;
   flex-direction: column;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-align:justify
 }
 
 /* Ítems */
@@ -55,155 +179,7 @@
   padding-left: 20px;
 }
 
-/* Mostrar el menú mientras el mouse esté sobre el ícono o el menú */
+
 .menu-container:hover .menu-options {
   display: flex;
 }
-
-body {
-  font-family: Arial;
-  font-family: "Poppins", sans-serif;
-  background: #DCEFE8;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0; 
-  margin: -20px 0 50px;
-}
-
-.rectangulo2{
-  width: 400px;
-  height: 60px;
-  border-radius: 15px;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
-
-}
-  
-.rectangulo1,
-.rectangulo3 {
-  width: 400px;           
-  height: 60px;           
-  margin: 10px 0;
-  display: flex;
-  align-items: center;  
-  box-sizing: border-box;
-  position: relative;
-  border-radius: 15px;
- 
-}
-
-input {
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  border: none;
-  outline: none;
-  padding-right: 40px;
-  border-radius: 15px;
-}
-
-
-::placeholder {
-  font-size: 20px;
-}
-
-.btn {
-
-    width: 400px;           
-  height: 60px;           
-  margin: 10px 0;
-  display: flex;
-  align-items: center;  
-  box-sizing: border-box;
-  position: relative;
-  border-radius: 15px;
-  margin: 20px 0;
-  padding: 10px 30px;
-  color: white;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 15px;
-border: 1px solid #252626;
-background: #009E8B;
-justify-content: center;
-  
-} 
-
-
-.btn:hover {
-  background-color: rgb(91, 197, 183); 
-}
-
-.botOn {
-    width: 400px;           
-  height: 60px;           
-  margin: 10px 0;
-  display: flex;
-  align-items: center;  
-  box-sizing: border-box;
-  position: relative;
-  border-radius: 15px;
-  margin: 10px 0;
-  padding: 10px 30px;
-  color: #009E8B;
-  background: white;
-  border: 1px solid #009E8B;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 15px;
-  transition: 0.2s;
-  justify-content: center;
-}
-
-.botOn:hover {
-  background-color: #009E8B;
-  color: white;
-}
-
-.registrar {
-  margin-top: 10px;
-  font-size: 16px;
-  border-radius: 15px;
-} 
-
-
-.logo {
-  top: 200px;
-  left: 832px;
-  }
-  .toggle {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%); 
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2; 
-  }
-  
-
-  .toggle svg {
-    width: 24px;
-    height: 24px;
-    color: #555;
-  }
-
-  .imagen{
-    position: absolute;
-    top: 3px;
-    left: 445px;
-  }
-  

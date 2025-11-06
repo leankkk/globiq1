@@ -1,215 +1,198 @@
-/* Contenedor del menú */
 .menu-container {
-    position: fixed;         /* fijo en pantalla */
-    top: 15px;               /* distancia desde arriba */
-    right: 20px;             /* distancia desde la derecha */
-    z-index: 1000;           /* que quede por encima de todo */
-  }
-  
-  /* Ícono ☰ */
-  .menu-icon {
-    font-size: 32px;
-    cursor: pointer;
-    user-select: none;
-    color: #111;
-    transition: transform 0.2s;
-  }
-  
-  .menu-icon:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Menú desplegable */
-  .menu-options {
-    list-style: none;
-    margin: 0;
-    padding: 10px 0;
-    background-color: #2f2f2f;
-    border-radius: 10px;
-    position: absolute;
-    right: 0;
-    top: 40px;
-    width: 160px;
-    display: none;
-    flex-direction: column;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-  
-  .menu-options li {
-    color: white;
-    padding: 10px 15px;
-    text-align: left;
-    cursor: pointer;
-    transition: background 0.3s, padding-left 0.2s;
-  }
-  
-  .menu-options li:hover {
-    background-color: #444;
-    padding-left: 20px;
-  }
-  
-  /* Mostrar el menú mientras el mouse esté sobre el ícono o el menú */
-  .menu-container:hover .menu-options {
-    display: flex;
-  }
-  
+  position: fixed;       
+  top: 15px;
+  right: 20px;
+  z-index: 1000;          
+}
+
+/* Ícono ☰ */
+.menu-icon {
+  font-size: 32px;
+  cursor: pointer;
+  user-select: none;
+  color: #111;
+  transition: transform 0.2s;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+
+.menu-options {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  background-color: #2f2f2f;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 180px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-align:justify
+}
+
+/* Ítems */
+.menu-options li {
+  padding: 0;
+}
+
+/* Enlaces */
+.menu-options a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  transition: background 0.3s, padding-left 0.2s;
+}
+
+.menu-options a:hover {
+  background-color: #444;
+  padding-left: 20px;
+}
+
+
+.menu-container:hover .menu-options {
+  display: flex;
+}
 
 body {
-    font-family: Arial;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0; 
-    background: #DCEFE8;
-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #dcefe8;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideDown 0.8s ease forwards;
 }
-.rectangulo2{
-    width: 400px;
-    height: 60px;
-    border-radius: 15px;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    position: relative;
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-    
-.rectangulo1,
-.rectangulo3 {
-    width: 400px;           
-    height: 60px;           
-    margin: 10px 0;
-    display: flex;
-    align-items: center;  
-    box-sizing: border-box;
-    position: relative;
-    border-radius: 15px;
-   border-radius: 15px;
+
+.logo {
+  width: 12vw;
+  height: auto;
+  margin-bottom: 6vh;
 }
-  
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5vh;
+}
+
 input {
-    width: 100%;
-    height: 100%;
-    font-size: 20px;
-    border: none;
-    outline: none;
-    padding-right: 40px;
-    border-radius: 15px;
+  width: 25.7vw;
+  height: 7.2vh;
+  background-color: #090808;
+  border: none;
+  border-radius: 1vh;
+  color: white;
+  font-size: 2.96vh;
+  padding-left: 1vw;
+  box-sizing: border-box;
 }
-  
-::placeholder {
-    font-size: 20px;
+
+input::placeholder {
+  color: white;
+  opacity: 0.8;
 }
-  
-.btn {
-    margin: 20px 0;
-    padding: 10px 30px;
-    color: white;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 15px;
-border: 1px solid #252626;
-background: #009E8B;
-    
-} 
-  
 
+.input-pass {
+  position: relative;
+  width: 25.7vw;
+}
 
-.registrar {
-    margin-top: 10px;
-    font-size: 16px;
-    border-radius: 15px;
-} 
+.input-pass input {
+  width: 100%;
+}
 
-.toggle {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%); 
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2; 
-  }
-  
-  .toggle svg {
-    width: 24px;
-    height: 24px;
-    color: #555;
-  }
-  
-    .imagen{
-    position: absolute;
-    top: 3px;
-    left: 445px;
-  }
-/* Contenedor del menú */
+#loginBtn {
+  width: 25.7vw;
+  height: 7.2vh;
+  background-color: #009e8b;
+  color: white;
+  font-weight: 600;
+  font-size: 2.96vh;
+  border: none;
+  border-radius: 1vh;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#loginBtn:hover {
+  background-color: #007c6e;
+  transform: translateY(-0.5vh);
+}
+
+/* === Menú === */
 .menu-container {
-    position: fixed;        /* fijo en pantalla */
-    top: 15px;
-    right: 20px;
-    z-index: 1000;          /* que quede por encima de todo */
-  }
-  
-  /* Ícono ☰ */
-  .menu-icon {
-    font-size: 32px;
-    cursor: pointer;
-    user-select: none;
-    color: #111;
-    transition: transform 0.2s;
-  }
-  
-  .menu-icon:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Menú desplegable */
-  .menu-options {
-    list-style: none;
-    margin: 0;
-    padding: 10px 0;
-    background-color: #2f2f2f;
-    border-radius: 10px;
-    position: absolute;
-    right: 0;
-    top: 40px;
-    width: 180px;
-    display: none;
-    flex-direction: column;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-  
-  /* Ítems */
-  .menu-options li {
-    padding: 0;
-  }
-  
-  /* Enlaces */
-  .menu-options a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px 15px;
-    transition: background 0.3s, padding-left 0.2s;
-  }
-  
-  .menu-options a:hover {
-    background-color: #444;
-    padding-left: 20px;
-  }
-  
-  /* Mostrar el menú mientras el mouse esté sobre el ícono o el menú */
-  .menu-container:hover .menu-options {
-    display: flex;
-  }
-  
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.menu-icon {
+  font-size: 32px;
+  cursor: pointer;
+  user-select: none;
+  color: #111;
+  transition: transform 0.2s;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+.menu-options {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  background-color: #2f2f2f;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 160px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.menu-options li {
+  color: white;
+  padding: 10px 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s, padding-left 0.2s;
+}
+
+.menu-options li:hover {
+  background-color: #444;
+  padding-left: 20px;
+}
+
+.menu-container:hover .menu-options {
+  display: flex;
+}
