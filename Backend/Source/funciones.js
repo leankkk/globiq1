@@ -480,6 +480,7 @@ cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json", "utf-8"));
 console.log("Cuentas: "+cuentas);
 cuentas[data.nombre] = data;
 console.log("Nombre: "+data.nombre,", Info editada: ",cuentas[data.nombre]);
+console.log(JSON.stringify(data, null, 2))
 fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2));
 } 
     

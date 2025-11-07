@@ -154,7 +154,7 @@ function getStats(data){
  infousuario.stats.mayormenor.rondasJugadas++;
  //console.log(racha, timer, infousuario.stats.mayormenor.racha);
  //racha de dias
-
+console.log(infousuario);
  postEvent("guardarStatsEnElBack",infousuario,guardarStats);
 }
 
