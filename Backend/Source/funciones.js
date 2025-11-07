@@ -434,9 +434,10 @@ cuentas[data.nombre] = {
     stats: {
         diario: {
             puntaje: null,
-            rondasJugadas: 0,
+            rondasGanadas: 0,
             promedioPuntajes: null,
-            listaPuntajes: []
+            listaPuntajes: [],
+            intentosHechos: 0
         },
         mayormenor: {
             racha: 0,
@@ -446,18 +447,20 @@ cuentas[data.nombre] = {
             categoriasAcertadas: [],
             paisesAcertados: [],
             categoriaMasAcertada: {},
-            paisMasAcertado: {}
+            paisMasAcertado: {},
+            comparacionesHechas: 0
         },
         bloques: {
             puntaje: null,
-            rondasJugadas: null,
-            partidasJugadas: null,
+            rondasGanadas: null,
             promedioPuntajes: null,
             listaPuntajes: [],
             categoriasPreguntadas: [],
             valoresPreguntados: [],
+            listaValoresPreguntados: [],
             valorPromedio: null,
-            categoriaMasPreguntada: {}
+            categoriaMasPreguntada: {},
+            preguntasHechas: 0
         }
     }
 }

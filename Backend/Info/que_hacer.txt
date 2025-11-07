@@ -1,16 +1,10 @@
 ESTAN PUESTOS LOS PUERTOS EN 3001 PARA EVITAR UN BUG. SI DA PROBLEMAS CAMBIAR
 
-se borran algunas categorias de stats cada vez. puede ser de casuallidad, pero investifar si siggue pasando
-
-cambiar popup de victoria adivinar pais. ahora dice la cantidad de intentos de adivinar, pero no de preguntas
-
-seguir con paisesacertados modo bloques
+bloques: falta resolver algunos errores de las stats
+- mas preguntado y eso ni existen. copiar de mayor menor e implementar
+- el promedio de valores no fuunciona. revisar la funcion, que esta medio rara (le puse un caso especial de true/false raro)
+- valoresPreguntados se sobreescribe
 
 agregar pantalla de stats
-
-CATEGORIAS ACERTADAS HIGHER OR LOWER:
-- las categorias siempre se sobreescriben y no se actualizan
-- los paises acertados ni estan
-- FALTA AGREGAR UN PUSH A LA LISTA EN STATS CUANDO NO EXISTE LA CATEGORIA DE ANTES
 
 agregar funcion de datos quemados a modo mayor o menor? ya no hace falta casi

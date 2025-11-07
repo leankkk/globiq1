@@ -74,12 +74,13 @@ if (!esCategoria){
 }
 
 function calcularMasAcertado(lista){
-let indiceDelMayor = 0;
-for (let i = 0; i < lista.length; i++){
-    if (lista[i].cantidad > indiceDelMayor) indiceDelMayor = i;
+  let indiceDelMayor = 0;
+  for (let i = 1; i < lista.length; i++){
+    if (lista[i].cantidad > lista[indiceDelMayor].cantidad) indiceDelMayor = i;
+  }
+  return lista[indiceDelMayor];
 }
-return lista[indiceDelMayor];
-}
+
 
 
 function calcularPromedioRacha(stats){
@@ -138,7 +139,6 @@ postEvent("enviarStatsAlFront",{nombre:usuario},getStats);
 function getStats(data){
  infousuario = data;
  //console.log(infousuario);
- infousuario.stats.mayormenor ??= {};
  //para la racha
  let racha = (Math.max(timer,infousuario.stats.mayormenor.racha)) ?? timer;
  infousuario.stats.mayormenor.racha = racha;
@@ -176,15 +176,26 @@ if (data.victoria) {
     pais2Nombre.innerText = data.labelpais2;
     categoriaNombre.innerText = data.label;
     rachaContador.innerText = timer;
+let existente = categoriasAcertadas.find(obj => obj.dato === dato);
+if (existente) {
+  existente.cantidad++;
+} else {
+  categoriasAcertadas.push({ dato, cantidad: 1 });
+}
 
-
+console.log(paisesAcertados);
+let existente2 = paisesAcertados.find(obj => obj.pais === paisInicial);
+if (existente2) {
+  existente2.cantidad++;
+} else {
+  paisesAcertados.push({pais:paisInicial, cantidad: 1 });
+}
  
-        
-//console.log(paisesAcertados,categoriasAcertadas);
+
 }
 else {
     mostrarPopUp(data.timer);
-    enviarstats();
+    if (timer >= 1) enviarstats();
     pais2Nombre.innerText = data.labelpais2 + ": "+data.valorPais2;
     //se muestra undefined en el nombre de pais 2. eso es porque en el backend se reemplaza labelpais2 por el nuevo pais y el viejo se pierde. agregar forma de arreglarlo. vincular con sist. de quemados
     }

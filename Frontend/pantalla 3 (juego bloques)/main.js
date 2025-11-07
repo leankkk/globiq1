@@ -14,14 +14,18 @@ let inputAdivinarPais = document.getElementById('inputFinal');
 let labelPaisObjetivo;
 let dragged = null;
 let input = {};
-let intentos = 3;
+let intentosPreguntas = 0;
+let intentosDeAdivinar = 0;
 let paisobjetivo;
 let listadescartados;
 let listaposibles;
 let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
+let categoriasPreguntadas = [];
+let listaValores = [];
+let valoresPreguntados = [];
 
-function mostrarPopUp(intentos) {
-  mensajeResultado.innerText = "¡Adivinaste el país (" + labelPaisObjetivo + ")! Te llevó " + intentos + " intentos.";
+function mostrarPopUp(preguntas,adivinar) {
+  mensajeResultado.innerText = "¡Adivinaste el país (" + labelPaisObjetivo + ")! Te llevó " + adivinar + " intentos y "+preguntas+" preguntas.";
   modal.style.display = "block";
 }
   
@@ -32,6 +36,53 @@ document.getElementById("btnJugar").addEventListener("click", () => {
 document.getElementById("btnPrincipal").addEventListener("click", () => {
   window.location.href = "../home/index.html";
 });
+
+//FUNCIÓN DE STATS LISTAS CATEGORIAS Y PAISES
+function compararListasAcertados(info,esCategoria){
+//version para categorias
+    if (esCategoria){
+console.log(esCategoria,info)
+let categoriasEnStats = info.stats.bloques.categoriasPreguntadas;
+//hasta aca td bien
+for (let i = 0; i < categoriasPreguntadas.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
+    console.log("Se pasó a la categoría "+(i+1)+" de las acertadas actuales: ",categoriasPreguntadas[i]);
+    let existe = false;
+    for (let c = 0; c < categoriasEnStats.length; c++){
+        if (categoriasEnStats[c].dato === categoriasPreguntadas[i].dato){
+            categoriasEnStats[c].cantidad += categoriasPreguntadas[i].cantidad;
+            console.log(categoriasEnStats[c].cantidad);
+            existe = true;
+        }
+        console.log("c =",c)
+    }
+    if (existe === false) categoriasEnStats.push(categoriasPreguntadas[i]);
+
+}
+return categoriasEnStats;
+}
+if (!esCategoria){
+    console.log(esCategoria,info)
+    let valoresEnStats = info.stats.mayormenor.valoresPreguntados ?? [];
+    //hasta aca td bien
+    for (let i = 0; i < valoresPreguntados.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
+        console.log("Se pasó a la categoría "+(i+1)+" de las acertadas actuales: ",valoresPreguntados[i]);
+        let existe = false;
+        for (let c = 0; c < valoresEnStats.length; c++){
+            if (valoresEnStats[c].valor === valoresPreguntados[i].valor){
+                valoresEnStats[c].cantidad += valoresPreguntados[i].cantidad;
+                console.log(valoresEnStats[c].cantidad);
+                existe = true;
+            }
+            console.log("c =",c)
+        }
+        if (existe === false) valoresEnStats.push(valoresPreguntados[i]);
+    
+    }
+    return valoresEnStats;
+    }
+}
+
+
 
 function actualizarCategorias(data) {
   categorias = data;
@@ -45,10 +96,10 @@ function actualizarCategorias(data) {
 function evaluarRespuestaFront(data) {
   listadescartados = data.listadescartados;
   listaposibles = data.listaposibles;
-  intentos = data.intentos;
+  intentosPreguntas = data.intentos;
 
   if (data.victoria) {
-    mostrarPopUp(data.intentos);
+    mostrarPopUp(intentosPreguntas,intentosDeAdivinar);
     enviarstats();
     document.getElementById("btnAdivinar").disabled = true;
     getEvent("iniciarBloques", establecerVariablesInicio);
@@ -56,20 +107,17 @@ function evaluarRespuestaFront(data) {
     respuesta.classList.remove("invisible");
     respuesta.innerText = "Respuesta: " + data.respuesta;
 
-    // Actualiza listas HTML
     actualizarListasFront(data.listaposibles, data.listadescartados);
 
-    // 🔵 NUEVO: actualiza el mapa visualmente
     actualizarMapa(data.listaposibles, data.listadescartados);
 
-    // Refresca categorías
     postEvent("obtenerCategorias", { pais: paisobjetivo }, actualizarCategorias);
   }
 }
 
 async function enviarstats() {
   console.log("envio de stats iniciado");
-  postEvent("recibirStats", { nombre: usuario }, getStats);
+  postEvent("enviarStatsAlFront", { nombre: usuario }, getStats);
 }
 
 function getStats(data) {
@@ -79,24 +127,51 @@ function getStats(data) {
   stats.stats ??= {};
   stats.stats.bloques ??= {};
 
-  let prevIntentos = Number(stats.stats.bloques.intentos);
+  let prevIntentos = Number(stats.stats.bloques.puntaje);
   if (!Number.isFinite(prevIntentos)) prevIntentos = 0;
-  let currentIntentos = Number(intentos);
+  let currentIntentos = Number(intentosPreguntas);
   if (!Number.isFinite(currentIntentos)) currentIntentos = 0;
 
   let statintentos = Math.min(currentIntentos, prevIntentos || currentIntentos);
 
-  stats.stats.bloques.intentos = statintentos;
-  console.log(intentos, prevIntentos, stats.stats.bloques.intentos);
-  stats.stats.bloques.intentos ??= statintentos;
+  stats.stats.bloques.puntaje = statintentos;
+  console.log(intentosPreguntas, prevIntentos, stats.stats.bloques.puntaje);
+  stats.stats.bloques.puntaje ??= statintentos;
+stats.stats.bloques.listaPuntajes.push(currentIntentos);
+stats.stats.bloques.promedioPuntajes = calcularPromedioRacha(stats);
+stats.stats.bloques.rondasGanadas++;
+stats.stats.bloques.preguntasHechas += intentosPreguntas;
+let statvaloresPreguntados = compararListasAcertados(stats,false) ?? valoresPreguntados;
+ let statcategoriasPreguntadas = compararListasAcertados(stats,true) ?? categoriasPreguntadas;
+ stats.stats.bloques.categoriasPreguntadas = statcategoriasPreguntadas;
+ stats.stats.bloques.valoresPreguntados = statvaloresPreguntados;
+ stats.stats.bloques.valorPromedio = calcularPromedioRacha(stats,true)
+stats.stats.bloques.listaValoresPreguntados.push(...listaValores);
 
-  postEvent("guardarStats", { nombre: usuario, stats: stats.stats }, guardarStats);
+  postEvent("guardarStatsEnElBack", stats, guardarStats);
 }
 
 function guardarStats() { };
 
+
+function calcularPromedioRacha(stats,esValorPromedio){
+  if (esValorPromedio){
+     let sumatoria = 0;
+    for (let i = 0; i < stats.stats.bloques.valoresPreguntados.length; i++){
+      sumatoria += stats.stats.bloques.valoresPreguntados[i]
+    }
+    return sumatoria / stats.stats.bloques.valoresPreguntados.length;
+    }
+    else {
+  let sumatoria = 0;
+    for (let i = 0; i < stats.stats.bloques.listaPuntajes.length; i++){
+      sumatoria += stats.stats.bloques.listaPuntajes[i]
+    }
+    return sumatoria / stats.stats.bloques.listaPuntajes.length;}
+    }
+
 function establecerVariablesInicio(data) {
-  intentos = 3; // debe empezar con 3, no con 0
+  intentosPreguntas = 0; // debe empezar con 3, no con 0
   paisobjetivo = data.pais;
   labelPaisObjetivo = data.labelPaisObjetivo;
   listadescartados = [];
@@ -185,10 +260,26 @@ document.getElementById('btnAdivinar').addEventListener('click', () => {
     categoria: valorSlot1
   };
 
+  listaValores.push(input.valor);
+
+let existente = categoriasPreguntadas.find(obj => obj.dato === input.categoria);
+if (existente) {
+  existente.cantidad++;
+} else {
+  categoriasPreguntadas.push({dato:input.categoria, cantidad: 1 });
+}
+
+let existente2 = valoresPreguntados.find(obj => obj.valor === input.valor);
+if (existente2) {
+  existente2.cantidad++;
+} else {
+  valoresPreguntados.push({valor:input.valor, cantidad: 1 });
+}
+
   postEvent("evaluarRespuestaBloques", {
     input: input,
     paisobjetivo: paisobjetivo,
-    intentos: intentos,
+    intentos: intentosPreguntas,
     listadescartados: listadescartados,
     listaposibles: listaposibles,
   }, evaluarRespuestaFront);
@@ -262,8 +353,6 @@ window.addEventListener("click", (e) => {
 });
 
 
-let intentosPais = 3; // intentos para adivinar el país
-
 document.getElementById("btnAdivinarPais").addEventListener("click", () => {
   const inputPais = document.getElementById("inputAdivinarPais").value.trim();
 
@@ -273,7 +362,7 @@ document.getElementById("btnAdivinarPais").addEventListener("click", () => {
   }
 
   // Si ya se quedó sin intentos
-  if (intentosPais <= 0) {
+  if (intentosDeAdivinar >= 3) {
     mostrarError("No te quedan más intentos.");
     document.getElementById("btnAdivinarPais").disabled = true;
     return;
@@ -281,19 +370,19 @@ document.getElementById("btnAdivinarPais").addEventListener("click", () => {
 
   // Comparar con el país objetivo
   if (inputPais.toLowerCase() === labelPaisObjetivo.toLowerCase()) {
-    const intentosUsados = 4 - intentosPais; // 3 intentos totales, así calculamos cuántos usó
-    mostrarPopUp(intentosUsados);
+    intentosDeAdivinar++;
+    mostrarPopUp(intentosPreguntas,intentosDeAdivinar);
     enviarstats();
     document.getElementById("btnAdivinarPais").disabled = true;
     document.getElementById("btnAdivinar").disabled = true;
   } else {
-    intentosPais--;
-    if (intentosPais > 0) {
-      mostrarError(`Incorrecto. Te quedan ${intentosPais} intento${intentosPais === 1 ? "" : "s"}.`);
+    intentosDeAdivinar++;
+    if (intentosDeAdivinar !== 3) {
+      mostrarError(`Incorrecto. Te quedan ${3-intentosDeAdivinar} intento${3-intentosDeAdivinar === 1 ? "" : "s"}.`);
     } else {
       mostrarError("Incorrecto. No te quedan más intentos.");
       document.getElementById("btnAdivinarPais").disabled = true;
-      document.getElementById("btnAdivinar").disabled = true;
+      //document.getElementById("btnAdivinar").disabled = true;
     }
   }
 });

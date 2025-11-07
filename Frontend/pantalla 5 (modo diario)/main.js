@@ -47,6 +47,7 @@ function getStats(data) {
 
   stats.stats.diario.listaPuntajes.push(intentos);
   stats.stats.diario.promedioPuntajes = calcularPromedioPuntaje(stats);
+  stats.stats.diario.rondasGanadas = stats.stats.diario.listaPuntajes.length;
   postEvent("guardarStatsEnElBack", stats, guardarStats);
 }
 
