@@ -563,5 +563,43 @@
         "preguntasHechas": 263
       }
     }
+  },
+  "usuariotest": {
+    "nombre": "usuariotest",
+    "contraseña": "testeando",
+    "stats": {
+      "diario": {
+        "puntaje": 4,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 4,
+        "listaPuntajes": [
+          4
+        ],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
   }
 }
