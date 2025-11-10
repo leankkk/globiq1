@@ -18,7 +18,12 @@ let infoBloques;
 let listaObjDiario;
 let listaObjMayorMenor;
 let listaObjBloques;
+let elementosLiDOM = [];
 
+function formatearString(string) {
+    const result = string.replace(/([A-Z])/g, ' $1');
+    return result.charAt(0).toUpperCase() + result.slice(1);
+  }
 
 //importar stats para mostrar en pantalla
 function mostrarStats(data){
@@ -28,11 +33,42 @@ infoMayorMenor = data.stats.mayormenor;
 infoBloques = data.stats.bloques;
 
 //armar los elementos de cada lista de stats
-for (let i = 0, listaObjDiario = Object.entries(infoDiario); i < listaObjDiario.length; i++) {
-let ("li"+i) = document.createElement("li")
-    listaDiario.appendChild()
-    
+//diario
+let listaObjDiario = Object.entries(infoDiario)
+for (let i = 0; i < listaObjDiario.length; i++) {
+console.log(listaObjDiario)
+if (!((Array.isArray(listaObjDiario[i][1]) && listaObjDiario[i][1].length === 0) ||
+    listaObjDiario[i][1] === null)){
+let li = document.createElement("li");
+li.textContent = formatearString(listaObjDiario[i][0]) + ": " + listaObjDiario[i][1];
+listaDiario.appendChild(li);
 }
 }
 
-postEvent("enviarStatsAlFront",{usuario: usuario}, mostrarStats);
+//mayormenor
+let listaObjMayorMenor = Object.entries(infoMayorMenor)
+for (let i = 0; i < listaObjMayorMenor.length; i++) {
+console.log(listaObjMayorMenor)
+if (!((Array.isArray(listaObjMayorMenor[i][1]) && listaObjMayorMenor[i][1].length === 0) ||
+    listaObjMayorMenor[i][1] === null)){
+let li = document.createElement("li");
+li.textContent = formatearString(listaObjMayorMenor[i][0]) + ": " + listaObjMayorMenor[i][1];
+listaMayorMenor.appendChild(li);
+}
+}
+
+//bloques
+let listaObjBloques = Object.entries(infoBloques)
+for (let i = 0; i < listaObjBloques.length; i++) {
+console.log(listaObjBloques)
+if (!((Array.isArray(listaObjBloques[i][1]) && listaObjBloques[i][1].length === 0) ||
+    listaObjBloques[i][1] === null)){
+let li = document.createElement("li");
+li.textContent = formatearString(listaObjBloques[i][0]) + ": " + listaObjBloques[i][1];
+listaBloques.appendChild(li);
+}
+}
+
+}
+
+postEvent("enviarStatsAlFront",{nombre: usuario}, mostrarStats);
