@@ -12,7 +12,7 @@ let popupRendirse = document.getElementById("popupRendirse");
 let paisCorrectoDOM = document.getElementById("paisCorrectoDOM");
 let btnVolver = document.getElementById("btn-volver");
 
-
+let intentosHechos = 0;
 let intentosFallidos = [];  
 
 
@@ -45,6 +45,7 @@ function getStats(data) {
   console.log(puntaje, intentos, stats.stats.diario.puntaje);
   stats.stats.diario.puntaje ??= puntaje;
 
+  stats.stats.diario.intentosHechos += intentosHechos;
   stats.stats.diario.listaPuntajes.push(intentos);
   stats.stats.diario.promedioPuntajes = calcularPromedioPuntaje(stats);
   stats.stats.diario.rondasGanadas = stats.stats.diario.listaPuntajes.length;
@@ -76,7 +77,7 @@ getEvent("obtenerPaisDiario", establecerPaisDiario);
 
 boton.addEventListener('click', () => {
   let respuesta = input.value.trim().toLowerCase();
-
+intentosHechos++;
 
   if (respuesta === paisDiario.toLowerCase()) {
     intentosDOM.innerText = "Cantidad de pistas:  " + intentos;

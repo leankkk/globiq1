@@ -115,6 +115,15 @@ function evaluarRespuestaFront(data) {
   }
 }
 
+function calcularMasPreguntado(lista){
+  let indiceDelMayor = 0;
+  for (let i = 1; i < lista.length; i++){
+    if (lista[i].cantidad > lista[indiceDelMayor].cantidad) indiceDelMayor = i;
+  }
+  return lista[indiceDelMayor];
+}
+
+
 async function enviarstats() {
   console.log("envio de stats iniciado");
   postEvent("enviarStatsAlFront", { nombre: usuario }, getStats);
@@ -147,7 +156,8 @@ let statvaloresPreguntados = compararListasAcertados(stats,false) ?? valoresPreg
  stats.stats.bloques.valoresPreguntados = statvaloresPreguntados;
  stats.stats.bloques.valorPromedio = calcularPromedioRacha(stats,true)
 stats.stats.bloques.listaValoresPreguntados.push(...listaValores);
-
+console.log(calcularMasPreguntado(stats.stats.bloques.categoriasPreguntadas));
+stats.stats.bloques.categoriasPreguntadas = calcularMasPreguntado(stats.stats.bloques.categoriasPreguntadas);
   postEvent("guardarStatsEnElBack", stats, guardarStats);
 }
 

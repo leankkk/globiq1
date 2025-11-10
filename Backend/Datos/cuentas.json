@@ -4,34 +4,162 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": null,
-        "rondasGanadas": 0,
-        "promedioPuntajes": null,
-        "listaPuntajes": [],
+        "puntaje": 8,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 8,
+        "listaPuntajes": [
+          8
+        ],
         "intentosHechos": 0
       },
       "mayormenor": {
-        "racha": 0,
-        "rondasJugadas": 0,
-        "promedioRachas": null,
-        "listaRachas": [],
-        "categoriasAcertadas": [],
-        "paisesAcertados": [],
-        "categoriaMasAcertada": {},
-        "paisMasAcertado": {},
+        "racha": 10,
+        "rondasJugadas": 4,
+        "promedioRachas": 4.25,
+        "listaRachas": [
+          3,
+          2,
+          10,
+          2
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "economy.household_income_by_percentage_share.highest_ten_percent",
+            "cantidad": 3,
+            "label": "Ingreso hogares 10% más alto"
+          },
+          {
+            "dato": "economy.inflation_rate.global_rank",
+            "cantidad": 2,
+            "label": "Inflación posición mundial"
+          },
+          {
+            "dato": "communications.internet.users.total",
+            "cantidad": 4,
+            "label": "Internet usuarios totales"
+          },
+          {
+            "dato": "transportation.air_transport.airports.unpaved.1524_to_2437_metres",
+            "cantidad": 5,
+            "label": "Aeropuertos no pavimentados 1524 a 2437 m"
+          },
+          {
+            "dato": "people.hospital_bed_density.beds_per_1000_population",
+            "cantidad": 1,
+            "label": "Camas hospitalarias"
+          },
+          {
+            "dato": "energy.electricity.access.total_electrification.value",
+            "cantidad": 2,
+            "label": "Electricidad acceso total valor"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "slovenia",
+            "cantidad": 1,
+            "label": "Eslovenia"
+          },
+          {
+            "pais": "belgium",
+            "cantidad": 1,
+            "label": "Bélgica"
+          },
+          {
+            "pais": "sudan",
+            "cantidad": 1,
+            "label": "Sudán"
+          },
+          {
+            "pais": "bhutan",
+            "cantidad": 1,
+            "label": "Bután"
+          },
+          {
+            "pais": "spain",
+            "cantidad": 2,
+            "label": "España"
+          },
+          {
+            "pais": "germany",
+            "cantidad": 1,
+            "label": "Alemania"
+          },
+          {
+            "pais": "belize",
+            "cantidad": 1,
+            "label": "Belice"
+          },
+          {
+            "pais": "malawi",
+            "cantidad": 1,
+            "label": "Malawi"
+          },
+          {
+            "pais": "united_kingdom",
+            "cantidad": 1,
+            "label": "Reino Unido"
+          },
+          {
+            "pais": "zimbabwe",
+            "cantidad": 1,
+            "label": "Zimbabue"
+          },
+          {
+            "pais": "uganda",
+            "cantidad": 1,
+            "label": "Uganda"
+          },
+          {
+            "pais": "ghana",
+            "cantidad": 1,
+            "label": "Ghana"
+          },
+          {
+            "pais": "el_salvador",
+            "cantidad": 1,
+            "label": "El Salvador"
+          },
+          {
+            "pais": "malta",
+            "cantidad": 1,
+            "label": "Malta"
+          },
+          {
+            "pais": "tuvalu",
+            "cantidad": 1,
+            "label": "Tuvalu"
+          },
+          {
+            "pais": "norway",
+            "cantidad": 1,
+            "label": "Noruega"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "transportation.air_transport.airports.unpaved.1524_to_2437_metres",
+          "cantidad": 5,
+          "label": "Aeropuertos no pavimentados 1524 a 2437 m"
+        },
+        "paisMasAcertado": {
+          "pais": "spain",
+          "cantidad": 2,
+          "label": "España"
+        },
         "comparacionesHechas": 0
       },
       "bloques": {
-        "puntaje": 27,
-        "rondasGanadas": 6,
-        "promedioPuntajes": 43.833333333333336,
+        "puntaje": 8,
+        "rondasGanadas": 7,
+        "promedioPuntajes": 38.714285714285715,
         "listaPuntajes": [
           47,
           51,
           27,
           43,
           47,
-          48
+          48,
+          8
         ],
         "categoriasPreguntadas": [
           {
@@ -72,7 +200,7 @@
           },
           {
             "dato": "PIB tipo de cambio oficial USD",
-            "cantidad": 2
+            "cantidad": 3
           },
           {
             "dato": "Consumo electricidad posición mundial",
@@ -100,7 +228,7 @@
           },
           {
             "dato": "Latitud grados",
-            "cantidad": 1
+            "cantidad": 2
           },
           {
             "dato": "PIB composición por uso final consumo de hogares",
@@ -108,7 +236,7 @@
           },
           {
             "dato": "Población 55 a 64 años mujeres",
-            "cantidad": 2
+            "cantidad": 3
           },
           {
             "dato": "Balanza cuenta corriente posición mundial",
@@ -120,7 +248,7 @@
           },
           {
             "dato": "Edad media mujeres",
-            "cantidad": 2
+            "cantidad": 3
           },
           {
             "dato": "Telefonía fija posición mundial",
@@ -128,7 +256,7 @@
           },
           {
             "dato": "PIB crecimiento real posición mundial",
-            "cantidad": 3
+            "cantidad": 4
           },
           {
             "dato": "Otras tierras",
@@ -148,7 +276,7 @@
           },
           {
             "dato": "Zona horaria capital",
-            "cantidad": 1
+            "cantidad": 2
           },
           {
             "dato": "Muertes por VIH",
@@ -216,7 +344,7 @@
           },
           {
             "dato": "Rango mundial migración",
-            "cantidad": 1
+            "cantidad": 2
           },
           {
             "dato": "Reservas comprobadas gas natural posición mundial",
@@ -453,12 +581,40 @@
           {
             "dato": "Aerolíneas registradas",
             "cantidad": 1
+          },
+          {
+            "dato": "Aeropuertos no pavimentados total",
+            "cantidad": 1
           }
         ],
         "valoresPreguntados": [
           {
-            "valor": 49,
-            "cantidad": 48
+            "valor": 50,
+            "cantidad": 2
+          },
+          {
+            "valor": 30,
+            "cantidad": 1
+          },
+          {
+            "valor": 60,
+            "cantidad": 1
+          },
+          {
+            "valor": 55,
+            "cantidad": 1
+          },
+          {
+            "valor": 1,
+            "cantidad": 1
+          },
+          {
+            "valor": 0,
+            "cantidad": 1
+          },
+          {
+            "valor": 6,
+            "cantidad": 1
           }
         ],
         "listaValoresPreguntados": [
@@ -556,11 +712,19 @@
           49,
           49,
           49,
-          49
+          49,
+          50,
+          30,
+          60,
+          55,
+          1,
+          0,
+          6,
+          50
         ],
         "valorPromedio": null,
         "categoriaMasPreguntada": {},
-        "preguntasHechas": 263
+        "preguntasHechas": 271
       }
     }
   },
@@ -599,6 +763,227 @@
         "valorPromedio": null,
         "categoriaMasPreguntada": {},
         "preguntasHechas": 0
+      }
+    }
+  },
+  "joaco": {
+    "nombre": "joaco",
+    "contraseña": "luciocrack",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "Lucio Camde": {
+    "nombre": "Lucio Camde",
+    "contraseña": "LLL",
+    "stats": {
+      "diario": {
+        "puntaje": 8,
+        "rondasGanadas": 2,
+        "promedioPuntajes": 8,
+        "listaPuntajes": [
+          8,
+          8
+        ],
+        "intentosHechos": 9
+      },
+      "mayormenor": {
+        "racha": 8,
+        "rondasJugadas": 2,
+        "promedioRachas": 4.5,
+        "listaRachas": [
+          8,
+          1
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "transportation.air_transport.airports.paved.total",
+            "cantidad": 4,
+            "label": "Aeropuertos pavimentados total"
+          },
+          {
+            "dato": "communications.telephones.fixed_lines.subscriptions_per_one_hundred_inhabitants",
+            "cantidad": 4,
+            "label": "Telefonía fija suscripciones por 100 habitantes"
+          },
+          {
+            "dato": "economy.labor_force.by_occupation.occupation.industry",
+            "cantidad": 1,
+            "label": "Fuerza laboral industria"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "luxembourg",
+            "cantidad": 1,
+            "label": "Luxemburgo"
+          },
+          {
+            "pais": "mongolia",
+            "cantidad": 1,
+            "label": "Mongolia"
+          },
+          {
+            "pais": "iran",
+            "cantidad": 1,
+            "label": "Irán"
+          },
+          {
+            "pais": "united_states",
+            "cantidad": 1,
+            "label": "Estados Unidos"
+          },
+          {
+            "pais": "bhutan",
+            "cantidad": 1,
+            "label": "Bután"
+          },
+          {
+            "pais": "iraq",
+            "cantidad": 1,
+            "label": "Irak"
+          },
+          {
+            "pais": "japan",
+            "cantidad": 1,
+            "label": "Japón"
+          },
+          {
+            "pais": "malaysia",
+            "cantidad": 1,
+            "label": "Malasia"
+          },
+          {
+            "pais": "cyprus",
+            "cantidad": 1,
+            "label": "Chipre"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "transportation.air_transport.airports.paved.total",
+          "cantidad": 4,
+          "label": "Aeropuertos pavimentados total"
+        },
+        "paisMasAcertado": {
+          "pais": "luxembourg",
+          "cantidad": 1,
+          "label": "Luxemburgo"
+        },
+        "comparacionesHechas": 2
+      },
+      "bloques": {
+        "puntaje": 25,
+        "rondasGanadas": 2,
+        "promedioPuntajes": 28.5,
+        "listaPuntajes": [
+          25,
+          32
+        ],
+        "categoriasPreguntadas": {
+          "dato": "Rango mundial de población",
+          "cantidad": 4
+        },
+        "valoresPreguntados": [
+          {
+            "valor": 50,
+            "cantidad": 32
+          }
+        ],
+        "listaValoresPreguntados": [
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50
+        ],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 57
       }
     }
   }

@@ -1,10 +1,12 @@
 connect2Server(3001);
+
 let paisInicialNombre = document.getElementById("paisInicialNombre");
 let paisInicialDato = document.getElementById("paisInicialDato");
 let botonMayor = document.getElementById("btnMayor");
 let botonMenor = document.getElementById("btnMenor");
 let btnCambiarCategoria = document.getElementById("btnCambiarCategoria");
 let rachaContador = document.getElementById("rachaContador");
+let comparacionesHechas = 0;
 
 //Para las stats
 let infousuario;
@@ -152,6 +154,7 @@ function getStats(data){
  infousuario.stats.mayormenor.categoriaMasAcertada = calcularMasAcertado(statcategoriasAcertadas);
  infousuario.stats.mayormenor.paisMasAcertado = calcularMasAcertado(statpaisesAcertados);
  infousuario.stats.mayormenor.rondasJugadas++;
+ infousuario.stats.mayormenor.comparacionesHechas += comparacionesHechas;
  //console.log(racha, timer, infousuario.stats.mayormenor.racha);
  //racha de dias
 console.log(infousuario);
@@ -208,10 +211,12 @@ postEvent("iniciarMayorMenor",{}, iniciarMayorMenor);
 
 botonMayor.addEventListener("click", ()=> {
     postEvent("evaluarRespuesta", {input: false, timer: timer, paisInicial: paisInicial, labelpaisInicial: labelpaisInicial, pais2: pais2, labelpais2: labelpais2, dato: dato, valorInicial: valorInicial, }, evaluarResultado);
+    comparacionesHechas++;
 });
 
 botonMenor.addEventListener("click", ()=> {
     postEvent("evaluarRespuesta", {input: true, timer: timer, paisInicial: paisInicial, labelpaisInicial: labelpaisInicial, pais2: pais2, labelpais2: labelpais2, dato: dato, valorInicial: valorInicial}, evaluarResultado);
+    comparacionesHechas++;
 });
 
 

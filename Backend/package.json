@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "flag-icons": "^7.5.0",
     "soquetic": "^1.4.2"
   }
 }
