@@ -169,6 +169,7 @@ if (data.victoria) {
  paisInicial = data.paisInicial; 
     pais2 = data.pais2;
     dato = data.dato;
+    labelpaisInicial = data.labelpaisInicial;
     labelvalorInicial = data.labelvalorInicial;
     timer = data.timer;
     paisInicialNombre.innerText = data.labelpaisInicial;
@@ -180,7 +181,7 @@ let existente = categoriasAcertadas.find(obj => obj.dato === dato);
 if (existente) {
   existente.cantidad++;
 } else {
-  categoriasAcertadas.push({ dato, cantidad: 1 });
+  categoriasAcertadas.push({ dato, cantidad: 1, label: data.label});
 }
 
 console.log(paisesAcertados);
@@ -188,7 +189,7 @@ let existente2 = paisesAcertados.find(obj => obj.pais === paisInicial);
 if (existente2) {
   existente2.cantidad++;
 } else {
-  paisesAcertados.push({pais:paisInicial, cantidad: 1 });
+  paisesAcertados.push({pais: paisInicial, cantidad: 1, label: data.labelpaisInicial});
 }
  
 
