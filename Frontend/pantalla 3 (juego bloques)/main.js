@@ -196,7 +196,7 @@ function establecerVariablesInicio(data) {
 
 
 getEvent("iniciarBloques", establecerVariablesInicio);
-
+// --- BLOQUES ARRASTRABLES --- //
 document.querySelectorAll('.bloque').forEach(bloque => {
   bloque.addEventListener('dragstart', e => {
     dragged = e.target;
@@ -210,10 +210,12 @@ document.querySelectorAll('.bloque').forEach(bloque => {
   });
 });
 
+// --- SLOTS (permiten soltar) --- //
 slots.forEach(slot => {
   slot.addEventListener('dragover', e => {
     e.preventDefault();
 
+    // Restricciones específicas del bloque MOM
     if (dragged && dragged.id === "MOM" && slot.id !== "slot2") return;
     if (dragged && dragged.id !== "MOM" && slot.id === "slot2") return;
 
@@ -228,9 +230,11 @@ slots.forEach(slot => {
     e.preventDefault();
     slot.classList.remove('hovered');
 
+    // Restricciones específicas del bloque MOM
     if (dragged && dragged.id === "MOM" && slot.id !== "slot2") return;
     if (dragged && dragged.id !== "MOM" && slot.id === "slot2") return;
 
+    // Si el slot ya tiene algo, lo devuelve al contenedor de bloques
     if (slot.firstChild) {
       bloquesContainer.appendChild(slot.firstChild);
     }
@@ -240,14 +244,28 @@ slots.forEach(slot => {
   });
 });
 
+// --- NUEVO: PERMITIR SACAR BLOQUES DE LOS SLOTS --- //
 bloquesContainer.addEventListener('dragover', e => e.preventDefault());
 bloquesContainer.addEventListener('drop', e => {
   e.preventDefault();
+
+  // 🧩 CAMBIO: ahora también devuelve bloques que estaban en un slot
   if (dragged) {
     bloquesContainer.appendChild(dragged);
     dragged.style.margin = "5px";
   }
 });
+
+// 🧩 NUEVO: también permitir soltar en el body (espacio libre)
+document.body.addEventListener('dragover', e => e.preventDefault());
+document.body.addEventListener('drop', e => {
+  // Si se suelta fuera de slots o del contenedor, lo devuelve igual
+  if (dragged && !e.target.classList.contains('slot') && !e.target.classList.contains('bloque')) {
+    bloquesContainer.appendChild(dragged);
+    dragged.style.margin = "5px";
+  }
+});
+
 
 let valorSlot1 = "";
 let valorSlot2 = "";

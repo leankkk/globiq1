@@ -1027,5 +1027,81 @@
         "preguntasHechas": 57
       }
     }
+  },
+  "test": {
+    "nombre": "test",
+    "contraseña": "holatest",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": 27,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 27,
+        "listaPuntajes": [
+          27
+        ],
+        "categoriasPreguntadas": {
+          "dato": "Inflación posición mundial",
+          "cantidad": 4
+        },
+        "valoresPreguntados": [
+          {
+            "valor": 7,
+            "cantidad": 29
+          }
+        ],
+        "listaValoresPreguntados": [
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 27
+      }
+    }
   }
 }

@@ -1,10 +1,9 @@
-
 /* Contenedor del menú */
 .menu-container {
-  position: fixed;        /* fijo en pantalla */
+  position: fixed;
   top: 15px;
   right: 20px;
-  z-index: 1000;          /* que quede por encima de todo */
+  z-index: 1000;
 }
 
 /* Ícono ☰ */
@@ -12,7 +11,7 @@
   font-size: 32px;
   cursor: pointer;
   user-select: none;
-  color: #111;
+  color: white; /* 🔹 AHORA BLANCO */
   transition: transform 0.2s;
 }
 
@@ -36,12 +35,10 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* Ítems */
 .menu-options li {
   padding: 0;
 }
 
-/* Enlaces */
 .menu-options a {
   color: white;
   text-decoration: none;
@@ -55,24 +52,24 @@
   padding-left: 20px;
 }
 
-/* Mostrar el menú mientras el mouse esté sobre el ícono o el menú */
 .menu-container:hover .menu-options {
   display: flex;
 }
 
+/* --- CUERPO --- */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f1f1f1;
+  font-family: "Inter", sans-serif;
+  background-color: #05355B;
   margin: 0;
   padding: 0;
-  min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Asegura que el contenido se alinee desde la parte superior */
+  justify-content: flex-start;
 }
 
-
+/* --- MODAL --- */
 .modal {
   display: none; 
   position: fixed; 
@@ -123,7 +120,7 @@ body {
   font-weight: bold;
 }
 
-
+/* --- CONTENEDOR GENERAL --- */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -131,6 +128,7 @@ body {
   text-align: center;
 }
 
+/* --- PREGUNTA Y SLOTS --- */
 .pregunta {
   display: flex;
   justify-content: center;
@@ -139,6 +137,10 @@ body {
   gap: 10px;
   font-size: 1.2em;
   margin-bottom: 20px;
+}
+
+.pregunta span {
+  color: white;
 }
 
 .slot {
@@ -155,15 +157,25 @@ body {
   transition: border-color 0.3s, background-color 0.3s;
 }
 
+/* --- SLOT 1 Y 2 --- */
+#slot1 {
+  background-color: #fff;
+  border: 2px dashed #bbb;
+  color: #777;
+}
+
 #slot2 {
-  background-color: #86f786;
+  background-color: #e3f2ff; /* azul muy claro */
+  border: 2px solid #5eb8ff; /* borde celeste */
+  color: #05355B;
 }
 
-.slot.hovered {
-  border-color: #4caf50;
-  background-color: #eafbea;
+#slot2.hovered {
+  background-color: #d0ebff;
+  border-color: #1b73c6;
 }
 
+/* --- BLOQUES --- */
 .bloques {
   display: flex;
   justify-content: center;
@@ -181,10 +193,19 @@ body {
   cursor: grab;
   user-select: none;
   transition: background-color 0.2s, transform 0.2s;
+  font-family: "Inter", sans-serif;
 }
 
 #MOM {
-  background-color: #86f786;
+  background-color: #a9dcff;
+  border-color: #6faedc;
+  color: #05355B;
+  font-weight: bold;
+}
+
+#MOM:hover {
+  background-color: #bfe6ff;
+  transform: scale(1.05);
 }
 
 .bloque:active {
@@ -192,32 +213,27 @@ body {
   transform: scale(1.05);
 }
 
+/* --- MAPA --- */
 .mapa {
-  width: 100%;
-  height: 100vh; /* Asegura que el contenedor ocupe el 100% de la altura de la pantalla */
+  width: 75%;
+  height: 75vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Alinea el mapa hacia la parte superior */
-  background-color: #fafafa;
-  margin-top: 0; /* Quitar el margen superior */
-  overflow: visible; /* Permite que el mapa no se recorte */
-  padding-bottom: 0px; /* Evitar recortes si la altura es ajustada */
+  align-items: flex-start;
+  margin-top: 0;
+  overflow: visible;
+  padding-bottom: 0px;
   flex-grow: 1;
 }
 
 .mapa svg {
   width: 100%;
-  height: auto; /* La altura se ajustará dinámicamente */
-  max-width: 100%; /* No excederá el ancho del contenedor */
-  object-fit: contain; /* Ajusta el mapa sin distorsionar */
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
-
-
-
-
-
 
 .land {
   fill: #d8d8d8;
@@ -231,24 +247,15 @@ body {
   cursor: pointer;
 }
 
-.input-slot {
-  width: 180px;
-  height: 40px;
-  border: 2px solid #bbb;
-  border-radius: 8px;
-  background-color: #fff;
-  text-align: center;
-  font-size: 1.1em;
-  color: #333;
-  outline: none;
-  transition: border-color 0.3s, background-color 0.3s;
+.land.posible {
+  fill: #4caf50;
 }
 
-.input-slot:focus {
-  border-color: #4caf50;
-  background-color: #f5fff5;
+.land.descartado {
+  fill: #e57373;
 }
 
+/* --- INPUT Y BOTÓN --- */
 .input-slot {
   width: 180px;
   height: 40px;
@@ -278,6 +285,7 @@ body {
   cursor: pointer;
   margin-bottom: 25px;
   transition: background-color 0.3s, border-color 0.3s;
+  font-family: "Inter", sans-serif;
 }
 
 .boton-adivinar:hover {
@@ -285,6 +293,7 @@ body {
   border-color: #4caf50;
 }
 
+/* --- LISTAS DE PAISES --- */
 .listas-paises {
   display: flex;
   justify-content: center;
@@ -303,6 +312,7 @@ body {
   overflow-y: auto;
   padding: 10px;
   text-align: left;
+  font-family: "Inter", sans-serif;
 }
 
 .lista h3 {
@@ -327,33 +337,12 @@ body {
   border-bottom: none;
 }
 
-
-/* Modal genérico */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  width: 320px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-}
-
+/* --- MODAL SECUNDARIO --- */
 .modal-content p {
   margin-bottom: 15px;
   font-size: 1rem;
   color: #333;
+  font-family: "Inter", sans-serif;
 }
 
 .modal-content button {
@@ -364,12 +353,14 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.9rem;
+  font-family: "Inter", sans-serif;
 }
 
 .modal-content button:hover {
   background-color: #3b913d;
 }
 
+/* --- ADIVINAR PAIS --- */
 .adivinar-pais-box {
   margin-top: 10px;
   display: flex;
@@ -382,10 +373,14 @@ body {
   width: 250px;
   border: 2px solid #bbb;
   border-radius: 6px;
+  font-family: "Inter", sans-serif;
 }
+
+/* --- LAYOUT GENERAL --- */
 .layout {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   gap: 30px;
   margin-bottom: 30px;
 }
@@ -403,20 +398,14 @@ body {
   text-align: center;
   border-left: 2px solid #ccc;
   padding-left: 20px;
+  overflow: visible;
 }
 
-/* Colores dinámicos del mapa */
-.land {
-  fill: #d8d8d8;
-  stroke: #999;
-  stroke-width: 0.5;
-  transition: fill 0.3s ease;
-}
-
-.land.posible {
-  fill: #4caf50; /* azul */
-}
-
-.land.descartado {
-  fill: #e57373; /* rojo suave */
+/* --- LINEA DIVISORIA FIJA --- */
+.linea-divisoria {
+  width: 2px;
+  height: 500px;
+  background-color: #ccc;
+  flex-shrink: 0;
+  align-self: center;
 }
