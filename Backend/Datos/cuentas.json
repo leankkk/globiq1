@@ -4,35 +4,23 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": 0,
-        "rondasGanadas": 7,
-        "promedioPuntajes": 2.2857142857142856,
+        "puntaje": 8,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 8,
         "listaPuntajes": [
-          8,
-          7,
-          0,
-          0,
-          1,
-          0,
-          0
+          8
         ],
-        "intentosHechos": 14
+        "intentosHechos": 0
       },
       "mayormenor": {
         "racha": 10,
-<<<<<<< HEAD
         "rondasJugadas": 17,
         "promedioRachas": 2.588235294117647,
-=======
-        "rondasJugadas": 10,
-        "promedioRachas": 3.5,
->>>>>>> 26bd666e499ee917a3f05025ab65a06a60167c3b
         "listaRachas": [
           3,
           2,
           10,
           2,
-<<<<<<< HEAD
           1,
           1,
           2,
@@ -46,14 +34,6 @@
           4,
           1,
           4
-=======
-          5,
-          1,
-          1,
-          6,
-          2,
-          3
->>>>>>> 26bd666e499ee917a3f05025ab65a06a60167c3b
         ],
         "categoriasAcertadas": [
           {
@@ -87,7 +67,6 @@
             "label": "Electricidad acceso total valor"
           },
           {
-<<<<<<< HEAD
             "dato": "energy.electricity.exports.kWh",
             "cantidad": 1,
             "label": "Exportaciones electricidad kWh"
@@ -151,46 +130,6 @@
             "dato": "people.age_structure.25_to_54.males",
             "cantidad": 4,
             "label": "Porcentaje de población de 25 a 54 años en hombres"
-=======
-            "dato": "economy.imports.total_value.annual_values",
-            "cantidad": 4,
-            "label": "Importaciones valor anual"
-          },
-          {
-            "dato": "government.capital.geographic_coordinates.latitude.degrees",
-            "cantidad": 1,
-            "label": "Latitud de la capital en  grados"
-          },
-          {
-            "dato": "people.youth_unemployment.male.value",
-            "cantidad": 1,
-            "label": "Porcentaje de desempleo juvenil en hombres"
-          },
-          {
-            "dato": "people.net_migration_rate.migrants_per_1000_population",
-            "cantidad": 1,
-            "label": "Tasa de migración neta"
-          },
-          {
-            "dato": "government.capital.geographic_coordinates.longitude.minutes",
-            "cantidad": 4,
-            "label": "Longitud de la capital en  minutos"
-          },
-          {
-            "dato": "people.urbanization.urban_population.value",
-            "cantidad": 2,
-            "label": "Porcentaje de población urbana"
-          },
-          {
-            "dato": "people.life_expectancy_at_birth.female.value",
-            "cantidad": 2,
-            "label": "Esperanza de vida para mujeres"
-          },
-          {
-            "dato": "economy.budget.revenues.value",
-            "cantidad": 3,
-            "label": "Presupuesto ingresos valor"
->>>>>>> 26bd666e499ee917a3f05025ab65a06a60167c3b
           }
         ],
         "paisesAcertados": [
@@ -241,7 +180,7 @@
           },
           {
             "pais": "zimbabwe",
-            "cantidad": 2,
+            "cantidad": 1,
             "label": "Zimbabue"
           },
           {
@@ -275,7 +214,6 @@
             "label": "Noruega"
           },
           {
-<<<<<<< HEAD
             "pais": "syria",
             "cantidad": 1,
             "label": "Siria"
@@ -284,56 +222,6 @@
             "pais": "korea_south",
             "cantidad": 1,
             "label": "Corea del Sur"
-=======
-            "pais": "seychelles",
-            "cantidad": 1,
-            "label": "Seychelles"
-          },
-          {
-            "pais": "china",
-            "cantidad": 2,
-            "label": "China"
-          },
-          {
-            "pais": "iceland",
-            "cantidad": 1,
-            "label": "Islandia"
-          },
-          {
-            "pais": "guinea",
-            "cantidad": 1,
-            "label": "Guinea"
-          },
-          {
-            "pais": "colombia",
-            "cantidad": 1,
-            "label": "Colombia"
-          },
-          {
-            "pais": "azerbaijan",
-            "cantidad": 1,
-            "label": "Azerbaiyán"
-          },
-          {
-            "pais": "solomon_islands",
-            "cantidad": 1,
-            "label": "Islas Salomón"
-          },
-          {
-            "pais": "slovakia",
-            "cantidad": 1,
-            "label": "Eslovaquia"
-          },
-          {
-            "pais": "tunisia",
-            "cantidad": 1,
-            "label": "Túnez"
-          },
-          {
-            "pais": "indonesia",
-            "cantidad": 1,
-            "label": "Indonesia"
->>>>>>> 26bd666e499ee917a3f05025ab65a06a60167c3b
           },
           {
             "pais": "switzerland",
@@ -341,7 +229,6 @@
             "label": "Suiza"
           },
           {
-<<<<<<< HEAD
             "pais": "chile",
             "cantidad": 1,
             "label": "Chile"
@@ -400,11 +287,6 @@
             "pais": "hungary",
             "cantidad": 1,
             "label": "Hungría"
-=======
-            "pais": "tonga",
-            "cantidad": 1,
-            "label": "Tonga"
->>>>>>> 26bd666e499ee917a3f05025ab65a06a60167c3b
           },
           {
             "pais": "ethiopia",
@@ -412,7 +294,6 @@
             "label": "Etiopía"
           },
           {
-<<<<<<< HEAD
             "pais": "korea_north",
             "cantidad": 1,
             "label": "Corea del Norte"
@@ -451,21 +332,6 @@
             "pais": "australia",
             "cantidad": 1,
             "label": "Australia"
-=======
-            "pais": "estonia",
-            "cantidad": 1,
-            "label": "Estonia"
-          },
-          {
-            "pais": "timor_leste",
-            "cantidad": 1,
-            "label": "Timor Oriental"
-          },
-          {
-            "pais": "cote_d'_ivoire",
-            "cantidad": 1,
-            "label": "Costa de Marfil"
->>>>>>> 26bd666e499ee917a3f05025ab65a06a60167c3b
           }
         ],
         "categoriaMasAcertada": {
@@ -478,11 +344,7 @@
           "cantidad": 2,
           "label": "España"
         },
-<<<<<<< HEAD
         "comparacionesHechas": 40
-=======
-        "comparacionesHechas": 24
->>>>>>> 26bd666e499ee917a3f05025ab65a06a60167c3b
       },
       "bloques": {
         "puntaje": 8,
@@ -1361,148 +1223,6 @@
         "valorPromedio": null,
         "categoriaMasPreguntada": {},
         "preguntasHechas": 57
-      }
-    }
-  },
-<<<<<<< HEAD
-  "test": {
-    "nombre": "test",
-    "contraseña": "holatest",
-    "stats": {
-      "diario": {
-        "puntaje": null,
-        "rondasGanadas": 0,
-        "promedioPuntajes": null,
-        "listaPuntajes": [],
-        "intentosHechos": 0
-=======
-  "martin": {
-    "nombre": "martin",
-    "contraseña": "iud",
-    "stats": {
-      "diario": {
-        "puntaje": 0,
-        "rondasGanadas": 1,
-        "promedioPuntajes": 0,
-        "listaPuntajes": [
-          0
-        ],
-        "intentosHechos": 1
->>>>>>> 26bd666e499ee917a3f05025ab65a06a60167c3b
-      },
-      "mayormenor": {
-        "racha": 0,
-        "rondasJugadas": 0,
-        "promedioRachas": null,
-        "listaRachas": [],
-        "categoriasAcertadas": [],
-        "paisesAcertados": [],
-        "categoriaMasAcertada": {},
-        "paisMasAcertado": {},
-        "comparacionesHechas": 0
-      },
-      "bloques": {
-<<<<<<< HEAD
-        "puntaje": 27,
-        "rondasGanadas": 1,
-        "promedioPuntajes": 27,
-        "listaPuntajes": [
-          27
-        ],
-        "categoriasPreguntadas": {
-          "dato": "Inflación posición mundial",
-          "cantidad": 4
-        },
-        "valoresPreguntados": [
-          {
-            "valor": 7,
-            "cantidad": 29
-          }
-        ],
-        "listaValoresPreguntados": [
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7,
-          7
-        ],
-        "valorPromedio": null,
-        "categoriaMasPreguntada": {},
-        "preguntasHechas": 27
-=======
-        "puntaje": 22,
-        "rondasGanadas": 1,
-        "promedioPuntajes": 22,
-        "listaPuntajes": [
-          22
-        ],
-        "categoriasPreguntadas": {
-          "dato": "Carreteras pavimentadas valor",
-          "cantidad": 5
-        },
-        "valoresPreguntados": [
-          {
-            "valor": 13,
-            "cantidad": 27
-          }
-        ],
-        "listaValoresPreguntados": [
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13,
-          13
-        ],
-        "valorPromedio": null,
-        "categoriaMasPreguntada": {},
-        "preguntasHechas": 22
->>>>>>> 26bd666e499ee917a3f05025ab65a06a60167c3b
       }
     }
   }
