@@ -1,37 +1,34 @@
 let usuario = sessionStorage.getItem("usuario");
-let ayudaBtn = document.querySelector('.ayuda');
-let popup = document.getElementById('popup');
-let cerrarBtn = document.querySelector('.cerrar');
-let cuentaBtn = document.getElementById("cuentaBtn");
+let ayudaBtn = document.querySelector('.ayuda'); 
+let cerrarBtn = document.querySelector('.cerrar'); 
+let cuentaBtn = document.getElementById("cuentaBtn");  
+let popup = document.getElementById("popup");  
+let btnMostrarPopup = document.getElementById("btnMostrarPopup");  
+let popupContent = document.querySelector('.popup-content'); 
 
-/*   NO FUNCIONA ESTE BLOQUE
-if (usuario) {
-  document.getElementById("linkLogin").style.display = "none";
-  let nombreUsuario = document.getElementById("nombreUsuario");
-  nombreUsuario.style.display = "inline-block";
-  nombreUsuario.textContent = usuario;
-}*/
 
-cuentaBtn.addEventListener("click",()=>{
+cuentaBtn.addEventListener("click", () => {
   console.log(usuario);
- if (usuario === "Sin usuario" || !usuario){
-  window.location.href = "/Frontend/pantalla 6 (login)/index.html";
-} else {window.location.href = "/Frontend/cuenta/index.html"}
-} 
+  if (usuario === "Sin usuario" || !usuario) {
+    window.location.href = "/Frontend/pantalla 6 (login)/index.html";
+  } else {
+    window.location.href = "/Frontend/cuenta/index.html";
+  }
+});
 
-)
 
 ayudaBtn.addEventListener('click', () => {
-  popup.classList.add('mostrar');
+  popup.style.display = "flex";  
 });
+
 
 cerrarBtn.addEventListener('click', () => {
-  popup.classList.remove('mostrar');
+  popup.style.display = "none";  
 });
 
 
-window.addEventListener('click', () => {
-  if (e.target === popup) {
-    popup.classList.remove('mostrar');
+window.addEventListener('click', (e) => {
+  if (e.target === popup) {  
+    popup.style.display = "none";
   }
 });
