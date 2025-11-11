@@ -35,9 +35,10 @@
         <div class="ladoIzquierdo">
             <div class="card paisIZQ">
        
-                <div class="card-header" id="paisInicialNombre">
+                <div class="card-header"style="display: flex; flex-direction: column; justify-content: center; align-items: center;
+                    gap: 2rem;" id="paisInicialNombre">
                     <span id="nombrePaisIZQ">Cargando...</span>
-                    <span id="flag1" class="fi fi-es"></span>
+                    <span id="flag1" class="fi fi-es" style="scale: 4;"></span>
                 </div>
 
 
@@ -51,9 +52,10 @@
 
         <div class="ladoDerecho">
             <div class="card paisDERCHO">
-                <div class="card-header" id="pais2Nombre">
+                <div class="card-header" style="display: flex; flex-direction: column; justify-content: center; align-items: center;
+                    gap: 2rem;" id="pais2Nombre">
                     <span id="nombrePaisDER">Cargando...</span>
-                    <span id="flag2" class="fi fi-us"></span>
+                    <span id="flag2" class="fi fi-us" style="scale: 4;"></span>
                 </div>
                 <div class="selector">
                     <button id="btnMayor" class="boton">MAYOR</button>
@@ -98,7 +100,7 @@
   </div>
 </div>
 </body>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
-    <script src="main.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js" defer></script>
+    <script src="main.js" defer></script>
 </html>

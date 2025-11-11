@@ -1,6 +1,12 @@
-connect2Server(3001);
+document.addEventListener("DOMContentLoaded", () => {
+  connect2Server(3001);
+  postEvent("iniciarMayorMenor",{}, iniciarMayorMenor); 
+});
 
-let paisInicialNombre = document.getElementById("paisInicialNombre");
+let flag1 = document.getElementById("flag1");
+let flag2 = document.getElementById("flag2");
+let paisInicialNombre = document.getElementById("nombrePaisIZQ");
+let pais2Nombre = document.getElementById("nombrePaisDER");
 let paisInicialDato = document.getElementById("paisInicialDato");
 let botonMayor = document.getElementById("btnMayor");
 let botonMenor = document.getElementById("btnMenor");
@@ -75,6 +81,16 @@ if (!esCategoria){
     }
 }
 
+function establecerBandera(codigo, inicial) {
+  const num = inicial ? 1 : 2;
+  const bandera = document.getElementById("flag" + num);
+  if (!bandera) return;
+  bandera.className = "";
+  void bandera.offsetWidth;
+  bandera.className = "fi fi-" + codigo.toLowerCase();
+}
+
+
 function calcularMasAcertado(lista){
   let indiceDelMayor = 0;
   for (let i = 1; i < lista.length; i++){
@@ -126,6 +142,8 @@ labelpaisInicial = data.labelpaisInicial;
     paisInicialDato.innerText = labelvalorInicial;
     pais2Nombre.innerText = labelpais2;
     categoriaNombre.innerText = label;
+    establecerBandera(data.idPaisInicial,true);
+    establecerBandera(data.idPais2,false);
   }
 
 
@@ -194,19 +212,17 @@ if (existente2) {
 } else {
   paisesAcertados.push({pais: paisInicial, cantidad: 1, label: data.labelpaisInicial});
 }
- 
 
+establecerBandera(data.idPaisInicial,true);
+establecerBandera(data.idPais2,false);
 }
 else {
     mostrarPopUp(data.timer);
     if (timer >= 1) enviarstats();
-    pais2Nombre.innerText = data.labelpais2 + ": "+data.valorPais2;
+    pais2Nombre.innerText = labelpais2 + ": "+data.valorPais2;
     //se muestra undefined en el nombre de pais 2. eso es porque en el backend se reemplaza labelpais2 por el nuevo pais y el viejo se pierde. agregar forma de arreglarlo. vincular con sist. de quemados
     }
 }
-
-
-postEvent("iniciarMayorMenor",{}, iniciarMayorMenor); 
 
 
 botonMayor.addEventListener("click", ()=> {

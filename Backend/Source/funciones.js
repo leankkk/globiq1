@@ -222,8 +222,10 @@ else data.timer += 1;
 return {
     paisInicial: paisInicial, 
     labelpaisInicial: traerlabelpais(paisInicial),
+    idPaisInicial: traerlabelCodigoPais(paisInicial),
     pais2: pais2, 
     labelpais2: traerlabelpais(pais2),
+    idPais2: traerlabelCodigoPais(pais2),
     dato: dato,
     valorInicial: valorInicial,
     labelvalorInicial: traerlabelvalor(valorInicial),
@@ -296,7 +298,7 @@ if (valorInicial === undefined) {
 
 for (pais2 = paisInicial; pais2 === paisInicial; pais2 = paisrandom());
 
-return {victoria:victoria, timer: timer, paisInicial: paisInicial, labelpaisInicial: traerlabelpais(paisInicial),valorInicial: valorInicial, labelvalorInicial: traerlabelvalor(valorInicial), pais2: pais2, labelpais2: traerlabelpais(pais2), dato: dato, label: traerlabel(dato)}
+return {victoria:victoria, timer: timer, paisInicial: paisInicial, idPaisInicial: traerlabelCodigoPais(paisInicial), labelpaisInicial: traerlabelpais(paisInicial),valorInicial: valorInicial, labelvalorInicial: traerlabelvalor(valorInicial), pais2: pais2, labelpais2: traerlabelpais(pais2), idPais2: traerlabelCodigoPais(pais2), dato: dato, label: traerlabel(dato)}
 }
 else return {victoria: victoria, timer: timer, valorPais2: traer(pais2,dato)}
 }
