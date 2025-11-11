@@ -12,6 +12,7 @@ let popupRendirse = document.getElementById("popupRendirse");
 let paisCorrectoDOM = document.getElementById("paisCorrectoDOM");
 let btnVolver = document.getElementById("btn-volver");
 
+
 let intentosHechos = 0;
 let intentosFallidos = [];  
 

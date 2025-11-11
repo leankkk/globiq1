@@ -4,23 +4,35 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": 8,
-        "rondasGanadas": 1,
-        "promedioPuntajes": 8,
+        "puntaje": 0,
+        "rondasGanadas": 7,
+        "promedioPuntajes": 2.2857142857142856,
         "listaPuntajes": [
-          8
+          8,
+          7,
+          0,
+          0,
+          1,
+          0,
+          0
         ],
-        "intentosHechos": 0
+        "intentosHechos": 14
       },
       "mayormenor": {
         "racha": 10,
-        "rondasJugadas": 4,
-        "promedioRachas": 4.25,
+        "rondasJugadas": 10,
+        "promedioRachas": 3.5,
         "listaRachas": [
           3,
           2,
           10,
-          2
+          2,
+          5,
+          1,
+          1,
+          6,
+          2,
+          3
         ],
         "categoriasAcertadas": [
           {
@@ -52,6 +64,46 @@
             "dato": "energy.electricity.access.total_electrification.value",
             "cantidad": 2,
             "label": "Electricidad acceso total valor"
+          },
+          {
+            "dato": "economy.imports.total_value.annual_values",
+            "cantidad": 4,
+            "label": "Importaciones valor anual"
+          },
+          {
+            "dato": "government.capital.geographic_coordinates.latitude.degrees",
+            "cantidad": 1,
+            "label": "Latitud de la capital en  grados"
+          },
+          {
+            "dato": "people.youth_unemployment.male.value",
+            "cantidad": 1,
+            "label": "Porcentaje de desempleo juvenil en hombres"
+          },
+          {
+            "dato": "people.net_migration_rate.migrants_per_1000_population",
+            "cantidad": 1,
+            "label": "Tasa de migración neta"
+          },
+          {
+            "dato": "government.capital.geographic_coordinates.longitude.minutes",
+            "cantidad": 4,
+            "label": "Longitud de la capital en  minutos"
+          },
+          {
+            "dato": "people.urbanization.urban_population.value",
+            "cantidad": 2,
+            "label": "Porcentaje de población urbana"
+          },
+          {
+            "dato": "people.life_expectancy_at_birth.female.value",
+            "cantidad": 2,
+            "label": "Esperanza de vida para mujeres"
+          },
+          {
+            "dato": "economy.budget.revenues.value",
+            "cantidad": 3,
+            "label": "Presupuesto ingresos valor"
           }
         ],
         "paisesAcertados": [
@@ -102,7 +154,7 @@
           },
           {
             "pais": "zimbabwe",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Zimbabue"
           },
           {
@@ -134,6 +186,86 @@
             "pais": "norway",
             "cantidad": 1,
             "label": "Noruega"
+          },
+          {
+            "pais": "seychelles",
+            "cantidad": 1,
+            "label": "Seychelles"
+          },
+          {
+            "pais": "china",
+            "cantidad": 2,
+            "label": "China"
+          },
+          {
+            "pais": "iceland",
+            "cantidad": 1,
+            "label": "Islandia"
+          },
+          {
+            "pais": "guinea",
+            "cantidad": 1,
+            "label": "Guinea"
+          },
+          {
+            "pais": "colombia",
+            "cantidad": 1,
+            "label": "Colombia"
+          },
+          {
+            "pais": "azerbaijan",
+            "cantidad": 1,
+            "label": "Azerbaiyán"
+          },
+          {
+            "pais": "solomon_islands",
+            "cantidad": 1,
+            "label": "Islas Salomón"
+          },
+          {
+            "pais": "slovakia",
+            "cantidad": 1,
+            "label": "Eslovaquia"
+          },
+          {
+            "pais": "tunisia",
+            "cantidad": 1,
+            "label": "Túnez"
+          },
+          {
+            "pais": "indonesia",
+            "cantidad": 1,
+            "label": "Indonesia"
+          },
+          {
+            "pais": "switzerland",
+            "cantidad": 1,
+            "label": "Suiza"
+          },
+          {
+            "pais": "tonga",
+            "cantidad": 1,
+            "label": "Tonga"
+          },
+          {
+            "pais": "ethiopia",
+            "cantidad": 1,
+            "label": "Etiopía"
+          },
+          {
+            "pais": "estonia",
+            "cantidad": 1,
+            "label": "Estonia"
+          },
+          {
+            "pais": "timor_leste",
+            "cantidad": 1,
+            "label": "Timor Oriental"
+          },
+          {
+            "pais": "cote_d'_ivoire",
+            "cantidad": 1,
+            "label": "Costa de Marfil"
           }
         ],
         "categoriaMasAcertada": {
@@ -146,7 +278,7 @@
           "cantidad": 2,
           "label": "España"
         },
-        "comparacionesHechas": 0
+        "comparacionesHechas": 24
       },
       "bloques": {
         "puntaje": 8,
@@ -1025,6 +1157,82 @@
         "valorPromedio": null,
         "categoriaMasPreguntada": {},
         "preguntasHechas": 57
+      }
+    }
+  },
+  "martin": {
+    "nombre": "martin",
+    "contraseña": "iud",
+    "stats": {
+      "diario": {
+        "puntaje": 0,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 0,
+        "listaPuntajes": [
+          0
+        ],
+        "intentosHechos": 1
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": 22,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 22,
+        "listaPuntajes": [
+          22
+        ],
+        "categoriasPreguntadas": {
+          "dato": "Carreteras pavimentadas valor",
+          "cantidad": 5
+        },
+        "valoresPreguntados": [
+          {
+            "valor": 13,
+            "cantidad": 27
+          }
+        ],
+        "listaValoresPreguntados": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 22
       }
     }
   }
