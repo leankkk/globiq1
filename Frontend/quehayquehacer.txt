@@ -1,9 +1,9 @@
 1*integrar el diseño con el front - TODAS LAS PANTALLAS
 6*integrar el login con los juegos (bienvenido, x) - todos los juegos
-7*perfil del usuario y stats - todos los juegos
 8*boton de rendirse (dice q país era y hace lo mismo q cuando perdes) - arreglarlo en diario (queda ariiba del popup de victoria) y bloques
 9*popup como jugar - bloques y diario 
 10*(no es importante) poner enter en vez del teclado en el diario
 11*(si es que se puede) poner en bloques lo de que en el input dice ar (argentina, argelia, australia)
+12*error visual muy chico, probablemente del css: en el menu hamburguesa nuevo de cuenta se ve el texto subrayado y en azul
 
 EN ORDEN DE PRIORIDAD. Hay que hacer todos.

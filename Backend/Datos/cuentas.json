@@ -818,11 +818,12 @@
       },
       "mayormenor": {
         "racha": 8,
-        "rondasJugadas": 2,
-        "promedioRachas": 4.5,
+        "rondasJugadas": 3,
+        "promedioRachas": 5,
         "listaRachas": [
           8,
-          1
+          1,
+          6
         ],
         "categoriasAcertadas": [
           {
@@ -839,6 +840,16 @@
             "dato": "economy.labor_force.by_occupation.occupation.industry",
             "cantidad": 1,
             "label": "Fuerza laboral industria"
+          },
+          {
+            "dato": "people.drinking_water_source.unimproved.urban.value",
+            "cantidad": 4,
+            "label": "Porcentaje de agua no potable urbana"
+          },
+          {
+            "dato": "people.sex_ratio.by_age.55_to_64_years.value",
+            "cantidad": 2,
+            "label": "Ratio de sexos para 55-64 años"
           }
         ],
         "paisesAcertados": [
@@ -886,6 +897,36 @@
             "pais": "cyprus",
             "cantidad": 1,
             "label": "Chipre"
+          },
+          {
+            "pais": "belgium",
+            "cantidad": 1,
+            "label": "Bélgica"
+          },
+          {
+            "pais": "ireland",
+            "cantidad": 1,
+            "label": "Irlanda"
+          },
+          {
+            "pais": "cuba",
+            "cantidad": 1,
+            "label": "Cuba"
+          },
+          {
+            "pais": "greece",
+            "cantidad": 1,
+            "label": "Grecia"
+          },
+          {
+            "pais": "slovenia",
+            "cantidad": 1,
+            "label": "Eslovenia"
+          },
+          {
+            "pais": "nigeria",
+            "cantidad": 1,
+            "label": "Nigeria"
           }
         ],
         "categoriaMasAcertada": {
@@ -898,7 +939,7 @@
           "cantidad": 1,
           "label": "Luxemburgo"
         },
-        "comparacionesHechas": 2
+        "comparacionesHechas": 9
       },
       "bloques": {
         "puntaje": 25,
