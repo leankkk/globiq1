@@ -307,3 +307,10 @@ body {
 .btn-jugar:focus, .btn-principal:focus {
   outline: none;
 }
+
+.fi {
+  position: relative;
+  display: inline-block;
+  width: 1.333333em;
+  line-height: 1em;
+}
