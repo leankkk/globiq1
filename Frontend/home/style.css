@@ -111,7 +111,7 @@ body {
 .carta3 .imagen { background-color: #385C88; border: 0.1vw solid #190909; }
 
 .popup {
-  .popup {
+  
     display: none;
     position: fixed;
     top: 0;
@@ -172,4 +172,4 @@ body {
   .cerrar:hover {
     color: #000;
   }
-}  
+  

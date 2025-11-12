@@ -4,13 +4,15 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": 8,
-        "rondasGanadas": 1,
-        "promedioPuntajes": 8,
+        "puntaje": 7,
+        "rondasGanadas": 3,
+        "promedioPuntajes": 7.666666666666667,
         "listaPuntajes": [
-          8
+          8,
+          8,
+          7
         ],
-        "intentosHechos": 0
+        "intentosHechos": 17
       },
       "mayormenor": {
         "racha": 10,
@@ -39,7 +41,7 @@
         "categoriasAcertadas": [
           {
             "dato": "economy.household_income_by_percentage_share.highest_ten_percent",
-            "cantidad": 3,
+            "cantidad": 4,
             "label": "Ingreso hogares 10% más alto"
           },
           {
@@ -109,7 +111,7 @@
           },
           {
             "dato": "people.school_life_expectancy.total.value",
-            "cantidad": 3,
+            "cantidad": 5,
             "label": "Esperanza escolar total"
           },
           {
@@ -131,6 +133,126 @@
             "dato": "people.age_structure.25_to_54.males",
             "cantidad": 4,
             "label": "Porcentaje de población de 25 a 54 años en hombres"
+          },
+          {
+            "dato": "transportation.air_transport.airports.paved.1524_to_2437_metres",
+            "cantidad": 1,
+            "label": "Aeropuertos pavimentados 1524 a 2437 m"
+          },
+          {
+            "dato": "people.urbanization.urban_population.value",
+            "cantidad": 1,
+            "label": "Porcentaje de población urbana"
+          },
+          {
+            "dato": "people.age_structure.55_to_64.males",
+            "cantidad": 4,
+            "label": "Porcentaje de población de 55 a 64 años en hombres"
+          },
+          {
+            "dato": "economy.unemployment_rate.annual_values",
+            "cantidad": 2,
+            "label": "Tasa de desempleo"
+          },
+          {
+            "dato": "energy.electricity.consumption.global_rank",
+            "cantidad": 1,
+            "label": "Consumo electricidad posición mundial"
+          },
+          {
+            "dato": "people.sex_ratio.by_age.25_to_54_years.value",
+            "cantidad": 7,
+            "label": "Ratio de sexos para 25-54 años"
+          },
+          {
+            "dato": "people.age_structure.15_to_24.males",
+            "cantidad": 5,
+            "label": "Porcentaje de población de 15 a 24 años en hombres"
+          },
+          {
+            "dato": "energy.crude_oil.production.bbl_per_day",
+            "cantidad": 5,
+            "label": "Producción petróleo crudo barriles por día"
+          },
+          {
+            "dato": "economy.household_income_by_percentage_share.lowest_ten_percent",
+            "cantidad": 2,
+            "label": "Porcentaje del ingreso nacional recibido por el 10% de los hogares más pobres"
+          },
+          {
+            "dato": "economy.gdp.composition.by_sector_of_origin.sectors.services",
+            "cantidad": 1,
+            "label": "Porcentaje del PIB proveniente de servicios"
+          },
+          {
+            "dato": "people.major_urban_areas.places[0].population",
+            "cantidad": 2,
+            "label": "Población del área urbana principal"
+          },
+          {
+            "dato": "economy.gross_national_saving.annual_values",
+            "cantidad": 1,
+            "label": "Ahorro nacional bruto"
+          },
+          {
+            "dato": "economy.gdp.per_capita_purchasing_power_parity.annual_values",
+            "cantidad": 2,
+            "label": "Valor del PIB PPA per cápita"
+          },
+          {
+            "dato": "energy.natural_gas.exports.global_rank",
+            "cantidad": 1,
+            "label": "Exportaciones gas natural posición mundial"
+          },
+          {
+            "dato": "economy.reserves_of_foreign_exchange_and_gold.annual_values",
+            "cantidad": 4,
+            "label": "Reservas divisas y oro valores anuales"
+          },
+          {
+            "dato": "economy.public_debt.annual_values",
+            "cantidad": 3,
+            "label": "Tamaño de la deuda pública en porcentaje del PIB"
+          },
+          {
+            "dato": "economy.external_debt.global_rank",
+            "cantidad": 4,
+            "label": "Deuda externa posición mundial"
+          },
+          {
+            "dato": "economy.labor_force.by_occupation.occupation.services",
+            "cantidad": 1,
+            "label": "Porcentaje de la fuerza laboral destinada a servicios"
+          },
+          {
+            "dato": "economy.gdp.purchasing_power_parity.annual_values",
+            "cantidad": 2,
+            "label": "Valor del PIB PPA"
+          },
+          {
+            "dato": "energy.crude_oil.exports.global_rank",
+            "cantidad": 1,
+            "label": "Exportaciones petróleo crudo posición mundial"
+          },
+          {
+            "dato": "people.sex_ratio.total_population.value",
+            "cantidad": 4,
+            "label": "Ratio total de población"
+          },
+          {
+            "dato": "people.drinking_water_source.unimproved.urban.value",
+            "cantidad": 4,
+            "label": "Porcentaje de agua no potable urbana"
+          },
+          {
+            "dato": "economy.budget.expenditures.value",
+            "cantidad": 2,
+            "label": "Gastos del presupuesto nacional"
+          },
+          {
+            "dato": "geography.area.global_rank",
+            "cantidad": 3,
+            "label": "Puesto mundial en área"
           }
         ],
         "paisesAcertados": [
@@ -161,17 +283,17 @@
           },
           {
             "pais": "germany",
-            "cantidad": 1,
+            "cantidad": 3,
             "label": "Alemania"
           },
           {
             "pais": "belize",
-            "cantidad": 2,
+            "cantidad": 4,
             "label": "Belice"
           },
           {
             "pais": "malawi",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Malawi"
           },
           {
@@ -236,7 +358,7 @@
           },
           {
             "pais": "qatar",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Catar"
           },
           {
@@ -246,12 +368,12 @@
           },
           {
             "pais": "burkina_faso",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Burkina Faso"
           },
           {
             "pais": "dominican_republic",
-            "cantidad": 2,
+            "cantidad": 3,
             "label": "República Dominicana"
           },
           {
@@ -266,7 +388,7 @@
           },
           {
             "pais": "venezuela",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Venezuela"
           },
           {
@@ -281,7 +403,7 @@
           },
           {
             "pais": "kuwait",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Kuwait"
           },
           {
@@ -301,7 +423,7 @@
           },
           {
             "pais": "india",
-            "cantidad": 2,
+            "cantidad": 3,
             "label": "India"
           },
           {
@@ -321,7 +443,7 @@
           },
           {
             "pais": "austria",
-            "cantidad": 1,
+            "cantidad": 3,
             "label": "Austria"
           },
           {
@@ -341,14 +463,14 @@
           }
         ],
         "categoriaMasAcertada": {
-          "dato": "transportation.air_transport.airports.unpaved.1524_to_2437_metres",
-          "cantidad": 5,
-          "label": "Aeropuertos no pavimentados 1524 a 2437 m"
+          "dato": "people.sex_ratio.by_age.25_to_54_years.value",
+          "cantidad": 7,
+          "label": "Ratio de sexos para 25-54 años"
         },
         "paisMasAcertado": {
-          "pais": "spain",
-          "cantidad": 2,
-          "label": "España"
+          "pais": "belize",
+          "cantidad": 4,
+          "label": "Belice"
         },
         "comparacionesHechas": 42
       },
@@ -1229,6 +1351,1206 @@
         "valorPromedio": null,
         "categoriaMasPreguntada": {},
         "preguntasHechas": 57
+      }
+    }
+  },
+  "ramalan": {
+    "nombre": "ramalan",
+    "contraseña": "1234",
+    "stats": {
+      "diario": {
+        "puntaje": 0,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 0,
+        "listaPuntajes": [
+          0
+        ],
+        "intentosHechos": 1
+      },
+      "mayormenor": {
+        "racha": 20,
+        "rondasJugadas": 71,
+        "promedioRachas": 3.1267605633802815,
+        "listaRachas": [
+          1,
+          5,
+          1,
+          1,
+          1,
+          2,
+          1,
+          1,
+          3,
+          1,
+          3,
+          1,
+          2,
+          10,
+          1,
+          5,
+          20,
+          1,
+          1,
+          1,
+          1,
+          2,
+          4,
+          7,
+          7,
+          4,
+          1,
+          1,
+          5,
+          2,
+          1,
+          4,
+          1,
+          2,
+          3,
+          2,
+          1,
+          1,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          10,
+          1,
+          4,
+          1,
+          3,
+          2,
+          1,
+          1,
+          9,
+          6,
+          1,
+          2,
+          3,
+          2,
+          2,
+          5,
+          1,
+          1,
+          3,
+          3,
+          1,
+          10,
+          2,
+          13,
+          5,
+          4,
+          6
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "people.underweight_children.global_rank",
+            "cantidad": 2,
+            "label": "Puesto mundial en bajo peso infantil"
+          },
+          {
+            "dato": "people.population.total",
+            "cantidad": 7,
+            "label": "Población total"
+          },
+          {
+            "dato": "energy.electricity.consumption.global_rank",
+            "cantidad": 1,
+            "label": "Consumo electricidad posición mundial"
+          },
+          {
+            "dato": "economy.reserves_of_foreign_exchange_and_gold.global_rank",
+            "cantidad": 1,
+            "label": "Reservas divisas y oro posición mundial"
+          },
+          {
+            "dato": "people.median_age.female.value",
+            "cantidad": 1,
+            "label": "Edad media en mujeres"
+          },
+          {
+            "dato": "economy.gdp.per_capita_purchasing_power_parity.global_rank",
+            "cantidad": 1,
+            "label": "Puesto mundial en PIB PPA per cápita"
+          },
+          {
+            "dato": "geography.land_use.by_sector.arable_land.value",
+            "cantidad": 2,
+            "label": "Porcentaje de tierra arable"
+          },
+          {
+            "dato": "economy.current_account_balance.annual_values",
+            "cantidad": 1,
+            "label": "Saldo de la cuenta corriente"
+          },
+          {
+            "dato": "geography.area.water.value",
+            "cantidad": 1,
+            "label": "Área marina"
+          },
+          {
+            "dato": "transportation.air_transport.airports.unpaved.total",
+            "cantidad": 3,
+            "label": "Aeropuertos no pavimentados total"
+          },
+          {
+            "dato": "energy.electricity.access.total_electrification.value",
+            "cantidad": 1,
+            "label": "Electricidad acceso total valor"
+          },
+          {
+            "dato": "transportation.air_transport.airports.paved.total",
+            "cantidad": 3,
+            "label": "Aeropuertos pavimentados total"
+          },
+          {
+            "dato": "people.drinking_water_source.improved.total.value",
+            "cantidad": 2,
+            "label": "Porcentaje de agua potable mejorada total"
+          },
+          {
+            "dato": "energy.natural_gas.imports.global_rank",
+            "cantidad": 2,
+            "label": "Importaciones gas natural posición mundial"
+          },
+          {
+            "dato": "people.infant_mortality_rate.female.value",
+            "cantidad": 4,
+            "label": "Mortalidad infantil en mujeres"
+          },
+          {
+            "dato": "people.age_structure.0_to_14.males",
+            "cantidad": 5,
+            "label": "Porcentaje de población de 0 a 14 años en hombres"
+          },
+          {
+            "dato": "government.capital.geographic_coordinates.latitude.minutes",
+            "cantidad": 4,
+            "label": "Latitud de la capital en  minutos"
+          },
+          {
+            "dato": "people.population_growth_rate.growth_rate",
+            "cantidad": 1,
+            "label": "Tasa de crecimiento poblacional"
+          },
+          {
+            "dato": "economy.gdp.per_capita_purchasing_power_parity.annual_values",
+            "cantidad": 4,
+            "label": "Valor del PIB PPA per cápita"
+          },
+          {
+            "dato": "economy.gdp.purchasing_power_parity.global_rank",
+            "cantidad": 5,
+            "label": "Puesto mundial en PIB PPA"
+          },
+          {
+            "dato": "people.drinking_water_source.improved.rural.value",
+            "cantidad": 4,
+            "label": "Porcentaje de agua potable mejorada rural"
+          },
+          {
+            "dato": "transportation.roadways.paved.value",
+            "cantidad": 5,
+            "label": "Carreteras pavimentadas valor"
+          },
+          {
+            "dato": "people.youth_unemployment.female.value",
+            "cantidad": 8,
+            "label": "Porcentaje de desempleo juvenil en mujeres"
+          },
+          {
+            "dato": "energy.natural_gas.proved_reserves.global_rank",
+            "cantidad": 5,
+            "label": "Reservas comprobadas gas natural posición mundial"
+          },
+          {
+            "dato": "people.urbanization.rate_of_urbanization.value",
+            "cantidad": 1,
+            "label": "Tasa de urbanización"
+          },
+          {
+            "dato": "economy.gdp.real_growth_rate.annual_values[0].value",
+            "cantidad": 1,
+            "label": "Porcentaje de crecimiento anual del PIB"
+          },
+          {
+            "dato": "government.capital.time_difference.timezone",
+            "cantidad": 1,
+            "label": "Zona horaria de la capital"
+          },
+          {
+            "dato": "transportation.air_transport.airports.total.global_rank",
+            "cantidad": 1,
+            "label": "Aeropuertos posición mundial"
+          },
+          {
+            "dato": "people.life_expectancy_at_birth.global_rank",
+            "cantidad": 4,
+            "label": "Puesto mundial en esperanza de vida"
+          },
+          {
+            "dato": "energy.crude_oil.imports.global_rank",
+            "cantidad": 2,
+            "label": "Importaciones petróleo crudo posición mundial"
+          },
+          {
+            "dato": "people.drinking_water_source.unimproved.total.value",
+            "cantidad": 8,
+            "label": "Porcentaje de agua no potable total"
+          },
+          {
+            "dato": "people.age_structure.65_and_over.females",
+            "cantidad": 4,
+            "label": "Porcentaje de población de 65 y más en mujeres"
+          },
+          {
+            "dato": "people.age_structure.55_to_64.females",
+            "cantidad": 3,
+            "label": "Porcentaje de población de 55 a 64 años en mujeres"
+          },
+          {
+            "dato": "transportation.air_transport.airports.total.airports",
+            "cantidad": 4,
+            "label": "Aeropuertos totales"
+          },
+          {
+            "dato": "people.religions.religion[1].percent",
+            "cantidad": 4,
+            "label": "Porcentaje de la religión secundaria"
+          },
+          {
+            "dato": "people.sex_ratio.total_population.value",
+            "cantidad": 1,
+            "label": "Ratio total de población"
+          },
+          {
+            "dato": "people.school_life_expectancy.male.value",
+            "cantidad": 6,
+            "label": "Esperanza escolar para hombres"
+          },
+          {
+            "dato": "geography.coastline.value",
+            "cantidad": 5,
+            "label": "Longitud de línea costera"
+          },
+          {
+            "dato": "people.religions.religion[0].breakdown[0].percent",
+            "cantidad": 1,
+            "label": "Porcentaje del subgrupo religioso"
+          },
+          {
+            "dato": "economy.population_below_poverty_line.value",
+            "cantidad": 2,
+            "label": "Porcentaje de población bajo la línea de pobreza"
+          },
+          {
+            "dato": "transportation.air_transport.airports.unpaved.1524_to_2437_metres",
+            "cantidad": 3,
+            "label": "Aeropuertos no pavimentados 1524 a 2437 m"
+          },
+          {
+            "dato": "transportation.roadways.global_rank",
+            "cantidad": 4,
+            "label": "Carreteras posición mundial"
+          },
+          {
+            "dato": "people.dependency_ratios.ratios.youth_dependency_ratio.value",
+            "cantidad": 1,
+            "label": "Índice de dependencia juvenil"
+          },
+          {
+            "dato": "economy.gdp.official_exchange_rate.USD",
+            "cantidad": 2,
+            "label": "PIB tipo de cambio oficial USD"
+          },
+          {
+            "dato": "energy.carbon_dioxide_emissions_from_consumption_of_energy.megatonnes",
+            "cantidad": 3,
+            "label": "Emisiones CO2 consumo de energía megatoneladas"
+          },
+          {
+            "dato": "people.school_life_expectancy.total.value",
+            "cantidad": 1,
+            "label": "Esperanza escolar total"
+          },
+          {
+            "dato": "people.sex_ratio.by_age.15_to_24_years.value",
+            "cantidad": 1,
+            "label": "Ratio de sexos para 15-24 años"
+          },
+          {
+            "dato": "people.age_structure.25_to_54.females",
+            "cantidad": 2,
+            "label": "Porcentaje de población de 25 a 54 años en mujeres"
+          },
+          {
+            "dato": "transportation.air_transport.national_system.annual_passenger_traffic_on_registered_air_carriers",
+            "cantidad": 4,
+            "label": "Tráfico anual pasajeros"
+          },
+          {
+            "dato": "transportation.air_transport.airports.paved.2438_to_3047_metres",
+            "cantidad": 7,
+            "label": "Aeropuertos pavimentados 2438 a 3047 m"
+          },
+          {
+            "dato": "people.drinking_water_source.unimproved.rural.value",
+            "cantidad": 1,
+            "label": "Porcentaje de agua no potable rural"
+          },
+          {
+            "dato": "transportation.air_transport.national_system.number_of_registered_air_carriers",
+            "cantidad": 4,
+            "label": "Aerolíneas registradas"
+          },
+          {
+            "dato": "people.drinking_water_source.improved.urban.value",
+            "cantidad": 3,
+            "label": "Porcentaje de agua potable mejorada urbana"
+          },
+          {
+            "dato": "economy.unemployment_rate.annual_values",
+            "cantidad": 2,
+            "label": "Tasa de desempleo"
+          },
+          {
+            "dato": "economy.taxes_and_other_revenues.percent_of_gdp",
+            "cantidad": 1,
+            "label": "Porcentaje del PIB destinado a impuestos"
+          },
+          {
+            "dato": "economy.labor_force.by_occupation.occupation.agriculture",
+            "cantidad": 5,
+            "label": "Porcentaje de la fuerza laboral destinada a agricultura"
+          },
+          {
+            "dato": "energy.natural_gas.exports.cubic_metres",
+            "cantidad": 4,
+            "label": "Exportaciones gas natural metros cúbicos"
+          },
+          {
+            "dato": "transportation.roadways.unpaved.value",
+            "cantidad": 1,
+            "label": "Carreteras sin pavimentar valor"
+          },
+          {
+            "dato": "energy.electricity.consumption.kWh",
+            "cantidad": 3,
+            "label": "Consumo electricidad kWh"
+          },
+          {
+            "dato": "economy.household_income_by_percentage_share.lowest_ten_percent",
+            "cantidad": 2,
+            "label": "Porcentaje del ingreso nacional recibido por el 10% de los hogares más pobres"
+          },
+          {
+            "dato": "people.urbanization.urban_population.value",
+            "cantidad": 2,
+            "label": "Porcentaje de población urbana"
+          },
+          {
+            "dato": "transportation.air_transport.national_system.inventory_of_registered_aircraft_operated_by_air_carriers",
+            "cantidad": 4,
+            "label": "Aeronaves registradas"
+          },
+          {
+            "dato": "energy.electricity.production.global_rank",
+            "cantidad": 1,
+            "label": "Producción electricidad posición mundial"
+          },
+          {
+            "dato": "economy.labor_force.total_size.global_rank",
+            "cantidad": 5,
+            "label": "Puesto mundial en tamaño de la fuerza laboral"
+          },
+          {
+            "dato": "economy.taxes_and_other_revenues.global_rank",
+            "cantidad": 3,
+            "label": "Puesto mundial en impuestos"
+          },
+          {
+            "dato": "people.contraceptive_prevalence_rate.value",
+            "cantidad": 3,
+            "label": "Porentaje de uso de anticonceptivos"
+          },
+          {
+            "dato": "energy.refined_petroleum_products.consumption.bbl_per_day",
+            "cantidad": 4,
+            "label": "Consumo derivados petróleo barriles por día"
+          },
+          {
+            "dato": "people.age_structure.15_to_24.males",
+            "cantidad": 5,
+            "label": "Porcentaje de población de 15 a 24 años en hombres"
+          },
+          {
+            "dato": "people.median_age.global_rank",
+            "cantidad": 1,
+            "label": "Puesto mundial edad media"
+          },
+          {
+            "dato": "government.suffrage.age",
+            "cantidad": 2,
+            "label": "Edad sufragio"
+          },
+          {
+            "dato": "people.dependency_ratios.ratios.elderly_dependency_ratio.value",
+            "cantidad": 2,
+            "label": "Índice de dependencia ancianos"
+          },
+          {
+            "dato": "people.education_expenditures.global_rank",
+            "cantidad": 4,
+            "label": "Puesto mundial en gasto educación"
+          },
+          {
+            "dato": "energy.electricity.installed_generating_capacity.kW",
+            "cantidad": 4,
+            "label": "Capacidad instalada electricidad kW"
+          },
+          {
+            "dato": "geography.land_use.by_sector.permanent_pasture.value",
+            "cantidad": 1,
+            "label": "Porcentaje de pasturas permanentes"
+          },
+          {
+            "dato": "people.life_expectancy_at_birth.total_population.value",
+            "cantidad": 4,
+            "label": "Esperanza de vida"
+          },
+          {
+            "dato": "energy.carbon_dioxide_emissions_from_consumption_of_energy.global_rank",
+            "cantidad": 1,
+            "label": "Emisiones CO2 consumo de energía posición mundial"
+          },
+          {
+            "dato": "energy.electricity.by_source.other_renewable_sources.global_rank",
+            "cantidad": 1,
+            "label": "Electricidad fuentes renovables posición mundial"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "cote_d'_ivoire",
+            "cantidad": 2,
+            "label": "Costa de Marfil"
+          },
+          {
+            "pais": "antigua_and_barbuda",
+            "cantidad": 1,
+            "label": "Antigua y Barbuda"
+          },
+          {
+            "pais": "ireland",
+            "cantidad": 3,
+            "label": "Irlanda"
+          },
+          {
+            "pais": "uruguay",
+            "cantidad": 1,
+            "label": "Uruguay"
+          },
+          {
+            "pais": "north_macedonia",
+            "cantidad": 2,
+            "label": "Macedonia del Norte"
+          },
+          {
+            "pais": "timor_leste",
+            "cantidad": 1,
+            "label": "Timor Oriental"
+          },
+          {
+            "pais": "italy",
+            "cantidad": 2,
+            "label": "Italia"
+          },
+          {
+            "pais": "guyana",
+            "cantidad": 2,
+            "label": "Guyana"
+          },
+          {
+            "pais": "panama",
+            "cantidad": 1,
+            "label": "Panamá"
+          },
+          {
+            "pais": "bahamas_the",
+            "cantidad": 1,
+            "label": "Bahamas"
+          },
+          {
+            "pais": "lebanon",
+            "cantidad": 1,
+            "label": "Líbano"
+          },
+          {
+            "pais": "paraguay",
+            "cantidad": 2,
+            "label": "Paraguay"
+          },
+          {
+            "pais": "ukraine",
+            "cantidad": 1,
+            "label": "Ucrania"
+          },
+          {
+            "pais": "mozambique",
+            "cantidad": 2,
+            "label": "Mozambique"
+          },
+          {
+            "pais": "poland",
+            "cantidad": 2,
+            "label": "Polonia"
+          },
+          {
+            "pais": "malta",
+            "cantidad": 2,
+            "label": "Malta"
+          },
+          {
+            "pais": "grenada",
+            "cantidad": 4,
+            "label": "Granada"
+          },
+          {
+            "pais": "papua_new_guinea",
+            "cantidad": 2,
+            "label": "Papúa Nueva Guinea"
+          },
+          {
+            "pais": "chad",
+            "cantidad": 1,
+            "label": "Chad"
+          },
+          {
+            "pais": "mali",
+            "cantidad": 2,
+            "label": "Malí"
+          },
+          {
+            "pais": "korea_south",
+            "cantidad": 2,
+            "label": "Corea del Sur"
+          },
+          {
+            "pais": "united_kingdom",
+            "cantidad": 2,
+            "label": "Reino Unido"
+          },
+          {
+            "pais": "somalia",
+            "cantidad": 1,
+            "label": "Somalia"
+          },
+          {
+            "pais": "yemen",
+            "cantidad": 2,
+            "label": "Yemen"
+          },
+          {
+            "pais": "morocco",
+            "cantidad": 4,
+            "label": "Marruecos"
+          },
+          {
+            "pais": "greece",
+            "cantidad": 2,
+            "label": "Grecia"
+          },
+          {
+            "pais": "tonga",
+            "cantidad": 2,
+            "label": "Tonga"
+          },
+          {
+            "pais": "venezuela",
+            "cantidad": 2,
+            "label": "Venezuela"
+          },
+          {
+            "pais": "qatar",
+            "cantidad": 1,
+            "label": "Catar"
+          },
+          {
+            "pais": "thailand",
+            "cantidad": 1,
+            "label": "Tailandia"
+          },
+          {
+            "pais": "iraq",
+            "cantidad": 1,
+            "label": "Irak"
+          },
+          {
+            "pais": "malawi",
+            "cantidad": 2,
+            "label": "Malawi"
+          },
+          {
+            "pais": "azerbaijan",
+            "cantidad": 1,
+            "label": "Azerbaiyán"
+          },
+          {
+            "pais": "brunei",
+            "cantidad": 1,
+            "label": "Brunéi"
+          },
+          {
+            "pais": "mauritius",
+            "cantidad": 1,
+            "label": "Mauricio"
+          },
+          {
+            "pais": "kazakhstan",
+            "cantidad": 3,
+            "label": "Kazajistán"
+          },
+          {
+            "pais": "gabon",
+            "cantidad": 1,
+            "label": "Gabón"
+          },
+          {
+            "pais": "trinidad_and_tobago",
+            "cantidad": 2,
+            "label": "Trinidad y Tobago"
+          },
+          {
+            "pais": "colombia",
+            "cantidad": 2,
+            "label": "Colombia"
+          },
+          {
+            "pais": "netherlands",
+            "cantidad": 1,
+            "label": "Países Bajos"
+          },
+          {
+            "pais": "sri_lanka",
+            "cantidad": 5,
+            "label": "Sri Lanka"
+          },
+          {
+            "pais": "moldova",
+            "cantidad": 2,
+            "label": "Moldavia"
+          },
+          {
+            "pais": "denmark",
+            "cantidad": 1,
+            "label": "Dinamarca"
+          },
+          {
+            "pais": "vietnam",
+            "cantidad": 2,
+            "label": "Vietnam"
+          },
+          {
+            "pais": "luxembourg",
+            "cantidad": 1,
+            "label": "Luxemburgo"
+          },
+          {
+            "pais": "san_marino",
+            "cantidad": 2,
+            "label": "San Marino"
+          },
+          {
+            "pais": "lesotho",
+            "cantidad": 1,
+            "label": "Lesoto"
+          },
+          {
+            "pais": "canada",
+            "cantidad": 2,
+            "label": "Canadá"
+          },
+          {
+            "pais": "congo_democratic_republic_of_the",
+            "cantidad": 1,
+            "label": "República Democrática del Congo"
+          },
+          {
+            "pais": "oman",
+            "cantidad": 1,
+            "label": "Omán"
+          },
+          {
+            "pais": "ecuador",
+            "cantidad": 2,
+            "label": "Ecuador"
+          },
+          {
+            "pais": "samoa",
+            "cantidad": 2,
+            "label": "Samoa"
+          },
+          {
+            "pais": "bhutan",
+            "cantidad": 1,
+            "label": "Bután"
+          },
+          {
+            "pais": "mauritania",
+            "cantidad": 2,
+            "label": "Mauritania"
+          },
+          {
+            "pais": "laos",
+            "cantidad": 1,
+            "label": "Laos"
+          },
+          {
+            "pais": "israel",
+            "cantidad": 2,
+            "label": "Israel"
+          },
+          {
+            "pais": "tunisia",
+            "cantidad": 3,
+            "label": "Túnez"
+          },
+          {
+            "pais": "zambia",
+            "cantidad": 2,
+            "label": "Zambia"
+          },
+          {
+            "pais": "united_states",
+            "cantidad": 1,
+            "label": "Estados Unidos"
+          },
+          {
+            "pais": "australia",
+            "cantidad": 4,
+            "label": "Australia"
+          },
+          {
+            "pais": "solomon_islands",
+            "cantidad": 4,
+            "label": "Islas Salomón"
+          },
+          {
+            "pais": "jamaica",
+            "cantidad": 2,
+            "label": "Jamaica"
+          },
+          {
+            "pais": "peru",
+            "cantidad": 2,
+            "label": "Perú"
+          },
+          {
+            "pais": "estonia",
+            "cantidad": 2,
+            "label": "Estonia"
+          },
+          {
+            "pais": "bolivia",
+            "cantidad": 1,
+            "label": "Bolivia"
+          },
+          {
+            "pais": "nauru",
+            "cantidad": 2,
+            "label": "Nauru"
+          },
+          {
+            "pais": "guatemala",
+            "cantidad": 2,
+            "label": "Guatemala"
+          },
+          {
+            "pais": "madagascar",
+            "cantidad": 2,
+            "label": "Madagascar"
+          },
+          {
+            "pais": "georgia",
+            "cantidad": 1,
+            "label": "Georgia"
+          },
+          {
+            "pais": "kenya",
+            "cantidad": 1,
+            "label": "Kenia"
+          },
+          {
+            "pais": "south_africa",
+            "cantidad": 4,
+            "label": "Sudáfrica"
+          },
+          {
+            "pais": "sierra_leone",
+            "cantidad": 1,
+            "label": "Sierra Leona"
+          },
+          {
+            "pais": "marshall_islands",
+            "cantidad": 2,
+            "label": "Islas Marshall"
+          },
+          {
+            "pais": "bahrain",
+            "cantidad": 1,
+            "label": "Baréin"
+          },
+          {
+            "pais": "chile",
+            "cantidad": 1,
+            "label": "Chile"
+          },
+          {
+            "pais": "eritrea",
+            "cantidad": 2,
+            "label": "Eritrea"
+          },
+          {
+            "pais": "slovakia",
+            "cantidad": 1,
+            "label": "Eslovaquia"
+          },
+          {
+            "pais": "saint_vincent_and_the_grenadines",
+            "cantidad": 2,
+            "label": "San Vicente y las Granadinas"
+          },
+          {
+            "pais": "burkina_faso",
+            "cantidad": 2,
+            "label": "Burkina Faso"
+          },
+          {
+            "pais": "guinea",
+            "cantidad": 3,
+            "label": "Guinea"
+          },
+          {
+            "pais": "turkmenistan",
+            "cantidad": 2,
+            "label": "Turkmenistán"
+          },
+          {
+            "pais": "czechia",
+            "cantidad": 1,
+            "label": "Chequia"
+          },
+          {
+            "pais": "bangladesh",
+            "cantidad": 1,
+            "label": "Bangladesh"
+          },
+          {
+            "pais": "serbia",
+            "cantidad": 1,
+            "label": "Serbia"
+          },
+          {
+            "pais": "guinea_bissau",
+            "cantidad": 1,
+            "label": "Guinea-Bisáu"
+          },
+          {
+            "pais": "rwanda",
+            "cantidad": 2,
+            "label": "Ruanda"
+          },
+          {
+            "pais": "kosovo",
+            "cantidad": 1,
+            "label": "Kosovo"
+          },
+          {
+            "pais": "new_zealand",
+            "cantidad": 1,
+            "label": "Nueva Zelanda"
+          },
+          {
+            "pais": "cyprus",
+            "cantidad": 4,
+            "label": "Chipre"
+          },
+          {
+            "pais": "bulgaria",
+            "cantidad": 1,
+            "label": "Bulgaria"
+          },
+          {
+            "pais": "cuba",
+            "cantidad": 2,
+            "label": "Cuba"
+          },
+          {
+            "pais": "turkey",
+            "cantidad": 1,
+            "label": "Turquía"
+          },
+          {
+            "pais": "nepal",
+            "cantidad": 1,
+            "label": "Nepal"
+          },
+          {
+            "pais": "slovenia",
+            "cantidad": 2,
+            "label": "Eslovenia"
+          },
+          {
+            "pais": "tanzania",
+            "cantidad": 2,
+            "label": "Tanzania"
+          },
+          {
+            "pais": "iran",
+            "cantidad": 1,
+            "label": "Irán"
+          },
+          {
+            "pais": "china",
+            "cantidad": 2,
+            "label": "China"
+          },
+          {
+            "pais": "kyrgyzstan",
+            "cantidad": 2,
+            "label": "Kirguistán"
+          },
+          {
+            "pais": "germany",
+            "cantidad": 1,
+            "label": "Alemania"
+          },
+          {
+            "pais": "tajikistan",
+            "cantidad": 1,
+            "label": "Tayikistán"
+          },
+          {
+            "pais": "malaysia",
+            "cantidad": 1,
+            "label": "Malasia"
+          },
+          {
+            "pais": "ethiopia",
+            "cantidad": 1,
+            "label": "Etiopía"
+          },
+          {
+            "pais": "mexico",
+            "cantidad": 2,
+            "label": "México"
+          },
+          {
+            "pais": "dominica",
+            "cantidad": 2,
+            "label": "Dominica"
+          },
+          {
+            "pais": "romania",
+            "cantidad": 2,
+            "label": "Rumanía"
+          },
+          {
+            "pais": "angola",
+            "cantidad": 1,
+            "label": "Angola"
+          },
+          {
+            "pais": "croatia",
+            "cantidad": 2,
+            "label": "Croacia"
+          },
+          {
+            "pais": "india",
+            "cantidad": 2,
+            "label": "India"
+          },
+          {
+            "pais": "bosnia_and_herzegovina",
+            "cantidad": 1,
+            "label": "Bosnia y Herzegovina"
+          },
+          {
+            "pais": "sweden",
+            "cantidad": 1,
+            "label": "Suecia"
+          },
+          {
+            "pais": "uganda",
+            "cantidad": 1,
+            "label": "Uganda"
+          },
+          {
+            "pais": "dominican_republic",
+            "cantidad": 1,
+            "label": "República Dominicana"
+          },
+          {
+            "pais": "central_african_republic",
+            "cantidad": 1,
+            "label": "República Centroafricana"
+          },
+          {
+            "pais": "belgium",
+            "cantidad": 1,
+            "label": "Bélgica"
+          },
+          {
+            "pais": "burundi",
+            "cantidad": 1,
+            "label": "Burundi"
+          },
+          {
+            "pais": "united_arab_emirates",
+            "cantidad": 1,
+            "label": "Emiratos Árabes Unidos"
+          },
+          {
+            "pais": "fiji",
+            "cantidad": 1,
+            "label": "Fiyi"
+          },
+          {
+            "pais": "switzerland",
+            "cantidad": 2,
+            "label": "Suiza"
+          },
+          {
+            "pais": "jordan",
+            "cantidad": 1,
+            "label": "Jordania"
+          },
+          {
+            "pais": "comoros",
+            "cantidad": 1,
+            "label": "Comoras"
+          },
+          {
+            "pais": "pakistan",
+            "cantidad": 1,
+            "label": "Pakistán"
+          },
+          {
+            "pais": "spain",
+            "cantidad": 1,
+            "label": "España"
+          },
+          {
+            "pais": "nigeria",
+            "cantidad": 1,
+            "label": "Nigeria"
+          },
+          {
+            "pais": "suriname",
+            "cantidad": 1,
+            "label": "Surinam"
+          },
+          {
+            "pais": "lithuania",
+            "cantidad": 3,
+            "label": "Lituania"
+          },
+          {
+            "pais": "saudi_arabia",
+            "cantidad": 1,
+            "label": "Arabia Saudita"
+          },
+          {
+            "pais": "micronesia_federated_states_of",
+            "cantidad": 1,
+            "label": "Estados Federados de Micronesia"
+          },
+          {
+            "pais": "korea_north",
+            "cantidad": 1,
+            "label": "Corea del Norte"
+          },
+          {
+            "pais": "armenia",
+            "cantidad": 1,
+            "label": "Armenia"
+          },
+          {
+            "pais": "cambodia",
+            "cantidad": 1,
+            "label": "Camboya"
+          },
+          {
+            "pais": "zimbabwe",
+            "cantidad": 1,
+            "label": "Zimbabue"
+          },
+          {
+            "pais": "honduras",
+            "cantidad": 1,
+            "label": "Honduras"
+          },
+          {
+            "pais": "algeria",
+            "cantidad": 1,
+            "label": "Argelia"
+          },
+          {
+            "pais": "djibouti",
+            "cantidad": 1,
+            "label": "Yibuti"
+          },
+          {
+            "pais": "norway",
+            "cantidad": 1,
+            "label": "Noruega"
+          },
+          {
+            "pais": "syria",
+            "cantidad": 1,
+            "label": "Siria"
+          },
+          {
+            "pais": "russia",
+            "cantidad": 1,
+            "label": "Rusia"
+          },
+          {
+            "pais": "uzbekistan",
+            "cantidad": 1,
+            "label": "Uzbekistán"
+          },
+          {
+            "pais": "egypt",
+            "cantidad": 1,
+            "label": "Egipto"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "people.youth_unemployment.female.value",
+          "cantidad": 8,
+          "label": "Porcentaje de desempleo juvenil en mujeres"
+        },
+        "paisMasAcertado": {
+          "pais": "sri_lanka",
+          "cantidad": 5,
+          "label": "Sri Lanka"
+        },
+        "comparacionesHechas": 293
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
       }
     }
   }

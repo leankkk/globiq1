@@ -71,6 +71,12 @@ body {
 h1 {
   margin-top: 60px;
   font-size: 40px;
+  font-family: Inter;
+  font-weight: 800;
+  font-style: Extra Bold;
+  color: #D9D9D9;
+
+  
 }
 
 
@@ -82,7 +88,7 @@ h1 {
 input {
   padding: 10px;
   font-size: 16px;
-  border-radius: 8px;
+  border-radius: 13px;
   border: 1px solid #ccc;
 }
 
@@ -109,8 +115,8 @@ button:hover {
   overflow-y: auto;
   margin-left: auto;
   margin-right: auto;
-  background: #ffffff;
-  border: 1px solid #ccc;
+  background: #354861;
+  border: 1px solid;
   border-radius: 10px;
   padding: 10px;
   position: absolute;
@@ -131,9 +137,9 @@ button:hover {
 
 
 .pista-item {
-  background: #eaeaea;
+  background: #D9D9D9;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 13px;
   text-align: left;
   font-size: 14px;
 }
@@ -146,8 +152,8 @@ button:hover {
   overflow-y: auto;
   margin-left: auto;
   margin-right: auto;
-  background: #ffffff;
-  border: 1px solid #ccc;
+  background: #354861;
+  border: 1px solid;
   border-radius: 10px;
   padding: 10px;
   position: absolute;
@@ -164,9 +170,9 @@ button:hover {
 
 
 .intento-item {
-  background: #f0f0f0;
+  background: #626B8C;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 13px;
   text-align: left;
   font-size: 14px;
 }
@@ -174,7 +180,7 @@ button:hover {
 
 
 
-/* --- POPUP --- */
+
 .popup {
   display: none;
   position: fixed;
@@ -183,7 +189,7 @@ button:hover {
   background: rgba(0,0,0,0.5);
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* 🔥 esto hace que esté por encima de todo */
+  z-index: 9999; 
 }
 
 .popup-content {
@@ -193,10 +199,9 @@ button:hover {
   text-align: center;
 }
 
-/* --- BOTÓN RENDIRSE --- */
 .btn-rendirse {
-  width: 60px;
-  height: 60px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #0a1372;
   border: none;
@@ -210,8 +215,7 @@ button:hover {
   left: 50%;
   transform: translateX(-50%);
   top: 238px;
-
-  z-index: 10; /* 🔽 más bajo que el popup */
+  z-index: 10; 
 }
 
 
@@ -233,6 +237,19 @@ button:hover {
   transform: translateX(-50%);  
   top: 238px;
   
+}
+
+.logo{
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  
+}
+
+.cuenta{
+ position: absolute;
+ top: 4px;
+ right: 46px;
 }
 
 
