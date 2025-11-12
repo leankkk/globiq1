@@ -2,7 +2,7 @@ ESTAN PUESTOS LOS PUERTOS EN 3001 PARA EVITAR UN BUG. SI DA PROBLEMAS CAMBIAR
 
 mayor
 
-seguir cambiando labels desde la linea 2329
+seguir cambiando labels desde la linea 2388
 
 bloques: falta resolver algunos errores de las stats
 - mas preguntado y eso ni existen. copiar de mayor menor e implementar
