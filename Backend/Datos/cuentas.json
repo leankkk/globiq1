@@ -36,6 +36,7 @@
           4,
           1,
           4,
+<<<<<<< HEAD
           5,
           1,
           2,
@@ -43,6 +44,9 @@
           2,
           3,
           14
+=======
+          1
+>>>>>>> 2a164dc446af96f32610db102ebc862b84782008
         ],
         "categoriasAcertadas": [
           {
@@ -388,6 +392,7 @@
             "label": "Australia"
           },
           {
+<<<<<<< HEAD
             "pais": "new_zealand",
             "cantidad": 2,
             "label": "Nueva Zelanda"
@@ -501,6 +506,11 @@
             "pais": "peru",
             "cantidad": 1,
             "label": "Perú"
+=======
+            "pais": "united_arab_emirates",
+            "cantidad": 1,
+            "label": "Emiratos Árabes Unidos"
+>>>>>>> 2a164dc446af96f32610db102ebc862b84782008
           }
         ],
         "categoriaMasAcertada": {
@@ -513,7 +523,11 @@
           "cantidad": 3,
           "label": "Venezuela"
         },
+<<<<<<< HEAD
         "comparacionesHechas": 76
+=======
+        "comparacionesHechas": 42
+>>>>>>> 2a164dc446af96f32610db102ebc862b84782008
       },
       "bloques": {
         "puntaje": 8,
