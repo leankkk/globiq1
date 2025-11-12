@@ -14,8 +14,8 @@
       },
       "mayormenor": {
         "racha": 10,
-        "rondasJugadas": 17,
-        "promedioRachas": 2.588235294117647,
+        "rondasJugadas": 18,
+        "promedioRachas": 2.5,
         "listaRachas": [
           3,
           2,
@@ -33,7 +33,8 @@
           4,
           4,
           1,
-          4
+          4,
+          1
         ],
         "categoriasAcertadas": [
           {
@@ -43,7 +44,7 @@
           },
           {
             "dato": "economy.inflation_rate.global_rank",
-            "cantidad": 2,
+            "cantidad": 3,
             "label": "Inflación posición mundial"
           },
           {
@@ -332,6 +333,11 @@
             "pais": "australia",
             "cantidad": 1,
             "label": "Australia"
+          },
+          {
+            "pais": "united_arab_emirates",
+            "cantidad": 1,
+            "label": "Emiratos Árabes Unidos"
           }
         ],
         "categoriaMasAcertada": {
@@ -344,7 +350,7 @@
           "cantidad": 2,
           "label": "España"
         },
-        "comparacionesHechas": 40
+        "comparacionesHechas": 42
       },
       "bloques": {
         "puntaje": 8,
