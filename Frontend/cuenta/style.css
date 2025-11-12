@@ -124,3 +124,16 @@ body {
   font-size: 2vh;
   color: #333;
 }
+.logo {
+  position: absolute;     /* se posiciona sobre el contenido */
+  top: 15px;              /* distancia desde arriba */
+  left: 20px;             /* distancia desde la izquierda */
+  z-index: 1000;          /* por encima de todo */
+}
+
+.logo img {
+  width: 80px;            /* tamaño del logo */
+  height: auto;           /* mantiene proporción */
+  object-fit: contain;    /* evita deformaciones */
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.4)); /* opcional: sombra leve */
+}

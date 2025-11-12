@@ -103,7 +103,10 @@ body {
   cursor: pointer;
   transition: color 0.3s;
 }
-
+#btnAdivinarPais {
+  font-family: Inter;
+  font-weight: 400;
+}
 .invisible {
   display: none;
 }
@@ -195,7 +198,19 @@ body {
   transition: background-color 0.2s, transform 0.2s;
   font-family: "Inter", sans-serif;
 }
+.logo {
+  position: absolute;     /* se posiciona sobre el contenido */
+  top: 15px;              /* distancia desde arriba */
+  left: 20px;             /* distancia desde la izquierda */
+  z-index: 1000;          /* por encima de todo */
+}
 
+.logo img {
+  width: 80px;            /* tamaño del logo */
+  height: auto;           /* mantiene proporción */
+  object-fit: contain;    /* evita deformaciones */
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.4)); /* opcional: sombra leve */
+}
 #MOM {
   background-color: #a9dcff;
   border-color: #6faedc;

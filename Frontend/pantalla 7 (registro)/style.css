@@ -5,7 +5,7 @@
   z-index: 1000;          
 }
 
-/* Ícono ☰ */
+
 .menu-icon {
   font-size: 32px;
   cursor: pointer;
@@ -35,12 +35,12 @@
   text-align:justify
 }
 
-/* Ítems */
+
 .menu-options li {
   padding: 0;
 }
 
-/* Enlaces */
+
 .menu-options a {
   color: white;
   text-decoration: none;
