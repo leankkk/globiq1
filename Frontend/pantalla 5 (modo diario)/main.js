@@ -78,7 +78,7 @@ getEvent("obtenerPaisDiario", establecerPaisDiario);
 
 boton.addEventListener('click', () => {
   let respuesta = input.value.trim().toLowerCase();
-intentosHechos++;
+  intentosHechos++;
 
   if (respuesta === paisDiario.toLowerCase()) {
     intentosDOM.innerText = "Cantidad de pistas:  " + intentos;
@@ -86,17 +86,21 @@ intentosHechos++;
     enviarstats();
     input.disabled = "disabled";
   } else {
-   
     postEvent("obtenerPista", {}, mostrarPista);
-   
-    
     intentosFallidos.push(respuesta);
     mostrarIntentos();
   }
 
-
   input.value = ""; 
 });
+
+
+input.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    boton.click(); 
+  }
+});
+
 
 
 function mostrarIntentos() {

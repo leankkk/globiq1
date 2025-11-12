@@ -4,13 +4,15 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": 8,
-        "rondasGanadas": 1,
-        "promedioPuntajes": 8,
+        "puntaje": 7,
+        "rondasGanadas": 3,
+        "promedioPuntajes": 7.666666666666667,
         "listaPuntajes": [
-          8
+          8,
+          8,
+          7
         ],
-        "intentosHechos": 0
+        "intentosHechos": 17
       },
       "mayormenor": {
         "racha": 14,
@@ -45,7 +47,7 @@
         "categoriasAcertadas": [
           {
             "dato": "economy.household_income_by_percentage_share.highest_ten_percent",
-            "cantidad": 3,
+            "cantidad": 4,
             "label": "Ingreso hogares 10% más alto"
           },
           {
@@ -115,7 +117,7 @@
           },
           {
             "dato": "people.school_life_expectancy.total.value",
-            "cantidad": 3,
+            "cantidad": 5,
             "label": "Esperanza escolar total"
           },
           {
@@ -212,17 +214,17 @@
           },
           {
             "pais": "germany",
-            "cantidad": 1,
+            "cantidad": 3,
             "label": "Alemania"
           },
           {
             "pais": "belize",
-            "cantidad": 2,
+            "cantidad": 4,
             "label": "Belice"
           },
           {
             "pais": "malawi",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Malawi"
           },
           {
@@ -287,7 +289,7 @@
           },
           {
             "pais": "qatar",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Catar"
           },
           {
@@ -297,12 +299,12 @@
           },
           {
             "pais": "burkina_faso",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Burkina Faso"
           },
           {
             "pais": "dominican_republic",
-            "cantidad": 2,
+            "cantidad": 3,
             "label": "República Dominicana"
           },
           {
@@ -332,7 +334,7 @@
           },
           {
             "pais": "kuwait",
-            "cantidad": 1,
+            "cantidad": 2,
             "label": "Kuwait"
           },
           {
@@ -352,7 +354,7 @@
           },
           {
             "pais": "india",
-            "cantidad": 2,
+            "cantidad": 3,
             "label": "India"
           },
           {
@@ -372,7 +374,7 @@
           },
           {
             "pais": "austria",
-            "cantidad": 1,
+            "cantidad": 3,
             "label": "Austria"
           },
           {
