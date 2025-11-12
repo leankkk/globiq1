@@ -11,6 +11,12 @@ let rendirseBtn = document.getElementById("rendirseBtn");
 let popupRendirse = document.getElementById("popupRendirse");
 let paisCorrectoDOM = document.getElementById("paisCorrectoDOM");
 let btnVolver = document.getElementById("btn-volver");
+let ayudaBtn = document.querySelector('.ayuda');
+let popup6 = document.getElementById("popup5");
+let btnMostrarPopup = document.getElementById("btnMostrarPopup");  
+let popupContent = document.querySelector('.popup-content'); 
+let cerrarPopup = document.querySelector('.cerrar');  
+
 
 
 let intentosHechos = 0;
@@ -132,3 +138,19 @@ rendirseBtn.addEventListener("click", () => {
 });
 
 
+cuentaBtn.addEventListener("click", () => {
+  console.log(usuario);
+  if (usuario === "Sin usuario" || !usuario) {
+    window.location.href = "/Frontend/pantalla 6 (login)/index.html";
+  } else {
+    window.location.href = "/Frontend/cuenta/index.html";
+  }
+});
+
+ayudaBtn.addEventListener('click', () => {
+  popup6.style.display = "flex";  
+});
+
+cerrarPopup.addEventListener('click', () => {
+  popup6.style.display = "none";  
+});

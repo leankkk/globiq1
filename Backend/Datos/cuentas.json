@@ -36,7 +36,6 @@
           4,
           1,
           4,
-<<<<<<< HEAD
           5,
           1,
           2,
@@ -44,9 +43,6 @@
           2,
           3,
           14
-=======
-          1
->>>>>>> 2a164dc446af96f32610db102ebc862b84782008
         ],
         "categoriasAcertadas": [
           {
@@ -392,7 +388,6 @@
             "label": "Australia"
           },
           {
-<<<<<<< HEAD
             "pais": "new_zealand",
             "cantidad": 2,
             "label": "Nueva Zelanda"
@@ -506,11 +501,6 @@
             "pais": "peru",
             "cantidad": 1,
             "label": "Perú"
-=======
-            "pais": "united_arab_emirates",
-            "cantidad": 1,
-            "label": "Emiratos Árabes Unidos"
->>>>>>> 2a164dc446af96f32610db102ebc862b84782008
           }
         ],
         "categoriaMasAcertada": {
@@ -523,11 +513,7 @@
           "cantidad": 3,
           "label": "Venezuela"
         },
-<<<<<<< HEAD
         "comparacionesHechas": 76
-=======
-        "comparacionesHechas": 42
->>>>>>> 2a164dc446af96f32610db102ebc862b84782008
       },
       "bloques": {
         "puntaje": 8,
@@ -1730,6 +1716,45 @@
           "label": "Moldavia"
         },
         "comparacionesHechas": 58
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "anadavid": {
+    "nombre": "anadavid",
+    "contraseña": "davidovich",
+    "stats": {
+      "diario": {
+        "puntaje": 0,
+        "rondasGanadas": 2,
+        "promedioPuntajes": 0.5,
+        "listaPuntajes": [
+          0,
+          1
+        ],
+        "intentosHechos": 3
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
       },
       "bloques": {
         "puntaje": null,

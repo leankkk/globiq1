@@ -10,15 +10,15 @@ body {
   justify-content: center;
 }
 
-/* Contenedor del menú */
+
 .menu-container {
-  position: fixed;        /* fijo en pantalla */
+  position: fixed;        
   top: 15px;
   right: 20px;
-  z-index: 1000;          /* que quede por encima de todo */
+  z-index: 1000;         
 }
 
-/* Ícono ☰ */
+
 .menu-icon {
   font-size: 32px;
   cursor: pointer;
