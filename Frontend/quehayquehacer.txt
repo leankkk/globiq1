@@ -7,3 +7,9 @@
 12*error visual muy chico, probablemente del css: en el menu hamburguesa nuevo de cuenta se ve el texto subrayado y en azul
 
 EN ORDEN DE PRIORIDAD. Hay que hacer todos.
+
+mas (iud o fluffy): achicar btn rend
+cambiar e+los logos por los correctos
+hacer el pop del signo de pregunta en todos los juegos
+ sacar el btn de adivinar en el diario (xq ya anda el enter)
+ en la home, que aparezca el nombr de usuario debajo del logo de perfil.

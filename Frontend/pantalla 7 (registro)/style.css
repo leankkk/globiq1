@@ -145,7 +145,7 @@ input::placeholder {
   transform: translateY(-0.5vh);
 }
 
-/* === Menú === */
+
 .menu-container {
   position: fixed;
   top: 15px;
@@ -195,4 +195,51 @@ input::placeholder {
 
 .menu-container:hover .menu-options {
   display: flex;
+}
+
+.popup {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  width: 80%;
+  max-width: 350px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.4s ease;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+  color: #222;
+  font-size: 24px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.popup-content button {
+  background-color: #009e8b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.popup-content button:hover {
+  background-color: #007a6b;
 }

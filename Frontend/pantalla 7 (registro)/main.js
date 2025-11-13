@@ -1,4 +1,4 @@
-connect2Server(3001); 
+connect2Server(3001);
 
 function togglePassword(id) {
   const input = document.getElementById(id);
@@ -13,13 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const botonRegistrar = document.getElementById('loginBtn');
   const usuarioInput = document.getElementById('usuario');
 
+  const popup = document.getElementById('popupBienvenida');
+  const mensaje = document.getElementById('mensajeBienvenida');
+  const botonAceptar = document.getElementById('btnAceptarPopup');
+
   if (!botonRegistrar) {
     console.error("No se encontró el botón de registrarse.");
     return;
   }
 
   botonRegistrar.addEventListener('click', () => {
-    console.log("Botón clickeado"); 
+    console.log("Botón clickeado");
 
     const password1 = contraseña1.value.trim();
     const password2 = contraseña2.value.trim();
@@ -42,14 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     postEvent("crearCuenta", data, (respuesta) => {
       if (respuesta.ok) {
+        
         sessionStorage.setItem("usuario", usuario);
-        window.location.href = "../home/index.html";
+        mensaje.textContent = `¡Bienvenido, ${usuario}!`;
+        popup.style.display = "flex";
 
+        botonAceptar.addEventListener("click", () => {
+          popup.style.display = "none";
+          window.location.href = "../home/index.html";
+        });
       } else {
         alert("Error: " + respuesta.mensaje);
       }
     });
   });
 });
-
-  

@@ -1,4 +1,4 @@
-/* Contenedor del menú */
+
 .menu-container {
   position: fixed;
   top: 15px;
@@ -6,12 +6,12 @@
   z-index: 1000;
 }
 
-/* Ícono ☰ */
+
 .menu-icon {
   font-size: 32px;
   cursor: pointer;
   user-select: none;
-  color: white; /* 🔹 AHORA BLANCO */
+  color: white; 
   transition: transform 0.2s;
 }
 
@@ -19,7 +19,7 @@
   transform: scale(1.1);
 }
 
-/* Menú desplegable */
+
 .menu-options {
   list-style: none;
   margin: 0;
@@ -56,7 +56,7 @@
   display: flex;
 }
 
-/* --- CUERPO --- */
+
 body {
   font-family: "Inter", sans-serif;
   background-color: #05355B;
@@ -69,7 +69,7 @@ body {
   justify-content: flex-start;
 }
 
-/* --- MODAL --- */
+
 .modal {
   display: none; 
   position: fixed; 
@@ -123,7 +123,7 @@ body {
   font-weight: bold;
 }
 
-/* --- CONTENEDOR GENERAL --- */
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -131,7 +131,7 @@ body {
   text-align: center;
 }
 
-/* --- PREGUNTA Y SLOTS --- */
+
 .pregunta {
   display: flex;
   justify-content: center;
@@ -160,7 +160,7 @@ body {
   transition: border-color 0.3s, background-color 0.3s;
 }
 
-/* --- SLOT 1 Y 2 --- */
+
 #slot1 {
   background-color: #fff;
   border: 2px dashed #bbb;
@@ -168,8 +168,8 @@ body {
 }
 
 #slot2 {
-  background-color: #e3f2ff; /* azul muy claro */
-  border: 2px solid #5eb8ff; /* borde celeste */
+  background-color: #e3f2ff; 
+  border: 2px solid #5eb8ff; 
   color: #05355B;
 }
 
@@ -178,7 +178,7 @@ body {
   border-color: #1b73c6;
 }
 
-/* --- BLOQUES --- */
+
 .bloques {
   display: flex;
   justify-content: center;
@@ -199,17 +199,17 @@ body {
   font-family: "Inter", sans-serif;
 }
 .logo {
-  position: absolute;     /* se posiciona sobre el contenido */
-  top: 15px;              /* distancia desde arriba */
-  left: 20px;             /* distancia desde la izquierda */
-  z-index: 1000;          /* por encima de todo */
+  position: absolute;     
+  top: 15px;             
+  left: 20px;             
+  z-index: 1000;          
 }
 
 .logo img {
-  width: 80px;            /* tamaño del logo */
-  height: auto;           /* mantiene proporción */
-  object-fit: contain;    /* evita deformaciones */
-  filter: drop-shadow(0 0 3px rgba(0,0,0,0.4)); /* opcional: sombra leve */
+  width: 80px;            
+  height: auto;           
+  object-fit: contain;    
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.4)); 
 }
 #MOM {
   background-color: #a9dcff;
@@ -228,7 +228,7 @@ body {
   transform: scale(1.05);
 }
 
-/* --- MAPA --- */
+
 .mapa {
   width: 75%;
   height: 75vh;
@@ -270,7 +270,7 @@ body {
   fill: #e57373;
 }
 
-/* --- INPUT Y BOTÓN --- */
+
 .input-slot {
   width: 180px;
   height: 40px;
@@ -308,7 +308,7 @@ body {
   border-color: #4caf50;
 }
 
-/* --- LISTAS DE PAISES --- */
+
 .listas-paises {
   display: flex;
   justify-content: center;
@@ -352,7 +352,7 @@ body {
   border-bottom: none;
 }
 
-/* --- MODAL SECUNDARIO --- */
+
 .modal-content p {
   margin-bottom: 15px;
   font-size: 1rem;
@@ -375,7 +375,6 @@ body {
   background-color: #3b913d;
 }
 
-/* --- ADIVINAR PAIS --- */
 .adivinar-pais-box {
   margin-top: 10px;
   display: flex;
@@ -391,7 +390,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-/* --- LAYOUT GENERAL --- */
+
 .layout {
   display: flex;
   justify-content: center;
@@ -416,7 +415,7 @@ body {
   overflow: visible;
 }
 
-/* --- LINEA DIVISORIA FIJA --- */
+
 .linea-divisoria {
   width: 2px;
   height: 500px;

@@ -3,6 +3,9 @@ let botonlogin = document.getElementById("loginBtn");
 let placeholderContraseña = document.getElementById("password");
 let placeholderUsuario = document.getElementById("usuario");
 let botonregistro = document.getElementById("registroBtn");
+let popup = document.getElementById("popupBienvenida");
+let mensaje = document.getElementById("mensajeBienvenida");
+let botonAceptar = document.getElementById("btnAceptarPopup");
 
 function togglePassword(id) { 
     let input = document.getElementById(id);
@@ -10,13 +13,21 @@ function togglePassword(id) {
 }
 function realizarinicio(data) {
     if (data.login) {
-        alert("Inicio de sesión completado.");
+        
         sessionStorage.setItem("usuario", placeholderUsuario.value);
-        window.location.href = "../home/index.html";
+        mensaje.textContent = `¡Bienvenido, ${placeholderUsuario.value}!`;
+        popup.style.display = "flex";
+
+        botonAceptar.addEventListener("click", () => {
+            popup.style.display = "none";
+            window.location.href = "../home/index.html";
+        });
     } else {
         alert("Usuario o contraseña incorrecto.");
     }
 }
+
+
 
 botonlogin.addEventListener("click", () => {
     let infocuenta = {

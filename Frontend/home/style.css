@@ -111,7 +111,6 @@ body {
 .carta3 .imagen { background-color: #385C88; border: 0.1vw solid #190909; }
 
 .popup {
-  
     display: none;
     position: fixed;
     top: 0;
@@ -129,6 +128,8 @@ body {
     color: #222;
     width: 80%;
     max-width: 350px;
+    max-height: 80vh;          
+    overflow-y: auto;          
     border-radius: 15px;
     padding: 25px 30px;
     position: relative;
@@ -136,6 +137,8 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.4;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    scrollbar-width: thin;      
+    scrollbar-color: #888 #f8f8f8; 
   }
   
   .popup-content h2 {

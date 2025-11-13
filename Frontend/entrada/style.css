@@ -8,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .contenedor {
@@ -24,10 +25,11 @@ body {
 }
 
 .texto-bienvenida {
-  font-size: 3vh;
+  font-size: 4.7vh;
   color: #FFFFFF;
   margin-top: 2vh;
   letter-spacing: 0.05em;
+
 }
 
 .botones {
@@ -41,8 +43,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 17.5vw; /* equivalente a 337px en 1920px */
-  height: 7.1vh; /* equivalente a 77px en 1080px */
+  width: 17.5vw; 
+  height: 7.1vh; 
   background-color: rgba(181, 181, 181, 0.62);
   color: #FFFFFF;
   font-size: 3vh;
