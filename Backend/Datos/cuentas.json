@@ -1582,5 +1582,287 @@
         "preguntasHechas": 0
       }
     }
+  },
+  "flafymarcozzi": {
+    "nombre": "flafymarcozzi",
+    "contraseña": "globe-inc",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 13,
+        "rondasJugadas": 10,
+        "promedioRachas": 3.3,
+        "listaRachas": [
+          1,
+          1,
+          13,
+          4,
+          2,
+          1,
+          1,
+          2,
+          1,
+          7
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "economy.exports.total_value.global_rank",
+            "cantidad": 1,
+            "label": "Exportaciones posición mundial"
+          },
+          {
+            "dato": "energy.refined_petroleum_products.production.global_rank",
+            "cantidad": 1,
+            "label": "Producción derivados petróleo posición mundial"
+          },
+          {
+            "dato": "energy.electricity.by_source.nuclear_fuels.percent",
+            "cantidad": 4,
+            "label": "Electricidad fuentes nucleares %"
+          },
+          {
+            "dato": "transportation.air_transport.airports.unpaved.2438_to_3047_metres",
+            "cantidad": 5,
+            "label": "Aeropuertos no pavimentados 2438 a 3047 m"
+          },
+          {
+            "dato": "economy.taxes_and_other_revenues.global_rank",
+            "cantidad": 4,
+            "label": "Puesto mundial en impuestos"
+          },
+          {
+            "dato": "transportation.air_transport.airports.unpaved.914_to_1523_metres",
+            "cantidad": 4,
+            "label": "Aeropuertos no pavimentados 914 a 1523 m"
+          },
+          {
+            "dato": "energy.refined_petroleum_products.consumption.bbl_per_day",
+            "cantidad": 2,
+            "label": "Consumo derivados petróleo barriles por día"
+          },
+          {
+            "dato": "energy.refined_petroleum_products.exports.bbl_per_day",
+            "cantidad": 1,
+            "label": "Exportaciones derivados petróleo barriles por día"
+          },
+          {
+            "dato": "economy.gdp.composition.by_end_use.end_uses.investment_in_fixed_capital",
+            "cantidad": 1,
+            "label": "Porcentaje del PIB destinado a inversión en capital fijo"
+          },
+          {
+            "dato": "transportation.air_transport.airports.total.global_rank",
+            "cantidad": 2,
+            "label": "Aeropuertos posición mundial"
+          },
+          {
+            "dato": "economy.gdp.composition.by_sector_of_origin.sectors.services",
+            "cantidad": 1,
+            "label": "Porcentaje del PIB proveniente de servicios"
+          },
+          {
+            "dato": "energy.natural_gas.production.cubic_metres",
+            "cantidad": 4,
+            "label": "Producción gas natural metros cúbicos"
+          },
+          {
+            "dato": "people.religions.religion[0].percent",
+            "cantidad": 2,
+            "label": "Porcentaje de la religión principal"
+          },
+          {
+            "dato": "geography.land_use.by_sector.agricultural_land_total.value",
+            "cantidad": 1,
+            "label": "Porcentaje de tierra agrícola total"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "indonesia",
+            "cantidad": 1,
+            "label": "Indonesia"
+          },
+          {
+            "pais": "andorra",
+            "cantidad": 2,
+            "label": "Andorra"
+          },
+          {
+            "pais": "portugal",
+            "cantidad": 1,
+            "label": "Portugal"
+          },
+          {
+            "pais": "saint_kitts_and_nevis",
+            "cantidad": 1,
+            "label": "San Cristóbal y Nieves"
+          },
+          {
+            "pais": "burkina_faso",
+            "cantidad": 1,
+            "label": "Burkina Faso"
+          },
+          {
+            "pais": "comoros",
+            "cantidad": 1,
+            "label": "Comoras"
+          },
+          {
+            "pais": "rwanda",
+            "cantidad": 1,
+            "label": "Ruanda"
+          },
+          {
+            "pais": "grenada",
+            "cantidad": 1,
+            "label": "Granada"
+          },
+          {
+            "pais": "mali",
+            "cantidad": 1,
+            "label": "Malí"
+          },
+          {
+            "pais": "south_africa",
+            "cantidad": 2,
+            "label": "Sudáfrica"
+          },
+          {
+            "pais": "thailand",
+            "cantidad": 1,
+            "label": "Tailandia"
+          },
+          {
+            "pais": "brazil",
+            "cantidad": 1,
+            "label": "Brasil"
+          },
+          {
+            "pais": "liberia",
+            "cantidad": 1,
+            "label": "Liberia"
+          },
+          {
+            "pais": "south_sudan",
+            "cantidad": 1,
+            "label": "Sudán del Sur"
+          },
+          {
+            "pais": "liechtenstein",
+            "cantidad": 1,
+            "label": "Liechtenstein"
+          },
+          {
+            "pais": "tonga",
+            "cantidad": 1,
+            "label": "Tonga"
+          },
+          {
+            "pais": "paraguay",
+            "cantidad": 1,
+            "label": "Paraguay"
+          },
+          {
+            "pais": "bahamas_the",
+            "cantidad": 1,
+            "label": "Bahamas"
+          },
+          {
+            "pais": "solomon_islands",
+            "cantidad": 1,
+            "label": "Islas Salomón"
+          },
+          {
+            "pais": "kenya",
+            "cantidad": 1,
+            "label": "Kenia"
+          },
+          {
+            "pais": "el_salvador",
+            "cantidad": 1,
+            "label": "El Salvador"
+          },
+          {
+            "pais": "congo_republic_of_the",
+            "cantidad": 1,
+            "label": "República del Congo"
+          },
+          {
+            "pais": "bulgaria",
+            "cantidad": 1,
+            "label": "Bulgaria"
+          },
+          {
+            "pais": "estonia",
+            "cantidad": 1,
+            "label": "Estonia"
+          },
+          {
+            "pais": "brunei",
+            "cantidad": 1,
+            "label": "Brunéi"
+          },
+          {
+            "pais": "czechia",
+            "cantidad": 1,
+            "label": "Chequia"
+          },
+          {
+            "pais": "dominica",
+            "cantidad": 1,
+            "label": "Dominica"
+          },
+          {
+            "pais": "sao_tome_and_principe",
+            "cantidad": 1,
+            "label": "Santo Tomé y Príncipe"
+          },
+          {
+            "pais": "barbados",
+            "cantidad": 1,
+            "label": "Barbados"
+          },
+          {
+            "pais": "albania",
+            "cantidad": 1,
+            "label": "Albania"
+          },
+          {
+            "pais": "marshall_islands",
+            "cantidad": 1,
+            "label": "Islas Marshall"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "transportation.air_transport.airports.unpaved.2438_to_3047_metres",
+          "cantidad": 5,
+          "label": "Aeropuertos no pavimentados 2438 a 3047 m"
+        },
+        "paisMasAcertado": {
+          "pais": "andorra",
+          "cantidad": 2,
+          "label": "Andorra"
+        },
+        "comparacionesHechas": 43
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
   }
 }
