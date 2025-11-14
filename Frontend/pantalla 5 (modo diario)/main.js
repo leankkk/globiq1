@@ -11,8 +11,10 @@ let rendirseBtn = document.getElementById("rendirseBtn");
 let popupRendirse = document.getElementById("popupRendirse");
 let paisCorrectoDOM = document.getElementById("paisCorrectoDOM");
 let btnVolver = document.getElementById("btn-volver");
-let ayudaBtn = document.querySelector('.ayuda');
 let popupAyuda = document.getElementById("popupAyuda");
+let cerrarBtn = document.querySelector('.cerrar');
+
+
 
 
 let intentosHechos = 0;
@@ -145,13 +147,11 @@ cuentaBtn.addEventListener("click", () => {
 
 
 
-ayudaBtn.addEventListener('click', () => {
-  popupAyuda.style.display = "flex";  
+ayudaBtn.addEventListener("click", () => {
+    console.log("CLICK EN AYUDA");
+    popupAyuda.style.display = "flex";
 });
 
 document.querySelector(".cerrar").addEventListener("click", () => {
   popupAyuda.style.display = "none";
 });
-
-
-
