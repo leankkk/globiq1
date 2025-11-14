@@ -25,18 +25,25 @@
       </ul>
     </div>
 
-   
     <div class="contenedor">
       <img src="/Frontend/pantalla 7 (registro)/Vector.png" alt="GlobiQ logo" class="logo" />
 
       <div class="formulario">
+
         <input type="text" id="usuario" placeholder="Usuario" />
+
+        <!-- CONTRASEÑA -->
         <div class="input-pass">
           <input type="password" id="password" placeholder="Contraseña" />
+          <span class="ver" onclick="togglePassword('password')"></span>
         </div>
+
+        
         <div class="input-pass">
           <input type="password" id="password2" placeholder="Repetir contraseña" />
+          <span class="ver" onclick="togglePassword('password2')"></span>
         </div>
+
         <button id="loginBtn">Registrarse</button>
       </div>
     </div>
@@ -47,8 +54,9 @@
         <button id="btnAceptarPopup">Aceptar</button>
       </div>
     </div>
- </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
-<script src="main.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>

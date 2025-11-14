@@ -1,21 +1,27 @@
 connect2Server(3001);
 
 function togglePassword(id) {
-  const input = document.getElementById(id);
-  if (input) {
-    input.type = input.type === 'password' ? 'text' : 'password';
+ 
+let input = document.getElementById(id);
+let icono = input.nextElementSibling;
+  if (input.type === "password") {
+    input.type = "text";
+    icono.style.backgroundImage =
+      "url('https://cdn-icons-png.flaticon.com/512/565/565655.png')";
+  } else {
+    input.type = "password";
+    icono.style.backgroundImage =
+      "url('https://cdn-icons-png.flaticon.com/512/159/159604.png')";
   }
 }
-
 document.addEventListener('DOMContentLoaded', () => {
-  const contraseña1 = document.getElementById('password');
-  const contraseña2 = document.getElementById('password2');
-  const botonRegistrar = document.getElementById('loginBtn');
-  const usuarioInput = document.getElementById('usuario');
-
-  const popup = document.getElementById('popupBienvenida');
-  const mensaje = document.getElementById('mensajeBienvenida');
-  const botonAceptar = document.getElementById('btnAceptarPopup');
+  let contraseña1 = document.getElementById('password');
+  let contraseña2 = document.getElementById('password2');
+  let botonRegistrar = document.getElementById('loginBtn');
+  let usuarioInput = document.getElementById('usuario');
+  let popup = document.getElementById('popupBienvenida');
+  let mensaje = document.getElementById('mensajeBienvenida');
+  let botonAceptar = document.getElementById('btnAceptarPopup');
 
   if (!botonRegistrar) {
     console.error("No se encontró el botón de registrarse.");
@@ -25,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
   botonRegistrar.addEventListener('click', () => {
     console.log("Botón clickeado");
 
-    const password1 = contraseña1.value.trim();
-    const password2 = contraseña2.value.trim();
-    const usuario = usuarioInput.value.trim();
+    let password1 = contraseña1.value.trim();
+    let password2 = contraseña2.value.trim();
+    let usuario = usuarioInput.value.trim();
 
     if (!usuario || !password1 || !password2) {
       alert("Por favor completá todos los campos.");

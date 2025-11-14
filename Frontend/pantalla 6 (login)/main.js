@@ -6,11 +6,23 @@ let botonregistro = document.getElementById("registroBtn");
 let popup = document.getElementById("popupBienvenida");
 let mensaje = document.getElementById("mensajeBienvenida");
 let botonAceptar = document.getElementById("btnAceptarPopup");
+let input = document.getElementById(id);
+let icono = input.nextElementSibling;
 
-function togglePassword(id) { 
-    let input = document.getElementById(id);
-    input.type = input.type === "password" ? "text" : "password";
+function togglePassword(id) {
+ 
+
+  if (input.type === "password") {
+    input.type = "text";
+    icono.style.backgroundImage =
+      "url('https://cdn-icons-png.flaticon.com/512/565/565655.png')";
+  } else {
+    input.type = "password";
+    icono.style.backgroundImage =
+      "url('https://cdn-icons-png.flaticon.com/512/159/159604.png')";
+  }
 }
+
 function realizarinicio(data) {
     if (data.login) {
         

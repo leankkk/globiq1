@@ -4,15 +4,17 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": 7,
-        "rondasGanadas": 3,
-        "promedioPuntajes": 7.666666666666667,
+        "puntaje": 2,
+        "rondasGanadas": 5,
+        "promedioPuntajes": 6,
         "listaPuntajes": [
           8,
           8,
-          7
+          7,
+          2,
+          5
         ],
-        "intentosHechos": 17
+        "intentosHechos": 26
       },
       "mayormenor": {
         "racha": 14,
@@ -517,8 +519,8 @@
       },
       "bloques": {
         "puntaje": 8,
-        "rondasGanadas": 7,
-        "promedioPuntajes": 38.714285714285715,
+        "rondasGanadas": 8,
+        "promedioPuntajes": 38.625,
         "listaPuntajes": [
           47,
           51,
@@ -526,462 +528,17 @@
           43,
           47,
           48,
-          8
+          8,
+          38
         ],
-        "categoriasPreguntadas": [
-          {
-            "dato": "Edad sufragio",
-            "cantidad": 2
-          },
-          {
-            "dato": "Importaciones petróleo crudo barriles por día",
-            "cantidad": 2
-          },
-          {
-            "dato": "Prevalencia VIH adultos",
-            "cantidad": 1
-          },
-          {
-            "dato": "Área de agua",
-            "cantidad": 3
-          },
-          {
-            "dato": "Población total",
-            "cantidad": 2
-          },
-          {
-            "dato": "Producción gas natural posición mundial",
-            "cantidad": 3
-          },
-          {
-            "dato": "Superávit o déficit fiscal posición mundial",
-            "cantidad": 2
-          },
-          {
-            "dato": "Consumo derivados petróleo barriles por día",
-            "cantidad": 1
-          },
-          {
-            "dato": "Internet usuarios totales",
-            "cantidad": 2
-          },
-          {
-            "dato": "PIB tipo de cambio oficial USD",
-            "cantidad": 3
-          },
-          {
-            "dato": "Consumo electricidad posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Población 65 y más mujeres",
-            "cantidad": 1
-          },
-          {
-            "dato": "Tasa de mortalidad",
-            "cantidad": 2
-          },
-          {
-            "dato": "Longitud minutos",
-            "cantidad": 1
-          },
-          {
-            "dato": "Población bajo línea de pobreza valor",
-            "cantidad": 1
-          },
-          {
-            "dato": "Consumo derivados petróleo posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Latitud grados",
-            "cantidad": 2
-          },
-          {
-            "dato": "PIB composición por uso final consumo de hogares",
-            "cantidad": 1
-          },
-          {
-            "dato": "Población 55 a 64 años mujeres",
-            "cantidad": 3
-          },
-          {
-            "dato": "Balanza cuenta corriente posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Agua potable mejorada urbana",
-            "cantidad": 1
-          },
-          {
-            "dato": "Edad media mujeres",
-            "cantidad": 3
-          },
-          {
-            "dato": "Telefonía fija posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "PIB crecimiento real posición mundial",
-            "cantidad": 4
-          },
-          {
-            "dato": "Otras tierras",
-            "cantidad": 1
-          },
-          {
-            "dato": "Consumo gas natural posición mundial",
-            "cantidad": 2
-          },
-          {
-            "dato": "Agua potable no mejorada total",
-            "cantidad": 1
-          },
-          {
-            "dato": "Latitud capital grados",
-            "cantidad": 2
-          },
-          {
-            "dato": "Zona horaria capital",
-            "cantidad": 2
-          },
-          {
-            "dato": "Muertes por VIH",
-            "cantidad": 1
-          },
-          {
-            "dato": "Deuda externa posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Densidad de médicos",
-            "cantidad": 2
-          },
-          {
-            "dato": "Rango mundial mortalidad infantil",
-            "cantidad": 2
-          },
-          {
-            "dato": "Exportaciones derivados petróleo barriles por día",
-            "cantidad": 1
-          },
-          {
-            "dato": "Esperanza de vida total",
-            "cantidad": 2
-          },
-          {
-            "dato": "Importaciones electricidad kWh",
-            "cantidad": 2
-          },
-          {
-            "dato": "PIB composición por sector industria",
-            "cantidad": 2
-          },
-          {
-            "dato": "Emisiones CO2 consumo de energía posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Exportaciones electricidad kWh",
-            "cantidad": 3
-          },
-          {
-            "dato": "Aeronaves registradas",
-            "cantidad": 1
-          },
-          {
-            "dato": "Pasturas permanentes",
-            "cantidad": 3
-          },
-          {
-            "dato": "Población 65 y más hombres",
-            "cantidad": 2
-          },
-          {
-            "dato": "Edad media hombres",
-            "cantidad": 1
-          },
-          {
-            "dato": "Aeropuertos pavimentados total",
-            "cantidad": 1
-          },
-          {
-            "dato": "Exportaciones gas natural posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Rango mundial migración",
-            "cantidad": 2
-          },
-          {
-            "dato": "Reservas comprobadas gas natural posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Telefonía móvil suscripciones totales",
-            "cantidad": 1
-          },
-          {
-            "dato": "Tasa de fertilidad",
-            "cantidad": 1
-          },
-          {
-            "dato": "Electricidad fuentes combustibles fósiles posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Telefonía fija suscripciones por 100 habitantes",
-            "cantidad": 1
-          },
-          {
-            "dato": "Fronteras terrestres",
-            "cantidad": 1
-          },
-          {
-            "dato": "Población 15 a 24 años %",
-            "cantidad": 1
-          },
-          {
-            "dato": "Deuda externa valores anuales",
-            "cantidad": 2
-          },
-          {
-            "dato": "Exportaciones electricidad posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Elevación mínima",
-            "cantidad": 1
-          },
-          {
-            "dato": "Tasa de crecimiento poblacional",
-            "cantidad": 1
-          },
-          {
-            "dato": "Importaciones derivados petróleo posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Inflación valores anuales",
-            "cantidad": 1
-          },
-          {
-            "dato": "Población 25 a 54 años hombres",
-            "cantidad": 2
-          },
-          {
-            "dato": "Importaciones gas natural metros cúbicos",
-            "cantidad": 1
-          },
-          {
-            "dato": "Capacidad instalada electricidad kW",
-            "cantidad": 1
-          },
-          {
-            "dato": "Desempleo juvenil mujeres",
-            "cantidad": 1
-          },
-          {
-            "dato": "Inflación posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Población 0 a 14 años hombres",
-            "cantidad": 1
-          },
-          {
-            "dato": "Carreteras posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "PIB PPA per cápita posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Saneamiento no mejorado urbano",
-            "cantidad": 1
-          },
-          {
-            "dato": "Elevación máxima",
-            "cantidad": 1
-          },
-          {
-            "dato": "Población urbana",
-            "cantidad": 1
-          },
-          {
-            "dato": "Electricidad fuentes combustibles fósiles %",
-            "cantidad": 2
-          },
-          {
-            "dato": "Importaciones electricidad posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Ingreso hogares 10% más bajo",
-            "cantidad": 1
-          },
-          {
-            "dato": "PIB PPA posición mundial",
-            "cantidad": 2
-          },
-          {
-            "dato": "Agua potable no mejorada rural",
-            "cantidad": 1
-          },
-          {
-            "dato": "PIB composición por uso final importaciones",
-            "cantidad": 2
-          },
-          {
-            "dato": "Población segunda área urbana",
-            "cantidad": 1
-          },
-          {
-            "dato": "Ratio de sexos 15 a 24 años",
-            "cantidad": 1
-          },
-          {
-            "dato": "Ahorro nacional bruto posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Población 0 a 14 años %",
-            "cantidad": 1
-          },
-          {
-            "dato": "Agua potable mejorada rural",
-            "cantidad": 2
-          },
-          {
-            "dato": "Alfabetización hombres",
-            "cantidad": 1
-          },
-          {
-            "dato": "Rango mundial mortalidad",
-            "cantidad": 1
-          },
-          {
-            "dato": "Consumo electricidad kWh",
-            "cantidad": 1
-          },
-          {
-            "dato": "Latitud minutos",
-            "cantidad": 1
-          },
-          {
-            "dato": "Crecimiento producción industrial anual",
-            "cantidad": 1
-          },
-          {
-            "dato": "Área total",
-            "cantidad": 1
-          },
-          {
-            "dato": "Tasa de natalidad",
-            "cantidad": 1
-          },
-          {
-            "dato": "Aeropuertos pavimentados 914 a 1523 m",
-            "cantidad": 1
-          },
-          {
-            "dato": "Rango mundial bajo peso infantil",
-            "cantidad": 1
-          },
-          {
-            "dato": "Balanza cuenta corriente valores anuales",
-            "cantidad": 1
-          },
-          {
-            "dato": "Población 15 a 24 años hombres",
-            "cantidad": 1
-          },
-          {
-            "dato": "Longitud de frontera con país fronterizo",
-            "cantidad": 1
-          },
-          {
-            "dato": "Exportaciones petróleo crudo posición mundial",
-            "cantidad": 1
-          },
-          {
-            "dato": "Índice de dependencia juvenil",
-            "cantidad": 1
-          },
-          {
-            "dato": "PIB PPA per cápita valores anuales",
-            "cantidad": 1
-          },
-          {
-            "dato": "Obesidad adultos",
-            "cantidad": 1
-          },
-          {
-            "dato": "Rango mundial esperanza de vida",
-            "cantidad": 1
-          },
-          {
-            "dato": "Presupuesto ingresos valor",
-            "cantidad": 1
-          },
-          {
-            "dato": "Agua potable no mejorada urbana",
-            "cantidad": 1
-          },
-          {
-            "dato": "Ratio de sexos 55 a 64 años",
-            "cantidad": 1
-          },
-          {
-            "dato": "Exportaciones petróleo crudo barriles por día",
-            "cantidad": 1
-          },
-          {
-            "dato": "Esperanza escolar total",
-            "cantidad": 1
-          },
-          {
-            "dato": "Mortalidad infantil total",
-            "cantidad": 1
-          },
-          {
-            "dato": "Aerolíneas registradas",
-            "cantidad": 1
-          },
-          {
-            "dato": "Aeropuertos no pavimentados total",
-            "cantidad": 1
-          }
-        ],
+        "categoriasPreguntadas": {
+          "dato": "PIB crecimiento real posición mundial",
+          "cantidad": 4
+        },
         "valoresPreguntados": [
           {
-            "valor": 50,
-            "cantidad": 2
-          },
-          {
-            "valor": 30,
-            "cantidad": 1
-          },
-          {
-            "valor": 60,
-            "cantidad": 1
-          },
-          {
-            "valor": 55,
-            "cantidad": 1
-          },
-          {
-            "valor": 1,
-            "cantidad": 1
-          },
-          {
-            "valor": 0,
-            "cantidad": 1
-          },
-          {
-            "valor": 6,
-            "cantidad": 1
+            "valor": 5,
+            "cantidad": 38
           }
         ],
         "listaValoresPreguntados": [
@@ -1087,11 +644,49 @@
           1,
           0,
           6,
-          50
+          50,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
         ],
         "valorPromedio": null,
         "categoriaMasPreguntada": {},
-        "preguntasHechas": 271
+        "preguntasHechas": 309
       }
     }
   },
@@ -1899,6 +1494,80 @@
         "categoriaMasAcertada": {},
         "paisMasAcertado": {},
         "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "martoIUddd": {
+    "nombre": "martoIUddd",
+    "contraseña": "lucioteamo",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 2,
+        "rondasJugadas": 2,
+        "promedioRachas": 1.5,
+        "listaRachas": [
+          1,
+          2
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "energy.electricity.access.total_electrification.value",
+            "cantidad": 1,
+            "label": "Electricidad acceso total valor"
+          },
+          {
+            "dato": "economy.budget_surplus_or_deficit.percent_of_gdp",
+            "cantidad": 2,
+            "label": "Superávit o déficit fiscal en porcentaje del PIB"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "senegal",
+            "cantidad": 1,
+            "label": "Senegal"
+          },
+          {
+            "pais": "turkmenistan",
+            "cantidad": 1,
+            "label": "Turkmenistán"
+          },
+          {
+            "pais": "luxembourg",
+            "cantidad": 1,
+            "label": "Luxemburgo"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "economy.budget_surplus_or_deficit.percent_of_gdp",
+          "cantidad": 2,
+          "label": "Superávit o déficit fiscal en porcentaje del PIB"
+        },
+        "paisMasAcertado": {
+          "pais": "senegal",
+          "cantidad": 1,
+          "label": "Senegal"
+        },
+        "comparacionesHechas": 5
       },
       "bloques": {
         "puntaje": null,

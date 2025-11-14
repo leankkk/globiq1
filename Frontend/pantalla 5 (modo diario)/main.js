@@ -12,11 +12,7 @@ let popupRendirse = document.getElementById("popupRendirse");
 let paisCorrectoDOM = document.getElementById("paisCorrectoDOM");
 let btnVolver = document.getElementById("btn-volver");
 let ayudaBtn = document.querySelector('.ayuda');
-let popup6 = document.getElementById("popup5");
-let btnMostrarPopup = document.getElementById("btnMostrarPopup");  
-let popupContent = document.querySelector('.popup-content'); 
-let cerrarPopup = document.querySelector('.cerrar');  
-
+let popupAyuda = document.getElementById("popupAyuda");
 
 
 let intentosHechos = 0;
@@ -147,10 +143,15 @@ cuentaBtn.addEventListener("click", () => {
   }
 });
 
+
+
 ayudaBtn.addEventListener('click', () => {
-  popup6.style.display = "flex";  
+  popupAyuda.style.display = "flex";  
 });
 
-cerrarPopup.addEventListener('click', () => {
-  popup6.style.display = "none";  
+document.querySelector(".cerrar").addEventListener("click", () => {
+  popupAyuda.style.display = "none";
 });
+
+
+

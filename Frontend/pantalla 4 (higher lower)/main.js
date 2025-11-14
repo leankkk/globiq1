@@ -13,8 +13,12 @@ let botonMenor = document.getElementById("btnMenor");
 let btnCambiarCategoria = document.getElementById("btnCambiarCategoria");
 let rachaContador = document.getElementById("rachaContador");
 let comparacionesHechas = 0;
+let ayudaBtn = document.querySelector('.ayuda');
+let popupAyuda = document.getElementById("popup");
+let cerrarBtn = document.querySelector('.cerrar'); 
+let usuario = sessionStorage.getItem("usuario");
 
-//Para las stats
+
 let infousuario;
 let categoriasAcertadas = [];
 let paisesAcertados = [];
@@ -23,7 +27,6 @@ let intentosCambiarCategoria = 3;
 let paisInicial;
 let labelpaisInicial;
 let labelpais2;
-let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario" 
 let pais2;
 let dato;
 let valorInicial;
@@ -252,33 +255,15 @@ function mostrarPopUp(puntaje) {
 btnCambiarCategoria.addEventListener("click",cambiarCategoria);
 
 
-let popupayuda = document.getElementById("popupayuda");
-let cerrarayuda = document.getElementById("cerrarayuda");
-let btnAyuda = document.getElementById("btnAyuda");
-
-  cerrarayuda.onclick = () => {
-    popupayuda.style.display = "none";
-  };
-
-  window.addEventListener("click", (e) => {
-    if (e.target === popupayuda) {
-      popupayuda.style.display = "none";
-    }
-  });
-
-btnAyuda.addEventListener("click",()=>{
- popupayuda.style.display = "flex";
+ayudaBtn.addEventListener('click', () => {
+  popupAyuda.style.display = "flex";
 });
 
-cerrarayuda.onclick = function() {
-    popupayuda.style.display = "none";
-}
+document.querySelector(".cerrar").addEventListener("click", () => {
+  popupAyuda.style.display = "none";
+});
 
-window.onclick = function(event) {
-    if (event.target == popupayuda) {
-        popupayuda.style.display = "none";
-    }
-}
+
 
 
 btnJugar.onclick = function() {
@@ -292,3 +277,20 @@ btnJugar.onclick = function() {
 btnPrincipal.onclick = function() {
     window.location.href = "../home/index.html";  
 }
+
+ayudaBtn.addEventListener('click', () => {
+  popupAyuda.style.display = "flex";  
+});
+
+document.querySelector(".cerrar").addEventListener("click", () => {
+  popupAyuda.style.display = "none";
+});
+
+cuentaBtn.addEventListener("click", () => {
+  console.log(usuario);
+  if (usuario === "Sin usuario" || !usuario) {
+    window.location.href = "/Frontend/pantalla 6 (login)/index.html";
+  } else {
+    window.location.href = "/Frontend/cuenta/index.html";
+  }
+});

@@ -34,7 +34,7 @@ body {
 }
 
 .logo {
-  width: 12vw;
+  width: 23vw;
   height: auto;
   margin-bottom: 6vh;
 }
@@ -71,7 +71,18 @@ input {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  width: 24px;
+  height: 24px;
+
+  background-image: url('https://cdn-icons-png.flaticon.com/512/159/159604.png');
+  background-size: cover;
+  opacity: 0.6;
 }
+
+.ver:hover {
+  opacity: 1;
+}
+
 
 button,
 a#registroBtn {
