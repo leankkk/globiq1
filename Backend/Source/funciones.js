@@ -505,5 +505,7 @@ data.dato = categoriaNueva;
 data.label = traerlabel(categoriaNueva);
 data.valorInicial = traer(data.paisInicial,categoriaNueva);
 data.labelvalorInicial = traerlabelvalor(data.valorInicial)
+data.idPaisInicial = traerlabelCodigoPais(data.paisInicial);
+data.idPais2 = traerlabelCodigoPais(data.pais2);
 return data;
 }
