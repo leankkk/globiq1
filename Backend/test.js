@@ -21,4 +21,6 @@ i++;
 /*for (i = 0; i < listadatosB.length; i++){
 if (!typeof(traer("argentina",listadatosB[i])) === "string" && !Array.isArray(traer("argentina",listadatosB[i])) && traer)
 console.log(listalabelsB[i],listadatosB[i],traer("argentina",listadatosB[i]),"\n");*/
-console.log(iniciarBloques());
+console.log(listapaises[17],listapaises[10]);
+
+console.log(traer("argentina",traerDatoPorLabel("Población de 55 a 64 años")),traer("argentina",traerDatoPorLabel("Población de 55 a 64 años en mujeres")));
