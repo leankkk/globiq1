@@ -1864,5 +1864,209 @@
         "preguntasHechas": 0
       }
     }
+  },
+  "Test2026": {
+    "nombre": "Test2026",
+    "contraseña": "Test2026",
+    "stats": {
+      "diario": {
+        "puntaje": 0,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 0,
+        "listaPuntajes": [
+          0
+        ],
+        "intentosHechos": 1
+      },
+      "mayormenor": {
+        "racha": 10,
+        "rondasJugadas": 3,
+        "promedioRachas": 4.333333333333333,
+        "listaRachas": [
+          1,
+          2,
+          10
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "economy.gdp.real_growth_rate.annual_values[1].value",
+            "cantidad": 1,
+            "label": "Porcentaje de crecimiento anual del PIB"
+          },
+          {
+            "dato": "people.age_structure.55_to_64.percent",
+            "cantidad": 2,
+            "label": "Porcentaje de población de 55 a 64 años"
+          },
+          {
+            "dato": "economy.labor_force.total_size.global_rank",
+            "cantidad": 4,
+            "label": "Puesto mundial en tamaño de la fuerza laboral"
+          },
+          {
+            "dato": "energy.electricity.production.global_rank",
+            "cantidad": 5,
+            "label": "Puesto mundial en producción de electricidad"
+          },
+          {
+            "dato": "energy.electricity.production.kWh",
+            "cantidad": 1,
+            "label": "Producción de electricidad en kWh"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "uganda",
+            "cantidad": 1,
+            "label": "Uganda"
+          },
+          {
+            "pais": "belgium",
+            "cantidad": 1,
+            "label": "Bélgica"
+          },
+          {
+            "pais": "china",
+            "cantidad": 1,
+            "label": "China"
+          },
+          {
+            "pais": "croatia",
+            "cantidad": 1,
+            "label": "Croacia"
+          },
+          {
+            "pais": "germany",
+            "cantidad": 1,
+            "label": "Alemania"
+          },
+          {
+            "pais": "niger",
+            "cantidad": 1,
+            "label": "Níger"
+          },
+          {
+            "pais": "mongolia",
+            "cantidad": 1,
+            "label": "Mongolia"
+          },
+          {
+            "pais": "seychelles",
+            "cantidad": 1,
+            "label": "Seychelles"
+          },
+          {
+            "pais": "saudi_arabia",
+            "cantidad": 1,
+            "label": "Arabia Saudita"
+          },
+          {
+            "pais": "madagascar",
+            "cantidad": 1,
+            "label": "Madagascar"
+          },
+          {
+            "pais": "fiji",
+            "cantidad": 1,
+            "label": "Fiyi"
+          },
+          {
+            "pais": "uruguay",
+            "cantidad": 1,
+            "label": "Uruguay"
+          },
+          {
+            "pais": "saint_lucia",
+            "cantidad": 1,
+            "label": "Santa Lucía"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "energy.electricity.production.global_rank",
+          "cantidad": 5,
+          "label": "Puesto mundial en producción de electricidad"
+        },
+        "paisMasAcertado": {
+          "pais": "uganda",
+          "cantidad": 1,
+          "label": "Uganda"
+        },
+        "comparacionesHechas": 16
+      },
+      "bloques": {
+        "puntaje": 19,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 19,
+        "listaPuntajes": [
+          19
+        ],
+        "categoriasPreguntadas": {
+          "dato": "Puesto mundial en esperanza de vida",
+          "cantidad": 1
+        },
+        "valoresPreguntados": [
+          {
+            "valor": 100,
+            "cantidad": 4
+          },
+          {
+            "valor": 10,
+            "cantidad": 3
+          },
+          {
+            "valor": 50,
+            "cantidad": 5
+          },
+          {
+            "valor": 50000,
+            "cantidad": 2
+          },
+          {
+            "valor": 5000000,
+            "cantidad": 1
+          },
+          {
+            "valor": 70,
+            "cantidad": 1
+          },
+          {
+            "valor": 5,
+            "cantidad": 1
+          },
+          {
+            "valor": 1000000,
+            "cantidad": 1
+          },
+          {
+            "valor": 120,
+            "cantidad": 1
+          }
+        ],
+        "listaValoresPreguntados": [
+          100,
+          10,
+          50,
+          50,
+          100,
+          10,
+          50,
+          50,
+          50,
+          50000,
+          50000,
+          5000000,
+          100,
+          100,
+          70,
+          5,
+          10,
+          1000000,
+          120
+        ],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 19
+      }
+    }
   }
 }
