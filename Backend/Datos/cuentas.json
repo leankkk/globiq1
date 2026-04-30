@@ -4,17 +4,18 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": 2,
-        "rondasGanadas": 5,
-        "promedioPuntajes": 6,
+        "puntaje": 0,
+        "rondasGanadas": 6,
+        "promedioPuntajes": 5,
         "listaPuntajes": [
           8,
           8,
           7,
           2,
-          5
+          5,
+          0
         ],
-        "intentosHechos": 26
+        "intentosHechos": 27
       },
       "mayormenor": {
         "racha": 14,
