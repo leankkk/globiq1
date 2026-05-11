@@ -507,5 +507,14 @@ data.valorInicial = traer(data.paisInicial,categoriaNueva);
 data.labelvalorInicial = traerlabelvalor(data.valorInicial)
 data.idPaisInicial = traerlabelCodigoPais(data.paisInicial);
 data.idPais2 = traerlabelCodigoPais(data.pais2);
+data.labelpais2 = traerlabelpais(data.pais2);
 return data;
+}
+
+export function crearRecords(){
+    
+}
+
+export function actualizarRecords(){
+
 }

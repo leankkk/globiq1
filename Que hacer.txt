@@ -1,4 +1,17 @@
-Arreglar Logos
-Botones y pop up ganaste
-como jugar revisar
-probar lo mas 
+FRONT
+- Arreglar Login (Front)
+- Toggle password en el login
+- Como jugar (Modo Diario)
+- ARREGLAR LOGOS DE TODO (front + timi)
+- Cambiar botones a blanco
+- Botones y pop up ganaste
+- Arreglar como jugar (Modo Diario)
+- Caps modo diario
+- Récords (back + front)
+- Cambiar fotos inicio
+
+BACK
+- Récords
+
+TIMI
+- Definir colores de logos
