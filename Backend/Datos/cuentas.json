@@ -5,17 +5,24 @@
     "stats": {
       "diario": {
         "puntaje": 0,
-        "rondasGanadas": 6,
-        "promedioPuntajes": 5,
+        "rondasGanadas": 13,
+        "promedioPuntajes": 2.923076923076923,
         "listaPuntajes": [
           8,
           8,
           7,
           2,
           5,
-          0
+          0,
+          2,
+          0,
+          0,
+          1,
+          0,
+          3,
+          2
         ],
-        "intentosHechos": 27
+        "intentosHechos": 42
       },
       "mayormenor": {
         "racha": 14,

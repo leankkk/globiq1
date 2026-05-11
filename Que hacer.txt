@@ -5,11 +5,9 @@ FRONT
 - ARREGLAR LOGOS DE TODO (front + timi)
 - Cambiar botones a blanco
 - Botones y pop up ganaste
-- Arreglar como jugar (Modo Diario)
-- Caps modo diario
 - Récords (back + front)
 - Cambiar fotos inicio
-
+- Log Out
 BACK
 - Récords
 
