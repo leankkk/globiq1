@@ -1,13 +1,11 @@
 FRONT
-- Arreglar Login (Front)
-- Toggle password en el login
-- Como jugar (Modo Diario)
+- Pop up log in inicio boton aceptar (estirar)
 - ARREGLAR LOGOS DE TODO (front + timi)
 - Cambiar botones a blanco
 - Botones y pop up ganaste
+- MODO DIARIO 
 - Récords (back + front)
 - Cambiar fotos inicio
-- Log Out
 BACK
 - Récords
 
