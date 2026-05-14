@@ -512,7 +512,38 @@ return data;
 }
 
 export function crearRecords(){
+
+let keysdiario = Object.keys(Object.entries(cuentas)[0][1].stats.diario);
+let keysmayormenor = Object.keys(Object.entries(cuentas)[0][1].stats.mayormenor);
+let keysbloques = Object.keys(Object.entries(cuentas)[0][1].stats.bloques);
+
+for (let c = 0; c < keysdiario.length; c++) {
+    let nombrecat = keysdiario[c];
+
+for (let i = 0; i < Object.entries(cuentas).length; i++){
+    let nombrecuenta = Object.entries(cuentas)[i][0];
+    let valor = Object.entries(cuentas)[i][1].stats.diario[keysdiario[c]];
     
+    console.log(nombrecat, nombrecuenta, valor);
+}
+}
+
+let diario = [];
+let mayormenor = [];
+let bloques = [];
+
+
+return {diario,mayormenor,bloques}
+    //console.log(Object.entries(cuentas)[0][1]);
+    
+    /* DEBERIA DEVOLVER: 
+    Nombre de la categoria 1 ()
+    Nombre del usuario con el record
+    Numero del record
+
+    DATOS DEL USUARIO 1 Object.entries(cuentas)[0][1]
+    NOMBRE DEL USUARIO 1 Object.entries(cuentas)[0][0]
+    */
 }
 
 export function actualizarRecords(){

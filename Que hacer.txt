@@ -8,8 +8,11 @@ FRONT
 - Récords (back + front)
 - Cambiar fotos inicio
 - Log Out
+
 BACK
-- Récords
+- Récords{
+    - Seguir con CrearRecords
+}
 
 TIMI
 - Definir colores de logos

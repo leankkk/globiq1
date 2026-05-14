@@ -1,6 +1,6 @@
 import fs from "fs";
 import { subscribeGETEvent, subscribePOSTEvent, startServer } from "soquetic";
-import { traer, contienedato, comparar, paisrandom, paisdiario, iniciarBloques, cambiarCategoria, paisdiariofront, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats, elegirpista, iniciarMayorMenor, compararMayorMenor, enviarCategorias, enviarStats, recibirInputBloques} from "./Source/funciones.js";
+import { traer, contienedato, comparar, paisrandom, paisdiario, iniciarBloques, cambiarCategoria, paisdiariofront, datorandom, cuentaexiste, crearcuenta, revisarlogin, actualizarstats, elegirpista, iniciarMayorMenor, compararMayorMenor, enviarCategorias, enviarStats, recibirInputBloques, crearRecords, actualizarRecords} from "./Source/funciones.js";
 import { listadatos, listapaises, listadias, listalabels, listalabelsPaises} from "./Source/listas.js";
 
 //PANTALLA 3 (adivinar pais)
@@ -28,4 +28,6 @@ subscribePOSTEvent("iniciarSesion",revisarlogin);
 subscribePOSTEvent("crearCuenta",crearcuenta);
 
 
-startServer(3001);
+//startServer(3001);
+
+crearRecords();
