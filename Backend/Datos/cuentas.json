@@ -1003,11 +1003,13 @@
     "contraseña": "1234",
     "stats": {
       "diario": {
-        "puntaje": null,
-        "rondasGanadas": 0,
-        "promedioPuntajes": null,
-        "listaPuntajes": [],
-        "intentosHechos": 0
+        "puntaje": 125,
+        "rondasGanadas": 3,
+        "promedioPuntajes": 3,
+        "listaPuntajes": [
+          125
+        ],
+        "intentosHechos": 12
       },
       "mayormenor": {
         "racha": 7,
@@ -1321,16 +1323,54 @@
         "comparacionesHechas": 58
       },
       "bloques": {
-        "puntaje": null,
-        "rondasGanadas": null,
-        "promedioPuntajes": null,
-        "listaPuntajes": [],
-        "categoriasPreguntadas": [],
-        "valoresPreguntados": [],
-        "listaValoresPreguntados": [],
+        "puntaje": 63,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 63,
+        "listaPuntajes": [
+          63
+        ],
+        "categoriasPreguntadas": {
+          "dato": "Puesto mundial en natalidad",
+          "cantidad": 11
+        },
+        "valoresPreguntados": [
+          {
+            "valor": 100,
+            "cantidad": 27
+          }
+        ],
+        "listaValoresPreguntados": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
         "valorPromedio": null,
         "categoriaMasPreguntada": {},
-        "preguntasHechas": 0
+        "preguntasHechas": 16
       }
     }
   },

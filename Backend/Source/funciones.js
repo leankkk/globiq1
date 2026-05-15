@@ -513,27 +513,34 @@ return data;
 
 export function crearRecords(){
 
-let keysdiario = Object.keys(Object.entries(cuentas)[0][1].stats.diario);
-let keysmayormenor = Object.keys(Object.entries(cuentas)[0][1].stats.mayormenor);
-let keysbloques = Object.keys(Object.entries(cuentas)[0][1].stats.bloques);
-
-for (let c = 0; c < keysdiario.length; c++) {
-    let nombrecat = keysdiario[c];
-
-for (let i = 0; i < Object.entries(cuentas).length; i++){
-    let nombrecuenta = Object.entries(cuentas)[i][0];
-    let valor = Object.entries(cuentas)[i][1].stats.diario[keysdiario[c]];
-    
-    console.log(nombrecat, nombrecuenta, valor);
-}
-}
-
 let diario = [];
 let mayormenor = [];
 let bloques = [];
 
+let modo = ["diario", "mayormenor", "bloques"];
+let records = {};
+let keys = {};
 
-return {diario,mayormenor,bloques}
+for (let a = 0; a < 3; a++){
+keys[modo[a]] = Object.keys(Object.entries(cuentas)[0][1].stats[modo[a]]);
+records[modo[a]] = [];
+for (let c = 0; c < keys[modo[a]].length; c++) {
+    let nombrecat = keys[modo[a]][c];
+    let valormax = 0;
+    let holder = "";
+    let catapta = true;
+for (let i = 0; i < Object.entries(cuentas).length && catapta === true; i++){
+    let nombrecuenta = Object.entries(cuentas)[i][0];
+    let valor = Object.entries(cuentas)[i][1].stats[modo[a]][keys[modo[a]][c]];
+    if (Array.isArray(valor)){catapta = false;}
+    if (valor > valormax && nombrecuenta !== "Sin usuario") valormax = valor, holder = nombrecuenta;
+    //console.log(nombrecat, holder, valormax);
+}
+if (catapta === false || valormax === 0) continue;
+records[modo[a]].push({nombre:nombrecat,usuario:holder,valor:valormax});
+}}
+
+return {records};
     //console.log(Object.entries(cuentas)[0][1]);
     
     /* DEBERIA DEVOLVER: 

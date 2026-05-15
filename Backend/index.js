@@ -28,6 +28,6 @@ subscribePOSTEvent("iniciarSesion",revisarlogin);
 subscribePOSTEvent("crearCuenta",crearcuenta);
 
 
-//startServer(3001);
+startServer(3001);
 
-crearRecords();
+console.log(crearRecords());

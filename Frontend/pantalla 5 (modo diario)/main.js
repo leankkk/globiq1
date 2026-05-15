@@ -35,7 +35,7 @@ function getStats(data) {
   stats.stats.diario.puntaje ??= intentos;
   stats.stats.diario.intentosHechos ??= 0;
   stats.stats.diario.listaPuntajes ??= [];
-  stats.stats.diario.puntaje = Math.min(intentos, stats.stats.diario.puntaje);
+  stats.stats.diario.puntaje = Math.max(Math.round(1000 / intentos), stats.stats.diario.puntaje);
   stats.stats.diario.intentosHechos += intentosHechos;
   stats.stats.diario.listaPuntajes.push(intentos);
   stats.stats.diario.promedioPuntajes = calcularPromedioPuntaje(stats);
@@ -85,8 +85,7 @@ boton.addEventListener('click', () => {
   intentosHechos++;
 
   if (respuesta === paisCorrecto) {
-    intentosDOM.innerText = "Cantidad de pistas: " + intentos;
-    popup.style.display = "flex";
+    intentosDOM.innerText = "Cantidad de pistas: " + intentos + "\br" + "Puntaje: "+ Math.round(1000 / intentos);
     enviarstats();
     input.disabled = true;
   } else {

@@ -25,8 +25,16 @@ let listaValores = [];
 let valoresPreguntados = [];
 
 function mostrarPopUp(preguntas,adivinar) {
-  mensajeResultado.innerText = "¡Adivinaste el país (" + labelPaisObjetivo + ")! Te llevó " + adivinar + " intentos y "+preguntas+" preguntas.";
-  modal.style.display = "block";
+  let puntaje = Math.round(1000 / preguntas);
+mensajeResultado.innerText =
+  "¡Adivinaste el país (" +
+  labelPaisObjetivo +
+  ")! Te llevó " +
+  adivinar +
+  " intentos y " +
+  preguntas +
+  " preguntas. Puntaje: " +
+  puntaje; modal.style.display = "block";
 }
   
 document.getElementById("btnJugar").addEventListener("click", () => {
@@ -137,16 +145,15 @@ function getStats(data) {
   stats.stats.bloques ??= {};
 
   let prevIntentos = Number(stats.stats.bloques.puntaje);
-  if (!Number.isFinite(prevIntentos)) prevIntentos = 0;
-  let currentIntentos = Number(intentosPreguntas);
-  if (!Number.isFinite(currentIntentos)) currentIntentos = 0;
-
-  let statintentos = Math.min(currentIntentos, prevIntentos || currentIntentos);
-
-  stats.stats.bloques.puntaje = statintentos;
-  console.log(intentosPreguntas, prevIntentos, stats.stats.bloques.puntaje);
-  stats.stats.bloques.puntaje ??= statintentos;
-stats.stats.bloques.listaPuntajes.push(currentIntentos);
+if (!Number.isFinite(prevIntentos)) prevIntentos = 0;
+let currentIntentos = Number(intentosPreguntas);
+if (!Number.isFinite(currentIntentos) || currentIntentos <= 0) currentIntentos = 1;
+let puntajeActual = Math.round(1000 / currentIntentos);
+let statintentos = Math.max(puntajeActual, prevIntentos);
+stats.stats.bloques.puntaje = statintentos;
+console.log(currentIntentos, puntajeActual, prevIntentos, stats.stats.bloques.puntaje);
+stats.stats.bloques.puntaje ??= statintentos;
+stats.stats.bloques.listaPuntajes.push(puntajeActual);
 stats.stats.bloques.promedioPuntajes = calcularPromedioRacha(stats);
 stats.stats.bloques.rondasGanadas++;
 stats.stats.bloques.preguntasHechas += intentosPreguntas;
