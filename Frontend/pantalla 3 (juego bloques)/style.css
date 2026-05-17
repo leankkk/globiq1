@@ -126,9 +126,10 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
-  margin-top: 40px;
-  text-align: center;
+  height: 100vh;
+  padding: 20px;
+  padding-top: 90px;
+  box-sizing: border-box;
 }
 
 
@@ -137,9 +138,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  font-size: 1.2em;
-  margin-bottom: 20px;
+  gap: 8px;
+  font-size: 1em;
+  margin-bottom: 12px;
 }
 
 .pregunta span {
@@ -147,8 +148,8 @@ body {
 }
 
 .slot {
-  width: 180px;
-  height: 40px;
+  width: 150px;
+  height: 34px;
   border: 2px dashed #bbb;
   border-radius: 8px;
   background-color: #fff;
@@ -157,7 +158,6 @@ body {
   align-items: center;
   color: #777;
   font-style: italic;
-  transition: border-color 0.3s, background-color 0.3s;
 }
 
 
@@ -189,15 +189,16 @@ body {
 }
 
 .bloque {
-  padding: 10px 20px;
+  padding: 7px 14px;
   background-color: #f0f0f0;
   border: 2px solid #ccc;
   border-radius: 6px;
   cursor: grab;
   user-select: none;
-  transition: background-color 0.2s, transform 0.2s;
   font-family: "Inter", sans-serif;
+  font-size: 0.9em;
 }
+
 .logo {
   position: absolute;     
   top: 15px;             
@@ -230,29 +231,27 @@ body {
 
 
 .mapa {
-  width: 75%;
-  height: 75vh;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  overflow: hidden;
   margin-top: 0;
-  overflow: visible;
-  padding-bottom: 0px;
-  flex-grow: 1;
 }
 
 .mapa svg {
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  height: 100%;
   object-fit: contain;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  transform: scale(1.04);
+  transform-origin: top center;
 }
 
 .land {
   fill: #d8d8d8;
-  stroke: #999;
+  stroke: transparent;
   stroke-width: 0.5;
   transition: fill 0.3s;
 }
@@ -272,16 +271,13 @@ body {
 
 
 .input-slot {
-  width: 180px;
-  height: 40px;
+  width: 120px;
+  height: 34px;
   border: 2px solid #bbb;
   border-radius: 8px;
   background-color: #fff;
   text-align: center;
-  font-size: 1.1em;
-  color: #333;
-  outline: none;
-  transition: border-color 0.3s, background-color 0.3s;
+  font-size: 1em;
 }
 
 .input-slot:focus {
@@ -290,16 +286,15 @@ body {
 }
 
 .boton-adivinar {
-  width: 180px;
-  height: 45px;
+  width: 140px;
+  height: 38px;
   border: 2px solid #bbb;
   border-radius: 8px;
   background-color: #fff;
   color: #333;
-  font-size: 1.1em;
+  font-size: 1em;
   cursor: pointer;
-  margin-bottom: 25px;
-  transition: background-color 0.3s, border-color 0.3s;
+  margin-bottom: 15px;
   font-family: "Inter", sans-serif;
 }
 
@@ -311,21 +306,20 @@ body {
 
 .listas-paises {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .lista {
-  width: 300px;
-  max-height: 250px;
+  width: 100%;
   background-color: #fff;
   border: 2px solid #bbb;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   overflow-y: auto;
-  padding: 10px;
+  padding: 12px;
   text-align: left;
   font-family: "Inter", sans-serif;
 }
@@ -393,28 +387,32 @@ body {
 
 .layout {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   gap: 30px;
-  margin-bottom: 30px;
+  height: 100%;
+  width: 100%;
 }
 
 .col {
-  flex: 1;
-  min-width: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .izquierda {
-  text-align: center;
+  flex: 1.15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
 }
 
 .derecha {
-  text-align: center;
+  width: 500px;
   border-left: 2px solid #ccc;
-  padding-left: 20px;
-  overflow: visible;
+  padding-left: 40px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .linea-divisoria {
   width: 2px;
@@ -422,4 +420,21 @@ body {
   background-color: #ccc;
   flex-shrink: 0;
   align-self: center;
+}
+
+.bloques {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+  min-height: 40px;
+}
+
+.lista {
+  max-height: 220px;
+}
+
+body {
+  overflow: hidden;
 }

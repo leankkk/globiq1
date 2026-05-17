@@ -2116,5 +2116,296 @@
         "preguntasHechas": 19
       }
     }
+  },
+  "juliannmarcozzi": {
+    "nombre": "juliannmarcozzi",
+    "contraseña": "flafymarcozzi",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 6,
+        "rondasJugadas": 14,
+        "promedioRachas": 2.357142857142857,
+        "listaRachas": [
+          1,
+          3,
+          3,
+          1,
+          3,
+          2,
+          6,
+          1,
+          1,
+          1,
+          6,
+          1,
+          1,
+          3
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "people.median_age.male.value",
+            "cantidad": 1,
+            "label": "Edad media en hombres"
+          },
+          {
+            "dato": "transportation.roadways.global_rank",
+            "cantidad": 3,
+            "label": "Puesto mundial en carreteras"
+          },
+          {
+            "dato": "energy.refined_petroleum_products.imports.bbl_per_day",
+            "cantidad": 3,
+            "label": "Importaciones derivados petróleo barriles por día"
+          },
+          {
+            "dato": "geography.land_use.by_sector.agricultural_land_total.value",
+            "cantidad": 3,
+            "label": "Porcentaje de tierra agrícola total"
+          },
+          {
+            "dato": "people.population.global_rank",
+            "cantidad": 3,
+            "label": "Puesto mundial en población"
+          },
+          {
+            "dato": "people.contraceptive_prevalence_rate.value",
+            "cantidad": 4,
+            "label": "Porcentaje de uso de anticonceptivos"
+          },
+          {
+            "dato": "energy.crude_oil.proved_reserves.global_rank",
+            "cantidad": 2,
+            "label": "Puesto mundial en reservas comprobadas de petróleo"
+          },
+          {
+            "dato": "economy.gdp.purchasing_power_parity.global_rank",
+            "cantidad": 1,
+            "label": "Puesto mundial en PIB PPA"
+          },
+          {
+            "dato": "economy.inflation_rate.annual_values",
+            "cantidad": 1,
+            "label": "Inflación anual"
+          },
+          {
+            "dato": "people.youth_unemployment.female.value",
+            "cantidad": 1,
+            "label": "Porcentaje de desempleo juvenil en mujeres"
+          },
+          {
+            "dato": "people.population.total",
+            "cantidad": 4,
+            "label": "Población total"
+          },
+          {
+            "dato": "energy.electricity.by_source.other_renewable_sources.percent",
+            "cantidad": 2,
+            "label": "Electricidad fuentes renovables %"
+          },
+          {
+            "dato": "energy.electricity.production.kWh",
+            "cantidad": 1,
+            "label": "Producción de electricidad en kWh"
+          },
+          {
+            "dato": "transportation.air_transport.heliports.total",
+            "cantidad": 1,
+            "label": "Helipuertos totales"
+          },
+          {
+            "dato": "people.net_migration_rate.migrants_per_1000_population",
+            "cantidad": 3,
+            "label": "Tasa de migración neta"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "gambia_the",
+            "cantidad": 1,
+            "label": "Gambia"
+          },
+          {
+            "pais": "laos",
+            "cantidad": 1,
+            "label": "Laos"
+          },
+          {
+            "pais": "mauritius",
+            "cantidad": 1,
+            "label": "Mauricio"
+          },
+          {
+            "pais": "lesotho",
+            "cantidad": 1,
+            "label": "Lesoto"
+          },
+          {
+            "pais": "angola",
+            "cantidad": 2,
+            "label": "Angola"
+          },
+          {
+            "pais": "indonesia",
+            "cantidad": 1,
+            "label": "Indonesia"
+          },
+          {
+            "pais": "solomon_islands",
+            "cantidad": 1,
+            "label": "Islas Salomón"
+          },
+          {
+            "pais": "belarus",
+            "cantidad": 1,
+            "label": "Bielorrusia"
+          },
+          {
+            "pais": "benin",
+            "cantidad": 1,
+            "label": "Benín"
+          },
+          {
+            "pais": "barbados",
+            "cantidad": 1,
+            "label": "Barbados"
+          },
+          {
+            "pais": "maldives",
+            "cantidad": 1,
+            "label": "Maldivas"
+          },
+          {
+            "pais": "sweden",
+            "cantidad": 1,
+            "label": "Suecia"
+          },
+          {
+            "pais": "japan",
+            "cantidad": 1,
+            "label": "Japón"
+          },
+          {
+            "pais": "italy",
+            "cantidad": 2,
+            "label": "Italia"
+          },
+          {
+            "pais": "mali",
+            "cantidad": 1,
+            "label": "Malí"
+          },
+          {
+            "pais": "south_africa",
+            "cantidad": 1,
+            "label": "Sudáfrica"
+          },
+          {
+            "pais": "guinea_bissau",
+            "cantidad": 1,
+            "label": "Guinea-Bisáu"
+          },
+          {
+            "pais": "djibouti",
+            "cantidad": 1,
+            "label": "Yibuti"
+          },
+          {
+            "pais": "equatorial_guinea",
+            "cantidad": 1,
+            "label": "Guinea Ecuatorial"
+          },
+          {
+            "pais": "hungary",
+            "cantidad": 1,
+            "label": "Hungría"
+          },
+          {
+            "pais": "russia",
+            "cantidad": 1,
+            "label": "Rusia"
+          },
+          {
+            "pais": "monaco",
+            "cantidad": 1,
+            "label": "Mónaco"
+          },
+          {
+            "pais": "united_states",
+            "cantidad": 1,
+            "label": "Estados Unidos"
+          },
+          {
+            "pais": "philippines",
+            "cantidad": 1,
+            "label": "Filipinas"
+          },
+          {
+            "pais": "mozambique",
+            "cantidad": 1,
+            "label": "Mozambique"
+          },
+          {
+            "pais": "tajikistan",
+            "cantidad": 1,
+            "label": "Tayikistán"
+          },
+          {
+            "pais": "seychelles",
+            "cantidad": 1,
+            "label": "Seychelles"
+          },
+          {
+            "pais": "new_zealand",
+            "cantidad": 1,
+            "label": "Nueva Zelanda"
+          },
+          {
+            "pais": "austria",
+            "cantidad": 1,
+            "label": "Austria"
+          },
+          {
+            "pais": "kosovo",
+            "cantidad": 1,
+            "label": "Kosovo"
+          },
+          {
+            "pais": "malta",
+            "cantidad": 1,
+            "label": "Malta"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "people.contraceptive_prevalence_rate.value",
+          "cantidad": 4,
+          "label": "Porcentaje de uso de anticonceptivos"
+        },
+        "paisMasAcertado": {
+          "pais": "angola",
+          "cantidad": 2,
+          "label": "Angola"
+        },
+        "comparacionesHechas": 47
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
   }
 }
