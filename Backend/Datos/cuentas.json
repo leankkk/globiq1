@@ -4,9 +4,9 @@
     "contraseña": "",
     "stats": {
       "diario": {
-        "puntaje": 0,
-        "rondasGanadas": 13,
-        "promedioPuntajes": 2.923076923076923,
+        "puntaje": null,
+        "rondasGanadas": 18,
+        "promedioPuntajes": 2.3333333333333335,
         "listaPuntajes": [
           8,
           8,
@@ -20,9 +20,14 @@
           1,
           0,
           3,
-          2
+          2,
+          2,
+          1,
+          1,
+          0,
+          0
         ],
-        "intentosHechos": 42
+        "intentosHechos": 49
       },
       "mayormenor": {
         "racha": 14,
@@ -1003,18 +1008,27 @@
     "contraseña": "1234",
     "stats": {
       "diario": {
-        "puntaje": 125,
-        "rondasGanadas": 3,
-        "promedioPuntajes": 3,
+        "puntaje": 1000,
+        "rondasGanadas": 10,
+        "promedioPuntajes": 14.5,
         "listaPuntajes": [
-          125
+          125,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          8,
+          8
         ],
-        "intentosHechos": 12
+        "intentosHechos": 39
       },
       "mayormenor": {
         "racha": 7,
-        "rondasJugadas": 14,
-        "promedioRachas": 3.142857142857143,
+        "rondasJugadas": 15,
+        "promedioRachas": 3.1333333333333333,
         "listaRachas": [
           3,
           3,
@@ -1029,7 +1043,8 @@
           1,
           1,
           7,
-          5
+          5,
+          3
         ],
         "categoriasAcertadas": [
           {
@@ -1101,6 +1116,11 @@
             "dato": "people.maternal_mortality_rate.global_rank",
             "cantidad": 1,
             "label": "Puesto mundial en mortalidad materna"
+          },
+          {
+            "dato": "energy.natural_gas.proved_reserves.global_rank",
+            "cantidad": 3,
+            "label": "Puesto mundial en reservas comprobadas gas natural"
           }
         ],
         "paisesAcertados": [
@@ -1308,6 +1328,21 @@
             "pais": "iraq",
             "cantidad": 1,
             "label": "Irak"
+          },
+          {
+            "pais": "yemen",
+            "cantidad": 1,
+            "label": "Yemen"
+          },
+          {
+            "pais": "guyana",
+            "cantidad": 1,
+            "label": "Guyana"
+          },
+          {
+            "pais": "croatia",
+            "cantidad": 1,
+            "label": "Croacia"
           }
         ],
         "categoriaMasAcertada": {
@@ -1320,7 +1355,7 @@
           "cantidad": 2,
           "label": "Moldavia"
         },
-        "comparacionesHechas": 58
+        "comparacionesHechas": 62
       },
       "bloques": {
         "puntaje": 63,

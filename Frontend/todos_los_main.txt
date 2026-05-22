@@ -1,0 +1,1167 @@
+﻿=== D:\Users\Usuario\Downloads\globiq1\Frontend\cuenta\main.js ===
+connect2Server(3001);
+
+let nombreUsuario = document.getElementById("nombreUsuario");
+let usuario = sessionStorage.getItem("usuario") || "Sin usuario";
+nombreUsuario.textContent = usuario;
+
+let statsDiario = document.getElementById("statsDiario");
+let statsHL = document.getElementById("statsHL");
+let statsBloques = document.getElementById("statsBloques");
+let listaDiario = document.getElementById("listaDiario");
+let listaMayorMenor = document.getElementById("listaMayorMenor");
+let listaBloques = document.getElementById("listaBloques");
+
+function formatearString(string) {
+  const result = string.replace(/([A-Z])/g, ' $1');
+  return result.charAt(0).toUpperCase() + result.slice(1);
+}
+
+function esMostrable(valor) {
+  if (valor === null) return false;
+  if (Array.isArray(valor) && valor.length === 0) return false;
+  if (typeof valor === "object" && !valor.label) return false;
+  return true;
+}
+
+function llenarLista(listaDOM, infoObj) {
+  Object.entries(infoObj).forEach(([clave, valor]) => {
+    if (esMostrable(valor)) {
+      let li = document.createElement("li");
+      let texto = (typeof valor === "object" && valor.label) ? valor.label : valor;
+      li.textContent = formatearString(clave) + ": " + texto;
+      listaDOM.appendChild(li);
+    }
+  });
+}
+
+function mostrarStats(data) {
+  llenarLista(listaDiario, data.stats.diario);
+  llenarLista(listaMayorMenor, data.stats.mayormenor);
+  llenarLista(listaBloques, data.stats.bloques);
+}
+
+postEvent("enviarStatsAlFront", { nombre: usuario }, mostrarStats);
+
+document.getElementById("btnLogout").addEventListener("click", function () {
+  sessionStorage.removeItem("usuario");
+  window.location.href = "../pantalla 6 (login)/index.html";
+});
+
+=== D:\Users\Usuario\Downloads\globiq1\Frontend\home\main.js ===
+let usuario = sessionStorage.getItem("usuario");
+let ayudaBtn = document.querySelector('.ayuda'); 
+let cerrarBtn = document.querySelector('.cerrar'); 
+let cuentaBtn = document.getElementById("cuentaBtn");  
+let popup = document.getElementById("popup");  
+let btnMostrarPopup = document.getElementById("btnMostrarPopup");  
+let popupContent = document.querySelector('.popup-content'); 
+
+
+cuentaBtn.addEventListener("click", () => {
+  console.log(usuario);
+  if (usuario === "Sin usuario" || !usuario) {
+    window.location.href = "/Frontend/pantalla 6 (login)/index.html";
+  } else {
+    window.location.href = "/Frontend/cuenta/index.html";
+  }
+});
+
+
+ayudaBtn.addEventListener('click', () => {
+  popup.style.display = "flex";  
+});
+
+
+cerrarBtn.addEventListener('click', () => {
+  popup.style.display = "none";  
+});
+
+
+window.addEventListener('click', (e) => {
+  if (e.target === popup) {  
+    popup.style.display = "none";
+  }
+});
+
+=== D:\Users\Usuario\Downloads\globiq1\Frontend\pantalla 3 (juego bloques)\main.js ===
+connect2Server(3001);
+
+let modal = document.getElementById("myModal");
+let mensajeResultado = document.getElementById("mensajeResultado");
+let bloquesContainer = document.getElementById('bloques');
+let bloque1 = document.getElementById('bloque1');
+let bloque2 = document.getElementById('bloque2');
+let bloque3 = document.getElementById('bloque3');
+let bloque4 = document.getElementById('bloque4');
+let bloque5 = document.getElementById('bloque5');
+let slots = document.querySelectorAll('.slot');
+let respuesta = document.getElementById("respuestaDiv");
+let inputAdivinarPais = document.getElementById('inputFinal');
+let labelPaisObjetivo;
+let dragged = null;
+let input = {};
+let intentosPreguntas = 0;
+let intentosDeAdivinar = 0;
+let paisobjetivo;
+let listadescartados;
+let listaposibles;
+let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
+let categoriasPreguntadas = [];
+let listaValores = [];
+let valoresPreguntados = [];
+
+function mostrarPopUp(preguntas,adivinar) {
+  let puntaje = Math.round(1000 / preguntas);
+mensajeResultado.innerText =
+  "Â¡Adivinaste el paÃ­s (" +
+  labelPaisObjetivo +
+  ")! Te llevÃ³ " +
+  adivinar +
+  " intentos y " +
+  preguntas +
+  " preguntas. Puntaje: " +
+  puntaje; modal.style.display = "block";
+}
+  
+document.getElementById("btnJugar").addEventListener("click", () => {
+  location.reload();
+});
+
+document.getElementById("btnPrincipal").addEventListener("click", () => {
+  window.location.href = "../home/index.html";
+});
+
+//FUNCIÃ“N DE STATS LISTAS CATEGORIAS Y PAISES
+function compararListasAcertados(info,esCategoria){
+//version para categorias
+    if (esCategoria){
+console.log(esCategoria,info)
+let categoriasEnStats = info.stats.bloques.categoriasPreguntadas;
+//hasta aca td bien
+for (let i = 0; i < categoriasPreguntadas.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
+    console.log("Se pasÃ³ a la categorÃ­a "+(i+1)+" de las acertadas actuales: ",categoriasPreguntadas[i]);
+    let existe = false;
+    for (let c = 0; c < categoriasEnStats.length; c++){
+        if (categoriasEnStats[c].dato === categoriasPreguntadas[i].dato){
+            categoriasEnStats[c].cantidad += categoriasPreguntadas[i].cantidad;
+            console.log(categoriasEnStats[c].cantidad);
+            existe = true;
+        }
+        console.log("c =",c)
+    }
+    if (existe === false) categoriasEnStats.push(categoriasPreguntadas[i]);
+
+}
+return categoriasEnStats;
+}
+if (!esCategoria){
+    console.log(esCategoria,info)
+    let valoresEnStats = info.stats.mayormenor.valoresPreguntados ?? [];
+    //hasta aca td bien
+    for (let i = 0; i < valoresPreguntados.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
+        console.log("Se pasÃ³ a la categorÃ­a "+(i+1)+" de las acertadas actuales: ",valoresPreguntados[i]);
+        let existe = false;
+        for (let c = 0; c < valoresEnStats.length; c++){
+            if (valoresEnStats[c].valor === valoresPreguntados[i].valor){
+                valoresEnStats[c].cantidad += valoresPreguntados[i].cantidad;
+                console.log(valoresEnStats[c].cantidad);
+                existe = true;
+            }
+            console.log("c =",c)
+        }
+        if (existe === false) valoresEnStats.push(valoresPreguntados[i]);
+    
+    }
+    return valoresEnStats;
+    }
+}
+
+
+
+function actualizarCategorias(data) {
+  categorias = data;
+  bloque1.innerText = categorias[0].label;
+  bloque2.innerText = categorias[1].label;
+  bloque3.innerText = categorias[2].label;
+  bloque4.innerText = categorias[3].label;
+  bloque5.innerText = categorias[4].label;
+};
+
+function evaluarRespuestaFront(data) {
+  listadescartados = data.listadescartados;
+  listaposibles = data.listaposibles;
+  intentosPreguntas = data.intentos;
+
+  if (data.victoria) {
+    mostrarPopUp(intentosPreguntas,intentosDeAdivinar);
+    enviarstats();
+    document.getElementById("btnAdivinar").disabled = true;
+    getEvent("iniciarBloques", establecerVariablesInicio);
+  } else {
+    respuesta.classList.remove("invisible");
+    respuesta.innerText = "Respuesta: " + data.respuesta;
+
+    actualizarListasFront(data.listaposibles, data.listadescartados);
+
+    actualizarMapa(data.listaposibles, data.listadescartados);
+
+    postEvent("obtenerCategorias", { pais: paisobjetivo }, actualizarCategorias);
+  }
+}
+
+function calcularMasPreguntado(lista){
+  let indiceDelMayor = 0;
+  for (let i = 1; i < lista.length; i++){
+    if (lista[i].cantidad > lista[indiceDelMayor].cantidad) indiceDelMayor = i;
+  }
+  return lista[indiceDelMayor];
+}
+
+
+async function enviarstats() {
+  console.log("envio de stats iniciado");
+  postEvent("enviarStatsAlFront", { nombre: usuario }, getStats);
+}
+
+function getStats(data) {
+  stats = data;
+  console.log(stats);
+  if (!stats) stats = {};
+  stats.stats ??= {};
+  stats.stats.bloques ??= {};
+
+  let prevIntentos = Number(stats.stats.bloques.puntaje);
+if (!Number.isFinite(prevIntentos)) prevIntentos = 0;
+let currentIntentos = Number(intentosPreguntas);
+if (!Number.isFinite(currentIntentos) || currentIntentos <= 0) currentIntentos = 1;
+let puntajeActual = Math.round(1000 / currentIntentos);
+let statintentos = Math.max(puntajeActual, prevIntentos);
+stats.stats.bloques.puntaje = statintentos;
+console.log(currentIntentos, puntajeActual, prevIntentos, stats.stats.bloques.puntaje);
+stats.stats.bloques.puntaje ??= statintentos;
+stats.stats.bloques.listaPuntajes.push(puntajeActual);
+stats.stats.bloques.promedioPuntajes = calcularPromedioRacha(stats);
+stats.stats.bloques.rondasGanadas++;
+stats.stats.bloques.preguntasHechas += intentosPreguntas;
+let statvaloresPreguntados = compararListasAcertados(stats,false) ?? valoresPreguntados;
+ let statcategoriasPreguntadas = compararListasAcertados(stats,true) ?? categoriasPreguntadas;
+ stats.stats.bloques.categoriasPreguntadas = statcategoriasPreguntadas;
+ stats.stats.bloques.valoresPreguntados = statvaloresPreguntados;
+ stats.stats.bloques.valorPromedio = calcularPromedioRacha(stats,true)
+stats.stats.bloques.listaValoresPreguntados.push(...listaValores);
+console.log(calcularMasPreguntado(stats.stats.bloques.categoriasPreguntadas));
+stats.stats.bloques.categoriasPreguntadas = calcularMasPreguntado(stats.stats.bloques.categoriasPreguntadas);
+  postEvent("guardarStatsEnElBack", stats, guardarStats);
+}
+
+function guardarStats() { };
+
+
+function calcularPromedioRacha(stats,esValorPromedio){
+  if (esValorPromedio){
+     let sumatoria = 0;
+    for (let i = 0; i < stats.stats.bloques.valoresPreguntados.length; i++){
+      sumatoria += stats.stats.bloques.valoresPreguntados[i]
+    }
+    return sumatoria / stats.stats.bloques.valoresPreguntados.length;
+    }
+    else {
+  let sumatoria = 0;
+    for (let i = 0; i < stats.stats.bloques.listaPuntajes.length; i++){
+      sumatoria += stats.stats.bloques.listaPuntajes[i]
+    }
+    return sumatoria / stats.stats.bloques.listaPuntajes.length;}
+    }
+
+function establecerVariablesInicio(data) {
+  intentosPreguntas = 0; // debe empezar con 3, no con 0
+  paisobjetivo = data.pais;
+  labelPaisObjetivo = data.labelPaisObjetivo;
+  listadescartados = [];
+  listaposibles = data.listaposibles;
+  categorias = data.categorias;
+  bloque1.innerText = categorias[0].label;
+  bloque2.innerText = categorias[1].label;
+  bloque3.innerText = categorias[2].label;
+  bloque4.innerText = categorias[3].label;
+  bloque5.innerText = categorias[4].label;
+}
+
+
+getEvent("iniciarBloques", establecerVariablesInicio);
+// --- BLOQUES ARRASTRABLES --- //
+document.querySelectorAll('.bloque').forEach(bloque => {
+  bloque.addEventListener('dragstart', e => {
+    dragged = e.target;
+    e.dataTransfer.effectAllowed = "move";
+    setTimeout(() => bloque.style.opacity = "0.3", 0);
+  });
+
+  bloque.addEventListener('dragend', () => {
+    dragged.style.opacity = "1";
+    dragged = null;
+  });
+});
+
+// --- SLOTS (permiten soltar) --- //
+slots.forEach(slot => {
+  slot.addEventListener('dragover', e => {
+    e.preventDefault();
+
+    // Restricciones especÃ­ficas del bloque MOM
+    if (dragged && dragged.id === "MOM" && slot.id !== "slot2") return;
+    if (dragged && dragged.id !== "MOM" && slot.id === "slot2") return;
+
+    slot.classList.add('hovered');
+  });
+
+  slot.addEventListener('dragleave', () => {
+    slot.classList.remove('hovered');
+  });
+
+  slot.addEventListener('drop', e => {
+    e.preventDefault();
+    slot.classList.remove('hovered');
+
+    // Restricciones especÃ­ficas del bloque MOM
+    if (dragged && dragged.id === "MOM" && slot.id !== "slot2") return;
+    if (dragged && dragged.id !== "MOM" && slot.id === "slot2") return;
+
+    // Si el slot ya tiene algo, lo devuelve al contenedor de bloques
+    if (slot.firstChild) {
+      bloquesContainer.appendChild(slot.firstChild);
+    }
+
+    slot.appendChild(dragged);
+    dragged.style.margin = "0";
+  });
+});
+
+// --- NUEVO: PERMITIR SACAR BLOQUES DE LOS SLOTS --- //
+bloquesContainer.addEventListener('dragover', e => e.preventDefault());
+bloquesContainer.addEventListener('drop', e => {
+  e.preventDefault();
+
+  // ðŸ§© CAMBIO: ahora tambiÃ©n devuelve bloques que estaban en un slot
+  if (dragged) {
+    bloquesContainer.appendChild(dragged);
+    dragged.style.margin = "5px";
+  }
+});
+
+// ðŸ§© NUEVO: tambiÃ©n permitir soltar en el body (espacio libre)
+document.body.addEventListener('dragover', e => e.preventDefault());
+document.body.addEventListener('drop', e => {
+  // Si se suelta fuera de slots o del contenedor, lo devuelve igual
+  if (dragged && !e.target.classList.contains('slot') && !e.target.classList.contains('bloque')) {
+    bloquesContainer.appendChild(dragged);
+    dragged.style.margin = "5px";
+  }
+});
+
+
+let valorSlot1 = "";
+let valorSlot2 = "";
+let valorInputFinal = 0;
+
+document.getElementById('btnAdivinar').addEventListener('click', () => {
+  valorSlot1 = document.querySelector('#slot1').textContent.trim();
+  valorSlot2 = document.querySelector('#slot2').textContent.trim();
+  valorInputFinal = document.querySelector('#inputFinal').value.trim();
+
+  // Validar que todo estÃ© completo
+  if (!valorSlot1 || !valorSlot2 || !valorInputFinal) {
+    mostrarError("Debes completar todos los campos antes de adivinar.");
+    return;
+  }
+
+  input = {
+    comparacion: valorSlot2,
+    valor: parseInt(valorInputFinal),
+    categoria: valorSlot1
+  };
+
+  listaValores.push(input.valor);
+
+let existente = categoriasPreguntadas.find(obj => obj.dato === input.categoria);
+if (existente) {
+  existente.cantidad++;
+} else {
+  categoriasPreguntadas.push({dato:input.categoria, cantidad: 1 });
+}
+
+let existente2 = valoresPreguntados.find(obj => obj.valor === input.valor);
+if (existente2) {
+  existente2.cantidad++;
+} else {
+  valoresPreguntados.push({valor:input.valor, cantidad: 1 });
+}
+
+  postEvent("evaluarRespuestaBloques", {
+    input: input,
+    paisobjetivo: paisobjetivo,
+    intentos: intentosPreguntas,
+    listadescartados: listadescartados,
+    listaposibles: listaposibles,
+  }, evaluarRespuestaFront);
+});
+
+
+function actualizarListasFront(posibles, descartados) {
+  const ulPosibles = document.getElementById("ulPosibles");
+  const ulDescartados = document.getElementById("ulDescartados");
+
+  ulPosibles.innerHTML = "";
+  ulDescartados.innerHTML = "";
+
+  posibles.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = p.label || p.pais;
+    ulPosibles.appendChild(li);
+  });
+
+  descartados.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = p.label || p.pais;
+    ulDescartados.appendChild(li);
+  });
+
+  document.getElementById("posiblesHTMLTexto").innerText = "Posibles (" + posibles.length + ")";
+  document.getElementById("descartadosHTMLTexto").innerText = "Descartados (" + descartados.length + ")";
+}
+
+function actualizarMapa(posibles, descartados) {
+  // Quitar colores previos
+  document.querySelectorAll("svg .land").forEach(pais => {
+    pais.classList.remove("posible", "descartado");
+  });
+
+  // Pintar los posibles de azul
+  posibles.forEach(p => {
+    if (p.codigo) {
+      const el = document.getElementById(p.codigo);
+      if (el) el.classList.add("posible");
+    }
+  });
+
+  // Pintar los descartados de rojo
+  descartados.forEach(p => {
+    if (p.codigo) {
+      const el = document.getElementById(p.codigo);
+      if (el) el.classList.add("descartado");
+    }
+  });
+}
+
+
+// FunciÃ³n para mostrar popup de error
+function mostrarError(mensaje) {
+  const errorModal = document.getElementById("errorModal");
+  const errorMensaje = document.getElementById("errorMensaje");
+  errorMensaje.innerText = mensaje;
+  errorModal.style.display = "block";
+}
+
+// Cerrar el popup
+document.getElementById("cerrarError").addEventListener("click", () => {
+  document.getElementById("errorModal").style.display = "none";
+});
+
+// TambiÃ©n cerrar si se hace clic fuera
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("errorModal");
+  if (e.target === modal) modal.style.display = "none";
+});
+
+
+document.getElementById("btnAdivinarPais").addEventListener("click", () => {
+  const inputPais = document.getElementById("inputAdivinarPais").value.trim();
+
+  if (!inputPais) {
+    mostrarError("Debes ingresar un paÃ­s antes de adivinar.");
+    return;
+  }
+
+  // Si ya se quedÃ³ sin intentos
+  if (intentosDeAdivinar >= 3) {
+    mostrarError("No te quedan mÃ¡s intentos.");
+    document.getElementById("btnAdivinarPais").disabled = true;
+    return;
+  }
+
+  // Comparar con el paÃ­s objetivo
+  if (inputPais.toLowerCase() === labelPaisObjetivo.toLowerCase()) {
+    intentosDeAdivinar++;
+    mostrarPopUp(intentosPreguntas,intentosDeAdivinar);
+    enviarstats();
+    document.getElementById("btnAdivinarPais").disabled = true;
+    document.getElementById("btnAdivinar").disabled = true;
+  } else {
+    intentosDeAdivinar++;
+    if (intentosDeAdivinar !== 3) {
+      mostrarError(`Incorrecto. Te quedan ${3-intentosDeAdivinar} intento${3-intentosDeAdivinar === 1 ? "" : "s"}.`);
+    } else {
+      mostrarError("Incorrecto. No te quedan mÃ¡s intentos.");
+      document.getElementById("btnAdivinarPais").disabled = true;
+      //document.getElementById("btnAdivinar").disabled = true;
+    }
+  }
+});
+
+=== D:\Users\Usuario\Downloads\globiq1\Frontend\pantalla 4 (higher lower)\main.js ===
+document.addEventListener("DOMContentLoaded", () => {
+  connect2Server(3001);
+  postEvent("iniciarMayorMenor",{}, iniciarMayorMenor); 
+});
+
+let flag1 = document.getElementById("flag1");
+let flag2 = document.getElementById("flag2");
+let paisInicialNombre = document.getElementById("nombrePaisIZQ");
+let pais2Nombre = document.getElementById("nombrePaisDER");
+let paisInicialDato = document.getElementById("paisInicialDato");
+let botonMayor = document.getElementById("btnMayor");
+let botonMenor = document.getElementById("btnMenor");
+let btnCambiarCategoria = document.getElementById("btnCambiarCategoria");
+let rachaContador = document.getElementById("rachaContador");
+let comparacionesHechas = 0;
+let ayudaBtn = document.querySelector('.ayuda');
+let popupAyuda = document.getElementById("popup");
+let cerrarBtn = document.querySelector('.cerrar'); 
+let usuario = sessionStorage.getItem("usuario");
+
+
+let infousuario;
+let categoriasAcertadas = [];
+let paisesAcertados = [];
+
+let intentosCambiarCategoria = 3;
+let paisInicial;
+let labelpaisInicial;
+let labelpais2;
+let pais2;
+let dato;
+let valorInicial;
+let label;
+let timer;
+let paisDiario = "placeholder";
+//esto estÃ¡ de repuesto. en realidad paÃ­s diario se deberÃ­a establkecer con la funciÃ³n
+
+let racha = 0;
+let puntaje = 0;
+let paises = [];  
+
+//FUNCIÃ“N DE STATS LISTAS CATEGORIAS Y PAISES
+function compararListasAcertados(info,esCategoria){
+//version para categorias
+    if (esCategoria){
+console.log(esCategoria,info)
+let categoriasEnStats = info.stats.mayormenor.categoriasAcertadas;
+//hasta aca td bien
+for (let i = 0; i < categoriasAcertadas.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
+    console.log("Se pasÃ³ a la categorÃ­a "+(i+1)+" de las acertadas actuales: ",categoriasAcertadas[i]);
+    let existe = false;
+    for (let c = 0; c < categoriasEnStats.length; c++){
+        if (categoriasEnStats[c].dato === categoriasAcertadas[i].dato){
+            categoriasEnStats[c].cantidad += categoriasAcertadas[i].cantidad;
+            console.log(categoriasEnStats[c].cantidad);
+            existe = true;
+        }
+        console.log("c =",c)
+    }
+    if (existe === false) categoriasEnStats.push(categoriasAcertadas[i]);
+
+}
+return categoriasEnStats;
+}
+if (!esCategoria){
+    console.log(esCategoria,info)
+    let paisesEnStats = info.stats.mayormenor.paisesAcertados;
+    //hasta aca td bien
+    for (let i = 0; i < paisesAcertados.length; i++){ //loop para ver cuales se repiten entre nuestra lista y la otra
+        console.log("Se pasÃ³ a la categorÃ­a "+(i+1)+" de las acertadas actuales: ",paisesAcertados[i]);
+        let existe = false;
+        for (let c = 0; c < paisesEnStats.length; c++){
+            if (paisesEnStats[c].pais === paisesAcertados[i].pais){
+                paisesEnStats[c].cantidad += paisesAcertados[i].cantidad;
+                console.log(paisesEnStats[c].cantidad);
+                existe = true;
+            }
+            console.log("c =",c)
+        }
+        if (existe === false) paisesEnStats.push(paisesAcertados[i]);
+    
+    }
+    return paisesEnStats;
+    }
+}
+
+function establecerBandera(codigo, inicial) {
+  const num = inicial ? 1 : 2;
+  const bandera = document.getElementById("flag" + num);
+  if (!bandera) return;
+  bandera.className = "";
+  void bandera.offsetWidth;
+  bandera.className = "fi fi-" + codigo.toLowerCase();
+}
+
+
+function calcularMasAcertado(lista){
+  let indiceDelMayor = 0;
+  for (let i = 1; i < lista.length; i++){
+    if (lista[i].cantidad > lista[indiceDelMayor].cantidad) indiceDelMayor = i;
+  }
+  return lista[indiceDelMayor];
+}
+
+
+
+function calcularPromedioRacha(stats){
+    let sumatoria = 0;
+    for (let i = 0; i < stats.stats.mayormenor.listaRachas.length; i++){
+      sumatoria += stats.stats.mayormenor.listaRachas[i]
+    }
+    return sumatoria / stats.stats.mayormenor.listaRachas.length;
+    }
+
+function cambiarCategoria(){
+    if (intentosCambiarCategoria > 0){
+postEvent("cambiarCategoria",{paisInicial: paisInicial, 
+    labelpaisInicial: labelpaisInicial,
+        pais2: pais2,
+        labelpais2: labelpais2,
+        dato: dato,
+        valorInicial: valorInicial,
+        labelvalorInicial: labelvalorInicial,
+        label: label,
+        timer: timer},iniciarMayorMenor);
+        intentosCambiarCategoria--;
+        btnCambiarCategoria.innerText = "Cambiar de categorÃ­a (" + intentosCambiarCategoria + ")";
+    }
+    else if (intentosCambiarCategoria === 0) btnCambiarCategoria.disabled = "true";
+
+
+}
+
+function iniciarMayorMenor(data) {
+    paisInicial = data.paisInicial; 
+labelpaisInicial = data.labelpaisInicial;
+    pais2 = data.pais2;
+    labelpais2 = data.labelpais2;
+    dato = data.dato;
+    valorInicial = data.valorInicial;
+    labelvalorInicial = data.labelvalorInicial;
+    label = data.label;
+    timer = data.timer;
+    paisInicialNombre.innerText = labelpaisInicial;
+    paisInicialDato.innerText = labelvalorInicial;
+    pais2Nombre.innerText = labelpais2;
+    categoriaNombre.innerText = label;
+    establecerBandera(data.idPaisInicial,true);
+    establecerBandera(data.idPais2,false);
+  }
+
+
+
+  //STATS
+
+
+  async function enviarstats(){
+   // console.log("envio de stats iniciado")
+postEvent("enviarStatsAlFront",{nombre:usuario},getStats);
+}
+
+function getStats(data){
+ infousuario = data;
+ //console.log(infousuario);
+ //para la racha
+ let racha = (Math.max(timer,infousuario.stats.mayormenor.racha)) ?? timer;
+ infousuario.stats.mayormenor.racha = racha;
+ //para listas categorias y eso
+ let statpaisesAcertados = compararListasAcertados(infousuario,false) ?? paisesAcertados;
+ let statcategoriasAcertadas = compararListasAcertados(infousuario,true) ?? categoriasAcertadas;
+ infousuario.stats.mayormenor.categoriasAcertadas = statcategoriasAcertadas;
+ infousuario.stats.mayormenor.paisesAcertados = statpaisesAcertados;
+ infousuario.stats.mayormenor.listaRachas.push(timer);
+ infousuario.stats.mayormenor.promedioRachas = calcularPromedioRacha(infousuario);
+ infousuario.stats.mayormenor.categoriaMasAcertada = calcularMasAcertado(statcategoriasAcertadas);
+ infousuario.stats.mayormenor.paisMasAcertado = calcularMasAcertado(statpaisesAcertados);
+ infousuario.stats.mayormenor.rondasJugadas++;
+ infousuario.stats.mayormenor.comparacionesHechas += comparacionesHechas;
+ //console.log(racha, timer, infousuario.stats.mayormenor.racha);
+ //racha de dias
+console.log(infousuario);
+ postEvent("guardarStatsEnElBack",infousuario,guardarStats);
+}
+
+function guardarStats(){};
+
+
+
+//
+
+function evaluarResultado(data){
+if (data.victoria) {
+ paisInicial = data.paisInicial; 
+    pais2 = data.pais2;
+    dato = data.dato;
+    labelpaisInicial = data.labelpaisInicial;
+    labelvalorInicial = data.labelvalorInicial;
+    timer = data.timer;
+    paisInicialNombre.innerText = data.labelpaisInicial;
+    paisInicialDato.innerText = data.labelvalorInicial;
+    pais2Nombre.innerText = data.labelpais2;
+    categoriaNombre.innerText = data.label;
+    rachaContador.innerText = timer;
+let existente = categoriasAcertadas.find(obj => obj.dato === dato);
+if (existente) {
+  existente.cantidad++;
+} else {
+  categoriasAcertadas.push({ dato, cantidad: 1, label: data.label});
+}
+
+console.log(paisesAcertados);
+let existente2 = paisesAcertados.find(obj => obj.pais === paisInicial);
+if (existente2) {
+  existente2.cantidad++;
+} else {
+  paisesAcertados.push({pais: paisInicial, cantidad: 1, label: data.labelpaisInicial});
+}
+
+establecerBandera(data.idPaisInicial,true);
+establecerBandera(data.idPais2,false);
+}
+else {
+    mostrarPopUp(data.timer);
+    if (timer >= 1) enviarstats();
+    pais2Nombre.innerText = labelpais2 + ": "+data.valorPais2;
+    //se muestra undefined en el nombre de pais 2. eso es porque en el backend se reemplaza labelpais2 por el nuevo pais y el viejo se pierde. agregar forma de arreglarlo. vincular con sist. de quemados
+    }
+}
+
+
+botonMayor.addEventListener("click", ()=> {
+    postEvent("evaluarRespuesta", {input: false, timer: timer, paisInicial: paisInicial, labelpaisInicial: labelpaisInicial, pais2: pais2, labelpais2: labelpais2, dato: dato, valorInicial: valorInicial, }, evaluarResultado);
+    comparacionesHechas++;
+});
+
+botonMenor.addEventListener("click", ()=> {
+    postEvent("evaluarRespuesta", {input: true, timer: timer, paisInicial: paisInicial, labelpaisInicial: labelpaisInicial, pais2: pais2, labelpais2: labelpais2, dato: dato, valorInicial: valorInicial}, evaluarResultado);
+    comparacionesHechas++;
+});
+
+
+let modal = document.getElementById("myModal");
+let span = document.getElementsByClassName("close")[0];
+let mensajeResultado = document.getElementById("mensajeResultado");
+let btnJugar = document.getElementById("btnJugar");
+let btnPrincipal = document.getElementById("btnPrincipal");
+
+
+function mostrarPopUp(puntaje) {
+    mensajeResultado.innerText = "Â¡Perdiste! Tu puntaje es: " + puntaje;
+    modal.style.display = "block"; 
+}
+
+
+btnCambiarCategoria.addEventListener("click",cambiarCategoria);
+
+
+ayudaBtn.addEventListener('click', () => {
+  popupAyuda.style.display = "flex";
+});
+
+document.querySelector(".cerrar").addEventListener("click", () => {
+  popupAyuda.style.display = "none";
+});
+
+
+
+
+btnJugar.onclick = function() {
+    modal.style.display = "none";
+
+
+    location.reload();  
+}
+
+
+btnPrincipal.onclick = function() {
+    window.location.href = "../home/index.html";  
+}
+
+ayudaBtn.addEventListener('click', () => {
+  popupAyuda.style.display = "flex";  
+});
+
+document.querySelector(".cerrar").addEventListener("click", () => {
+  popupAyuda.style.display = "none";
+});
+
+cuentaBtn.addEventListener("click", () => {
+  console.log(usuario);
+  if (usuario === "Sin usuario" || !usuario) {
+    window.location.href = "/Frontend/pantalla 6 (login)/index.html";
+  } else {
+    window.location.href = "/Frontend/cuenta/index.html";
+  }
+});
+
+=== D:\Users\Usuario\Downloads\globiq1\Frontend\pantalla 5 (modo diario)\main.js ===
+connect2Server(3001);
+
+let input = document.getElementById('input');
+let boton = document.getElementById('enviar');
+let listaPistas = document.getElementById('listaPistas');
+let popup = document.getElementById('popup');
+let btnOk = document.getElementById('btn-ok');
+let intentosDOM = document.getElementById("cantidaddeintentosDOM");
+let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
+let popupAyuda = document.getElementById("popupAyuda");
+let ayudaBtn = document.getElementById("ayudaBtn");
+let cerrarBtn = document.querySelector(".cerrar");
+let cuentaBtn = document.getElementById("cuentaBtn");
+
+let intentosHechos = 0;
+let intentosFallidos = [];
+let paisDiario;
+let intentos = 0;
+
+function calcularPromedioPuntaje(stats) {
+  let sumatoria = 0;
+  for (let i = 0; i < stats.stats.diario.listaPuntajes.length; i++) {
+    sumatoria += stats.stats.diario.listaPuntajes[i];
+  }
+  return sumatoria / stats.stats.diario.listaPuntajes.length;
+}
+
+async function enviarstats() {
+  postEvent("enviarStatsAlFront", { nombre: usuario }, getStats);
+}
+
+function getStats(data) {
+  stats = data;
+  stats.stats.diario ??= {};
+  stats.stats.diario.puntaje ??= intentos;
+  stats.stats.diario.intentosHechos ??= 0;
+  stats.stats.diario.listaPuntajes ??= [];
+  stats.stats.diario.puntaje = Math.max(Math.round(1000 / intentos), stats.stats.diario.puntaje);
+  stats.stats.diario.intentosHechos += intentosHechos;
+  stats.stats.diario.listaPuntajes.push(intentos);
+  stats.stats.diario.promedioPuntajes = calcularPromedioPuntaje(stats);
+  stats.stats.diario.rondasGanadas = stats.stats.diario.listaPuntajes.length;
+  postEvent("guardarStatsEnElBack", stats, guardarStats);
+}
+
+function guardarStats() {}
+
+function establecerPaisDiario(data) {
+  paisDiario = data.label;
+}
+
+function mostrarPista(data) {
+  let nuevaPista = document.createElement('div');
+  nuevaPista.classList.add('pista-item');
+  intentos++;
+  nuevaPista.textContent = intentos + ". " + data.label + ": " + data.valor;
+  listaPistas.appendChild(nuevaPista);
+  setTimeout(() => {
+    nuevaPista.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 50);
+}
+
+getEvent("obtenerPaisDiario", establecerPaisDiario);
+
+function normalizarTexto(texto) {
+  return texto
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function formatearPais(texto) {
+  texto = texto.trim().toLowerCase();
+  return texto.charAt(0).toUpperCase() + texto.slice(1);
+}
+
+boton.addEventListener('click', () => {
+  let respuestaOriginal = input.value.trim();
+  let respuesta = normalizarTexto(respuestaOriginal);
+  let paisCorrecto = normalizarTexto(paisDiario);
+
+  if (respuesta === "") return;
+
+  intentosHechos++;
+
+  if (respuesta === paisCorrecto) {
+    intentosDOM.innerText = "Cantidad de pistas: " + intentos + "\br" + "Puntaje: "+ Math.round(1000 / intentos);
+    enviarstats();
+    input.disabled = true;
+  } else {
+    postEvent("obtenerPista", {}, mostrarPista);
+    intentosFallidos.push(formatearPais(respuestaOriginal));
+    mostrarIntentos();
+  }
+
+  input.value = "";
+});
+
+input.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    boton.click();
+  }
+});
+
+function mostrarIntentos() {
+  let listaIntentos = document.getElementById('listaIntentos');
+  listaIntentos.innerHTML = '';
+  intentosFallidos.forEach((intento, index) => {
+    let nuevoIntento = document.createElement('div');
+    nuevoIntento.classList.add('intento-item');
+    nuevoIntento.textContent = (index + 1) + ". " + intento;
+    listaIntentos.appendChild(nuevoIntento);
+  });
+  let ultimo = listaIntentos.lastElementChild;
+  if (ultimo) {
+    setTimeout(() => {
+      ultimo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 50);
+  }
+}
+
+btnOk.addEventListener('click', () => {
+  popup.style.display = "none";
+  window.location.href = "../home/index.html";
+});
+
+if (cuentaBtn) {
+  cuentaBtn.addEventListener("click", () => {
+    if (usuario === "Sin usuario" || !usuario) {
+      window.location.href = "/Frontend/pantalla 6 (login)/index.html";
+    } else {
+      window.location.href = "/Frontend/cuenta/index.html";
+    }
+  });
+}
+
+ayudaBtn.addEventListener("click", () => {
+  popupAyuda.style.display = "flex";
+});
+
+cerrarBtn.addEventListener("click", () => {
+  popupAyuda.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === popupAyuda) {
+    popupAyuda.style.display = "none";
+  }
+});
+
+=== D:\Users\Usuario\Downloads\globiq1\Frontend\pantalla 6 (login)\main.js ===
+connect2Server(3001);
+
+let botonlogin = document.getElementById("loginBtn");
+
+let placeholderContraseÃ±a = document.getElementById("password");
+
+let placeholderUsuario = document.getElementById("usuario");
+
+let botonregistro = document.getElementById("registroBtn");
+
+let popup = document.getElementById("popupBienvenida");
+
+let mensaje = document.getElementById("mensajeBienvenida");
+
+let botonAceptar = document.getElementById("btnAceptarPopup");
+
+
+
+
+
+function togglePassword(id) {
+
+  let input = document.getElementById(id);
+
+  let icono = input.nextElementSibling;
+
+  if (input.type === "password") {
+
+    input.type = "text";
+
+    icono.style.backgroundImage =
+      "url('https://cdn-icons-png.flaticon.com/512/565/565655.png')";
+
+  } else {
+
+    input.type = "password";
+
+    icono.style.backgroundImage =
+      "url('https://cdn-icons-png.flaticon.com/512/159/159604.png')";
+
+  }
+
+}
+
+
+
+
+
+function realizarinicio(data) {
+
+  if (data.login) {
+
+    sessionStorage.setItem("usuario", placeholderUsuario.value);
+
+    mensaje.textContent = `Â¡Bienvenido, ${placeholderUsuario.value}!`;
+
+    popup.style.display = "flex";
+
+  } else {
+
+    alert("Usuario o contraseÃ±a incorrectos.");
+
+  }
+
+}
+
+
+
+
+
+botonAceptar.addEventListener("click", () => {
+
+  popup.style.display = "none";
+
+  window.location.href = "../home/index.html";
+
+});
+
+
+
+
+
+botonlogin.addEventListener("click", () => {
+
+  let usuario = placeholderUsuario.value.trim();
+
+  let contraseÃ±a = placeholderContraseÃ±a.value.trim();
+
+  if (usuario === "" || contraseÃ±a === "") {
+
+    alert("Completa todos los campos.");
+
+    return;
+
+  }
+
+  let infocuenta = {
+
+    nombre: usuario,
+
+    contraseÃ±a: contraseÃ±a
+
+  };
+
+  console.log("Se activÃ³ el botÃ³n");
+
+  postEvent("iniciarSesion", infocuenta, realizarinicio);
+
+});
+
+
+
+
+
+placeholderContraseÃ±a.addEventListener("keydown", (event) => {
+
+  if (event.key === "Enter") {
+
+    botonlogin.click();
+
+  }
+
+});
+
+
+
+
+
+botonregistro.addEventListener("click", () => {
+
+  window.location.href = "../pantalla 7 (registro)/index.html";
+
+});
+
+=== D:\Users\Usuario\Downloads\globiq1\Frontend\pantalla 7 (registro)\main.js ===
+connect2Server(3001);
+
+function togglePassword(id) {
+ 
+let input = document.getElementById(id);
+let icono = input.nextElementSibling;
+  if (input.type === "password") {
+    input.type = "text";
+    icono.style.backgroundImage =
+      "url('https://cdn-icons-png.flaticon.com/512/565/565655.png')";
+  } else {
+    input.type = "password";
+    icono.style.backgroundImage =
+      "url('https://cdn-icons-png.flaticon.com/512/159/159604.png')";
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  let contraseÃ±a1 = document.getElementById('password');
+  let contraseÃ±a2 = document.getElementById('password2');
+  let botonRegistrar = document.getElementById('loginBtn');
+  let usuarioInput = document.getElementById('usuario');
+  let popup = document.getElementById('popupBienvenida');
+  let mensaje = document.getElementById('mensajeBienvenida');
+  let botonAceptar = document.getElementById('btnAceptarPopup');
+
+  if (!botonRegistrar) {
+    console.error("No se encontrÃ³ el botÃ³n de registrarse.");
+    return;
+  }
+
+  botonRegistrar.addEventListener('click', () => {
+    console.log("BotÃ³n clickeado");
+
+    let password1 = contraseÃ±a1.value.trim();
+    let password2 = contraseÃ±a2.value.trim();
+    let usuario = usuarioInput.value.trim();
+
+    if (!usuario || !password1 || !password2) {
+      alert("Por favor completÃ¡ todos los campos.");
+      return;
+    }
+
+    if (password1 !== password2) {
+      alert("Las contraseÃ±as no coinciden.");
+      return;
+    }
+
+    let data = {
+      nombre: usuario,
+      contraseÃ±a: password1
+    };
+
+    postEvent("crearCuenta", data, (respuesta) => {
+      if (respuesta.ok) {
+        
+        sessionStorage.setItem("usuario", usuario);
+        mensaje.textContent = `Â¡Bienvenido, ${usuario}!`;
+        popup.style.display = "flex";
+
+        botonAceptar.addEventListener("click", () => {
+          popup.style.display = "none";
+          window.location.href = "../home/index.html";
+        });
+      } else {
+        alert("Error: " + respuesta.mensaje);
+      }
+    });
+  });
+});
+

@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  connect2Server(3001);
-  postEvent("iniciarMayorMenor",{}, iniciarMayorMenor); 
+  postEvent("iniciarMayorMenor", {}, iniciarMayorMenor);
 });
 
 let flag1 = document.getElementById("flag1");
@@ -287,10 +286,10 @@ document.querySelector(".cerrar").addEventListener("click", () => {
 });
 
 cuentaBtn.addEventListener("click", () => {
-  console.log(usuario);
   if (usuario === "Sin usuario" || !usuario) {
-    window.location.href = "/Frontend/pantalla 6 (login)/index.html";
+    window.location.href = "/pantalla 6 (login)/index.html";
   } else {
-    window.location.href = "/Frontend/cuenta/index.html";
+    window.location.href = "/cuenta/index.html";
   }
 });
+

@@ -1,4 +1,4 @@
-connect2Server(3001);
+// connect2Server ya no es necesario, lo maneja rest.js
 
 let input = document.getElementById('input');
 let boton = document.getElementById('enviar');
@@ -30,7 +30,7 @@ async function enviarstats() {
 }
 
 function getStats(data) {
-  stats = data;
+  let stats = data;
   stats.stats.diario ??= {};
   stats.stats.diario.puntaje ??= intentos;
   stats.stats.diario.intentosHechos ??= 0;
@@ -60,14 +60,11 @@ function mostrarPista(data) {
   }, 50);
 }
 
+// Al cargar la página, traemos el país diario y la primera pista
 getEvent("obtenerPaisDiario", establecerPaisDiario);
 
 function normalizarTexto(texto) {
-  return texto
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+  return texto.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 function formatearPais(texto) {
@@ -84,10 +81,12 @@ boton.addEventListener('click', () => {
 
   intentosHechos++;
 
-  if (respuesta === paisCorrecto) {
-    intentosDOM.innerText = "Cantidad de pistas: " + intentos + "\br" + "Puntaje: "+ Math.round(1000 / intentos);
-    enviarstats();
+ if (respuesta === paisCorrecto) {
+    intentosDOM.innerText = "Cantidad de pistas: " + intentos + "\nPuntaje: " + Math.round(1000 / intentos);
+    popup.style.display = "flex";  // mostrar popup directamente acá
     input.disabled = true;
+    enviarstats();  // esto que corra después, no importa si tarda
+
   } else {
     postEvent("obtenerPista", {}, mostrarPista);
     intentosFallidos.push(formatearPais(respuestaOriginal));
@@ -98,9 +97,7 @@ boton.addEventListener('click', () => {
 });
 
 input.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    boton.click();
-  }
+  if (event.key === 'Enter') boton.click();
 });
 
 function mostrarIntentos() {
@@ -128,9 +125,9 @@ btnOk.addEventListener('click', () => {
 if (cuentaBtn) {
   cuentaBtn.addEventListener("click", () => {
     if (usuario === "Sin usuario" || !usuario) {
-      window.location.href = "/Frontend/pantalla 6 (login)/index.html";
+      window.location.href = "/pantalla 6 (login)/index.html";
     } else {
-      window.location.href = "/Frontend/cuenta/index.html";
+      window.location.href = "/cuenta/index.html";
     }
   });
 }
@@ -144,7 +141,5 @@ cerrarBtn.addEventListener("click", () => {
 });
 
 window.addEventListener("click", (e) => {
-  if (e.target === popupAyuda) {
-    popupAyuda.style.display = "none";
-  }
+  if (e.target === popupAyuda) popupAyuda.style.display = "none";
 });

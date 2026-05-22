@@ -1,19 +1,17 @@
-connect2Server(3001);
+// connect2Server ya no es necesario, lo maneja rest.js
 
 function togglePassword(id) {
- 
-let input = document.getElementById(id);
-let icono = input.nextElementSibling;
+  let input = document.getElementById(id);
+  let icono = input.nextElementSibling;
   if (input.type === "password") {
     input.type = "text";
-    icono.style.backgroundImage =
-      "url('https://cdn-icons-png.flaticon.com/512/565/565655.png')";
+    icono.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/565/565655.png')";
   } else {
     input.type = "password";
-    icono.style.backgroundImage =
-      "url('https://cdn-icons-png.flaticon.com/512/159/159604.png')";
+    icono.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/159/159604.png')";
   }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
   let contraseña1 = document.getElementById('password');
   let contraseña2 = document.getElementById('password2');
@@ -29,8 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   botonRegistrar.addEventListener('click', () => {
-    console.log("Botón clickeado");
-
     let password1 = contraseña1.value.trim();
     let password2 = contraseña2.value.trim();
     let usuario = usuarioInput.value.trim();
@@ -39,24 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("Por favor completá todos los campos.");
       return;
     }
-
     if (password1 !== password2) {
       alert("Las contraseñas no coinciden.");
       return;
     }
 
-    let data = {
-      nombre: usuario,
-      contraseña: password1
-    };
+    let data = { nombre: usuario, contraseña: password1 };
 
     postEvent("crearCuenta", data, (respuesta) => {
       if (respuesta.ok) {
-        
         sessionStorage.setItem("usuario", usuario);
         mensaje.textContent = `¡Bienvenido, ${usuario}!`;
         popup.style.display = "flex";
-
         botonAceptar.addEventListener("click", () => {
           popup.style.display = "none";
           window.location.href = "../home/index.html";

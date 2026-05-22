@@ -4,21 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GlobiQ - Cuenta</title>
-
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
 </head>
-
 <body>
   <div class="logo">
     <img src="../Vector.png">
   </div>
 
   <div class="menu-container">
-    <div class="menu-icon">☰</div>  
+    <div class="menu-icon">☰</div>
     <ul class="menu-options">
       <li><a href="../home/index.html">Inicio</a></li>
       <li><a href="../pantalla%205%20(modo%20diario)/index.html">Modo diario</a></li>
@@ -32,31 +27,27 @@
 
   <div class="stats-container">
     <h1 class="titulo">Usuario: <span id="nombreUsuario">...</span></h1>
-
     <div class="cards-container" id="cardsContainer">
       <div class="card">
         <h2>Modo Diario</h2>
         <ul id="listaDiario"></ul>
         <div class="stats" id="statsDiario"></div>
       </div>
-
       <div class="card">
         <h2>Mayor o Menor</h2>
         <ul id="listaMayorMenor"></ul>
         <div class="stats" id="statsHL"></div>
       </div>
-
       <div class="card">
         <h2>Modo Detective</h2>
         <ul id="listaBloques"></ul>
         <div class="stats" id="statsBloques"></div>
       </div>
     </div>
-
     <button class="btn-logout" id="btnLogout">Cerrar sesión</button>
-
   </div>
 
+  <script src="/rest.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

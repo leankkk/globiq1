@@ -1,4 +1,3 @@
-connect2Server(3001);
 
 let modal = document.getElementById("myModal");
 let mensajeResultado = document.getElementById("mensajeResultado");
