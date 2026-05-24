@@ -435,7 +435,7 @@ export async function crearcuenta(data) {
       nombre: data.nombre,
       contraseña: data.contraseña,
       stats: {
-        diario: { puntaje: null, rondasGanadas: 0, promedioPuntajes: null, listaPuntajes: [], intentosHechos: 0 },
+        diario: { puntaje: null, rondasGanadas: 0, promedioPuntajes: null, listaPuntajes: [], intentosHechos: 0,rachaDias:0, ultimoDiaJugado: null},
         mayormenor: { racha: 0, rondasJugadas: 0, promedioRachas: null, listaRachas: [], categoriasAcertadas: [], paisesAcertados: [], categoriaMasAcertada: {}, paisMasAcertado: {}, comparacionesHechas: 0 },
         bloques: { puntaje: null, rondasGanadas: null, promedioPuntajes: null, listaPuntajes: [], categoriasPreguntadas: [], valoresPreguntados: [], listaValoresPreguntados: [], valorPromedio: null, categoriaMasPreguntada: {}, preguntasHechas: 0 }
       }

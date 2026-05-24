@@ -40,9 +40,22 @@ function getStats(data) {
   stats.stats.diario.listaPuntajes.push(intentos);
   stats.stats.diario.promedioPuntajes = calcularPromedioPuntaje(stats);
   stats.stats.diario.rondasGanadas = stats.stats.diario.listaPuntajes.length;
+
+  // Racha de días
+  let hoy = new Date().toISOString().split("T")[0];
+  let ayer = new Date(Date.now() - 86400000).toISOString().split("T")[0];
+  stats.stats.diario.rachaDias ??= 0;
+  stats.stats.diario.ultimoDiaJugado ??= null;
+
+  if (stats.stats.diario.ultimoDiaJugado === ayer) {
+    stats.stats.diario.rachaDias++;
+  } else if (stats.stats.diario.ultimoDiaJugado !== hoy) {
+    stats.stats.diario.rachaDias = 1;
+  }
+  stats.stats.diario.ultimoDiaJugado = hoy;
+
   postEvent("guardarStatsEnElBack", stats, guardarStats);
 }
-
 function guardarStats() {}
 
 function establecerPaisDiario(data) {
