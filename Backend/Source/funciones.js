@@ -1,9 +1,10 @@
+
 //Importando datos
+import { coleccionCuentas } from "./db.js";
 import fs, { Stats } from "fs";
 let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
 import { listapaises , listadatos , listadias , listalabels, listadatosB, listalabelsB, listalabelsPaises, listaCodigosPaises} from "./listas.js";
 import path from "path";
-let cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json","utf-8"));
 let quemados = JSON.parse(fs.readFileSync("./Datos/datos_quemados.json","utf-8"));
 
 //Declarando funciones útiles
@@ -422,77 +423,45 @@ if (typeof busqueda === "number" && !opcionescategorias.includes({dato: dato, la
 return opcionescategorias;
 }
 
-
-export function cuentaexiste(nombre){
-if (cuentas[nombre] != undefined) return true;
-else return false;
-    }
-
-export function crearcuenta(data){
-if (!cuentaexiste(data.nombre)){ 
-cuentas[data.nombre] = {
-    nombre: data.nombre,
-    contraseña: data.contraseña,
-    stats: {
-        diario: {
-            puntaje: null,
-            rondasGanadas: 0,
-            promedioPuntajes: null,
-            listaPuntajes: [],
-            intentosHechos: 0
-        },
-        mayormenor: {
-            racha: 0,
-            rondasJugadas: 0,
-            promedioRachas: null,
-            listaRachas: [],
-            categoriasAcertadas: [],
-            paisesAcertados: [],
-            categoriaMasAcertada: {},
-            paisMasAcertado: {},
-            comparacionesHechas: 0
-        },
-        bloques: {
-            puntaje: null,
-            rondasGanadas: null,
-            promedioPuntajes: null,
-            listaPuntajes: [],
-            categoriasPreguntadas: [],
-            valoresPreguntados: [],
-            listaValoresPreguntados: [],
-            valorPromedio: null,
-            categoriaMasPreguntada: {},
-            preguntasHechas: 0
-        }
-    }
+export async function cuentaexiste(nombre) {
+  const col = await coleccionCuentas();
+  const cuenta = await col.findOne({ nombre: nombre });
+  return cuenta != null;
 }
-fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2))
-return {ok:true}
+export async function crearcuenta(data) {
+  if (!(await cuentaexiste(data.nombre))) {
+    const col = await coleccionCuentas();
+    await col.insertOne({
+      nombre: data.nombre,
+      contraseña: data.contraseña,
+      stats: {
+        diario: { puntaje: null, rondasGanadas: 0, promedioPuntajes: null, listaPuntajes: [], intentosHechos: 0 },
+        mayormenor: { racha: 0, rondasJugadas: 0, promedioRachas: null, listaRachas: [], categoriasAcertadas: [], paisesAcertados: [], categoriaMasAcertada: {}, paisMasAcertado: {}, comparacionesHechas: 0 },
+        bloques: { puntaje: null, rondasGanadas: null, promedioPuntajes: null, listaPuntajes: [], categoriasPreguntadas: [], valoresPreguntados: [], listaValoresPreguntados: [], valorPromedio: null, categoriaMasPreguntada: {}, preguntasHechas: 0 }
+      }
+    });
+    return { ok: true };
+  } else {
+    return { ok: false, mensaje: "La cuenta ya existe." };
+  }
 }
-else return {ok:false,mensaje:"La cuenta ya existe."}
+export async function revisarlogin(data) {
+  if (!data.contraseña || !data.nombre) return { login: false };
+  const col = await coleccionCuentas();
+  const cuenta = await col.findOne({ nombre: data.nombre });
+  if (!cuenta) return { login: false };
+  if (data.contraseña === cuenta.contraseña) return { login: true };
+  return { login: false };
 }
-
-export function revisarlogin(data){
-if (data.contraseña === undefined || data.nombre === undefined || cuentas[data.nombre] === undefined) return {login:false};;
-if (data.contraseña === cuentas[data.nombre].contraseña) return {login:true};
-else return {login:false};
-}
-
-export function actualizarstats(data){
-cuentas = JSON.parse(fs.readFileSync("./Datos/cuentas.json", "utf-8"));
-//if (!cuentas[data.nombre]) cuentas[data.nombre] = {}; 
-//if (!cuentas[data.nombre].stats) cuentas[data.nombre].stats = {};
-console.log("Cuentas: "+cuentas);
-cuentas[data.nombre] = data;
-console.log("Nombre: "+data.nombre,", Info editada: ",cuentas[data.nombre]);
-console.log(JSON.stringify(data, null, 2))
-fs.writeFileSync("./Datos/cuentas.json",JSON.stringify(cuentas,null,2));
+export async function actualizarstats(data) {
+  const col = await coleccionCuentas();
+  await col.replaceOne({ nombre: data.nombre }, data, { upsert: true });
 } 
     
-
-export function enviarStats(data){
-let database = JSON.parse(fs.readFileSync("./Datos/cuentas.json", "utf-8"));
-return database[data.nombre];
+export async function enviarStats(data) {
+  const col = await coleccionCuentas();
+  const cuenta = await col.findOne({ nombre: data.nombre });
+  return cuenta;
 }
 
 export function cambiarCategoria(data){
@@ -510,37 +479,33 @@ data.idPais2 = traerlabelCodigoPais(data.pais2);
 data.labelpais2 = traerlabelpais(data.pais2);
 return data;
 }
-
-export function crearRecords(){
-
-let diario = [];
-let mayormenor = [];
-let bloques = [];
-
-let modo = ["diario", "mayormenor", "bloques"];
-let records = {};
-let keys = {};
-
-for (let a = 0; a < 3; a++){
-keys[modo[a]] = Object.keys(Object.entries(cuentas)[0][1].stats[modo[a]]);
-records[modo[a]] = [];
-for (let c = 0; c < keys[modo[a]].length; c++) {
-    let nombrecat = keys[modo[a]][c];
-    let valormax = 0;
-    let holder = "";
-    let catapta = true;
-for (let i = 0; i < Object.entries(cuentas).length && catapta === true; i++){
-    let nombrecuenta = Object.entries(cuentas)[i][0];
-    let valor = Object.entries(cuentas)[i][1].stats[modo[a]][keys[modo[a]][c]];
-    if (Array.isArray(valor)){catapta = false;}
-    if (valor > valormax && nombrecuenta !== "Sin usuario") valormax = valor, holder = nombrecuenta;
-    //console.log(nombrecat, holder, valormax);
+export async function crearRecords() {
+  const col = await coleccionCuentas();
+  const todasLasCuentas = await col.find({}).toArray();
+  if (todasLasCuentas.length === 0) return { records: {} };
+  let modo = ["diario", "mayormenor", "bloques"];
+  let records = {};
+  let keys = {};
+  for (let a = 0; a < 3; a++) {
+    keys[modo[a]] = Object.keys(todasLasCuentas[0].stats[modo[a]]);
+    records[modo[a]] = [];
+    for (let c = 0; c < keys[modo[a]].length; c++) {
+      let nombrecat = keys[modo[a]][c];
+      let valormax = 0;
+      let holder = "";
+      let catapta = true;
+      for (let i = 0; i < todasLasCuentas.length && catapta; i++) {
+        let nombrecuenta = todasLasCuentas[i].nombre;
+        let valor = todasLasCuentas[i].stats[modo[a]][keys[modo[a]][c]];
+        if (Array.isArray(valor)) { catapta = false; break; }
+        if (valor > valormax && nombrecuenta !== "Sin usuario") { valormax = valor; holder = nombrecuenta; }
+      }
+      if (!catapta || valormax === 0) continue;
+      records[modo[a]].push({ nombre: nombrecat, usuario: holder, valor: valormax });
+    }
+  }
+  return { records };
 }
-if (catapta === false || valormax === 0) continue;
-records[modo[a]].push({nombre:nombrecat,usuario:holder,valor:valormax});
-}}
-
-return {records};
     //console.log(Object.entries(cuentas)[0][1]);
     
     /* DEBERIA DEVOLVER: 
@@ -551,7 +516,7 @@ return {records};
     DATOS DEL USUARIO 1 Object.entries(cuentas)[0][1]
     NOMBRE DEL USUARIO 1 Object.entries(cuentas)[0][0]
     */
-}
+
 
 export function actualizarRecords(){
 

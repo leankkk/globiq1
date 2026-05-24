@@ -15,7 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.use(express.json());
 
-// Servir el frontend (carpeta Frontend está un nivel arriba del Backend)
+// Servir el frontend
 app.use(express.static(path.join(__dirname, "..", "Frontend")));
 
 // Ruta raíz → redirige al home
@@ -41,12 +41,12 @@ app.post("/obtenerCategorias", (req, res) => {
 app.post("/evaluarRespuesta", (req, res) => {
   res.json(compararMayorMenor(req.body));
 });
-app.post("/guardarStatsEnElBack", (req, res) => {
-  actualizarstats(req.body);
+app.post("/guardarStatsEnElBack", async (req, res) => {
+  await actualizarstats(req.body);
   res.json({ ok: true });
 });
-app.post("/enviarStatsAlFront", (req, res) => {
-  res.json(enviarStats(req.body));
+app.post("/enviarStatsAlFront", async (req, res) => {
+  res.json(await enviarStats(req.body));
 });
 app.post("/cambiarCategoria", (req, res) => {
   res.json(cambiarCategoria(req.body));
@@ -61,13 +61,13 @@ app.post("/obtenerPista", (req, res) => {
 });
 
 // PANTALLA 6 (login)
-app.post("/iniciarSesion", (req, res) => {
-  res.json(revisarlogin(req.body));
+app.post("/iniciarSesion", async (req, res) => {
+  res.json(await revisarlogin(req.body));
 });
 
 // PANTALLA 7 (registro)
-app.post("/crearCuenta", (req, res) => {
-  res.json(crearcuenta(req.body));
+app.post("/crearCuenta", async (req, res) => {
+  res.json(await crearcuenta(req.body));
 });
 
 app.listen(3001, () => {
