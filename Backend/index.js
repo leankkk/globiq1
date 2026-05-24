@@ -15,14 +15,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.use(express.json());
 
-// Servir el frontend
-app.use(express.static(path.join(__dirname, "..", "Frontend")));
-
-// Ruta raíz → redirige al home
-app.get("/", (req, res) => {
-  res.redirect("/home/index.html");
-});
-
 // PANTALLA 3 (juego bloques)
 app.get("/iniciarBloques", (req, res) => {
   res.json(iniciarBloques());
@@ -68,6 +60,14 @@ app.post("/iniciarSesion", async (req, res) => {
 // PANTALLA 7 (registro)
 app.post("/crearCuenta", async (req, res) => {
   res.json(await crearcuenta(req.body));
+});
+
+// Servir el frontend (VA AL FINAL)
+app.use(express.static(path.join(__dirname, "..", "Frontend")));
+
+// Ruta raíz → redirige al home
+app.get("/", (req, res) => {
+  res.redirect("/home/index.html");
 });
 
 app.listen(3001, () => {
