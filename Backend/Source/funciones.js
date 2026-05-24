@@ -455,7 +455,8 @@ export async function revisarlogin(data) {
 }
 export async function actualizarstats(data) {
   const col = await coleccionCuentas();
-  await col.replaceOne({ nombre: data.nombre }, data, { upsert: true });
+  const { _id, ...datasinid } = data;
+  await col.replaceOne({ nombre: data.nombre }, datasinid, { upsert: true });
 } 
     
 export async function enviarStats(data) {
