@@ -438,3 +438,52 @@ body {
 body {
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .derecha {
+    width: 100%;
+    border-left: none;
+    border-top: 2px solid #ccc;
+    padding-left: 0;
+    padding-top: 15px;
+  }
+
+  .mapa {
+    display: none;
+  }
+
+  .container {
+    height: auto;
+    overflow-y: auto;
+    padding-top: 70px;
+  }
+
+  body {
+    overflow-y: auto;
+  }
+
+  .slot {
+    width: 100px;
+  }
+
+  .input-slot {
+    width: 80px;
+  }
+
+  .lista {
+    max-height: 150px;
+  }
+
+  #inputAdivinarPais {
+    width: 150px;
+  }
+
+  .adivinar-pais-box {
+    flex-direction: column;
+    align-items: center;
+  }
+}
